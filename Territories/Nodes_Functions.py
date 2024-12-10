@@ -21,6 +21,7 @@ Functions to Visualize Nodes
     run_create_graph: run the create_graph function and return the visual graph
 """
 
+
 import networkx as nx
 from Nodes_Class import Node
 from Node_Visualize_Class import GraphVisualization
