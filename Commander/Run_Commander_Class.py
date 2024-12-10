@@ -1,7 +1,10 @@
 
 
-import Commander_Hard_Data as data
-from Commander_Class import Commander
+from Commander_Hard_Data import Commander_Data_1 as data
+from Functions_Commander import run_create_commander
+
+#print(data)
+run_create_commander(data)
 
 
 
