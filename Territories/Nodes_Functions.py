@@ -84,17 +84,24 @@ def run_create_nodes (csv_file):
         each_node = create_node(each_entry, get_data_dict[each_entry])
         #node object dictionary keys are the territories' three letter abbreviations
         obj_dict[each_entry] = each_node
-        each_node.print_node_info()
+        #each_node.print_node_info()
     #print(obj_dict)
-    run_create_graph(obj_dict)
+    #run_create_graph(obj_dict)
     return obj_dict
 
 
 def create_graph (node_dict):
     territory_graph = GraphVisualization()
+    #print(len(node_dict.keys()))
+    count = 0
     for territory in node_dict:
-        for each_nbr in node_dict[territory].nbrs:
+        print(territory, node_dict[territory].nbrs)
+        nbrs = node_dict[territory].nbrs.split(" ")
+        print(territory, nbrs)
+        count += 1
+        for each_nbr in nbrs:
             territory_graph.addEdge(territory, each_nbr)
+    print(count)
     return territory_graph
 
 def run_create_graph (node_dict):

@@ -28,6 +28,7 @@ class GraphVisualization:
 	def visualize(self): 
 		G = nx.Graph() 
 		G.add_edges_from(self.visual)
-		figure = plt.figure(figsize = (16, 12))
-		nx.draw_networkx(G, node_size = 100, node_color = "skyblue", width = 0.5) 
+		#pos = nx.spring_layout(G, scale = 100)
+		figure = plt.figure(figsize = (20, 15))
+		nx.draw_networkx(G, node_size = 100, node_color = "skyblue", width = 0.1, font_size = 10) 
 		plt.show() 
