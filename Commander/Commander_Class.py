@@ -1,14 +1,48 @@
 
+import sys
+import os
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
+from Territories import Nodes_Class
+from Territories import Nodes_Main
+
+
 class Commander ():
 
-    def __init__ (self, human, country, unit_members, dots):
+    """
+        human => string
+        country => string
+        unit members => list of unit objects?
+        own_dot_ters => list of territory objects?
+        occ_dot_ters => list of territory objects?
+    """
+
+    def __init__ (self, human, country, unit_members, owned_dots, occ_dots):
         self.human = human
         self.country = country
         self.unit_members = unit_members
-        self.dots = dots
+        self.own_dots = owned_dots
+        self.occ_dots = occ_dots
+
+<<<<<<< HEAD
+=======
+# want to use the node class to create the node object and have those objects be
+# the self.own_dots and self.occ_dots
+# need to grab the info from the csv file lines and use that as input to get the node
+# do the same thing for units eventuall
+    def get_ter_obj (self):
+
+        return "hello world"
+
+>>>>>>> e44f8c297975ba9499d2061d83b1c9736635359f
 
     def verify_commander (self, person_giving_orders):
         if  person_giving_orders == self.human:
-            return "Valid Commander"
+            return "Valid"
         else:
-            return "Invalid Commander"
+<<<<<<< HEAD
+            return "Invalid"
+=======
+            return "Invalid"
+        
+    #add get territories property
+>>>>>>> e44f8c297975ba9499d2061d83b1c9736635359f
