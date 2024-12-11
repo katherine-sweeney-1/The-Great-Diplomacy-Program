@@ -10,9 +10,7 @@ import Nodes_Functions as funcs
 from Nodes_Class import Node
 
 territories = funcs.run_create_nodes("data/Nodes_No_Coords.csv")
-#print(territories.keys())
-#print(len(territories.keys()))
 territories_graph = funcs.run_create_graph(territories)
-#territories_dict = funcs.run_dict_format("data/Nodes_No_Coords.csv")
+
 
 
