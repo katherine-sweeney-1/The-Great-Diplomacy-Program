@@ -51,7 +51,7 @@ Tys,Tyrrhenian Sea,Sea,Wes Lyo Tus Rom Nap Ion Tun,Neutral,FALSE,FALSE
 Gal,Galicia,Land,War Ukr Run Bud Vie Boh Sil,Aus,FALSE,FALSE
 Boh,Bohemia,Land,Mun Sil Gal Vie Tyr,Aus,FALSE,FALSE
 Tyr,Tyrolia,Land,Mun Boh Vie Tri Ven Pie,Aus,FALSE,FALSE
-Vie,Vienna,Land,Boh Gal Bud Trie Tyr,Aus,TRUE,Aus
+Vie,Vienna,Land,Boh Gal Bud Tri Tyr,Aus,TRUE,Aus
 Tri,Trieste,Coast,Tyr Vie Bud Ser Alb Adr Vie,Aus,TRUE,Aus
 Bud,Budapest,Land,Tri Vie Gal Run Ser,Aus,TRUE,Aus
 Pie,Piedmont,Coast,Mar Tyr Ven Tus Lyo,Ita,FALSE,FALSE
