@@ -1,17 +1,18 @@
-
+import sys
+import os
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
+from Get_Node import get_ters
 
 
 class Unit ():
     
-    def __init__ (self, id, type, loc, commander, command):
+    def __init__ (self, id, type, loc, command):
         self.id = id
         self.type = type
         self.loc = loc
-        self.commander = commander
         self.command = command
 
-    def verify_unit (self, possible_commander):
-        if self.id in possible_commander.unit_members:
-            return "Valid"
-        else: 
-            return "Invalid"
+    def get_loc (self):
+        print("location of unit obj", self.loc)
+        loc_node = get_ters(self.loc)
+        self.loc = loc_node

@@ -23,5 +23,6 @@ def run_create_commander (commander_data):
         indiv_cmdr.get_own_dots()
         indiv_cmdr.get_occ_ters()
         commander_list.append(indiv_cmdr)
+        #check_class_works(indiv_cmdr)
     return commander_list
         #check_class_works(indiv_cmdr)
