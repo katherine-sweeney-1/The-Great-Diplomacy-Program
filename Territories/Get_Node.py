@@ -22,7 +22,7 @@ def get_ters(ters_list):
                             ter_data["Dot"],
                             ter_data["Home SupCenter"])
             ters_dict[each_ter] = ter_node
-            check_node_printing(ter_node)
+            #check_node_printing(ter_node)
         return ters_dict
 
 def check_node_printing(one_node):
