@@ -1,48 +1,19 @@
 
-import sys
-import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
-from Territories import Nodes_Class
-from Territories import Nodes_Main
-
+from Commander_Class_Helper_Functions import get_ters, check_node_printing
 
 class Commander ():
 
-    """
-        human => string
-        country => string
-        unit members => list of unit objects?
-        own_dot_ters => list of territory objects?
-        occ_dot_ters => list of territory objects?
-    """
+    def __init__ (self, human, country, unit_members, owned_dots, occ_ters):
+        self.human = human                              # string 
+        self.country = country                          # string
+        self.unit_members = unit_members                # unit object
+        self.own_dots = owned_dots                      # node object
+        self.occ_ters = occ_ters                        # node object
+    
+    def get_own_dots(self):                             # retrieve node objects for dots owned
+        own_dots = get_ters(self.own_dots)
+        self.own_dots = own_dots
 
-    def __init__ (self, human, country, unit_members, owned_dots, occ_dots):
-        self.human = human
-        self.country = country
-        self.unit_members = unit_members
-        self.own_dots = owned_dots
-        self.occ_dots = occ_dots
-
-<<<<<<< HEAD
-=======
-# want to use the node class to create the node object and have those objects be
-# the self.own_dots and self.occ_dots
-# need to grab the info from the csv file lines and use that as input to get the node
-# do the same thing for units eventuall
-    def get_ter_obj (self):
-
-        return "hello world"
-
->>>>>>> e44f8c297975ba9499d2061d83b1c9736635359f
-
-    def verify_commander (self, person_giving_orders):
-        if  person_giving_orders == self.human:
-            return "Valid"
-        else:
-<<<<<<< HEAD
-            return "Invalid"
-=======
-            return "Invalid"
-        
-    #add get territories property
->>>>>>> e44f8c297975ba9499d2061d83b1c9736635359f
+    def get_occ_ters(self):                             # retrieve node objects for occupied territories
+        occ_ters = get_ters(self.occ_ters)
+        self.occ_ters = occ_ters
