@@ -1,7 +1,6 @@
 
 import sys
 import os
-#sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories\\Nodes_Class"))
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
 from Nodes_Functions import run_dict_format
 from Nodes_Class import Node
