@@ -2,8 +2,8 @@
 Commander_Data_1 = {
     "Katherine" : {"Country": "UK", 
                    "Unit Members": ["UK01", "UK02", "UK03"],
-                   "Dots Owned": ["Lon", "Liv", "Yor"],
-                   "Dots Occ": ["Lon", "Liv", "Yor"]
+                   "Dots Owned": ["Lon", "Lvp", "Yor"],
+                   "Dots Occ": ["Lon", "Lvp", "Yor"]
                    },
 
     "Mercy" : {"Country": "FR", 

@@ -1,8 +1,14 @@
 
 import sys
 import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
-from Territories import Nodes_Class
+
+#sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories\\Nodes_Class"))
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
+from Nodes_Functions import run_dict_format
+from Nodes_Class import Node
+from Commander_Class_Helper_Functions import get_ters, check_node_printing
+data = "data/Nodes_No_Coords.csv"
+
 
 
 class Commander ():
@@ -10,22 +16,20 @@ class Commander ():
     """
         human => string
         country => string
-        unit members => list of unit objects?
-        own_dot_ters => list of territory objects?
-        occ_dot_ters => list of territory objects?
+        unit members => list of unit objects 
+            1. need to create unit objects
+            2. create commander class property to get the unit objects
+        own_dot_ters => list of territory objects
+        occ_dot_ters => list of territory objects
     """
 
-    def __init__ (self, human, country, unit_members, owned_dots, occ_dots):
+    def __init__ (self, human, country, unit_members, owned_dots, occ_ters):
         self.human = human
         self.country = country
         self.unit_members = unit_members
         self.own_dots = owned_dots
-        self.occ_dots = occ_dots
+        self.occ_ters = occ_ters
 
-    """ want to use the node class to create the node object and have those objects be
-    the self.own_dots and self.occ_dots
-    need to grab the info from the csv file lines and use that as input to get the node
-    do the same thing for units eventually"""
     def get_ter_obj (self):
         return "hello world"
 
@@ -34,5 +38,11 @@ class Commander ():
             return "Valid"
         else:
             return "Invalid"
-        
-    #add get territories property
+    
+    def get_own_dots(self):
+        own_dots = get_ters(self.own_dots)
+        self.own_dots = own_dots
+
+    def get_occ_ters(self):
+        occ_ters = get_ters(self.occ_ters)
+        self.occ_ters = occ_ters

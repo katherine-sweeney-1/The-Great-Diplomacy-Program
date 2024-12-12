@@ -23,6 +23,10 @@ Functions to Visualize Nodes
 
 
 import networkx as nx
+#from Nodes_Class import Node
+import sys
+import os
+#sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
 from Nodes_Class import Node
 from Node_Visualize_Class import GraphVisualization
 
