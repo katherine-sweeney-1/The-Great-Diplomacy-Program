@@ -1,5 +1,9 @@
 
-from Commander_Class_Helper_Functions import get_ters, check_node_printing
+#from Commander_Class_Helper_Functions import get_ters, check_node_printing
+import sys
+import os
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
+from Get_Node import get_ters
 
 class Commander ():
 
