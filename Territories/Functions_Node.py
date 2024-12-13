@@ -1,34 +1,10 @@
-"""
-Functions used to create the nodes and visualize the nodes
-
-Functions to Create Nodes
-        
-    parse_file: parses CSV file and returns a list of the lines
-
-    create_node: calls the node_class to make a node based on one line of the 
-            parsed csv file and returns a node object
-
-    run_create_node: takes the csv file, runs the parse_file function, and runs
-            the lines of the parse_file output into the create_node function. 
-            The node objects are entered into a dictionary.
-            Key => name (e.g. "Mun")
-            Value => node object
-
-Functions to Visualize Nodes
-
-    create_graph: create the nodes and edges for the territories graph
-
-    run_create_graph: run the create_graph function and return the visual graph
-"""
-
 
 import networkx as nx
-#from Nodes_Class import Node
-import sys
-import os
+#import sys
+#import os
 #sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
-from Nodes_Class import Node
-from Node_Visualize_Class import GraphVisualization
+from Class_Node import Node
+from Visualize_Node_Class import GraphVisualization
 
 """
 CVS File Line List - Elements:
@@ -72,13 +48,7 @@ def run_dict_format(csv_file):
 
 
 def create_node (dict_key, dict_values):
-    indiv_node = Node(dict_key, 
-                      dict_values["Full Name"], 
-                      dict_values["Type"], 
-                      dict_values["Neighbors"], 
-                      dict_values["Country"],
-                      dict_values["Dot"],
-                      dict_values["Home SupCenter"])
+    indiv_node = Node(dict_key, dict_values)
     return indiv_node
 
 def run_create_nodes (csv_file):

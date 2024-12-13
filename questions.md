@@ -15,3 +15,5 @@ Need to eventually figure out how to check what territories people own, lost, oc
 NODES 
 
 go back and make the csv file in form of nested dictionary to easily create single territories
+
+edit the node input so it takes the name and the nested info (nodes dictionary key and value)
