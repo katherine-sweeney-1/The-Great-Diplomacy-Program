@@ -25,4 +25,3 @@ def run_create_commander (commander_data):
         commander_list.append(indiv_cmdr)
         #check_class_works(indiv_cmdr)
     return commander_list
-        #check_class_works(indiv_cmdr)

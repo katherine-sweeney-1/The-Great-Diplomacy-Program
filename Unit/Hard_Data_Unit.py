@@ -1,6 +1,4 @@
 
-#    def __init__ (self, id, type, loc, commander, command):
-
 Unit_Data_1 = {
 
     "UK01": {
