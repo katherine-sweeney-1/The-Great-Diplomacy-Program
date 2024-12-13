@@ -9,13 +9,13 @@ Commander_Data_1 = {
     "Mercy" : {"Country": "FR", 
                    "Unit Members": ["FR01", "FR02", "FR03"],
                    "Dots Owned": ["Par", "Mar", "Bur"],
-                   "Dots Occ": ["Par", "Mar", "Bur", "Mun"]
+                   "Dots Occ": ["Par", "Mar", "Mun"]
                    },
 
     "Kamran" : {"Country": "GE", 
                    "Unit Members": ["GE01", "GE02", "GE03"],
                    "Dots Owned": ["Mun", "Kie", "Den"],
-                   "Dots Occ": ["Kie", "Den"]
+                   "Dots Occ": ["Kie", "Den", "Gal"]
                    },
 
     "Michael" : {"Country": "RU", 
