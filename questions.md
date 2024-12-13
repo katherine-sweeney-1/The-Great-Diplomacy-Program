@@ -5,15 +5,14 @@ Commander Class
         => Create new unit => unit class
         => Add unit to commander => commander class property add_member
 
-Make the own_dots and occ_dots be the territory node objects once the commander class initially works 
-
-Make the unit_members be the unit objects
 
 Need to eventually figure out how to check what territories people own, lost, occupy, etc. make that it's own thing and not part of the commander class
 
 
-NODES 
+COMPLETED
 
-go back and make the csv file in form of nested dictionary to easily create single territories
+    => edit the node input so it takes the name and the nested info (nodes dictionary key and value)
 
-edit the node input so it takes the name and the nested info (nodes dictionary key and value)
+    => make own_dots be territory objects
+
+    => make unit_members be unit objects

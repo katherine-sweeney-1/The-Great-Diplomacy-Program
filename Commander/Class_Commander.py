@@ -16,12 +16,11 @@ data = "data/Nodes_No_Coords.csv"
 
 class Commander ():
 
-    def __init__ (self, human, country, unit_members, owned_dots, occ_ters):
+    def __init__ (self, human, country, unit_members, owned_dots):
         self.human = human                                  # string 
         self.country = country                              # string
         self.unit_members = unit_members                    # unit object
         self.own_dots = owned_dots                          # node object
-        self.occ_ters = occ_ters                            # node object
 
     def get_unit_object(self):                              # retrieve unit objects for unit members
         units_dict = {}
@@ -39,23 +38,11 @@ class Commander ():
            own_dot_node = Node (each_ter, ter_data)
            own_dict[each_ter] = own_dot_node
         self.own_dots = own_dict
-        
-    def get_occ_ters_nodes(self):                             # retrieve node objects for occupied territories
-        nodes_dict = run_dict_format(data)
-        occ_dict = {}
-        for each_ter in self.occ_ters:
-           ter_data = nodes_dict.get(each_ter)
-           occ_ter_node = Node (each_ter, ter_data)
-           occ_dict[each_ter] = occ_ter_node
-        self.occ_ters = occ_dict
 
     def check_class_works(self):
         print(" ")
         print("commander {} has dots in territories {}".
             format(self.human, self.own_dots))
-        print(" ")
-        print("commander {} occupies territories {}".
-            format(self.human, self.occ_ters))
         print(" ")
         print("commander {} has units {}".
               format(self.human, self.unit_members))
