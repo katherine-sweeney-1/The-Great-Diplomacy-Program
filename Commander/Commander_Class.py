@@ -50,3 +50,10 @@ class Commander ():
                             )
            occ_dict[each_ter] = occ_ter
         self.occ_ters = occ_dict
+
+    def check_class_works(self):
+        print("commander {} has dots in territories {}".
+            format(self.human, self.own_dots))
+        print("commander {} occupies territories {}".
+            format(self.human, self.occ_ters))
+        print(" ")
