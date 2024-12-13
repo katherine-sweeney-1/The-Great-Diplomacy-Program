@@ -12,5 +12,5 @@ def create_units(units_data):
                         nested_info["command"]
 
         )
-        new_unit.get_loc()
+        new_unit.get_loc_node()
         new_unit.print_statements()

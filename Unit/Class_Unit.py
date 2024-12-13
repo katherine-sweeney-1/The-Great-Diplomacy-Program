@@ -1,8 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
-from Nodes_Class import Node
-from Nodes_Functions import run_dict_format
+from Class_Node import Node
+from Functions_Node import run_dict_format
 data = "data/Nodes_No_Coords.csv"
 
 
@@ -14,17 +14,10 @@ class Unit ():
         self.loc = loc
         self.command = command
 
-    def get_loc (self):
+    def get_loc_node (self):
         nodes_dict = run_dict_format(data)
         loc_data = nodes_dict[self.loc]
-        loc_node = Node ( self.loc,
-                         loc_data["Full Name"],
-                         loc_data["Type"],
-                         loc_data["Neighbors"],
-                         loc_data["Country"],
-                         loc_data["Dot"],
-                         loc_data["Home SupCenter"]
-                        )
+        loc_node = Node (self.loc, loc_data)
         self.loc = loc_node
 
     def print_statements(self):
