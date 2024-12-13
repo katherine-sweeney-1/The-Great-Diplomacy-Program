@@ -12,6 +12,7 @@ def create_commanders (commanders_starting_data):
                                 nested_info["Dots Occ"])
         indiv_cmdr.get_own_dots_nodes()
         indiv_cmdr.get_occ_ters_nodes()
-        #indiv_cmdr.check_class_works()
+        indiv_cmdr.get_unit_object()
+        indiv_cmdr.check_class_works()
         commander_list.append(indiv_cmdr)
     return commander_list
