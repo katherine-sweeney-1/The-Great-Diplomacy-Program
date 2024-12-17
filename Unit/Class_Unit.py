@@ -8,11 +8,12 @@ data = "data/Nodes_No_Coords.csv"
 
 class Unit ():
     
-    def __init__ (self, id, type, loc, command):
-        self.id = id
-        self.type = type
-        self.loc = loc
-        self.command = command
+
+    def __init__ (self, unit_id, unit_info):
+        self.id = unit_id
+        self.type = unit_info["type"]
+        self.loc = unit_info["loc"]
+        self.command = unit_info["command"]
 
     def get_loc_node (self):
         nodes_dict = run_dict_format(data)
