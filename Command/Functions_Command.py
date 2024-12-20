@@ -10,7 +10,7 @@ def run_commands(commands_starting_data):   # function uses nested dictionary da
         one_cmd.get_loc_node()
         one_cmd.get_origin_node()
         one_cmd.get_dest_node()
-        one_cmd.print_statements()
+        #one_cmd.print_statements()
         cmds_list.append(one_cmd)
     return cmds_list
     

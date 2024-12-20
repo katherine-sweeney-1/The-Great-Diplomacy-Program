@@ -16,8 +16,8 @@ cmds_data_1 = {
     },
     "FR01": {                       # attack 
         "location" : "Par",
-        "origin" : "Par",
-        "destination" : "Pic",
+        "origin" : "Bre",
+        "destination" : "Bre",
     },
     "FR02": {                       # attack
         "location" : "Mar",
