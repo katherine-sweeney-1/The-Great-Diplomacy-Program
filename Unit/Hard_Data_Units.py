@@ -13,7 +13,7 @@ Unit_Data_1 = {
     },
     "UK03": {
         "type" : "fleet",
-        "loc" : "Yor",
+        "loc" : "Edi",
         "command" : "filler"
     },
     "FR01": {
@@ -22,13 +22,13 @@ Unit_Data_1 = {
         "command" : "filler"
     },
     "FR02": {
-        "type" : "fleet",
+        "type" : "army",
         "loc" : "Mar",
         "command" : "filler"
     },
     "FR03": {
-        "type" : "army",
-        "loc" : "Mun",
+        "type" : "fleet",
+        "loc" : "Bre",
         "command" : "filler"
     },
     "GE01": {
@@ -38,12 +38,12 @@ Unit_Data_1 = {
     },
     "GE02": {
         "type" : "army",
-        "loc" : "Den",
+        "loc" : "Mun",
         "command" : "filler"
     },
     "GE03": {
         "type" : "army",
-        "loc" : "Gal",
+        "loc" : "Ber",
         "command" : "filler"
     },
     "RU01": {
@@ -57,7 +57,7 @@ Unit_Data_1 = {
         "command" : "filler"
     },
     "RU03": {
-        "type" : "army",
+        "type" : "fleet",
         "loc" : "Stp",
         "command" : "filler"
     },
