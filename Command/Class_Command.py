@@ -1,7 +1,7 @@
 class Command ():
 
-    def __init__ (self, cmd_dict):
-        self.unit = cmd_dict
+    def __init__ (self, cmding_unit, cmd_dict):
+        self.unit = cmding_unit
         self.loc = cmd_dict["location"]
         self.origin = cmd_dict["origin"]
         self.dest = cmd_dict["destination"]
