@@ -13,7 +13,7 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK03": {                       # attack
+    "UK03": {                       # attack  test for unit not in commander's members
         "location" : "Lvp",
         "origin" : "Lvp",
         "destination" : "Lon",
@@ -28,7 +28,7 @@ cmds_data_1 = {
         "owner" : "Mercy"
     },
     "FR02": {                       # attack
-        "location" : "Mar",
+        "location" : "Mar",                     
         "origin" : "Mar",
         "destination" : "Spa-SC",
         "country" : "FR",
@@ -73,7 +73,7 @@ cmds_data_1 = {
         "location" : "Mos",
         "origin" : "Mos",
         "destination" : "Ukr",
-        "country" : "AU",
+        "country" : "AU",           # test for wrong country
         "owner" : "Michael"
     },
     "RU03": {                       # support 
@@ -81,7 +81,7 @@ cmds_data_1 = {
         "origin" : "Mos",
         "destination" : "Ukr",
         "country" : "RU",
-        "owner" : "Adam"
+        "owner" : "Adam"            # test for wrong owner
     },
     "RU04": {                       # hold
         "location" : "Sev",
@@ -92,3 +92,5 @@ cmds_data_1 = {
     },
 
 }
+
+# test  unit is at the right/wrong location

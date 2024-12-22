@@ -36,16 +36,22 @@ def get_cmdr (cmd_unit):
             continue
     return cmdr_person, cmdr_obj
 
-def validate_cmdr (cmd_unit, cmd_obj, person, cmdr_obj):
-    if cmd_obj.human == person:
+def validate_cmdr (cmd_obj, person, cmdr_obj):
+    if cmd_obj.human == person:                         # if the person giving the cmd is the correct cmdr
         valid_person = True
     else:
         valid_person = False
-    if cmd_obj.country == cmdr_obj.country:
+    if cmd_obj.country == cmdr_obj.country:             # if command's affected unit is in the cmdr's country
         valid_country = True
     else:
         valid_country = False
-    return valid_person, valid_country
+    if valid_person == True and valid_country == True:
+        valid_cmdr = True
+    else:
+        valid_cmdr = False
+    return valid_cmdr
+
+
 
 def det_move(cmd_obj):
     print(" ")
@@ -64,12 +70,13 @@ def det_move(cmd_obj):
         output = "possible convoy"  
     return output
 
+
 def run_check_legal (all_cmds):
     for each_cmd_unit in all_cmds:
-        cmd_info = all_cmds[each_cmd_unit]
+        command_obj = all_cmds[each_cmd_unit]
         #cmdr = get_cmdr(each_cmd_unit)
         cmdr_person, cmdr_obj = get_cmdr(each_cmd_unit)
-        check_cmdr = validate_cmdr(each_cmd_unit, cmd_info, cmdr_person, cmdr_obj)
+        is_commander_valid = validate_cmdr(command_obj, cmdr_person, cmdr_obj)
         print("unit {} has commander {}".format(each_cmd_unit, cmdr_person))
-        print("info", cmd_info)
+        print("info", command_obj, is_commander_valid)
     

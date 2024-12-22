@@ -16,11 +16,11 @@ data = "data/Nodes_No_Coords.csv"
 
 class Commander ():
 
-    def __init__ (self, human, country, unit_members, owned_dots):
+    def __init__ (self, human, country_info):
         self.human = human                                  # string 
-        self.country = country                              # string
-        self.unit_members = unit_members                    # unit object
-        self.own_dots = owned_dots                          # node object
+        self.country = country_info["Country"]                              # string
+        self.unit_members = country_info["Unit Members"]                    # unit object
+        self.own_dots = country_info["Dots Owned"]                          # node object
 
     def get_unit_object(self):                              # retrieve unit objects for unit members
         units_dict = {}
