@@ -13,7 +13,7 @@ class Unit ():
         self.id = unit_id
         self.type = unit_info["type"]
         self.loc = unit_info["loc"]
-        # self.command = unit_info["command"]
+        self.command = unit_info["command"]
 
     def get_loc_node (self):
         nodes_dict = run_dict_format(data)

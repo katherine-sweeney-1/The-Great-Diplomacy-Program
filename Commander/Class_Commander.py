@@ -28,7 +28,7 @@ class Commander ():
             unit_info = starting_data_units[each_unit]
             unit_object = Unit(each_unit, unit_info)
             units_dict[each_unit] = unit_object
-        self.unit_members = units_dict
+        self.unit_objs = units_dict
 
     def get_own_dots_nodes(self):                             # retrieve node objects for dots owned
         nodes_dict = run_dict_format(data)
@@ -39,11 +39,11 @@ class Commander ():
            own_dict[each_ter] = own_dot_node
         self.own_dots = own_dict
 
-    def check_class_works(self):
+    def print_statements(self):
         print(" ")
         print("commander {} has dots in territories {}".
             format(self.human, self.own_dots))
         print(" ")
-        print("commander {} has units {}".
-              format(self.human, self.unit_members))
+        print("commander {} has units {} which are objects {}".
+              format(self.human, self.unit_members, self.unit_objs))
         print(" ")

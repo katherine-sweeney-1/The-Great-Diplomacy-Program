@@ -20,6 +20,8 @@ class Command ():
         self.loc = cmd_dict["location"]
         self.origin = cmd_dict["origin"]
         self.dest = cmd_dict["destination"]
+        self.country = cmd_dict["country"]
+        self.human = cmd_dict["owner"]
 
     def get_unit_obj(self):                              # get unit objects
         unit_info = starting_data_units[self.unit]

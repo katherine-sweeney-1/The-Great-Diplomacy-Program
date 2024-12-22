@@ -1,11 +1,7 @@
 
-from Hard_Data_Commanders import Commander_Data_1 as data
+from Hard_Data_Commanders import cmdrs_data_1
 from Functions_Commander import create_commanders
 
-commanders = create_commanders(data)
+commanders = create_commanders(cmdrs_data_1)
+#print(commanders)
 
-"""
-print(commanders)                                       #check list of commanders is correct 
-for each_cmdr in commanders:
-    print(each_cmdr.human, each_cmdr.country)
-"""

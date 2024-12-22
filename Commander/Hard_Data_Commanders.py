@@ -1,5 +1,5 @@
 
-Commander_Data_1 = {
+cmdrs_data_1 = {
     "Katherine" : {"Country": "UK", 
                    "Unit Members": ["UK01", "UK02", "UK03"],
                    "Dots Owned": ["Lon", "Lvp", "Edi"]
