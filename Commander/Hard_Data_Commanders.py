@@ -17,6 +17,6 @@ cmdrs_data_1 = {
 
     "Michael" : {"Country": "RU", 
                    "Unit Members": ["RU01", "RU02", "RU03", "RU04"],
-                   "Dots Owned": ["War", "Sev", "Stp", "Mos"]
+                   "Dots Owned": ["War", "Sev", "Stp-SC", "Mos"]
                    }
 }

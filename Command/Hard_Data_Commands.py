@@ -63,8 +63,8 @@ cmds_data_1 = {
         "owner" : "Kamran"
     },
     "RU01": {                       # attack
-        "location" : "Stp",
-        "origin" : "Stp",
+        "location" : "Stp-SC",
+        "origin" : "Stp-SC",
         "destination" : "Bot",
         "country" : "RU",
         "owner" : "Michael"

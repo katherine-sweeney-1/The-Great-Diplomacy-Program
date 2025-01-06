@@ -48,7 +48,7 @@ Unit_Data_1 = {
     },
     "RU01": {
         "type" : "fleet",
-        "loc" : "Stp",
+        "loc" : "Stp-SC",
         "command" : "filler"
     },
     "RU02": {
