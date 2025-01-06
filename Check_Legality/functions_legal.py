@@ -18,41 +18,31 @@ from Hard_Data_Commanders import cmdrs_data_1
 cmdrs = create_commanders(cmdrs_data_1)
 
 """
-check that the unit is in the commander's members
 
-make sure 
-- no one makes moves for a different person
-- no one makes moves for a non-owning country
-- no one makes moves for a non-owning unit
+Armies can only move to inland/coast
+Fleets can only move to sea/coast
+
+Territories must be adjacent
+- attacks must be adjacent unless there is a convoy
+- support must be adjacent to the destination
 
 """
-def get_cmdr (cmd_unit):
-    for each_cmdr in cmdrs:
-        cmdr_obj = cmdrs[each_cmdr]
-        if cmd_unit in cmdr_obj.unit_members:                   # check if unit belongs to any country
-            cmdr_person = each_cmdr
-            break
+
+def unit_dest_type(cmd):                                                # unit type and dest type determine if move is legal
+    if cmd.unit.type == "army":
+        if cmd.dest.node_type == "Coast" or cmd.dest.node_type == "Land":         # legal if army goes to coast/inland
+            is_dest_valid = True
         else:
-            continue
-    return cmdr_person, cmdr_obj
-
-def validate_cmdr (cmd_obj, person, cmdr_obj):
-    if cmd_obj.human == person:                         # if the person giving the cmd is the correct cmdr
-        valid_person = True
+            is_dest_valid = False
     else:
-        valid_person = False
-    if cmd_obj.country == cmdr_obj.country:             # if command's affected unit is in the cmdr's country
-        valid_country = True
-    else:
-        valid_country = False
-    if valid_person == True and valid_country == True:
-        valid_cmdr = True
-    else:
-        valid_cmdr = False
-    return valid_cmdr
+        if cmd.dest.node_type == "Coast" or cmd.dest.node_type == "Sea":          # legal if fleet goes to coast/sea
+            is_dest_valid = True
+        else:
+            is_dest_valid = False       
+    return is_dest_valid
 
 
-
+"""
 def det_move(cmd_obj):
     print(" ")
     print("location {}, origin {}, destination {}".
@@ -69,14 +59,13 @@ def det_move(cmd_obj):
     else:
         output = "possible convoy"  
     return output
+"""
 
 
 def run_check_legal (all_cmds):
-    for each_cmd_unit in all_cmds:
-        command_obj = all_cmds[each_cmd_unit]
-        #cmdr = get_cmdr(each_cmd_unit)
-        cmdr_person, cmdr_obj = get_cmdr(each_cmd_unit)
-        is_commander_valid = validate_cmdr(command_obj, cmdr_person, cmdr_obj)
-        print("unit {} has commander {}".format(each_cmd_unit, cmdr_person))
-        print("info", command_obj, is_commander_valid)
+    for one_cmd in all_cmds:
+        #move_type = det_move(each_cmd)
+        cmd_obj = all_cmds[one_cmd]
+        is_dest_type_valid = unit_dest_type(cmd_obj)
+        print(cmd_obj.unit.id, cmd_obj.loc.name, is_dest_type_valid)
     

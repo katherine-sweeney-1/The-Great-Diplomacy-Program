@@ -7,13 +7,13 @@ Unit_Data_1 = {
         "command" : "filler"
     },
     "UK02": {
-        "type" : "army",
-        "loc" : "Lvp",
+        "type" : "fleet",
+        "loc" : "Edi",
         "command" : "filler"
     },
     "UK03": {
-        "type" : "fleet",
-        "loc" : "Edi",
+        "type" : "army",
+        "loc" : "Lvp",
         "command" : "filler"
     },
     "FR01": {
@@ -38,32 +38,32 @@ Unit_Data_1 = {
     },
     "GE02": {
         "type" : "army",
-        "loc" : "Mun",
+        "loc" : "Ber",
         "command" : "filler"
     },
     "GE03": {
         "type" : "army",
-        "loc" : "Ber",
+        "loc" : "Mun",
         "command" : "filler"
     },
     "RU01": {
-        "type" : "army",
-        "loc" : "War",
-        "command" : "filler"
-    },
-    "RU02": {
-        "type" : "fleet",
-        "loc" : "Sev",
-        "command" : "filler"
-    },
-    "RU03": {
         "type" : "fleet",
         "loc" : "Stp",
         "command" : "filler"
     },
-    "RU04": {
+    "RU02": {
         "type" : "army",
         "loc" : "Mos",
+        "command" : "filler"
+    },
+    "RU03": {
+        "type" : "army",
+        "loc" : "War",
+        "command" : "filler"
+    },
+    "RU04": {
+        "type" : "fleet",
+        "loc" : "Sev",
         "command" : "filler"
     },
 

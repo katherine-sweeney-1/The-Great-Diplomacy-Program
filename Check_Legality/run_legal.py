@@ -13,6 +13,7 @@ from Hard_Data_Commanders import cmdrs_data_1
 from functions_legal import run_check_legal
 
 commands = create_commands(cmds_data_1)
+
 commanders = create_commanders(cmdrs_data_1)
 
 legal_commands = run_check_legal(commands)
