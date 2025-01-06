@@ -14,6 +14,10 @@ class Node ():
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
 
+    def occupied_ter (self, unit):
+        self.occupied_ter = unit.id
+        return self.occupied_ter
+
     def print_node_info (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))

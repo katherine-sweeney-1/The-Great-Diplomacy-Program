@@ -1,8 +1,5 @@
 
 import networkx as nx
-#import sys
-#import os
-#sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
 from Class_Node import Node
 from Graph_Nodes import GraphVisualization
 
@@ -40,27 +37,18 @@ def dict_format (parsed):
         parsed_data_dict[each_line[0]] = nested_entry
     return parsed_data_dict
 
-#check to make sure the dictionary is working correctly
 def run_dict_format(csv_file):
     parsed_csv = parse_file(csv_file)
     data_dict = dict_format(parsed_csv)
     return data_dict
 
-
-def create_node (dict_key, dict_values):
-    indiv_node = Node(dict_key, dict_values)
-    return indiv_node
-
 def run_create_nodes (csv_file):
     obj_dict = {}
-    #input data for node is an entry of a nested dictionay
     get_data_dict = run_dict_format(csv_file)
     for each_entry in get_data_dict:
-        each_node = create_node(each_entry, get_data_dict[each_entry])
-        #node object dictionary keys are the territories' three letter abbreviations
+        each_node = Node(each_entry, get_data_dict[each_entry])
         obj_dict[each_entry] = each_node
     return obj_dict
-
 
 def create_graph (node_dict):
     territory_graph = GraphVisualization()
