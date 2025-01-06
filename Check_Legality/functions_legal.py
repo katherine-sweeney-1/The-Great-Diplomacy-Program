@@ -41,6 +41,30 @@ def unit_dest_type(cmd):                                                # unit t
             is_dest_valid = False       
     return is_dest_valid
 
+def army_coast_special (cmd):
+    is_army_coast_valid = True
+
+    """
+    if army can move to either coast option then the move is valid
+    """
+
+
+
+"""
+if the unit is a fleet
+AND
+if a destination has a dash in it (i.e. it has NC/SC or EC/SC)
+run multiple coasts function
+
+multiple coasts function: fleet must move along coast
+check if origin and destination are neighbors
+    -   applies for attacks and holds
+    -   if they are neighbors than the attack is legal
+
+this should automatically happen because the coasts are broken into nodes
+I think I need to do the inverse (combine special case coast nodes) to check if army moves are okay
+"""
+
 
 """
 def det_move(cmd_obj):
