@@ -9,7 +9,7 @@ Node class is used to create nodes for the territories.
 import Functions_Node as funcs
 from Class_Node import Node
 
-territories = funcs.run_create_nodes("data/Nodes_No_Coords.csv")
+territories = funcs.run_create_nodes("data/Data_Ter_Main.csv")
 territories_graph = funcs.run_create_graph(territories)
 
 

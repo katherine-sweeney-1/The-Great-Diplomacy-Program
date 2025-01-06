@@ -4,7 +4,7 @@ import networkx as nx
 #import os
 #sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
 from Class_Node import Node
-from Visualize_Node_Class import GraphVisualization
+from Graph_Nodes import GraphVisualization
 
 """
 CVS File Line List - Elements:
