@@ -5,4 +5,5 @@ class Coastal_Node ():
         super().__init__(node_name, node_info)
     
 
+
     

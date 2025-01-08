@@ -14,7 +14,7 @@ class Node ():
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
 
-    def occupied_ter (self, unit):
+    def occ_ter (self, unit):
         self.occupied_ter = unit.id
         return self.occupied_ter
 

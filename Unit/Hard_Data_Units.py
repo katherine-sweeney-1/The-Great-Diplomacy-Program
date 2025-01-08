@@ -46,11 +46,13 @@ Unit_Data_1 = {
         "loc" : "Mun",
         "command" : "filler"
     },
+    """
     "RU01": {
         "type" : "fleet",
         "loc" : "Stp-SC",
         "command" : "filler"
     },
+    """
     "RU02": {
         "type" : "army",
         "loc" : "Mos",
