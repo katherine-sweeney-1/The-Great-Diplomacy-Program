@@ -7,13 +7,13 @@ Unit_Data_1 = {
         "command" : "filler"
     },
     "UK02": {
-        "type" : "army",
-        "loc" : "Lvp",
+        "type" : "fleet",
+        "loc" : "Edi",
         "command" : "filler"
     },
     "UK03": {
-        "type" : "fleet",
-        "loc" : "Yor",
+        "type" : "army",
+        "loc" : "Lvp",
         "command" : "filler"
     },
     "FR01": {
@@ -22,13 +22,13 @@ Unit_Data_1 = {
         "command" : "filler"
     },
     "FR02": {
-        "type" : "fleet",
+        "type" : "army",
         "loc" : "Mar",
         "command" : "filler"
     },
     "FR03": {
-        "type" : "army",
-        "loc" : "Mun",
+        "type" : "fleet",
+        "loc" : "Bre",
         "command" : "filler"
     },
     "GE01": {
@@ -38,32 +38,34 @@ Unit_Data_1 = {
     },
     "GE02": {
         "type" : "army",
-        "loc" : "Den",
+        "loc" : "Ber",
         "command" : "filler"
     },
     "GE03": {
         "type" : "army",
-        "loc" : "Gal",
+        "loc" : "Mun",
         "command" : "filler"
     },
+    """
     "RU01": {
-        "type" : "army",
-        "loc" : "War",
+        "type" : "fleet",
+        "loc" : "Stp-SC",
         "command" : "filler"
     },
+    """
     "RU02": {
-        "type" : "fleet",
-        "loc" : "Sev",
+        "type" : "army",
+        "loc" : "Mos",
         "command" : "filler"
     },
     "RU03": {
         "type" : "army",
-        "loc" : "Stp",
+        "loc" : "War",
         "command" : "filler"
     },
     "RU04": {
-        "type" : "army",
-        "loc" : "Mos",
+        "type" : "fleet",
+        "loc" : "Sev",
         "command" : "filler"
     },
 
