@@ -4,6 +4,7 @@ import networkx as nx
 #import os
 #sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy"))
 from Class_Node import Node
+from Class_Sub_Node import Coastal_Node
 from Visualize_Node_Class import GraphVisualization
 
 """
@@ -40,27 +41,60 @@ def dict_format (parsed):
         parsed_data_dict[each_line[0]] = nested_entry
     return parsed_data_dict
 
-#check to make sure the dictionary is working correctly
 def run_dict_format(csv_file):
     parsed_csv = parse_file(csv_file)
     data_dict = dict_format(parsed_csv)
     return data_dict
 
+def get_related_node_info(ter, data_dict):
+    related_ter_name = ter[:3]
+    related_ter_info = data_dict[related_ter_name]
+    return related_ter_name, related_ter_info
 
-def create_node (dict_key, dict_values):
-    indiv_node = Node(dict_key, dict_values)
-    return indiv_node
-
-def run_create_nodes (csv_file):
+def create_nodes (csv_file):
     obj_dict = {}
-    #input data for node is an entry of a nested dictionay
     get_data_dict = run_dict_format(csv_file)
     for each_entry in get_data_dict:
-        each_node = create_node(each_entry, get_data_dict[each_entry])
-        #node object dictionary keys are the territories' three letter abbreviations
+        each_node = Node(each_entry, get_data_dict[each_entry])
         obj_dict[each_entry] = each_node
     return obj_dict
 
+def get_indiv_ter_info (csv_file, line_int):
+    parsed_file = parse_file(csv_file)
+    parsed_line = parsed_file[line_int]
+    #print([parsed_line], parsed_line[0])
+    indiv_ter_name = parsed_line[0]
+    indiv_ter_dict = {"Full Name": parsed_line[1], 
+                    "Type": parsed_line[2],
+                    "Neighbors": parsed_line[3],
+                    "Country": parsed_line[4],
+                    "Dot": parsed_line[5],
+                    "Home SupCenter": parsed_line[6]}
+    #print(" indiv ter function", indiv_ter_name, indiv_ter_dict)
+    return indiv_ter_name, indiv_ter_dict
+
+def create_special_nodes (csv_file, special_csv_file):
+    i = 0
+    obj_dict = {}
+    data_dict = run_dict_format(csv_file)
+    special_data_dict = run_dict_format(special_csv_file)
+    for each_entry in special_data_dict:
+        print("COUNT", i, each_entry)
+        each_node = Coastal_Node(each_entry, special_data_dict[each_entry])
+        obj_dict[each_entry] = each_node
+        # main (parent) node
+        main_node_name, main_node_info = get_related_node_info(each_entry, data_dict)
+        each_node.get_main(main_node_name, main_node_info)
+        # other coastal (sibling) node
+        if (i + 1) % 2 == 0:
+            sibling_node_name, sibling_node_info = get_indiv_ter_info(special_csv_file, i - 1)
+            each_node.get_sibling(sibling_node_name, sibling_node_info)
+        else:
+            sibling_node_name, sibling_node_info = get_indiv_ter_info(special_csv_file, i + 1)
+            each_node.get_sibling(sibling_node_name, sibling_node_info)
+        each_node.related_node_print()
+        i += 1
+    return obj_dict
 
 def create_graph (node_dict):
     territory_graph = GraphVisualization()

@@ -3,7 +3,7 @@ import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
 from Class_Node import Node
 from Functions_Node import run_dict_format
-data = "data/Nodes_No_Coords.csv"
+data = "data/Data_Ter_Main.csv"
 
 
 class Unit ():

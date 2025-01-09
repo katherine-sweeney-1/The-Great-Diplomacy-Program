@@ -14,7 +14,7 @@ class Node ():
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
 
-    def print_node_info (self):
+    def print_statements (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))
         print("Territory {} has dot status {} and hsc status {}"
