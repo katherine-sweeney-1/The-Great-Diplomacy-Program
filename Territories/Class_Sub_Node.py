@@ -1,4 +1,3 @@
-
 from Class_Node import Node
 
 class Coastal_Node (Node):
@@ -14,7 +13,7 @@ class Coastal_Node (Node):
         self.sibling_obj = Node(sibling_name, sibling_info)
         return self.sibling_obj
 
-    def related_node_print(self):
+    def print_statements(self):
         print(" ")
         print("node {} has parent node {} and sibling node {}".format
               (self.name, self.main_obj.name, self.sibling_obj.name))

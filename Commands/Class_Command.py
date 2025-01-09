@@ -1,4 +1,3 @@
-
 import sys
 import os
 
@@ -8,10 +7,9 @@ from Functions_Node import run_dict_format
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
 from Class_Unit import Unit
-from Hard_Data_Units import Unit_Data_1 as starting_data_units
+from Hard_Data_Units import units_data_1 as starting_data_units
 
-
-nodes_hard_data = "data/Nodes_No_Coords.csv"
+nodes_hard_data = "data/Data_Ter_Main.csv"
 nodes_dict = run_dict_format(nodes_hard_data)
 
 class Command ():
@@ -40,7 +38,6 @@ class Command ():
         origin_data = nodes_dict.get(self.origin)
         origin_node = Node (self.origin, origin_data)
         self.origin = origin_node
-        #print(self.origin.name)
         return self.origin
 
     def get_dest_node(self):

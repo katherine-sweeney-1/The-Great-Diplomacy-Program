@@ -5,10 +5,8 @@ from Class_Node import Node
 from Functions_Node import run_dict_format
 data = "data/Data_Ter_Main.csv"
 
-
 class Unit ():
     
-
     def __init__ (self, unit_id, unit_info):
         self.id = unit_id
         self.type = unit_info["type"]

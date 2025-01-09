@@ -1,4 +1,3 @@
-
 from Class_Commander import Commander
 
 def create_commanders (commanders_starting_data):

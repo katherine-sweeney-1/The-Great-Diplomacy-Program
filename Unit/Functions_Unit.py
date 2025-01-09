@@ -1,6 +1,4 @@
-
 from Class_Unit import Unit
-
 
 def create_units(units_data):
     for each_unit in units_data:

@@ -1,4 +1,3 @@
-
 import networkx as nx
 from Class_Node import Node
 from Class_Sub_Node import Coastal_Node
@@ -79,7 +78,7 @@ def create_special_nodes (csv, special_csv):
             sibling_node_name, sibling_node_info = dict_indiv(special_csv, i + 1)
         each_node.get_main(main_node_name, main_node_info)
         each_node.get_sibling(sibling_node_name, sibling_node_info)
-        each_node.related_node_print()
+        each_node.print_statements()
         obj_dict[each_entry] = each_node
         i += 1
     return obj_dict

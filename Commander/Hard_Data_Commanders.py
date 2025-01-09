@@ -1,4 +1,3 @@
-
 cmdrs_data_1 = {
     "Katherine" : {"Country": "UK", 
                    "Unit Members": ["UK01", "UK02", "UK03"],

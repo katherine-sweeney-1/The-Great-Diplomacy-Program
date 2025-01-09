@@ -5,7 +5,6 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\C
 from Class_Commander import Commander
 from Hard_Data_Commanders import cmdrs_data_1 as cmdrs_data
 
-
 from Class_Command import Command
 
 def get_commander(cmd_unit):

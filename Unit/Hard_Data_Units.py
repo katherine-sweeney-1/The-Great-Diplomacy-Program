@@ -1,5 +1,4 @@
-
-Unit_Data_1 = {
+units_data_1 = {
 
     "UK01": {
         "type" : "fleet",
@@ -68,5 +67,4 @@ Unit_Data_1 = {
         "loc" : "Sev",
         "command" : "filler"
     },
-
 }

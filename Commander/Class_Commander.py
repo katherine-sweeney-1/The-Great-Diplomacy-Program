@@ -1,5 +1,3 @@
-
-#from Commander_Class_Helper_Functions import get_ters, check_node_printing
 import sys
 import os
 
@@ -9,10 +7,9 @@ from Functions_Node import run_dict_format
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
 from Class_Unit import Unit
-#from Functions_Unit import run_dict_format
-from Hard_Data_Units import Unit_Data_1 as starting_data_units
+from Hard_Data_Units import units_data_1 as starting_data_units
 
-data = "data/Nodes_No_Coords.csv"
+data = "data/Ter_Main.csv"
 
 class Commander ():
 
