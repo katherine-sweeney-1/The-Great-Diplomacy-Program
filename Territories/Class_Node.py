@@ -12,6 +12,9 @@ class Node ():
     def parse_nbrs (self):
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
+    
+    def is_node_occupied(self, unit_obj_dict):
+        return
 
     def print_statements (self):
         print("Territory {} / {} is owned by {} with neighbors {}"

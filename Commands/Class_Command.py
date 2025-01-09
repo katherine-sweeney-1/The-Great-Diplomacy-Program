@@ -10,6 +10,8 @@ from Class_Unit import Unit
 from Hard_Data_Units import units_data_1 as starting_data_units
 
 nodes_hard_data = "data/Data_Ter_Main.csv"
+data_special_cases = "data/Data_Ter_Special_Coasts.csv"
+nodes_dict_special = run_dict_format(data_special_cases)
 nodes_dict = run_dict_format(nodes_hard_data)
 
 class Command ():
@@ -29,18 +31,21 @@ class Command ():
         return self.unit
 
     def get_loc_node(self):
+        nodes_dict = get_nodes_dict(self.loc)
         loc_data = nodes_dict.get(self.loc)
         loc_node = Node (self.loc, loc_data)
         self.loc = loc_node
         return self.loc
 
     def get_origin_node(self):
+        nodes_dict = get_nodes_dict(self.origin)
         origin_data = nodes_dict.get(self.origin)
         origin_node = Node (self.origin, origin_data)
         self.origin = origin_node
         return self.origin
 
     def get_dest_node(self):
+        nodes_dict = get_nodes_dict(self.dest)
         dest_data = nodes_dict.get(self.dest)
         dest_node = Node (self.dest, dest_data)
         self.dest = dest_node
@@ -68,3 +73,10 @@ class Command ():
         print("Unit {} at location {} applies effort from origin {} to destination {}".
               format(self.unit.id, self.loc.name, self.origin.name, self.dest.name))
         print("Is command valid? ", self.valid)
+
+def get_nodes_dict(territory):
+    if "-" in territory:
+        nodes_dict = run_dict_format(data_special_cases)
+    else:
+        nodes_dict = run_dict_format(nodes_hard_data)
+    return nodes_dict

@@ -9,7 +9,8 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\U
 from Class_Unit import Unit
 from Hard_Data_Units import units_data_1 as starting_data_units
 
-data = "data/Ter_Main.csv"
+data = "data/Data_Ter_Main.csv"
+data_special_nodes = "data/Data_Ter_Special_Coasts.csv"
 
 class Commander ():
 
@@ -28,12 +29,17 @@ class Commander ():
         self.unit_members = units_dict
 
     def get_own_dots_nodes(self):                             # retrieve node objects for dots owned
-        nodes_dict = run_dict_format(data)
+        #nodes_dict = run_dict_format(data)
         own_dict = {}
         for each_ter in self.own_dots:
-           ter_data = nodes_dict.get(each_ter)
-           own_dot_node = Node (each_ter, ter_data)
-           own_dict[each_ter] = own_dot_node
+            #print(each_ter, self.own_dots)
+            if "-" in each_ter:
+               nodes_dict = run_dict_format(data_special_nodes)
+            else:
+                nodes_dict = run_dict_format(data)
+            ter_data = nodes_dict.get(each_ter)
+            own_dot_node = Node (each_ter, ter_data)
+            own_dict[each_ter] = own_dot_node
         self.own_dots = own_dict
 
     def check_class_works(self):

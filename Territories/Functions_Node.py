@@ -78,7 +78,7 @@ def create_special_nodes (csv, special_csv):
             sibling_node_name, sibling_node_info = dict_indiv(special_csv, i + 1)
         each_node.get_main(main_node_name, main_node_info)
         each_node.get_sibling(sibling_node_name, sibling_node_info)
-        each_node.print_statements()
+        #each_node.print_statements()
         obj_dict[each_entry] = each_node
         i += 1
     return obj_dict

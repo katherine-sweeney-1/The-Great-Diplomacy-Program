@@ -4,6 +4,7 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\T
 from Class_Node import Node
 from Functions_Node import run_dict_format
 data = "data/Data_Ter_Main.csv"
+data_special_cases = "data/Data_Ter_Special_Coasts.csv"
 
 class Unit ():
     
@@ -14,7 +15,10 @@ class Unit ():
         self.command = unit_info["command"]
 
     def get_loc_node (self):
-        nodes_dict = run_dict_format(data)
+        if "-" in self.loc:
+            nodes_dict = run_dict_format(data_special_cases)
+        else:
+            nodes_dict = run_dict_format(data)
         loc_data = nodes_dict[self.loc]
         loc_node = Node (self.loc, loc_data)
         self.loc = loc_node
