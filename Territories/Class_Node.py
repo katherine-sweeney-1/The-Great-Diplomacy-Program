@@ -2,7 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Helper_Functions"))
-from Run_Units_Obj_Loc_Dict import run_units_obj_loc_dict
+from Run_Units_Loc_Obj_Dict import run_units_loc_obj_dict
 
 
 class Node ():
@@ -21,14 +21,20 @@ class Node ():
         return(self.nbrs)
     
     def is_node_occupied(self, units_data):
-        unit_dict = run_units_objloc_dict(units_data)
-        return
+        unit_dict = run_units_loc_obj_dict(units_data)
+        if self.name in unit_dict.keys():
+            unit_on_node = unit_dict[self.name]
+        else:
+            unit_on_node = 0
+        self.occ_unit = unit_on_node
+        return self.occ_unit
 
     def print_statements (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))
         print("Territory {} has dot status {} and hsc status {}"
               .format(self.name, self.dot, self.hsc))
+        print("Territory is occupied by {}".format(self.occ_unit))
         print("   ")
 
 

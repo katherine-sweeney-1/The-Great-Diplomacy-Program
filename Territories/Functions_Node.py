@@ -2,6 +2,11 @@ import networkx as nx
 from Class_Node import Node
 from Class_Sub_Node import Coastal_Node
 from Visualize_Node_Class import GraphVisualization
+import sys
+import os
+
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
+from Hard_Data_Units import units_data_1
 
 """
 CVS File Line List - Elements:
@@ -64,6 +69,8 @@ def create_nodes (csv_file):
     data_dict = get_nodes_data_dict(csv_file)
     for each_ter in data_dict:
         each_node = Node(each_ter, data_dict[each_ter])
+        each_node.is_node_occupied(units_data_1)
+        #each_node.print_statements()
         obj_dict[each_ter] = each_node
     return obj_dict
 
