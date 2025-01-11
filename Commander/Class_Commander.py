@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
 from Class_Node import Node
-from Functions_Node import run_dict_format
+from Functions_Node import get_data_dict
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
 from Class_Unit import Unit
@@ -34,15 +34,15 @@ class Commander ():
         for each_ter in self.own_dots:
             #print(each_ter, self.own_dots)
             if "-" in each_ter:
-               nodes_dict = run_dict_format(data_special_nodes)
+               nodes_dict = get_data_dict(data_special_nodes)
             else:
-                nodes_dict = run_dict_format(data)
+                nodes_dict = get_data_dict(data)
             ter_data = nodes_dict.get(each_ter)
             own_dot_node = Node (each_ter, ter_data)
             own_dict[each_ter] = own_dot_node
         self.own_dots = own_dict
 
-    def check_class_works(self):
+    def print_statements(self):
         print(" ")
         print("commander {} has dots in territories {}".
             format(self.human, self.own_dots))

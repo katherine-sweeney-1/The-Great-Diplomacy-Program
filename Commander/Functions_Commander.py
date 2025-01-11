@@ -11,6 +11,6 @@ def create_commanders (commanders_starting_data):
         )
         indiv_cmdr.get_own_dots_nodes()
         indiv_cmdr.get_unit_object()
-        #indiv_cmdr.check_class_works()
+        #indiv_cmdr.print_statements()
         commander_list.append(indiv_cmdr)
     return commander_list

@@ -25,7 +25,7 @@ def parse_file (file_name):
         i += 1
     return csv_lines
 
-def dict_indiv (csv_file, line_int):
+def dict_indiv_ter (csv_file, line_int):
     parsed_file = parse_file(csv_file)
     parsed_line = parsed_file[line_int]
     indiv_ter_name = parsed_line[0]
@@ -54,30 +54,35 @@ def indiv_info(ter, data_dict):
     related_ter_info = data_dict[related_ter_name]
     return related_ter_name, related_ter_info
 
+def get_data_dict(csv_file):
+    parsed_csv = parse_file(csv_file)
+    data_dict = dict_file(parsed_csv)
+    return data_dict
+
 def create_nodes (csv_file):
     obj_dict = {}
-    get_data_dict = run_dict_format(csv_file)
-    for each_entry in get_data_dict:
-        each_node = Node(each_entry, get_data_dict[each_entry])
-        obj_dict[each_entry] = each_node
+    data_dict = get_data_dict(csv_file)
+    for each_ter in data_dict:
+        each_node = Node(each_ter, data_dict[each_ter])
+        obj_dict[each_ter] = each_node
     return obj_dict
 
 def create_special_nodes (csv, special_csv):
     i = 0
     obj_dict = {}
-    data_dict = run_dict_format(csv)
-    special_data_dict = run_dict_format(special_csv)
-    for each_entry in special_data_dict:
-        each_node = Coastal_Node(each_entry, special_data_dict[each_entry])
-        # parent node
-        main_node_name, main_node_info = indiv_info(each_entry, data_dict)
-        # sibling node; use even/odd to determine which line of csv is sibling node
+    main_dict = get_data_dict(csv)
+    special_dict = get_data_dict(special_csv)
+    for each_entry in special_dict:
+        # parent node info
+        main_name, main_info = indiv_info(each_entry, main_dict)
+        # sibling node info; use even/odd to determine which line of csv is sibling node
         if (i + 1) % 2 == 0:
-            sibling_node_name, sibling_node_info = dict_indiv(special_csv, i - 1)
+            sibling_name, sibling_info = dict_indiv_ter(special_csv, i - 1)
         else:
-            sibling_node_name, sibling_node_info = dict_indiv(special_csv, i + 1)
-        each_node.get_main(main_node_name, main_node_info)
-        each_node.get_sibling(sibling_node_name, sibling_node_info)
+            sibling_name, sibling_info = dict_indiv_ter(special_csv, i + 1)
+        each_node = Coastal_Node(each_entry, special_dict[each_entry])
+        each_node.get_main(main_name, main_info)
+        each_node.get_sibling(sibling_name, sibling_info)
         #each_node.print_statements()
         obj_dict[each_entry] = each_node
         i += 1
@@ -90,11 +95,6 @@ def create_graph (node_dict):
         for each_nbr in nbrs:
             territory_graph.addEdge(territory, each_nbr)
     return territory_graph
-
-def run_dict_format(csv_file):
-    parsed_csv = parse_file(csv_file)
-    data_dict = dict_file(parsed_csv)
-    return data_dict
 
 def run_create_graph (node_dict):
     visual_graph = create_graph(node_dict)
