@@ -54,14 +54,14 @@ def indiv_info(ter, data_dict):
     related_ter_info = data_dict[related_ter_name]
     return related_ter_name, related_ter_info
 
-def get_data_dict(csv_file):
+def get_nodes_data_dict(csv_file):
     parsed_csv = parse_file(csv_file)
     data_dict = dict_file(parsed_csv)
     return data_dict
 
 def create_nodes (csv_file):
     obj_dict = {}
-    data_dict = get_data_dict(csv_file)
+    data_dict = get_nodes_data_dict(csv_file)
     for each_ter in data_dict:
         each_node = Node(each_ter, data_dict[each_ter])
         obj_dict[each_ter] = each_node
@@ -70,8 +70,8 @@ def create_nodes (csv_file):
 def create_special_nodes (csv, special_csv):
     i = 0
     obj_dict = {}
-    main_dict = get_data_dict(csv)
-    special_dict = get_data_dict(special_csv)
+    main_dict = get_nodes_data_dict(csv)
+    special_dict = get_nodes_data_dict(special_csv)
     for each_entry in special_dict:
         # parent node info
         main_name, main_info = indiv_info(each_entry, main_dict)

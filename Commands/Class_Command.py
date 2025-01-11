@@ -1,9 +1,12 @@
 import sys
 import os
 
+
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Helper_Functions"))
+from Run_Nodes_Data_Dict import run_nodes_data_dict
+
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
 from Class_Node import Node
-from Functions_Node import get_data_dict
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
 from Class_Unit import Unit
@@ -11,8 +14,8 @@ from Hard_Data_Units import units_data_1 as starting_data_units
 
 nodes_hard_data = "data/Data_Ter_Main.csv"
 data_special_cases = "data/Data_Ter_Special_Coasts.csv"
-nodes_dict_special = get_data_dict(data_special_cases)
-nodes_dict = get_data_dict(nodes_hard_data)
+nodes_dict_special = run_nodes_data_dict(data_special_cases)
+nodes_dict = run_nodes_data_dict(nodes_hard_data)
 
 class Command ():
 
@@ -76,7 +79,7 @@ class Command ():
 
 def get_nodes_dict(territory):
     if "-" in territory:
-        nodes_dict = get_data_dict(data_special_cases)
+        nodes_dict = run_nodes_data_dict(data_special_cases)
     else:
-        nodes_dict = get_data_dict(nodes_hard_data)
+        nodes_dict = run_nodes_data_dict(nodes_hard_data)
     return nodes_dict

@@ -3,7 +3,9 @@ import os
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Territories"))
 from Class_Node import Node
-from Functions_Node import get_data_dict
+
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Helper_Functions"))
+from Run_Nodes_Data_Dict import run_nodes_data_dict
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
 from Class_Unit import Unit
@@ -14,11 +16,11 @@ data_special_nodes = "data/Data_Ter_Special_Coasts.csv"
 
 class Commander ():
 
-    def __init__ (self, human, country, unit_members, owned_dots):
+    def __init__ (self, human, cmdr_info):
         self.human = human                                  # string 
-        self.country = country                              # string
-        self.unit_members = unit_members                    # unit object
-        self.own_dots = owned_dots                          # node object
+        self.country = cmdr_info["Country"]                              # string
+        self.unit_members = cmdr_info["Unit Members"]                    # unit object
+        self.own_dots = cmdr_info["Dots Owned"]                          # node object
 
     def get_unit_object(self):                              # retrieve unit objects for unit members
         units_dict = {}
@@ -34,9 +36,9 @@ class Commander ():
         for each_ter in self.own_dots:
             #print(each_ter, self.own_dots)
             if "-" in each_ter:
-               nodes_dict = get_data_dict(data_special_nodes)
+               nodes_dict = run_nodes_data_dict(data_special_nodes)
             else:
-                nodes_dict = get_data_dict(data)
+                nodes_dict = run_nodes_data_dict(data)
             ter_data = nodes_dict.get(each_ter)
             own_dot_node = Node (each_ter, ter_data)
             own_dict[each_ter] = own_dot_node

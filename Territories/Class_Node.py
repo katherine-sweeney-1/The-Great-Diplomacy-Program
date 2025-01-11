@@ -1,3 +1,10 @@
+import sys
+import os
+
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Helper_Functions"))
+from Run_Units_Obj_Loc_Dict import run_units_obj_loc_dict
+
+
 class Node ():
     
     def __init__ (self, node_name, node_info):
@@ -13,7 +20,8 @@ class Node ():
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
     
-    def is_node_occupied(self, unit_obj_dict):
+    def is_node_occupied(self, units_data):
+        unit_dict = run_units_objloc_dict(units_data)
         return
 
     def print_statements (self):
