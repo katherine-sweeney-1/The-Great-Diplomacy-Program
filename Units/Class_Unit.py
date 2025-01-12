@@ -29,14 +29,14 @@ class Unit ():
         self.loc = loc_node
     """
 
-    def get_loc_node (self, node_obj):
-        self.loc = node_obj
+    def get_loc_node (self, node_dict):
+        unit_loc_obj = node_dict[self.loc]
+        self.loc = unit_loc_obj
         return self.loc
 
-    def print_statements(self):
+    def print_statements (self):
         print(" ")
         print("Unit ID", self.id)
         print("Unit type", self.type)
-        #print("Unit location", self.loc.name, self.loc)
         print("Unit command", self.command)
 
