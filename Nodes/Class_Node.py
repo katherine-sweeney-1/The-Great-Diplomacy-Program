@@ -19,7 +19,8 @@ class Node ():
     def parse_nbrs (self):
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
-    
+
+    """
     def is_node_occupied(self, units_data):
         unit_dict = run_units_loc_obj_dict(units_data)
         if self.name in unit_dict.keys():
@@ -28,13 +29,22 @@ class Node ():
             unit_on_node = 0
         self.occ_unit = unit_on_node
         return self.occ_unit
+    """
+
+    def is_occ(self, loc_units_dict):
+        if self.name in loc_units_dict.keys():
+            self.occ_unit = loc_units_dict[self.name]
+        else:
+            self.occ_unit = 0
+        return self.occ_unit
+
 
     def print_statements (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))
         print("Territory {} has dot status {} and hsc status {}"
               .format(self.name, self.dot, self.hsc))
-        print("Territory is occupied by {}".format(self.occ_unit))
+        #print("Territory is occupied by {}".format(self.occ_unit))
         print("   ")
 
 
