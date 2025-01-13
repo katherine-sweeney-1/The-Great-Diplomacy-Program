@@ -36,6 +36,7 @@ class Node ():
             self.occ_unit = loc_units_dict[self.name]
         else:
             self.occ_unit = 0
+        #print(self.occ_unit)
         return self.occ_unit
 
 

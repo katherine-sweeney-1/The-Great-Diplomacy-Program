@@ -18,17 +18,6 @@ class Unit ():
         self.loc = unit_info["loc"]
         self.command = unit_info["command"]
 
-    """
-    def get_loc_node (self):
-        if "-" in self.loc:
-            nodes_dict = run_nodes_data_dict(data_special_cases)
-        else:
-            nodes_dict = run_nodes_data_dict(data)
-        loc_data = nodes_dict[self.loc]
-        loc_node = Node (self.loc, loc_data)
-        self.loc = loc_node
-    """
-
     def get_loc_node (self, node_dict):
         unit_loc_obj = node_dict[self.loc]
         self.loc = unit_loc_obj
@@ -40,3 +29,14 @@ class Unit ():
         print("Unit type", self.type)
         print("Unit command", self.command)
 
+
+    """
+    def get_loc_node (self):
+        if "-" in self.loc:
+            nodes_dict = run_nodes_data_dict(data_special_cases)
+        else:
+            nodes_dict = run_nodes_data_dict(data)
+        loc_data = nodes_dict[self.loc]
+        loc_node = Node (self.loc, loc_data)
+        self.loc = loc_node
+    """
