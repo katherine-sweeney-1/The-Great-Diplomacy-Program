@@ -7,7 +7,7 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\N
 from Functions_Node import create_nodes
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import create_commanders
-from Functions_Commander import retrieve_members_strings
+from Functions_Commander import retrieve_cmdr_strings
 from Hard_Data_Commanders import cmdrs_data_1
 """
 from Run_Functions import loc_unit_dict
@@ -32,9 +32,11 @@ for cmdr in commanders:
 nodes = create_nodes(data_nodes_main)
 nodes_coastal = create_nodes(data_nodes_coastal)
 
+
 for cmdr in commanders:
-    unit_members = retrieve_members_strings(cmdr.human, cmdrs_data_1)
-    cmdr.add_units(unit_members, nodes, nodes_coastal)
+    unit_members_strings, dots_owned_strings = retrieve_cmdr_strings(cmdr.human, cmdrs_data_1)
+    cmdr.add_units(unit_members_strings, nodes, nodes_coastal)
+    cmdr.retrieve_dots_owned(dots_owned_strings, nodes, nodes_coastal)
     cmdr.print_statements()
 
 """

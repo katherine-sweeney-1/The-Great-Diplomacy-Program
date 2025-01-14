@@ -24,10 +24,21 @@ class Commander ():
     def add_units(self, strings_list, nodes_dict, nodes_coastal_dict):
         unit_members = {}
         for each_unit_string in strings_list:
-            one_member = create_unit(each_unit_string, nodes_dict, nodes_coastal_dict)
+            one_member = create_unit(each_unit_string, nodes_dict, nodes_coastal_dict, self)
             unit_members[each_unit_string] = one_member
         self.unit_members = unit_members
         return self.unit_members
+
+    def retrieve_dots_owned(self, nodes_strings_list, nodes_dict, nodes_coastal_dict):
+        dots_owned = {}
+        for each_dot_string in nodes_strings_list:
+            if "-" in each_dot_string:
+                node_obj = nodes_coastal_dict[each_dot_string]
+            else:
+                node_obj = nodes_dict[each_dot_string]
+            dots_owned[each_dot_string] = node_obj
+        self.dots_owned = dots_owned
+        return self.dots_owned
 
     """
     def get_own_dots_nodes(self):                             # retrieve node objects for dots owned
@@ -50,5 +61,7 @@ class Commander ():
         for each_unit in self.unit_members:
             print("commander {} has unit {} in location {}".
                   format(self.human, each_unit, self.unit_members[each_unit].loc.name))
+            print("unit {} has commander {}".format(each_unit, self.unit_members[each_unit].cmdr.human))
+            print("owned dots are {}".format(self.dots_owned))
         print(" ")
         

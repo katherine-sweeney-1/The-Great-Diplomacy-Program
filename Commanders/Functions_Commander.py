@@ -9,9 +9,11 @@ def create_commanders (commanders_starting_data):
         commander_list.append(indiv_cmdr)
     return commander_list
 
-def retrieve_members_strings(human, commanders_starting_data):
+def retrieve_cmdr_strings(human, commanders_starting_data):
     for each_key in commanders_starting_data:
         if each_key == human:
             members = commanders_starting_data[each_key]["Unit Members"]
+            dots_owned = commanders_starting_data[each_key]["Dots Owned"]
             break
-    return members
+    return members, dots_owned
+

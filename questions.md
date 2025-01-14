@@ -1,34 +1,50 @@
 
 Commander Class
 
-    Where to create the function/property of adding new units to a commander's unit members?
-        => Create new unit => unit class
-        => Add unit to commander => commander class property add_member
+    Completed
 
+        => Create commander objects (1)
 
-Need to eventually figure out how to check what territories people own, lost, occupy, etc. make that it's own thing and not part of the commander class
+        => Add unit objects to commander's members (4a)
 
+        => Add node_objects to commander's dots_owned (4b)
 
-Legal Check
+    To Do
 
-    Will use passwords to make sure the person is submitting moves for the correct country
+        => Dots owned can only work for nodes with a dot on it
+
+        => Add commander.orders to give all of a commander's commands for a turn?
 
 
 Node
 
+    Completed
 
-    have subclass for special coast scenarios 
-        -   have "main" node and each coast nodes for three nodes total
-        -   when one of the three nodes is occupied then all three return a node occupied of true
-        -   e.g. fleet occupied south coast => node proptery for NC and "main" node are True (not the unit id)
+        => Create node object (2a)
 
-    Player ONLY specifies coasts for fleet attacks to Bul and Spa
-        -   constantinople => Bul-EC/SC 
-        -   MAO => Spa-NC/SC
-        
-    Create occupied property that lists the unit that occupies the territory
+        => Create special case coastal node object subclass with parent and sibling node functions (2b)
 
-    Figure out node subclass
+    To Do
+
+        => is occupied function if a unit occupies a node
+
+        => is occupied for node subclass so if one of subclass family nodes is occupied then 
+        all three in the family are occupied
+    
+
+UNIT CLASS
+
+    Completed
+
+        => Create unit objects (3a)
+
+        => Assign location (node object) to unit object (3b)
+
+        => Assign commander to unit object (3c)
+
+    To Do
+
+        => Add unit.command function? 
 
 
 Eventually (do not forget)
@@ -37,7 +53,16 @@ Eventually (do not forget)
 
     Graph bullshit
 
-    Check google doc
+    Check what territories people own, lost, occupy, etc. (make that it's own thing and not part of the commander class)
+
+
+NOTES
+
+    Every property between two objects is bidirectional
+
+
+    Fucked up with making new objects instead of using ones I already created
+
 
 Notes on Rules
 
@@ -56,23 +81,3 @@ Notes on Rules
         -   this is where recursion happened last time
 
     Take note of diagram 17
-
-
-Unit Class
-
-    - Have a commander property
-
-    - Every property between two objects is bidirectional
-
-
-Fucked up with making new objects instead of using ones I already created
-- they're different objects
-
-
-COMPLETED
-
-    => edit the node input so it takes the name and the nested info (nodes dictionary key and value)
-
-    => make own_dots be territory objects
-
-    => make unit_members be unit objects

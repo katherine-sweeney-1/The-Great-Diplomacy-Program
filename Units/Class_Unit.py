@@ -25,6 +25,10 @@ class Unit ():
             self.loc = node_dict[loc_string]
         return self.loc
 
+    def assign_cmdr(self, cmdr_obj):
+        self.cmdr = cmdr_obj
+        return self.cmdr
+
     def print_statements (self):
         print(" ")
         print("Unit ID", self.id)

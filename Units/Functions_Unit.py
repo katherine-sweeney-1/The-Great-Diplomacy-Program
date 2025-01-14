@@ -13,9 +13,10 @@ def create_units(units_data):
     return unit_dict
 
 
-def create_unit(unit_id_string, nodes_dict, nodes_coastal_dict):
+def create_unit(unit_id_string, nodes_dict, nodes_coastal_dict, cmdr):
     unit_type = units_data[unit_id_string]["type"]
     unit_loc_string = units_data[unit_id_string]["loc"]
     unit = Unit(unit_id_string, unit_type)
     unit.assign_loc(unit_loc_string, nodes_dict, nodes_coastal_dict)
+    unit.assign_cmdr(cmdr)
     return unit
