@@ -20,3 +20,9 @@ def create_unit(unit_id_string, nodes_dict, nodes_coastal_dict, cmdr):
     unit.assign_loc(unit_loc_string, nodes_dict, nodes_coastal_dict)
     unit.assign_cmdr(cmdr)
     return unit
+
+def retrieve_units_dict(units_dict, cmdr):
+    for each_unit in cmdr.unit_members:
+        unit_obj = cmdr.unit_members[each_unit]
+        units_dict[each_unit] = unit_obj
+    return units_dict

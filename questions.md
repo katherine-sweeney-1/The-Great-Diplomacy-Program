@@ -7,11 +7,9 @@ Commander Class
 
         => Add unit objects to commander's members (4a)
 
-        => Add node_objects to commander's dots_owned (4b)
+        => Add node_objects to commander's dots_owned (4c)
 
     To Do
-
-        => Dots owned can only work for nodes with a dot on it
 
         => Add commander.orders to give all of a commander's commands for a turn?
 
@@ -24,9 +22,9 @@ Node
 
         => Create special case coastal node object subclass with parent and sibling node functions (2b)
 
+        => Node object has unit object for "is_occ" if a unit object occupies the node (5)
+        
     To Do
-
-        => is occupied function if a unit occupies a node
 
         => is occupied for node subclass so if one of subclass family nodes is occupied then 
         all three in the family are occupied
@@ -42,9 +40,19 @@ UNIT CLASS
 
         => Assign commander to unit object (3c)
 
+        => Create unit dictionary (4b)
+
     To Do
 
         => Add unit.command function? 
+
+
+
+Command Class
+
+
+
+
 
 
 Eventually (do not forget)

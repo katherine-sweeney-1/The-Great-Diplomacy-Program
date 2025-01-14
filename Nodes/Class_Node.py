@@ -14,24 +14,21 @@ class Node ():
         self.country = node_info["Country"]
         self.dot = node_info["Dot"]
         self.hsc = node_info["Home SupCenter"]
+        self.is_occ = 0
 
     def parse_nbrs (self):
         self.nbrs = self.nbrs.split(" ")
         return(self.nbrs)
 
-    def is_occ(self, loc_units_dict):
-        if self.name in loc_units_dict.keys():
-            self.occ_unit = loc_units_dict[self.name]
-        else:
-            self.occ_unit = 0
-        return self.occ_unit
-
+    def assign_occ(self, unit):
+        self.is_occ = unit
+        return self.is_occ
 
     def print_statements (self):
         print("Territory {} / {} is owned by {} with neighbors {}"
               .format(self.name, self.full_name, self.country, self.nbrs))
-        print("Territory {} has dot status {} and hsc status {}"
-              .format(self.name, self.dot, self.hsc))
+        print("Territory {} has dot status {} and hsc status {} and occupied status {}"
+              .format(self.name, self.dot, self.hsc, self.is_occ))
         #print("Territory is occupied by {}".format(self.occ_unit))
         print("   ")
 

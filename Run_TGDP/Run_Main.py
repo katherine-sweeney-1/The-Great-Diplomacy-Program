@@ -2,6 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
 from Functions_Unit import create_unit
+from Functions_Unit import retrieve_units_dict
 from Hard_Data_Units import units_data_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Functions_Node import create_nodes
@@ -32,12 +33,21 @@ for cmdr in commanders:
 nodes = create_nodes(data_nodes_main)
 nodes_coastal = create_nodes(data_nodes_coastal)
 
-
+units = {}
 for cmdr in commanders:
     unit_members_strings, dots_owned_strings = retrieve_cmdr_strings(cmdr.human, cmdrs_data_1)
     cmdr.add_units(unit_members_strings, nodes, nodes_coastal)
+    retrieve_units_dict(units, cmdr)
     cmdr.retrieve_dots_owned(dots_owned_strings, nodes, nodes_coastal)
     cmdr.print_statements()
+
+for unit in units:
+    unit_obj = units[unit]
+    occupied_node = unit_obj.loc
+    occupied_node.assign_occ(unit_obj)
+
+for node in nodes:
+    nodes[node].print_statements()
 
 """
 for node in nodes:
