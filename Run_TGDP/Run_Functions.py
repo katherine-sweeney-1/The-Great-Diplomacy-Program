@@ -1,3 +1,5 @@
+
+"""
 def loc_unit_dict(units_dict):
     loc_unit_dict = {}
     for each_unit in units_dict:
@@ -5,6 +7,7 @@ def loc_unit_dict(units_dict):
         unit_loc = unit_obj.loc
         loc_unit_dict[unit_loc] = unit_obj
     return loc_unit_dict
+"""
 
 """
 def get_nodes_w_occ_units(nodes, units_on_nodes):
@@ -14,6 +17,8 @@ def get_nodes_w_occ_units(nodes, units_on_nodes):
         node_obj.is_occ = node_occ
     return nodes
 """
+
+"""
 def attribute_nodes_unit_objs(nodes, units_on_nodes):
     for each_node in nodes:
         obj = nodes[each_node]
@@ -22,7 +27,9 @@ def attribute_nodes_unit_objs(nodes, units_on_nodes):
         print(obj.is_occ(units_on_nodes))
         #print(occupied)
     return nodes
+"""
 
+"""
 def get_units_w_loc_node(units, nodes_dict, coastal_nodes_dict):
     for each_unit in units:
         unit_obj = units[each_unit]
@@ -33,6 +40,8 @@ def get_units_w_loc_node(units, nodes_dict, coastal_nodes_dict):
             unit_loc = unit_obj.get_loc_node(nodes_dict)
             unit_obj.loc = unit_loc
     return units
+"""
+
 
 """
 def get_cmdr_unit_dict(cmdrs, units):
@@ -44,12 +53,10 @@ def get_cmdr_unit_dict(cmdrs, units):
         each_cmdr.unit_members = unit_members_dict
     return cmdrs
 """
-def attribute_cmdrs_unit_objs(cmdrs, units):
-    for cmdr in cmdrs:
-        cmdr.add_unit_members(units)
-    return cmdrs
 
 
+
+"""
 def print_units(units, nodes):
     for unit in units:
         obj = units[unit]
@@ -68,3 +75,4 @@ def print_cmdrs(commanders):
         print("Commander object {} has human {}".format(cmdr, cmdr.human))
         print("Members are {}".format(cmdr.unit_members))
         print(" ")
+"""

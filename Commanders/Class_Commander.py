@@ -16,17 +16,17 @@ data_special_nodes = "data/Data_Ter_Special_Coasts.csv"
 
 class Commander ():
 
-    def __init__ (self, human, cmdr_info):
+    def __init__ (self, human):
         self.human = human                                  # string 
         #self.info = cmdr_info                             # string
-        #self.unit_members = cmdr_info["Unit Members"]                    # unit object
+        self.unit_members = {}                    # unit object
         #self.own_dots = cmdr_info["Dots Owned"]                          # node object
 
-    def add_units(self, strings_list):
+    def add_units(self, strings_list, nodes_dict, nodes_coastal_dict):
         unit_members = {}
-        for each_string in strings_list:
-            one_member = create_unit(each_string)
-            unit_members[each_string] = one_member
+        for each_unit_string in strings_list:
+            one_member = create_unit(each_unit_string, nodes_dict, nodes_coastal_dict)
+            unit_members[each_unit_string] = one_member
         self.unit_members = unit_members
         return self.unit_members
     """
@@ -68,7 +68,8 @@ class Commander ():
 
     
     def print_statements(self):
-        print("commander {} has units {}".
-              format(self.human, self.unit_members))
+        #print("commander {} has units {}".format(self.human, self.unit_members))
+        for each_unit in self.unit_members:
+            print("commander {} has unit {} in location {}".format(self.human, each_unit, self.unit_members[each_unit].loc.name))
         print(" ")
         

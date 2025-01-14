@@ -12,15 +12,18 @@ data_special_cases = "data/Data_Ter_Special_Coasts.csv"
 
 class Unit ():
     
-    def __init__ (self, unit_id, unit_info):
+    def __init__ (self, unit_id, unit_type):
         self.id = unit_id
-        self.type = unit_info["type"]
-        self.loc = unit_info["loc"]
-        self.command = unit_info["command"]
+        self.type = unit_type
+        self.loc = []
+        self.command = []
 
-    def get_loc_node (self, node_dict):
-        unit_loc_obj = node_dict[self.loc]
-        self.loc = unit_loc_obj
+    def assign_loc (self, loc_string, node_dict, special_node_dict):
+        if "-" in loc_string:
+            self.loc = special_node_dict[loc_string]
+        else:
+            self.loc = node_dict[loc_string]
+        #print(self.loc)
         return self.loc
 
     def print_statements (self):
