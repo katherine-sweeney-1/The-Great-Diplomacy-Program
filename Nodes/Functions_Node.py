@@ -69,8 +69,6 @@ def create_nodes (csv_file):
     data_dict = get_nodes_data_dict(csv_file)
     for each_ter in data_dict:
         each_node = Node(each_ter, data_dict[each_ter])
-        #each_node.is_occ(units_data_1)
-        #each_node.print_statements()
         obj_dict[each_ter] = each_node
     return obj_dict
 
@@ -90,7 +88,6 @@ def create_special_nodes (csv, special_csv):
         each_node = Coastal_Node(each_entry, special_dict[each_entry])
         each_node.get_main(main_name, main_info)
         each_node.get_sibling(sibling_name, sibling_info)
-        #each_node.print_statements()
         obj_dict[each_entry] = each_node
         i += 1
     return obj_dict

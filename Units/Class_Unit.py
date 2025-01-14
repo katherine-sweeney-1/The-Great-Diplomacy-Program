@@ -23,7 +23,6 @@ class Unit ():
             self.loc = special_node_dict[loc_string]
         else:
             self.loc = node_dict[loc_string]
-        #print(self.loc)
         return self.loc
 
     def print_statements (self):
@@ -31,15 +30,3 @@ class Unit ():
         print("Unit ID", self.id)
         print("Unit type", self.type)
         print("Unit command", self.command)
-
-
-    """
-    def get_loc_node (self):
-        if "-" in self.loc:
-            nodes_dict = run_nodes_data_dict(data_special_cases)
-        else:
-            nodes_dict = run_nodes_data_dict(data)
-        loc_data = nodes_dict[self.loc]
-        loc_node = Node (self.loc, loc_data)
-        self.loc = loc_node
-    """

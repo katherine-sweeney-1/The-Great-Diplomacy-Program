@@ -21,9 +21,6 @@ from Run_Functions import attribute_cmdrs_unit_objs
 data_nodes_main = "data/Data_Ter_Main.csv"
 data_nodes_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-# Dictionary - unit id : unit object
-#units = create_units(units_data_1)
-
 # Dictionary - commander human : commander object
 commanders = create_commanders(cmdrs_data_1)
 """
@@ -40,31 +37,12 @@ for cmdr in commanders:
     cmdr.add_units(unit_members, nodes, nodes_coastal)
     cmdr.print_statements()
 
-
 """
 for node in nodes:
     nodes[node].print_statements()
 for coastal in nodes_coastal:
     nodes_coastal[coastal].print_statements()
 """
-
-
-
-
-# Nodes have unit objects for the unit occupying each node
-#nodes = attribute_nodes_unit_objs(nodes, units_on_nodes_dict)
-#nodes_coastal = attribute_nodes_unit_objs(nodes_coastal, units_on_nodes_dict)
-
-# Units have node objects for the location of each unit
-#units = get_units_w_loc_node(units, nodes, nodes_coastal)
-
-# Commanders have unit objects for its unit members
-#commanders = attribute_cmdrs_unit_objs(commanders, units)
-
-#print_nodes(nodes)
-#print_nodes(nodes_coastal)
-#print_cmdrs(commanders)
-#print_statements(units, nodes)
 
 
 
