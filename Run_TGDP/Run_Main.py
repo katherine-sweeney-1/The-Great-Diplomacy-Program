@@ -6,6 +6,8 @@ from Functions_Unit import retrieve_units_dict
 from Hard_Data_Units import units_data_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Functions_Node import create_nodes
+from Functions_Node import create_special_nodes
+from Functions_Node import assign_sibling_nodes
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
@@ -31,7 +33,10 @@ for cmdr in commanders:
 
 # Dictionary - node name : node object
 nodes = create_nodes(data_nodes_main)
-nodes_coastal = create_nodes(data_nodes_coastal)
+nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
+assign_sibling_nodes(nodes_coastal)
+#for coastal in nodes_coastal:
+    #nodes_coastal[coastal].assign_sibling_nodes(nodes_coastal)
 
 units = {}
 for cmdr in commanders:
@@ -39,15 +44,15 @@ for cmdr in commanders:
     cmdr.add_units(unit_members_strings, nodes, nodes_coastal)
     retrieve_units_dict(units, cmdr)
     cmdr.retrieve_dots_owned(dots_owned_strings, nodes, nodes_coastal)
-    cmdr.print_statements()
+    #cmdr.print_statements()
 
+"""
 for unit in units:
     unit_obj = units[unit]
     occupied_node = unit_obj.loc
     occupied_node.assign_occ(unit_obj)
+"""
 
-for node in nodes:
-    nodes[node].print_statements()
 
 """
 for node in nodes:

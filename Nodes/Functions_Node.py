@@ -6,7 +6,7 @@ import sys
 import os
 
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Unit"))
-from Hard_Data_Units import units_data_1
+#from Hard_Data_Units import units_data_1
 
 """
 CVS File Line List - Elements:
@@ -54,10 +54,12 @@ def dict_file (parsed):
         parsed_data_dict[each_line[0]] = nested_entry
     return parsed_data_dict
 
+"""
 def indiv_info(ter, data_dict):
     related_ter_name = ter[:3]
     related_ter_info = data_dict[related_ter_name]
     return related_ter_name, related_ter_info
+"""
 
 def get_nodes_data_dict(csv_file):
     parsed_csv = parse_file(csv_file)
@@ -72,25 +74,56 @@ def create_nodes (csv_file):
         obj_dict[each_ter] = each_node
     return obj_dict
 
+"""
 def create_special_nodes (csv, special_csv):
     i = 0
     obj_dict = {}
-    main_dict = get_nodes_data_dict(csv)
+    #main_dict = get_nodes_data_dict(csv)
     special_dict = get_nodes_data_dict(special_csv)
     for each_entry in special_dict:
-        # parent node info
-        main_name, main_info = indiv_info(each_entry, main_dict)
+        parent_name = each_entry[:3]
+        parent_node = special_dict[parent_name]
         # sibling node info; use even/odd to determine which line of csv is sibling node
         if (i + 1) % 2 == 0:
-            sibling_name, sibling_info = dict_indiv_ter(special_csv, i - 1)
+            sibling_node = obj_dict[parent_name]
         else:
             sibling_name, sibling_info = dict_indiv_ter(special_csv, i + 1)
         each_node = Coastal_Node(each_entry, special_dict[each_entry])
-        each_node.get_main(main_name, main_info)
+        each_node.assign_parent(parent_node)
         each_node.get_sibling(sibling_name, sibling_info)
         obj_dict[each_entry] = each_node
         i += 1
     return obj_dict
+"""
+
+
+def create_special_nodes (main_nodes, special_csv):
+    i = 0
+    obj_dict = {}
+    special_dict = get_nodes_data_dict(special_csv)
+    for each_entry in special_dict:
+        # parent node info
+        main_name, main_info = dict_indiv_ter(special_csv, i)
+        # sibling node info; use even/odd to determine which line of csv is sibling node
+        """
+        if (i + 1) % 2 == 0:
+            sibling_name, sibling_info = dict_indiv_ter(special_csv, i - 1)
+        else:
+            sibling_name, sibling_info = dict_indiv_ter(special_csv, i + 1)
+        """
+        each_node = Coastal_Node(each_entry, special_dict[each_entry])
+        parent_name = each_node.name[:3]
+        parent_obj = main_nodes[parent_name]
+        each_node.assign_parent(parent_obj)
+        #each_node.assign_sibling(special_dict)
+        obj_dict[each_entry] = each_node
+        i += 1
+    return obj_dict
+
+def assign_sibling_nodes(nodes_coastal_dict):
+    for each_coastal in nodes_coastal_dict:
+        nodes_coastal_dict[each_coastal].assign_sibling(nodes_coastal_dict)
+    return nodes_coastal_dict
 
 def create_graph (node_dict):
     territory_graph = GraphVisualization()
