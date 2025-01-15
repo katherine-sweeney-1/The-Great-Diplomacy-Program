@@ -21,16 +21,19 @@ def get_commander(cmd_unit):
     return cmdr_obj
 """
 
-def create_commands(commands_starting_data, commanders, units):   # function uses nested dictionary data
+def create_commands(commands_starting_data, commanders, units, nodes):   # function uses nested dictionary data
     cmds_dict = {}
     for each_cmd in commands_starting_data: 
         cmd_info = commands_starting_data[each_cmd]
-        one_cmd = Command(each_cmd, cmd_info)
+        one_cmd = Command(commands_starting_data[each_cmd]["country"])
         #cmdr_obj = get_commander()
         #print(each_cmd, "COMMAND")
-        one_cmd.assign_country(commands_starting_data[each_cmd]["country"])
+        #one_cmd.assign_country(commands_starting_data[each_cmd]["country"])
         one_cmd.assign_cmdr(each_cmd, commanders)
         one_cmd.assign_unit(each_cmd, units)
+        one_cmd.assign_loc(commands_starting_data[each_cmd]["location"], nodes)
+        one_cmd.assign_origin(commands_starting_data[each_cmd]["origin"], nodes)
+        one_cmd.assign_destination(commands_starting_data[each_cmd]["destination"], nodes)
         """
         command_unit = one_cmd.get_unit_obj()
         commander = get_commander(command_unit)

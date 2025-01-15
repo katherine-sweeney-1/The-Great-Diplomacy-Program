@@ -20,18 +20,18 @@ nodes_dict = run_nodes_data_dict(nodes_hard_data)
 """
 class Command ():
 
-    def __init__ (self, cmding_unit, cmd_dict):
+    def __init__ (self, country_string):
         #self.unit = cmding_unit
-        self.loc = cmd_dict["location"]
-        self.origin = cmd_dict["origin"]
-        self.dest = cmd_dict["destination"]
-        #self.country = cmd_dict["country"]
+        #self.loc = cmd_dict["location"]
+        #self.origin = cmd_dict["origin"]
+        #self.dest = cmd_dict["destination"]
+        self.country = country_string
         #self.human = cmd_dict["owner"]
-
+    """
     def assign_country(self, country_string):
         self.country = country_string
         return self.country
-    
+    """
     def assign_cmdr(self, unit_string, commanders):
         for indiv_cmdr in commanders:
             cmdr = commanders[indiv_cmdr]
@@ -47,9 +47,21 @@ class Command ():
         self.unit = units[unit_string]
         return self.unit
     
+    def assign_loc(self, loc_string, nodes):
+        self.loc = nodes[loc_string]
+        return self.loc
+    
+    def assign_origin (self, origin_string, nodes):
+        self.origin = nodes[origin_string]
+        return self.origin
+    
+    def assign_destination (self, dest_string, nodes):
+        self.destination = nodes[dest_string]
+        return self.destination
+    
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))
-
+        print("loc: {}, origin: {}, dest: {}".format(self.loc.name, self.origin.name, self.destination.name))
     """
     def get_commander(cmd_unit):
         for indiv_cmdr in cmdrs_data:

@@ -66,7 +66,7 @@ for each_node in all_nodes:
     else:
         continue
 
-commands = create_commands(cmds_data_1, commanders, units)
+commands = create_commands(cmds_data_1, commanders, units, all_nodes)
 for cmd in commands:
     commands[cmd].print_statement()
 
