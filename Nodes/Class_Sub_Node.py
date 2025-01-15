@@ -18,16 +18,18 @@ class Coastal_Node (Node):
             else:
                 continue
         sibling_node = special_dict[sibling_name]
-        print(sibling_node, "siblings")
+        #print(sibling_node, "siblings")
         self.sibling = sibling_node
         return self.sibling
     
-    def assign_occ_to_family(self, unit):
-        if self.assign_occ != 0:
-            print("hi")
+    def assign_occ_to_family(self):
+        if self.is_occ:
+            self.parent.is_occ = 1
+            self.sibling.is_occ = 1
+        return self
             
-
     def print_statements(self):
         print(" ")
         print("node {} has parent node {} and sibling node {}".format
               (self.name, self.parent.name, self.sibling.name))
+        print("occupied {}, {}, {}".format(self.is_occ, self.parent.is_occ, self.sibling.is_occ))

@@ -22,12 +22,10 @@ Node
 
         => Create special case coastal node object subclass with parent and sibling node functions (2b)
 
-        => Node object has unit object for "is_occ" if a unit object occupies the node (5)
-        
-    To Do
+        => Node object has unit object for "is_occ" if a unit object occupies the node (5a)
 
         => is occupied for node subclass so if one of subclass family nodes is occupied then 
-        all three in the family are occupied
+        all three in the family are occupied (5b)
     
 
 UNIT CLASS

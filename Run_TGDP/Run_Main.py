@@ -8,6 +8,7 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\N
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
 from Functions_Node import assign_sibling_nodes
+from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
@@ -35,6 +36,7 @@ for cmdr in commanders:
 nodes = create_nodes(data_nodes_main)
 nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
 assign_sibling_nodes(nodes_coastal)
+all_nodes = {**nodes, **nodes_coastal}
 #for coastal in nodes_coastal:
     #nodes_coastal[coastal].assign_sibling_nodes(nodes_coastal)
 
@@ -46,20 +48,23 @@ for cmdr in commanders:
     cmdr.retrieve_dots_owned(dots_owned_strings, nodes, nodes_coastal)
     #cmdr.print_statements()
 
-"""
+
 for unit in units:
     unit_obj = units[unit]
     occupied_node = unit_obj.loc
     occupied_node.assign_occ(unit_obj)
-"""
 
 
-"""
-for node in nodes:
-    nodes[node].print_statements()
-for coastal in nodes_coastal:
-    nodes_coastal[coastal].print_statements()
-"""
+for each_node in all_nodes:
+    if isinstance (all_nodes[each_node], Coastal_Node):
+        all_nodes[each_node].assign_occ_to_family()
+    else:
+        continue
+
+
+
+for node in all_nodes:
+    all_nodes[node].print_statements()
 
 
 
