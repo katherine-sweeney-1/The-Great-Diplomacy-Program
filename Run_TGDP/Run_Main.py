@@ -1,9 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
-from Functions_Unit import create_unit
+#from Functions_Unit import create_unit
 from Functions_Unit import retrieve_units_dict
-from Hard_Data_Units import units_data_1
+#from Hard_Data_Units import units_data_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
@@ -13,6 +13,9 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\C
 from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
 from Hard_Data_Commanders import cmdrs_data_1
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
+from Hard_Data_Commands import cmds_data_1
+from Functions_Command import create_commands
 """
 from Run_Functions import loc_unit_dict
 from Run_Functions import attribute_nodes_unit_objs
@@ -41,8 +44,10 @@ all_nodes = {**nodes, **nodes_coastal}
     #nodes_coastal[coastal].assign_sibling_nodes(nodes_coastal)
 
 units = {}
-for cmdr in commanders:
-    unit_members_strings, dots_owned_strings = retrieve_cmdr_strings(cmdr.human, cmdrs_data_1)
+for each_commander in commanders:
+    cmdr = commanders[each_commander]
+    unit_members_strings, dots_owned_strings, country_string = retrieve_cmdr_strings(cmdr.human, cmdrs_data_1)
+    cmdr.assign_country(country_string)
     cmdr.add_units(unit_members_strings, nodes, nodes_coastal)
     retrieve_units_dict(units, cmdr)
     cmdr.retrieve_dots_owned(dots_owned_strings, nodes, nodes_coastal)
@@ -61,11 +66,14 @@ for each_node in all_nodes:
     else:
         continue
 
+commands = create_commands(cmds_data_1, commanders, units)
+for cmd in commands:
+    commands[cmd].print_statement()
 
-
+"""
 for node in all_nodes:
     all_nodes[node].print_statements()
-
+"""
 
 
 

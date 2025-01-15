@@ -73,7 +73,7 @@ cmds_data_1 = {
         "location" : "Mos",
         "origin" : "Mos",
         "destination" : "Ukr",
-        "country" : "AU",           # test for wrong country
+        "country" : "RU",           # test for wrong country
         "owner" : "Michael"
     },
     "RU03": {                       # support 

@@ -21,6 +21,10 @@ class Commander ():
         self.unit_members = {}                    # unit object
         #self.own_dots = cmdr_info["Dots Owned"]                          # node object
 
+    def assign_country(self, country_string):
+        self.country = country_string
+        return self.country
+    
     def add_units(self, strings_list, nodes_dict, nodes_coastal_dict):
         unit_members = {}
         for each_unit_string in strings_list:
@@ -59,8 +63,8 @@ class Commander ():
     def print_statements(self):
         #print("commander {} has units {}".format(self.human, self.unit_members))
         for each_unit in self.unit_members:
-            print("commander {} has unit {} in location {}".
-                  format(self.human, each_unit, self.unit_members[each_unit].loc.name))
+            print("commander {} for country {} has unit {} in location {}".
+                  format(self.human, self.country, each_unit, self.unit_members[each_unit].loc.name))
             print("unit {} has commander {}".format(each_unit, self.unit_members[each_unit].cmdr.human))
             print("owned dots are {}".format(self.dots_owned))
         print(" ")
