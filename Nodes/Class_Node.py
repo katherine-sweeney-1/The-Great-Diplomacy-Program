@@ -1,9 +1,10 @@
 import sys
 import os
 
+"""
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Helper_Functions"))
 from Run_Units_Loc_Obj_Dict import run_units_loc_obj_dict
-
+"""
 class Node ():
     
     def __init__ (self, node_name, node_info):

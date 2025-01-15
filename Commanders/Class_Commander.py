@@ -11,8 +11,6 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\U
 from Functions_Unit import create_unit
 #from Hard_Data_Units import units_data_1 as starting_data_units
 
-data = "data/Data_Ter_Main.csv"
-data_special_nodes = "data/Data_Ter_Special_Coasts.csv"
 
 class Commander ():
 

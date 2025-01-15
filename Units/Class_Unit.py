@@ -1,3 +1,4 @@
+"""
 import sys
 import os
 
@@ -9,7 +10,7 @@ from Class_Node import Node
 
 data = "data/Data_Ter_Main.csv"
 data_special_cases = "data/Data_Ter_Special_Coasts.csv"
-
+"""
 class Unit ():
     
     def __init__ (self, unit_id, unit_type):
