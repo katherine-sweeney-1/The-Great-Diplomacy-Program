@@ -10,7 +10,6 @@ class Coastal_Node (Node):
         return self.parent
     
     def assign_sibling(self, special_dict):
-        #self.sibling_obj = Node(sibling_name, sibling_info)
         for each_ter in special_dict:
             if self.name[:3] in each_ter and self.name != each_ter:
                 sibling_name = each_ter
@@ -18,7 +17,6 @@ class Coastal_Node (Node):
             else:
                 continue
         sibling_node = special_dict[sibling_name]
-        #print(sibling_node, "siblings")
         self.sibling = sibling_node
         return self.sibling
     
