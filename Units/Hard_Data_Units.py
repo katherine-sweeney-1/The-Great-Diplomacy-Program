@@ -18,6 +18,12 @@ units_data_1 = {
         "command" : "filler",
         "country" : "UK"
     },
+    "UK04": {
+        "type" : "fleet",
+        "loc" : "Nth",
+        "command" : "filler",
+        "country" : "UK"
+    },
     "FR01": {
         "type" : "army",
         "loc" : "Par",

@@ -29,6 +29,9 @@ class Command ():
     def assign_destination (self, dest_string, nodes):
         self.destination = nodes[dest_string]
         return self.destination
+
+    def legal_command (self, filter_value):
+        self.legal = filter_value
     
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

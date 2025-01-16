@@ -9,6 +9,9 @@ from Functions_Node import assign_sibling_nodes
 from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import retrieve_cmdr_strings
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
+from Functions_Filter import filter_unit_type
+
 
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
@@ -40,3 +43,7 @@ def update_units(units):
         occupied_node = unit_obj.loc
         occupied_node.assign_occ(unit_obj)
     return units
+
+def run_filter_commands(commands):
+    commands = filter_unit_type(commands)
+    return commands

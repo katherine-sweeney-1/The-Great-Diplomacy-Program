@@ -20,6 +20,13 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
+    "UK04": {                       # attack  test fleet to inland
+        "location" : "Nth",
+        "origin" : "Nth",
+        "destination" : "Ruh",
+        "country": "UK",
+        "owner" : "Katherine"
+    },
     "FR01": {                       # attack 
         "location" : "Par",
         "origin" : "Bre",
@@ -72,8 +79,8 @@ cmds_data_1 = {
     "RU02": {                       # attack
         "location" : "Mos",
         "origin" : "Mos",
-        "destination" : "Ukr",
-        "country" : "RU",           # test for wrong country
+        "destination" : "Bla",
+        "country" : "RU",           
         "owner" : "Michael"
     },
     "RU03": {                       # support 
@@ -81,7 +88,7 @@ cmds_data_1 = {
         "origin" : "Mos",
         "destination" : "Ukr",
         "country" : "RU",
-        "owner" : "Adam"            # test for wrong owner
+        "owner" : "Michael"            # test for wrong owner eventually
     },
     "RU04": {                       # hold
         "location" : "Sev",
