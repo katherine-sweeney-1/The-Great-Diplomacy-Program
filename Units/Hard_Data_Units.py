@@ -1,0 +1,81 @@
+units_data_1 = {
+
+    "UK01": {
+        "type" : "fleet",
+        "loc" : "Lon",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK02": {
+        "type" : "fleet",
+        "loc" : "Edi",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK03": {
+        "type" : "army",
+        "loc" : "Lvp",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "FR01": {
+        "type" : "army",
+        "loc" : "Par",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "FR02": {
+        "type" : "army",
+        "loc" : "Mar",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "FR03": {
+        "type" : "fleet",
+        "loc" : "Bre",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "GE01": {
+        "type" : "fleet",
+        "loc" : "Kie",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE02": {
+        "type" : "army",
+        "loc" : "Ber",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE03": {
+        "type" : "army",
+        "loc" : "Mun",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "RU01": {
+        "type" : "fleet",
+        "loc" : "Stp-SC",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU02": {
+        "type" : "army",
+        "loc" : "Mos",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU03": {
+        "type" : "army",
+        "loc" : "War",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU04": {
+        "type" : "fleet",
+        "loc" : "Sev",
+        "command" : "filler",
+        "country" : "RU"
+    },
+}
