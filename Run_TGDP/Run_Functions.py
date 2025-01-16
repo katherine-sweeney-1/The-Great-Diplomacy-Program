@@ -6,6 +6,7 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\N
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
 from Functions_Node import assign_sibling_nodes
+from Functions_Node import retrieve_nbrs_string
 from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import retrieve_cmdr_strings
@@ -18,6 +19,9 @@ def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
     assign_sibling_nodes(nodes_coastal)
     all_nodes = {**nodes, **nodes_coastal}
+    for each_node in all_nodes:
+        nbrs_string = retrieve_nbrs_string(each_node, all_nodes, data_nodes_main, data_nodes_coastal)
+        all_nodes[each_node].assign_nbrs(all_nodes, nbrs_string)
     return all_nodes
 
 def update_commanders(commanders, nodes, cmdrs_data, units_data):

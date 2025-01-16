@@ -67,6 +67,27 @@ def assign_sibling_nodes(nodes_coastal_dict):
         nodes_coastal_dict[each_coastal].assign_sibling(nodes_coastal_dict)
     return nodes_coastal_dict
 
+
+def retrieve_nbrs_strings(human, commanders_starting_data):
+    for each_key in commanders_starting_data:
+        if each_key == human:
+            members = commanders_starting_data[each_key]["Unit Members"]
+            dots_owned = commanders_starting_data[each_key]["Dots Owned"]
+            country = commanders_starting_data[each_key]["Country"]
+            break
+    return members, dots_owned, country
+
+def retrieve_nbrs_string(node_name, node_obj, nodes_data, nodes_coastal_data):
+    nodes_data_dict = get_nodes_data_dict(nodes_data)
+    nodes_coastal_data_dict = get_nodes_data_dict(nodes_coastal_data)
+    if "-" in node_name:
+        nbrs_string = nodes_coastal_data_dict[node_name]["Neighbors"]
+    else:
+        nbrs_string = nodes_data_dict[node_name]["Neighbors"]
+    nbrs_string = nbrs_string.split(" ")
+    return nbrs_string
+
+
 def create_graph (node_dict):
     territory_graph = GraphVisualization()
     for territory in node_dict:

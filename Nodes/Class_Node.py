@@ -17,12 +17,21 @@ class Node ():
     def assign_occ(self, unit):
         self.is_occ = unit
         return self.is_occ
+    
+    def assign_nbrs(self, nodes, nbrs_string):
+        nbrs_dict = {}
+        for each_nbr in nbrs_string:
+            nbr = nodes[each_nbr]
+            nbrs_dict[each_nbr] = nbr
+        self.nbrs = nbrs_dict
+        return self.nbrs
 
     def print_statements (self):
-        print("Territory {} / {} is owned by {} with neighbors {}"
-              .format(self.name, self.full_name, self.country, self.nbrs))
-        print("Territory {} has dot status {} and hsc status {} and occupied status {}"
-              .format(self.name, self.dot, self.hsc, self.is_occ))
+        print("Territory {} / {}, owner: {}"
+              .format(self.name, self.full_name, self.country))
+        print("dot status: {}, hsc status {},occupied status {}"
+              .format(self.dot, self.hsc, self.is_occ))
+        print("neighbors: {}".format(self.nbrs))
         print("   ")
 
 
