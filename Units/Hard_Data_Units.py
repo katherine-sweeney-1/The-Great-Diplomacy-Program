@@ -42,6 +42,12 @@ units_data_1 = {
         "command" : "filler",
         "country" : "FR"
     },
+    "FR04": {
+        "type" : "army",
+        "loc" : "Pic",
+        "command" : "filler",
+        "country" : "FR"
+    },
     "GE01": {
         "type" : "fleet",
         "loc" : "Kie",
@@ -84,4 +90,10 @@ units_data_1 = {
         "command" : "filler",
         "country" : "RU"
     },
+    "RU05": {
+        "type" : "fleet",
+        "loc" : "Aeg",
+        "command" : "filler",
+        "country" : "RU"
+    }
 }

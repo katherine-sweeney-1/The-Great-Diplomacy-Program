@@ -13,7 +13,7 @@ from Run_Functions import run_create_nodes
 from Run_Functions import coastal_node_assign_occ
 from Run_Functions import update_commanders
 from Run_Functions import update_units
-from Run_Functions import filter_unit_type
+from Run_Functions import run_filter_commands
 
 data_nodes_main = "data/Data_Ter_Main.csv"
 data_nodes_coastal = "data/Data_Ter_Special_Coasts.csv"
@@ -30,7 +30,7 @@ nodes = coastal_node_assign_occ(nodes)
 
 commands = create_commands(cmds_data_1, commanders, units, nodes)
 
-commands = filter_unit_type(commands)
+commands = run_filter_commands(commands, nodes)
 
 
 """

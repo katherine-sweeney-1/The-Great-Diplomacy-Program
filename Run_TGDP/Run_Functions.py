@@ -12,7 +12,7 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\C
 from Functions_Commander import retrieve_cmdr_strings
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
 from Functions_Filter import filter_unit_type
-
+from Functions_Filter import filter_neighbors
 
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
@@ -48,6 +48,9 @@ def update_units(units):
         occupied_node.assign_occ(unit_obj)
     return units
 
-def run_filter_commands(commands):
-    commands = filter_unit_type(commands)
+def run_filter_commands(commands, nodes):
+    for cmding_unit in commands:
+        cmd_obj = commands[cmding_unit]
+        cmd_obj = filter_unit_type(cmd_obj, cmding_unit)
+        cmd_obj = filter_neighbors(cmd_obj, nodes)
     return commands

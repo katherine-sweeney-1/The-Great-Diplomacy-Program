@@ -13,14 +13,14 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK03": {                       # attack  test for unit not in commander's members
+    "UK03": {                       # EEROR attack  test for non neighbor destination
         "location" : "Lvp",
         "origin" : "Lvp",
         "destination" : "Lon",
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK04": {                       # attack  test fleet to inland
+    "UK04": {                       # ERROR attack  test fleet to inland
         "location" : "Nth",
         "origin" : "Nth",
         "destination" : "Ruh",
@@ -45,6 +45,13 @@ cmds_data_1 = {
         "location" : "Bre",
         "origin" : "Bre",
         "destination" : "Bre",
+        "country" : "FR",
+        "owner" : "Mercy"
+    },
+    "FR04": {                       # ERROR test army to sea
+        "location" : "Pic",
+        "origin" : "Pic",
+        "destination" : "Eng",
         "country" : "FR",
         "owner" : "Mercy"
     },
@@ -76,7 +83,7 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # attack
+    "RU02": {                       # ERROR army attack sea
         "location" : "Mos",
         "origin" : "Mos",
         "destination" : "Bla",
@@ -88,7 +95,7 @@ cmds_data_1 = {
         "origin" : "Mos",
         "destination" : "Ukr",
         "country" : "RU",
-        "owner" : "Michael"            # test for wrong owner eventually
+        "owner" : "Michael"            
     },
     "RU04": {                       # hold
         "location" : "Sev",
@@ -97,6 +104,13 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
+    "RU05": {                       # hold
+        "location" : "Aeg",
+        "origin" : "Aeg",
+        "destination" : "Bul-EC",
+        "country" : "RU",
+        "owner" : "Michael"
+    }
 
 }
 

@@ -4,7 +4,7 @@ class Node ():
         self.name = node_name
         self.full_name = node_info["Full Name"]
         self.node_type = node_info["Type"]
-        self.nbrs = node_info["Neighbors"]
+        #self.nbrs = node_info["Neighbors"]
         self.country = node_info["Country"]
         self.dot = node_info["Dot"]
         self.hsc = node_info["Home SupCenter"]
