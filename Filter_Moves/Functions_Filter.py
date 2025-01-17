@@ -3,21 +3,26 @@ import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Class_Sub_Node import Coastal_Node
 
+def filter_owner(cmd, cmdrs, units):
+    cmd_instructor = cmd.human.human
+    if cmd.legal == 0:
+        cmd.legal = "owner type error - unit does not exist"
+    elif cmd.unit.id in cmdrs[cmd_instructor].unit_members.keys():
+        cmd.legal = cmd.legal
+    else:
+        cmd.legal = "owner type error - command for wrong country"
+        #cmd.legal = 0
+    return cmd
 
-def filter_unit_type(cmd, cmding_unit):
-    filter_value = 1
-        # armies cannot have sea destinations
+def filter_unit_type(cmd):
     if cmd.unit.type == "army":
         if cmd.destination.node_type == "Sea":
-            #filter_value = 0
-            filter_value = "unit type error"
-        # fleets cannot have inland destinations
+            cmd.legal = "unit type error - army attempts move to sea"
+            #cmd.legal = 0
     else:
         if cmd.destination.node_type == "Land":
-            #filter_value = 0
-            filter_value = "unit type error"
-    #print(cmding_unit.id, filter_value)
-    cmd.legal_command(filter_value)
+            cmd.legal = "unit type error - fleet attempts move to inland"
+            #cmd.legal = 0
     return cmd
 
 def filter_neighbors(cmd, nodes):
@@ -32,9 +37,8 @@ def filter_neighbors(cmd, nodes):
             cmd.legal = cmd.legal
         else:
             cmd.legal = "neighboring territory error, coastal edition"
+            #cmd.legal = 0
     else:
         cmd.legal = "neighboring territory error"
-        #filter_value = 0
-    print(cmd.unit.id, cmd.legal)
-    print(" ")
+        #cmd.legal = 0
     return cmd

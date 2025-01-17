@@ -11,6 +11,7 @@ from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import retrieve_cmdr_strings
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
+from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
 from Functions_Filter import filter_neighbors
 
@@ -48,9 +49,23 @@ def update_units(units):
         occupied_node.assign_occ(unit_obj)
     return units
 
-def run_filter_commands(commands, nodes):
+def run_filter_owners(commands, commanders, units):
+    valid_cmds = {}
+    invalid_cmds = {}
     for cmding_unit in commands:
         cmd_obj = commands[cmding_unit]
-        cmd_obj = filter_unit_type(cmd_obj, cmding_unit)
+        cmd_obj = filter_owner(cmd_obj, commanders, units)
+        if cmd_obj.legal != 1:
+            invalid_cmds[cmding_unit] = cmd_obj
+        else:
+            valid_cmds[cmding_unit] = cmd_obj
+    return valid_cmds, invalid_cmds
+
+def run_filter_commands(commands, invalid_cmds, nodes):
+    valid_cmds = {}
+    for cmding_unit in commands:
+        cmd_obj = commands[cmding_unit]
+        cmd_obj = filter_unit_type(cmd_obj)
         cmd_obj = filter_neighbors(cmd_obj, nodes)
-    return commands
+        print(cmd_obj.unit.id, cmd_obj.legal)
+    return valid_cmds

@@ -13,7 +13,7 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK03": {                       # EEROR attack  test for non neighbor destination
+    "UK03": {                       # ERROR attack  test for non neighbor destination
         "location" : "Lvp",
         "origin" : "Lvp",
         "destination" : "Lon",
@@ -21,8 +21,8 @@ cmds_data_1 = {
         "owner" : "Katherine"
     },
     "UK04": {                       # ERROR attack  test fleet to inland
-        "location" : "Nth",
-        "origin" : "Nth",
+        "location" : "Hol",
+        "origin" : "Hol",
         "destination" : "Ruh",
         "country": "UK",
         "owner" : "Katherine"
@@ -48,7 +48,7 @@ cmds_data_1 = {
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "FR04": {                       # ERROR test army to sea
+    "FR04": {                       # ERROR army to sea
         "location" : "Pic",
         "origin" : "Pic",
         "destination" : "Eng",
@@ -76,6 +76,13 @@ cmds_data_1 = {
         "country" : "GE",
         "owner" : "Kamran"
     },
+    "GE04": {                       # support
+        "location" : "Ruh",
+        "origin" : "Ruh",
+        "destination" : "Ruh",
+        "country" : "GE",
+        "owner" : "Kamran"
+    },
     "RU01": {                       # attack
         "location" : "Stp-SC",
         "origin" : "Stp-SC",
@@ -83,12 +90,12 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # ERROR army attack sea
+    "RU02": {                       # ERROR wrong owner 
         "location" : "Mos",
         "origin" : "Mos",
-        "destination" : "Bla",
+        "destination" : "Ukr",
         "country" : "RU",           
-        "owner" : "Michael"
+        "owner" : "Kamran"
     },
     "RU03": {                       # support 
         "location" : "War",
@@ -104,7 +111,7 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU05": {                       # hold
+    "RU05": {                       # ERROR neighbor involving special coasts
         "location" : "Aeg",
         "origin" : "Aeg",
         "destination" : "Bul-EC",

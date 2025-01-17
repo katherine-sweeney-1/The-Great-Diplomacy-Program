@@ -20,7 +20,7 @@ units_data_1 = {
     },
     "UK04": {
         "type" : "fleet",
-        "loc" : "Nth",
+        "loc" : "Hol",
         "command" : "filler",
         "country" : "UK"
     },

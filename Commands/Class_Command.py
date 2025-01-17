@@ -2,20 +2,18 @@ class Command ():
 
     def __init__ (self, country_string):
         self.country = country_string
+        self.legal = 1
 
-    def assign_cmdr(self, unit_string, commanders):
-        for indiv_cmdr in commanders:
-            cmdr = commanders[indiv_cmdr]
-            unit_members = cmdr.unit_members
-            if unit_string in unit_members.keys():
-                self.human = cmdr
-                break
-            else:
-                continue
+    def assign_cmdr(self, cmding_owner, commanders):
+        self.human = commanders[cmding_owner]
         return self.human
     
     def assign_unit(self, unit_string, units):
-        self.unit = units[unit_string]
+        if unit_string in units:
+            self.unit = units[unit_string]
+        else:
+            self.legal = 0
+            self.unit = 0
         return self.unit
     
     def assign_loc(self, loc_string, nodes):

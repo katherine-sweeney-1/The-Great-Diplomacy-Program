@@ -13,6 +13,7 @@ from Run_Functions import run_create_nodes
 from Run_Functions import coastal_node_assign_occ
 from Run_Functions import update_commanders
 from Run_Functions import update_units
+from Run_Functions import run_filter_owners
 from Run_Functions import run_filter_commands
 
 data_nodes_main = "data/Data_Ter_Main.csv"
@@ -30,7 +31,9 @@ nodes = coastal_node_assign_occ(nodes)
 
 commands = create_commands(cmds_data_1, commanders, units, nodes)
 
-commands = run_filter_commands(commands, nodes)
+valid_commands, invalid_commands = run_filter_owners(commands, commanders, units)
+
+valid_commands = run_filter_commands(valid_commands, invalid_commands, nodes)
 
 
 """
@@ -45,7 +48,7 @@ for node in nodes:
 
 for cmd in commands:
     commands[cmd].print_statement()
-    print(commands[cmd].legal)
+    #print(commands[cmd].legal)
 """
 
 
