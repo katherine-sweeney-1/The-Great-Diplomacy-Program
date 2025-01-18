@@ -1,7 +1,5 @@
 import sys
 import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
-from Functions_Unit import retrieve_units_dict
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
@@ -34,6 +32,7 @@ def update_commanders(commanders, nodes, cmdrs_data, units_data):
         unit_members_strings, dots_owned_strings, country_string = retrieve_cmdr_strings(cmdr.human, cmdrs_data)
         cmdr.assign_country(country_string)
         cmdr.add_units(units_data, unit_members_strings, nodes)
+        units = {**units, **cmdr.unit_members}
         cmdr.retrieve_dots_owned(dots_owned_strings, nodes)
         cmdr.retrieve_hsc(dots_owned_strings, nodes)
     return commanders, units
@@ -46,24 +45,22 @@ def coastal_node_assign_occ(all_nodes):
 
 def update_units(units):
     for unit in units:
-        unit_obj = units[unit]
-        occupied_node = unit_obj.loc
-        occupied_node.assign_occ(unit_obj)
+        occupied_node = units[unit].loc
+        occupied_node.assign_occ(units[unit])
     return units
 
 def run_filter_owners(commands, commanders, units):
     valid_cmds = {}
     invalid_cmds = {}
     for cmding_unit in commands:
-        cmd_obj = commands[cmding_unit]
-        cmd_obj = filter_owner(cmd_obj, commanders, units)
+        cmd_obj = filter_owner(commands[cmding_unit], commanders, units)
         if cmd_obj.legal != 1:
             invalid_cmds[cmding_unit] = cmd_obj
         else:
             valid_cmds[cmding_unit] = cmd_obj
     return valid_cmds, invalid_cmds
 
-def run_filter_commands(commands, invalid_cmds, nodes):
+def run_filter_commands(commands, nodes):
     valid_cmds = {}
     for cmding_unit in commands:
         cmd_obj = commands[cmding_unit]

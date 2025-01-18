@@ -1,8 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
-from Class_Sub_Node import Coastal_Node
-
 def filter_owner(cmd, cmdrs, units):
     cmd_instructor = cmd.human.human
     if cmd.legal == 0:
@@ -50,6 +45,4 @@ Support (A): loc A, origin B, dest C
 Support (H): loc A, origin B, dest B
 
 Hold: loc A, origin A, dest A
-
-
 """

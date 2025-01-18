@@ -7,7 +7,11 @@ Commander Class
 
         => Add unit objects to commander's members (4a)
 
-        => Add node_objects to commander's dots_owned (4c)
+        => Add node objects to commander's dots_owned (4c)
+
+        => Add node objects to commander's dots (4d)
+
+        => add node objects to commander's hsc (4e)
 
     To Do
 
@@ -26,6 +30,12 @@ Node
 
         => is occupied for node subclass so if one of subclass family nodes is occupied then 
         all three in the family are occupied (5b)
+
+        => Node dictionary and coastal node dictionary are combined (2c)
+
+        => Node object has dot status (2d)
+        
+        => Node object has home supply center status (2e)
     
 
 UNIT CLASS

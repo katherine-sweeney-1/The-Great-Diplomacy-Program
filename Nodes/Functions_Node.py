@@ -2,16 +2,6 @@ from Class_Node import Node
 from Class_Sub_Node import Coastal_Node
 from Visualize_Node_Class import GraphVisualization
 
-"""
-CVS File Line List - Elements:
-    0 => Abbreviated name (e.g. Mun, Sev)
-    1 => Full name (e.g. Munich, Sevestapol)
-    2 => Type (land, sea, or coast)
-    3 => Neighbors (terrritory abbreviations separated by spaces)
-    4 => Country (e.g. Neutral, Fra, Aus)
-    5 => Dot (True or False)
-    6 => Home SupCenter (True or False)
-"""
 def parse_file (file_name):
     open_file = open(file_name)
     i = 0
@@ -50,7 +40,6 @@ def create_nodes (csv_file):
     return obj_dict
 
 def create_special_nodes (main_nodes, special_csv):
-    i = 0
     obj_dict = {}
     special_dict = get_nodes_data_dict(special_csv)
     for each_entry in special_dict:
@@ -58,7 +47,6 @@ def create_special_nodes (main_nodes, special_csv):
         parent_name = each_node.name[:3]
         parent_obj = main_nodes[parent_name]
         each_node.assign_parent(parent_obj)
-        i += 1
         obj_dict[each_entry] = each_node
     return obj_dict
 
@@ -68,19 +56,15 @@ def assign_sibling_nodes(nodes_coastal_dict):
     return nodes_coastal_dict
 
 def retrieve_node_strings(node_name, nodes_data, nodes_coastal_data):
-    nodes_data_dict = get_nodes_data_dict(nodes_data)
-    nodes_coastal_data_dict = get_nodes_data_dict(nodes_coastal_data)
     if "-" in node_name:
-        nbrs_string = nodes_coastal_data_dict[node_name]["Neighbors"]
-        dots_string = nodes_coastal_data_dict[node_name]["Dot"]
-        hsc_string = nodes_coastal_data_dict[node_name]["Home SupCenter"]
+        node_dictionary = get_nodes_data_dict(nodes_coastal_data)
     else:
-        nbrs_string = nodes_data_dict[node_name]["Neighbors"]
-        dots_string = nodes_data_dict[node_name]["Dot"]
-        hsc_string = nodes_data_dict[node_name]["Home SupCenter"]
+        node_dictionary = get_nodes_data_dict(nodes_data)
+    nbrs_string = node_dictionary[node_name]["Neighbors"]
+    dots_string = node_dictionary[node_name]["Dot"]
+    hsc_string = node_dictionary[node_name]["Home SupCenter"]
     nbrs_string = nbrs_string.split(" ")
     return nbrs_string, dots_string, hsc_string
-
 
 def create_graph (node_dict):
     territory_graph = GraphVisualization()

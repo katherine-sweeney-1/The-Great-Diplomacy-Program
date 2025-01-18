@@ -4,7 +4,6 @@ class Node ():
         self.name = node_name
         self.full_name = node_info["Full Name"]
         self.node_type = node_info["Type"]
-        self.country = node_info["Country"]
         self.is_occ = 0
 
     def parse_nbrs (self):
@@ -38,10 +37,8 @@ class Node ():
         return self.hsc
 
     def print_statements (self):
-        print("Territory {} / {}, owner: {}"
-              .format(self.name, self.full_name, self.country))
-        print("dot status: {}, hsc status {},occupied status {}"
-              .format(self.dot, self.hsc, self.is_occ))
+        print("Territory {} / {}".format(self.name, self.full_name))
+        print("dot status: {}, hsc status {},occupied status {}".format(self.dot, self.hsc, self.is_occ))
         print("neighbors: {}".format(self.nbrs))
         print("   ")
 
