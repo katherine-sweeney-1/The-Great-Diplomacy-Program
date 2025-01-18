@@ -8,11 +8,12 @@ from Hard_Data_Commanders import cmdrs_data_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
 from Functions_Command import create_commands
 from Hard_Data_Commands import cmds_data_1
-
 from Run_Functions import run_create_nodes
 from Run_Functions import coastal_node_assign_occ
 from Run_Functions import update_commanders
 from Run_Functions import update_units
+from Run_Functions import run_filter_owners
+from Run_Functions import run_filter_commands
 
 data_nodes_main = "data/Data_Ter_Main.csv"
 data_nodes_coastal = "data/Data_Ter_Special_Coasts.csv"
@@ -29,6 +30,9 @@ nodes = coastal_node_assign_occ(nodes)
 
 commands = create_commands(cmds_data_1, commanders, units, nodes)
 
+valid_commands, invalid_commands = run_filter_owners(commands, commanders, units)
+
+valid_commands = run_filter_commands(valid_commands, nodes)
 
 
 """
@@ -37,13 +41,13 @@ for cmdr in commanders:
 
 for unit in units:
     units[unit].print_statements()
-
+    
 for node in nodes:
     nodes[node].print_statements()
 
 for cmd in commands:
     commands[cmd].print_statement()
+    #print(commands[cmd].legal)
 """
-
 
 

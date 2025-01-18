@@ -4,10 +4,6 @@ class Node ():
         self.name = node_name
         self.full_name = node_info["Full Name"]
         self.node_type = node_info["Type"]
-        self.nbrs = node_info["Neighbors"]
-        self.country = node_info["Country"]
-        self.dot = node_info["Dot"]
-        self.hsc = node_info["Home SupCenter"]
         self.is_occ = 0
 
     def parse_nbrs (self):
@@ -17,12 +13,33 @@ class Node ():
     def assign_occ(self, unit):
         self.is_occ = unit
         return self.is_occ
+    
+    def assign_nbrs(self, nodes, nbrs_string):
+        nbrs_dict = {}
+        for each_nbr in nbrs_string:
+            nbr = nodes[each_nbr]
+            nbrs_dict[each_nbr] = nbr
+        self.nbrs = nbrs_dict
+        return self.nbrs
+    
+    def assign_dot(self, dot_str):
+        if dot_str == "TRUE":
+            self.dot = True
+        else:
+            self.dot = False
+        return self.dot
+
+    def assign_hsc(self, hsc_str):
+        if hsc_str != "FALSE":
+            self.hsc = hsc_str
+        else:
+            self.hsc = False
+        return self.hsc
 
     def print_statements (self):
-        print("Territory {} / {} is owned by {} with neighbors {}"
-              .format(self.name, self.full_name, self.country, self.nbrs))
-        print("Territory {} has dot status {} and hsc status {} and occupied status {}"
-              .format(self.name, self.dot, self.hsc, self.is_occ))
+        print("Territory {} / {}".format(self.name, self.full_name))
+        print("dot status: {}, hsc status {},occupied status {}".format(self.dot, self.hsc, self.is_occ))
+        print("neighbors: {}".format(self.nbrs))
         print("   ")
 
 
