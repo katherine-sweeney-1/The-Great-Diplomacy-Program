@@ -25,15 +25,26 @@ class Commander ():
         dots_owned = {}
         for each_dot_string in nodes_strings_list:
             node_obj = all_nodes_dict[each_dot_string]
-            dots_owned[each_dot_string] = node_obj
+            if node_obj.dot == True:
+                dots_owned[each_dot_string] = node_obj
         self.dots_owned = dots_owned
         return self.dots_owned
+    
+    def retrieve_hsc(self, nodes_strings_list, all_nodes_dict):
+        hsc = {}
+        for each_ter in nodes_strings_list:
+            node_obj = all_nodes_dict[each_ter]
+            if node_obj.hsc != False:
+                hsc[each_ter] = node_obj
+        self.hsc_nodes = hsc
+        return self.hsc_nodes
 
     def print_statements(self):
         for each_unit in self.unit_members:
             print("commander {} for country {} has unit {} in location {}".
                   format(self.human, self.country, each_unit, self.unit_members[each_unit].loc.name))
             print("unit {} has commander {}".format(each_unit, self.unit_members[each_unit].cmdr.human))
-            print("owned dots are {}".format(self.dots_owned))
+        print("dots owned: {}".format(self.dots_owned))
+        print("hsc: {}".format(self.hsc_nodes))
         print(" ")
         

@@ -5,8 +5,7 @@ from Functions_Unit import retrieve_units_dict
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
-from Functions_Node import assign_sibling_nodes
-from Functions_Node import retrieve_nbrs_string
+from Functions_Node import retrieve_node_strings
 from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
 from Functions_Commander import retrieve_cmdr_strings
@@ -18,11 +17,14 @@ from Functions_Filter import filter_neighbors
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
     nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
-    assign_sibling_nodes(nodes_coastal)
+    for each_coastal in nodes_coastal:
+        nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
     all_nodes = {**nodes, **nodes_coastal}
     for each_node in all_nodes:
-        nbrs_string = retrieve_nbrs_string(each_node, all_nodes, data_nodes_main, data_nodes_coastal)
+        nbrs_string, dots_string, hsc_string = retrieve_node_strings(each_node, data_nodes_main, data_nodes_coastal)
         all_nodes[each_node].assign_nbrs(all_nodes, nbrs_string)
+        all_nodes[each_node].assign_dot(dots_string)
+        all_nodes[each_node].assign_hsc(hsc_string)
     return all_nodes
 
 def update_commanders(commanders, nodes, cmdrs_data, units_data):
@@ -32,8 +34,8 @@ def update_commanders(commanders, nodes, cmdrs_data, units_data):
         unit_members_strings, dots_owned_strings, country_string = retrieve_cmdr_strings(cmdr.human, cmdrs_data)
         cmdr.assign_country(country_string)
         cmdr.add_units(units_data, unit_members_strings, nodes)
-        retrieve_units_dict(units, cmdr)
         cmdr.retrieve_dots_owned(dots_owned_strings, nodes)
+        cmdr.retrieve_hsc(dots_owned_strings, nodes)
     return commanders, units
 
 def coastal_node_assign_occ(all_nodes):

@@ -37,10 +37,10 @@ valid_commands, invalid_commands = run_filter_owners(commands, commanders, units
 valid_commands = run_filter_commands(valid_commands, invalid_commands, nodes)
 
 
-"""
+
 for cmdr in commanders:
     commanders[cmdr].print_statements()
-
+"""
 for unit in units:
     units[unit].print_statements()
 
