@@ -26,19 +26,30 @@ def filter_unit_type(cmd):
     return cmd
 
 def filter_neighbors(cmd, nodes):
-    goal_destination = cmd.destination
-    neighboring_nodes = nodes[cmd.loc.name].nbrs
-    if goal_destination.name in neighboring_nodes.keys() or goal_destination.name == cmd.loc.name:
+    loc_nbrs = nodes[cmd.loc.name].nbrs
+    origin_nbrs = nodes[cmd.origin.name].nbrs
+    # attacks and supports for attacks
+    if cmd.destination.name in loc_nbrs.keys() and cmd.destination.name in origin_nbrs.keys():
         cmd.legal = cmd.legal
-    elif isinstance (goal_destination, Coastal_Node) and cmd.unit.type == "army":
-        parent_neighbors = goal_destination.parent.nbrs
-        sibling_neighbors = goal_destination.sibling.nbrs
-        if goal_destination.name in parent_neighbors or goal_destination.name in sibling_neighbors:
-            cmd.legal = cmd.legal
-        else:
-            cmd.legal = "neighboring territory error, coastal edition"
-            #cmd.legal = 0
+    # support holds
+    elif cmd.destination.name in loc_nbrs.keys() and cmd.destination.name == cmd.origin.name:
+        cmd.legal = cmd.legal
+    # holds
+    elif cmd.destination.name == cmd.loc.name:
+        cmd.legal = cmd.legal
     else:
         cmd.legal = "neighboring territory error"
         #cmd.legal = 0
     return cmd
+
+"""
+Attack: loc A, origin A, dest C
+
+Support (A): loc A, origin B, dest C
+
+Support (H): loc A, origin B, dest B
+
+Hold: loc A, origin A, dest A
+
+
+"""

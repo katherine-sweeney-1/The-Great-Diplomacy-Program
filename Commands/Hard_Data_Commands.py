@@ -34,10 +34,10 @@ cmds_data_1 = {
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "FR02": {                       # attack
+    "FR02": {                       # CHECK army to coast case
         "location" : "Mar",                     
         "origin" : "Mar",
-        "destination" : "Spa-SC",
+        "destination" : "Spa",
         "country" : "FR",
         "owner" : "Mercy"
     },
@@ -52,6 +52,13 @@ cmds_data_1 = {
         "location" : "Pic",
         "origin" : "Pic",
         "destination" : "Eng",
+        "country" : "FR",
+        "owner" : "Mercy"
+    },
+    "FR05": {                       # CHECK army on south/north coast
+        "location" : "Spa",                     
+        "origin" : "Spa",
+        "destination" : "Gas",
         "country" : "FR",
         "owner" : "Mercy"
     },
@@ -90,12 +97,12 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # ERROR wrong owner 
+    "RU02": {                       # CHECK support holds
         "location" : "Mos",
-        "origin" : "Mos",
-        "destination" : "Ukr",
+        "origin" : "Sev",
+        "destination" : "Sev",
         "country" : "RU",           
-        "owner" : "Kamran"
+        "owner" : "Michael"
     },
     "RU03": {                       # support 
         "location" : "War",
@@ -111,12 +118,12 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU05": {                       # ERROR neighbor involving special coasts
+    "RU05": {                       # ERROR wrong owner
         "location" : "Aeg",
         "origin" : "Aeg",
         "destination" : "Bul-EC",
         "country" : "RU",
-        "owner" : "Michael"
+        "owner" : "Kamran"
     }
 
 }

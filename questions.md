@@ -34,20 +34,48 @@ UNIT CLASS
 
         => Create unit objects (3a)
 
-        => Assign location (node object) to unit object (3b)
+        => Assign location as a node object to unit object (3b)
 
         => Assign commander to unit object (3c)
 
         => Create unit dictionary (4b)
+
 
     To Do
 
         => Add unit.command function? 
 
 
+COMMAND CLASS
 
-Command Class
+    Completed
 
+        => Create command objects (6a)
+
+        => Assign commander object to command object (6b)
+
+        => Assign location, origin, and destination as node objects to command object (6c)
+    
+        => Assign unit object to command object (6d)
+
+
+FILTERING MOVES
+
+    Completed
+
+        => Unit must exist
+
+        => Unit for command must belong to correct human
+
+        => Fleets must move to coast or seas
+
+        => Armies must move to coast or inland
+
+        => Location and destination must be neighbors (need to do origin and destination)
+
+        => Location and destination must be neighbors and origin and destination must be neighbors
+
+    To Do
 
 
 
@@ -57,7 +85,7 @@ Eventually (do not forget)
 
     Storing moves in SQL table 
 
-    Graph bullshit
+    Map GUI
 
     Check what territories people own, lost, occupy, etc. (make that it's own thing and not part of the commander class)
 
@@ -66,8 +94,6 @@ NOTES
 
     Every property between two objects is bidirectional
 
-
-    Fucked up with making new objects instead of using ones I already created
 
 
 Notes on Rules

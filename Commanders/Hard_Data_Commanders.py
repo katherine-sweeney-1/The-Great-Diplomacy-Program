@@ -5,7 +5,7 @@ cmdrs_data_1 = {
                    },
 
     "Mercy" : {"Country": "FR", 
-                   "Unit Members": ["FR01", "FR02", "FR03", "FR04"],
+                   "Unit Members": ["FR01", "FR02", "FR03", "FR04", "FR05"],
                    "Dots Owned": ["Par", "Mar", "Bre"]
                    },
 

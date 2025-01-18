@@ -48,6 +48,12 @@ units_data_1 = {
         "command" : "filler",
         "country" : "FR"
     },
+    "FR05": {
+        "type" : "army",
+        "loc" : "Spa-SC",
+        "command" : "filler",
+        "country" : "FR"
+    },
     "GE01": {
         "type" : "fleet",
         "loc" : "Kie",
