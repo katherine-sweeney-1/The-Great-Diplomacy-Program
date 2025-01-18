@@ -1,33 +1,40 @@
 cmds_data_1 = {
     "UK01": {
-        "location" : "Lon",              # attack
+        "location" : "Lon",              # attack to sea
         "origin" : "Lon",
         "destination" : "Nth",
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK02": {                       # support
-        "location" : "Edi",
-        "origin" : "Lon",
-        "destination" : "Nth",
-        "country": "UK",
-        "owner" : "Katherine"
-    },
-    "UK03": {                       # ERROR attack  test for non neighbor destination
+    "UK02": {                       # ERROR attack  test for non neighbor destination
         "location" : "Lvp",
         "origin" : "Lvp",
         "destination" : "Lon",
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK04": {                       # ERROR attack  test fleet to inland
+    "UK03": {                       # ERROR attack  test fleet to inland
         "location" : "Hol",
         "origin" : "Hol",
         "destination" : "Ruh",
         "country": "UK",
         "owner" : "Katherine"
     },
-    "FR01": {                       # attack 
+    "UK04": {                       # support attack
+        "location" : "Edi",
+        "origin" : "Lon",
+        "destination" : "Nth",
+        "country": "UK",
+        "owner" : "Katherine"
+    },
+    "UK05": {                       # ERROR army on coast supports sea move
+        "location" : "Den",
+        "origin" : "Lon",
+        "destination" : "Nth",
+        "country": "UK",
+        "owner" : "Katherine"
+    },
+    "FR01": {                       # support hold
         "location" : "Par",
         "origin" : "Bre",
         "destination" : "Bre",
@@ -76,21 +83,21 @@ cmds_data_1 = {
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE03": {                       # support
+    "GE03": {                       # support attack
         "location" : "Mun",
         "origin" : "Ber",
         "destination" : "Kie",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE04": {                       # support
+    "GE04": {                       # hold
         "location" : "Ruh",
         "origin" : "Ruh",
         "destination" : "Ruh",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "RU01": {                       # attack
+    "RU01": {                       # attack 
         "location" : "Stp-SC",
         "origin" : "Stp-SC",
         "destination" : "Bot",

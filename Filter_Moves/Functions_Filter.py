@@ -17,11 +17,11 @@ def filter_owner(cmd, cmdrs, units):
 def filter_unit_type(cmd):
     if cmd.unit.type == "army":
         if cmd.destination.node_type == "Sea":
-            cmd.legal = "unit type error - army attempts move to sea"
+            cmd.legal = "unit type error - army attempts move directed at sea"
             #cmd.legal = 0
     else:
         if cmd.destination.node_type == "Land":
-            cmd.legal = "unit type error - fleet attempts move to inland"
+            cmd.legal = "unit type error - fleet attempts move directed at inland"
             #cmd.legal = 0
     return cmd
 

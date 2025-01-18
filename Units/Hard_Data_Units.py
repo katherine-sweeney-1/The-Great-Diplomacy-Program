@@ -7,20 +7,26 @@ units_data_1 = {
         "country" : "UK"
     },
     "UK02": {
-        "type" : "fleet",
-        "loc" : "Edi",
-        "command" : "filler",
-        "country" : "UK"
-    },
-    "UK03": {
         "type" : "army",
         "loc" : "Lvp",
         "command" : "filler",
         "country" : "UK"
     },
-    "UK04": {
+    "UK03": {
         "type" : "fleet",
         "loc" : "Hol",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK04": {
+        "type" : "fleet",
+        "loc" : "Edi",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK05": {
+        "type" : "army",
+        "loc" : "Den",
         "command" : "filler",
         "country" : "UK"
     },
