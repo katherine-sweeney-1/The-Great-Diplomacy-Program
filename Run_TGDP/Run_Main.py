@@ -1,39 +1,26 @@
 import sys
 import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
-from Hard_Data_Units import units_data_1
+from Hard_Data_Units import units_data_1 as units_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
-from Functions_Commander import create_commanders
-from Hard_Data_Commanders import cmdrs_data_1
+from Hard_Data_Commanders import cmdrs_data_1 as cmdrs_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
-from Functions_Command import create_commands
-from Hard_Data_Commands import cmds_data_1
-from Run_Functions import run_create_nodes
-from Run_Functions import coastal_node_assign_occ
-from Run_Functions import update_commanders
-from Run_Functions import update_units
-from Run_Functions import run_filter_owners
-from Run_Functions import run_filter_commands
+from Hard_Data_Commands import cmds_data_1 as cmds_1
+from Run_Functions import tgdp_objs
+from Run_Functions import tgdp_filter_cmds
 
-data_nodes_main = "data/Data_Ter_Main.csv"
-data_nodes_coastal = "data/Data_Ter_Special_Coasts.csv"
+data_nodes = "data/Data_Ter_Main.csv"
+data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-commanders = create_commanders(cmdrs_data_1)
+commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_1, units_1, cmds_1)
 
-nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
+valid_commands = tgdp_filter_cmds(commands, commanders, nodes)
 
-commanders, units = update_commanders(commanders, nodes, cmdrs_data_1, units_data_1)
+"""
 
-units = update_units(units)
+RU05 shouldn't show up and instead has neighbor territory error
 
-nodes = coastal_node_assign_occ(nodes)
-
-commands = create_commands(cmds_data_1, commanders, units, nodes)
-
-valid_commands, invalid_commands = run_filter_owners(commands, commanders, units)
-
-valid_commands = run_filter_commands(valid_commands, nodes)
-
+"""
 
 """
 for cmdr in commanders:
@@ -49,5 +36,3 @@ for cmd in commands:
     commands[cmd].print_statement()
     #print(commands[cmd].legal)
 """
-
-

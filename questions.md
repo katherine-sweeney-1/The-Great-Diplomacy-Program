@@ -88,6 +88,18 @@ FILTERING MOVES
     To Do
 
 
+Processing Moves
+
+    To Do
+
+        => Support - Support must affect a unit that is on the specified territory to be a valid support
+
+        => Support - Count total number of supports
+
+        => Attack - is destination occupied? 
+
+        => Attack - is destination the destination for another attack? 
+
 
 
 
