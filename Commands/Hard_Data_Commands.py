@@ -128,7 +128,7 @@ cmds_data_1 = {
     "RU05": {                       # ERROR wrong owner
         "location" : "Aeg",
         "origin" : "Aeg",
-        "destination" : "Bul-EC",
+        "destination" : "Bul-SC",
         "country" : "RU",
         "owner" : "Kamran"
     }

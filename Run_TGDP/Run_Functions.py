@@ -6,7 +6,10 @@ from Functions_Node import create_special_nodes
 from Functions_Node import retrieve_node_strings
 from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
+from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
+from Functions_Command import create_commands
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
@@ -60,10 +63,21 @@ def run_filter_owners(commands, commanders, units):
             valid_cmds[cmding_unit] = cmd_obj
     return valid_cmds, invalid_cmds
 
-def run_filter_commands(commands, nodes):
+
+def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_data):
+    commanders = create_commanders(cmdrs_data)
+    nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
+    commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
+    units = update_units(units)
+    nodes = coastal_node_assign_occ(nodes)
+    commands = create_commands(cmds_data, commanders, units, nodes)
+    return commands, commanders, nodes, units
+
+def tgdp_filter_cmds(commands, commanders, nodes):
     valid_cmds = {}
     for cmding_unit in commands:
         cmd_obj = commands[cmding_unit]
+        cmd_obj = filter_owner(cmd_obj, commanders)
         cmd_obj = filter_unit_type(cmd_obj)
         cmd_obj = filter_neighbors(cmd_obj, nodes)
         print(cmd_obj.unit.id, cmd_obj.legal)

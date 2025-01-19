@@ -1,8 +1,8 @@
-def filter_owner(cmd, cmdrs, units):
+def filter_owner(cmd, cmdrs):
     cmd_instructor = cmd.human.human
     if cmd.legal == 0:
         cmd.legal = "owner type error - unit does not exist"
-    elif cmd.unit.id in cmdrs[cmd_instructor].unit_members.keys():
+    elif cmd.unit in cmdrs[cmd_instructor].unit_members.values():
         cmd.legal = cmd.legal
     else:
         cmd.legal = "owner type error - command for wrong country"
@@ -21,13 +21,8 @@ def filter_unit_type(cmd):
     return cmd
 
 def filter_neighbors(cmd, nodes):
-    loc_nbrs = nodes[cmd.loc.name].nbrs
-    origin_nbrs = nodes[cmd.origin.name].nbrs
-    # attacks and supports for attacks
-    if cmd.destination.name in loc_nbrs.keys() and cmd.destination.name in origin_nbrs.keys():
-        cmd.legal = cmd.legal
-    # support holds
-    elif cmd.destination.name in loc_nbrs.keys() and cmd.destination.name == cmd.origin.name:
+    # attacks and supports
+    if cmd.loc in cmd.destination.nbrs.values():
         cmd.legal = cmd.legal
     # holds
     elif cmd.destination.name == cmd.loc.name:
@@ -45,4 +40,19 @@ Support (A): loc A, origin B, dest C
 Support (H): loc A, origin B, dest B
 
 Hold: loc A, origin A, dest A
+"""
+
+"""
+    if cmd.unit.type == "fleet" and isinstance (cmd.destination, Coastal_Node):
+        print("yes")
+        print("coastal!!", cmd.destination.name, cmd.loc.name, cmd.destination.nbrs)
+        if cmd.loc in cmd.destination.nbrs.values():
+            print("fuck yes")
+        else:
+            print("oh no bro")
+"""
+
+"""
+elif cmd.loc in cmd.destination.nbrs.values() and cmd.destination.name == cmd.origin.name:
+    cmd.legal = cmd.legal
 """
