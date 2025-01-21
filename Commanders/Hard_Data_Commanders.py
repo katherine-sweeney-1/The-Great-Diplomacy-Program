@@ -10,7 +10,7 @@ cmdrs_data_1 = {
                    },
 
     "Kamran" : {"Country": "GE", 
-                   "Unit Members": ["GE01", "GE02", "GE03"],
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06"],
                    "Dots Owned": ["Mun", "Kie", "Ber"]
                    },
 

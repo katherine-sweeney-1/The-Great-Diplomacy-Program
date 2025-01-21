@@ -3,6 +3,8 @@ class Command ():
     def __init__ (self, country_string):
         self.country = country_string
         self.legal = 1
+        self.strength = 1
+        self.cmd_value = 1
 
     def assign_cmdr(self, cmding_owner, commanders):
         self.human = commanders[cmding_owner]
@@ -27,9 +29,17 @@ class Command ():
     def assign_destination (self, dest_string, nodes):
         self.destination = nodes[dest_string]
         return self.destination
-
+    
     def legal_command (self, filter_value):
         self.legal = filter_value
+    
+    def cmd_strength(self, additional_strength):
+        self.strength = self.strength + additional_strength
+        return self.strength
+    
+    def validity(self, cmd_valid_boolean):
+        self.cmd_value = cmd_valid_boolean
+        return self.cmd_value
     
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

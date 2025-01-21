@@ -78,6 +78,24 @@ units_data_1 = {
         "command" : "filler",
         "country" : "GE"
     },
+    "GE04": {
+        "type" : "army",
+        "loc" : "Lvn",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE05": {
+        "type" : "fleet",
+        "loc" : "Hel",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE06": {
+        "type" : "army",
+        "loc" : "Sil",
+        "command" : "filler",
+        "country" : "GE"
+    },
     "RU01": {
         "type" : "fleet",
         "loc" : "Stp-SC",

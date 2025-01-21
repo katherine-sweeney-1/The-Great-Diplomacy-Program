@@ -20,7 +20,7 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK04": {                       # support attack
+    "UK04": {                       # support attack for UK01
         "location" : "Edi",
         "origin" : "Lon",
         "destination" : "Nth",
@@ -34,7 +34,7 @@ cmds_data_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "FR01": {                       # support hold
+    "FR01": {                       # support hold for FR03
         "location" : "Par",
         "origin" : "Bre",
         "destination" : "Bre",
@@ -83,17 +83,31 @@ cmds_data_1 = {
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE03": {                       # support attack
+    "GE03": {                       # support attack for GE02
         "location" : "Mun",
         "origin" : "Ber",
         "destination" : "Kie",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE04": {                       # hold
-        "location" : "Ruh",
-        "origin" : "Ruh",
-        "destination" : "Ruh",
+    "GE04": {                       # attack supporting unit
+        "location" : "Lvn",
+        "origin" : "Lvn",
+        "destination" : "Mos",
+        "country" : "GE",
+        "owner" : "Kamran"
+    },
+    "GE05": {                       # support a nonexistent move, GE01 moves to holland instead
+        "location" : "Hel",
+        "origin" : "Kie",
+        "destination" : "Den",
+        "country" : "GE",
+        "owner" : "Kamran"
+    },
+    "GE06": {                       # support a nonexistent move, no unit exists on Boh
+        "location" : "Sil",
+        "origin" : "Boh",
+        "destination" : "Boh",
         "country" : "GE",
         "owner" : "Kamran"
     },
@@ -104,14 +118,14 @@ cmds_data_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # CHECK support holds
+    "RU02": {                       # CHECK support holds support is cut by GE04
         "location" : "Mos",
         "origin" : "Sev",
         "destination" : "Sev",
         "country" : "RU",           
         "owner" : "Michael"
     },
-    "RU03": {                       # support 
+    "RU03": {                       # support  for RU04
         "location" : "War",
         "origin" : "Mos",
         "destination" : "Ukr",

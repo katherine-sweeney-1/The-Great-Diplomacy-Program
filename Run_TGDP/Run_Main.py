@@ -8,19 +8,16 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\C
 from Hard_Data_Commands import cmds_data_1 as cmds_1
 from Run_Functions import tgdp_objs
 from Run_Functions import tgdp_filter_cmds
+from Run_Functions import tgdp_process_cmds
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
 commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_1, units_1, cmds_1)
 
-valid_commands = tgdp_filter_cmds(commands, commanders, nodes)
+valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
 
-"""
-
-RU05 shouldn't show up and instead has neighbor territory error
-
-"""
+valid_commands = tgdp_process_cmds(valid_commands)
 
 """
 for cmdr in commanders:
