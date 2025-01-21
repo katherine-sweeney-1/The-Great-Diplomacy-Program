@@ -1,11 +1,10 @@
 import sys
 import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
-from Hard_Data_Units import units_data_1 as units_1
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
-from Hard_Data_Commanders import cmdrs_data_1 as cmdrs_1
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Data_Set_1"))
+from Commanders_1 import cmdrs_1
+from Commands_1 import cmds_1
+from Units_1 import units_1
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
-from Hard_Data_Commands import cmds_data_1 as cmds_1
 from Run_Functions import tgdp_objs
 from Run_Functions import tgdp_filter_cmds
 from Run_Functions import tgdp_process_cmds

@@ -10,11 +10,10 @@ from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
 from Functions_Command import create_commands
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Process_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
 from Functions_Filter import filter_neighbors
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Process_Moves"))
 from Functions_Support import det_valid_support
 
 def run_create_nodes(data_nodes_main, data_nodes_coastal):

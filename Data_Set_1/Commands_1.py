@@ -1,4 +1,4 @@
-cmds_data_1 = {
+cmds_1 = {
     "UK01": {
         "location" : "Lon",              # attack to sea
         "origin" : "Lon",
