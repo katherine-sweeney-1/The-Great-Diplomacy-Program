@@ -15,7 +15,9 @@ data_coastal = "data/Data_Ter_Special_Coasts.csv"
 commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_1, units_1, cmds_1)
 
 valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-
+#for ex in valid_commands:
+ #   legal = valid_commands[ex].legal
+    #print(ex, legal)
 valid_commands = tgdp_process_cmds(valid_commands)
 
 """

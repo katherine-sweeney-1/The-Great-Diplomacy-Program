@@ -90,11 +90,14 @@ FILTERING MOVES
 
 Processing Moves
 
+    Completed
+
+        => Support - Determine valid supports
+
+        => Support - Count total number of supports and add to attacking command's strength
+        
+
     To Do
-
-        => Support - Support must affect a unit that is on the specified territory to be a valid support
-
-        => Support - Count total number of supports
 
         => Attack - is destination occupied? 
 

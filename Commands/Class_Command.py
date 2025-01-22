@@ -37,9 +37,9 @@ class Command ():
         self.strength = self.strength + additional_strength
         return self.strength
     
-    def validity(self, cmd_valid_boolean):
-        self.cmd_value = cmd_valid_boolean
-        return self.cmd_value
+    def success(self, cmd_valid_boolean):
+        self.succeed = cmd_valid_boolean
+        return self.succeed
     
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

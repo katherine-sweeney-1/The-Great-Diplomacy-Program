@@ -69,7 +69,7 @@ cmds_1 = {
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "GE01": {                       # attack
+    "GE01": {                       # attack - bounce
         "location" : "Kie",
         "origin" : "Kie",
         "destination" : "Hol",
@@ -90,7 +90,7 @@ cmds_1 = {
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE04": {                       # attack supporting unit
+    "GE04": {                       # attack supporting unit - bounce
         "location" : "Lvn",
         "origin" : "Lvn",
         "destination" : "Mos",

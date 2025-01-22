@@ -10,14 +10,17 @@ def det_valid_support(cmds):
         cmd_obj = cmds[unit_id]
         dict_wo_specified_cmd = cmd_origin_dict.copy()
         dict_wo_specified_cmd.pop(unit_id)
+        # if a support
         if cmd_obj.loc != cmd_obj.origin:
+            # if another unit attacks the supporting unit
             if cmd_obj.loc in dict_wo_specified_cmd.values():
-                cmd_validity = 0
+                cmd_success = 0
             else:
-                cmd_validity = 1
+                cmd_success = 1
+                # add command strength if unit occupies the destination for support
                 if cmd_obj.origin.is_occ != 0:
                     supported_unit_id = cmd_obj.origin.is_occ.id
                     if dict_wo_specified_cmd[supported_unit_id] == cmd_obj.destination:
-                        cmds[supported_unit_id].cmd_strength(cmd_validity)
-            cmd_obj.validity(cmd_validity)
+                        cmds[supported_unit_id].cmd_strength(cmd_success)
+            cmd_obj.success(cmd_success)
     return cmds
