@@ -1,4 +1,4 @@
-units_data_1 = {
+units_1 = {
 
     "UK01": {
         "type" : "fleet",
@@ -75,6 +75,24 @@ units_data_1 = {
     "GE03": {
         "type" : "army",
         "loc" : "Mun",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE04": {
+        "type" : "army",
+        "loc" : "Lvn",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE05": {
+        "type" : "fleet",
+        "loc" : "Hel",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE06": {
+        "type" : "army",
+        "loc" : "Sil",
         "command" : "filler",
         "country" : "GE"
     },

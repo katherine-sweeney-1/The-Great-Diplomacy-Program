@@ -10,10 +10,12 @@ from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
 from Functions_Command import create_commands
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Filter_Moves"))
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Process_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
 from Functions_Filter import filter_neighbors
+from Functions_Support import det_valid_support
+from Functions_Attack import det_success_attacks
 
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
@@ -75,10 +77,24 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
 
 def tgdp_filter_cmds(commands, commanders, nodes):
     valid_cmds = {}
+    invalid_cmds = {}
     for cmding_unit in commands:
         cmd_obj = commands[cmding_unit]
         cmd_obj = filter_owner(cmd_obj, commanders)
         cmd_obj = filter_unit_type(cmd_obj)
         cmd_obj = filter_neighbors(cmd_obj, nodes)
-        print(cmd_obj.unit.id, cmd_obj.legal)
-    return valid_cmds
+        if cmd_obj.legal != 1:
+            invalid_cmds[cmding_unit] = cmd_obj
+            cmd_obj.origin = cmd_obj.loc
+            cmd_obj.destination = cmd_obj.loc
+            valid_cmds[cmding_unit] = cmd_obj
+        else:
+            valid_cmds[cmding_unit] = cmd_obj
+    return valid_cmds, invalid_cmds
+
+def tgdp_process_cmds(commands):
+    commands = det_valid_support(commands)
+    commands = det_success_attacks(commands)
+    for unit_id in commands:
+        print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
+    return commands

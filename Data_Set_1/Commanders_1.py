@@ -1,4 +1,4 @@
-cmdrs_data_1 = {
+cmdrs_1 = {
     "Katherine" : {"Country": "UK", 
                    "Unit Members": ["UK01", "UK02", "UK03", "UK04", "UK05"],
                    "Dots Owned": ["Lon", "Lvp", "Edi"]
@@ -10,7 +10,7 @@ cmdrs_data_1 = {
                    },
 
     "Kamran" : {"Country": "GE", 
-                   "Unit Members": ["GE01", "GE02", "GE03"],
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06"],
                    "Dots Owned": ["Mun", "Kie", "Ber"]
                    },
 

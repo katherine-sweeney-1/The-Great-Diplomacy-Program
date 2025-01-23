@@ -1,34 +1,45 @@
 import sys
 import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
-from Hard_Data_Units import units_data_1 as units_1
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commanders"))
-from Hard_Data_Commanders import cmdrs_data_1 as cmdrs_1
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Data_Set_1"))
+from Commanders_1 import cmdrs_1
+from Commands_1 import cmds_1
+from Units_1 import units_1
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Data_Set_2"))
+from Commanders_2 import cmdrs_2
+from Commands_2 import cmds_2
+from Units_2 import units_2
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
-from Hard_Data_Commands import cmds_data_1 as cmds_1
 from Run_Functions import tgdp_objs
 from Run_Functions import tgdp_filter_cmds
+from Run_Functions import tgdp_process_cmds
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_1, units_1, cmds_1)
+cmdrs_data = cmdrs_2
+cmds_data = cmds_2
+units_data = units_2
 
-valid_commands = tgdp_filter_cmds(commands, commanders, nodes)
+commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data, units_data, cmds_data)
 
+valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
+
+valid_commands = tgdp_process_cmds(valid_commands)
 """
-
-RU05 shouldn't show up and instead has neighbor territory error
-
+for each in valid_commands:
+    print("outcome:", each, valid_commands[each].succeed)
 """
 
 """
 for cmdr in commanders:
     commanders[cmdr].print_statements()
 
-for unit in units:
-    units[unit].print_statements()
-    
+for each in units:
+        print("CHECK", each, units[each], units[each].cmdr)
+        print(units[each].cmdr.unit_members)
+        print(" ")
+    #units[unit].print_statements()
+
 for node in nodes:
     nodes[node].print_statements()
 

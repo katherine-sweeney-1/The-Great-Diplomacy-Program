@@ -1,3 +1,8 @@
+import sys
+import os
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
+from Class_Sub_Node import Coastal_Node
+
 def filter_owner(cmd, cmdrs):
     cmd_instructor = cmd.human.human
     if cmd.legal == 0:
@@ -22,14 +27,22 @@ def filter_unit_type(cmd):
 
 def filter_neighbors(cmd, nodes):
     # attacks and supports
-    if cmd.loc in cmd.destination.nbrs.values():
-        cmd.legal = cmd.legal
+    if isinstance(cmd.origin, Coastal_Node):
+        if cmd.destination in cmd.origin.nbrs.values():
+            cmd.legal = cmd.legal
+        elif cmd.destination.name == cmd.origin.name:
+            cmd.legal = cmd.legal
+        else:
+            cmd.legal = "neighboring territory error coastal"
     # holds
-    elif cmd.destination.name == cmd.loc.name:
-        cmd.legal = cmd.legal
     else:
-        cmd.legal = "neighboring territory error"
-        #cmd.legal = 0
+        if cmd.origin in cmd.destination.nbrs.values():
+            cmd.legal = cmd.legal
+        elif cmd.destination.name == cmd.origin.name:
+            cmd.legal = cmd.legal
+        else:
+            cmd.legal = "neighboring territory error"
+            #cmd.legal = 0
     return cmd
 
 """
@@ -40,19 +53,4 @@ Support (A): loc A, origin B, dest C
 Support (H): loc A, origin B, dest B
 
 Hold: loc A, origin A, dest A
-"""
-
-"""
-    if cmd.unit.type == "fleet" and isinstance (cmd.destination, Coastal_Node):
-        print("yes")
-        print("coastal!!", cmd.destination.name, cmd.loc.name, cmd.destination.nbrs)
-        if cmd.loc in cmd.destination.nbrs.values():
-            print("fuck yes")
-        else:
-            print("oh no bro")
-"""
-
-"""
-elif cmd.loc in cmd.destination.nbrs.values() and cmd.destination.name == cmd.origin.name:
-    cmd.legal = cmd.legal
 """
