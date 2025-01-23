@@ -93,13 +93,8 @@ def tgdp_filter_cmds(commands, commanders, nodes):
     return valid_cmds, invalid_cmds
 
 def tgdp_process_cmds(commands):
-    #for unit_id in commands:
-    #    det_valid_support(unit_id, commands)
     commands = det_valid_support(commands)
-    #print(commands)
     commands = det_success_attacks(commands)
     for unit_id in commands:
-        #print(unit_id, commands[unit_id].cmd_value, commands[unit_id].strength)
         print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
-        #print(" ")
     return commands
