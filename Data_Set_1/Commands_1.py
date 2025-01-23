@@ -1,6 +1,6 @@
 cmds_1 = {
     "UK01": {
-        "location" : "Lon",              # attack to sea
+        "location" : "Lon",              # success - attack to sea
         "origin" : "Lon",
         "destination" : "Nth",
         "country": "UK",
@@ -20,7 +20,7 @@ cmds_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "UK04": {                       # support attack for UK01
+    "UK04": {                       # success - support attack for UK01
         "location" : "Edi",
         "origin" : "Lon",
         "destination" : "Nth",
@@ -34,21 +34,21 @@ cmds_1 = {
         "country": "UK",
         "owner" : "Katherine"
     },
-    "FR01": {                       # support hold for FR03
+    "FR01": {                       # support - hold for FR03
         "location" : "Par",
         "origin" : "Bre",
         "destination" : "Bre",
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "FR02": {                       # CHECK army to coast case
+    "FR02": {                       # success - army to parent node
         "location" : "Mar",                     
         "origin" : "Mar",
         "destination" : "Spa",
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "FR03": {                       # hold
+    "FR03": {                       # success - hold
         "location" : "Bre",
         "origin" : "Bre",
         "destination" : "Bre",
@@ -62,77 +62,77 @@ cmds_1 = {
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "FR05": {                       # CHECK army on south/north coast
+    "FR05": {                       # success - attack from parent node
         "location" : "Spa",                     
         "origin" : "Spa",
         "destination" : "Gas",
         "country" : "FR",
         "owner" : "Mercy"
     },
-    "GE01": {                       # attack - bounce
+    "GE01": {                       # fail - bounces with UK03 CODE WRONG BECAUSE IT CANNOT DISPLACE OWN COUNTRYS UNITS
         "location" : "Kie",
         "origin" : "Kie",
         "destination" : "Hol",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE02": {                       # attack
+    "GE02": {                       # fail - can't displace own unit CODE WRONG CANT DISAPLCAE UNITS        
         "location" : "Ber",
         "origin" : "Ber",
         "destination" : "Kie",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE03": {                       # support attack for GE02
+    "GE03": {                       # success - support attack for GE02 (attack fails)
         "location" : "Mun",
         "origin" : "Ber",
         "destination" : "Kie",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE04": {                       # attack supporting unit - bounce
+    "GE04": {                       # fail - attack supporting unit bounce with RU02
         "location" : "Lvn",
         "origin" : "Lvn",
         "destination" : "Mos",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE05": {                       # support a nonexistent move, GE01 moves to holland instead
+    "GE05": {                       # fail (hold success) - support a nonexistent move
         "location" : "Hel",
         "origin" : "Kie",
         "destination" : "Den",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "GE06": {                       # support a nonexistent move, no unit exists on Boh
+    "GE06": {                       # fail (hold success) - support unit not on territory
         "location" : "Sil",
         "origin" : "Boh",
         "destination" : "Boh",
         "country" : "GE",
         "owner" : "Kamran"
     },
-    "RU01": {                       # attack 
+    "RU01": {                       # success - attack 
         "location" : "Stp-SC",
         "origin" : "Stp-SC",
         "destination" : "Bot",
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # CHECK support holds support is cut by GE04
+    "RU02": {                       # success - support holds support is cut by GE04
         "location" : "Mos",
         "origin" : "Sev",
         "destination" : "Sev",
         "country" : "RU",           
         "owner" : "Michael"
     },
-    "RU03": {                       # support  for RU04
+    "RU03": {                       # fail (support success) - support for nonexistent move
         "location" : "War",
         "origin" : "Mos",
         "destination" : "Ukr",
         "country" : "RU",
         "owner" : "Michael"            
     },
-    "RU04": {                       # hold
+    "RU04": {                       # success - hold
         "location" : "Sev",
         "origin" : "Sev",
         "destination" : "Sev",

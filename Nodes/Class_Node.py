@@ -4,7 +4,7 @@ class Node ():
         self.name = node_name
         self.full_name = node_info["Full Name"]
         self.node_type = node_info["Type"]
-        self.is_occ = 0
+        self.is_occ = False
 
     def parse_nbrs (self):
         self.nbrs = self.nbrs.split(" ")

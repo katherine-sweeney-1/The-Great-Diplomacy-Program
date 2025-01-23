@@ -51,7 +51,7 @@ Gal,Galicia,Land,War Ukr Rum Bud Vie Boh Sil,Aus,FALSE,FALSE
 Boh,Bohemia,Land,Mun Sil Gal Vie Tyr,Aus,FALSE,FALSE
 Tyr,Tyrolia,Land,Mun Boh Vie Tri Ven Pie,Aus,FALSE,FALSE
 Vie,Vienna,Land,Boh Gal Bud Tri Tyr,Aus,TRUE,Aus
-Tri,Trieste,Coast,Tyr Vie Bud Ser Alb Adr Vie,Aus,TRUE,Aus
+Tri,Trieste,Coast,Tyr Vie Bud Ser Alb Adr Ven,Aus,TRUE,Aus
 Bud,Budapest,Land,Tri Vie Gal Rum Ser,Aus,TRUE,Aus
 Pie,Piedmont,Coast,Mar Tyr Ven Tus Lyo,Ita,FALSE,FALSE
 Tus,Tuscany,Coast,Pie Ven Rom Tys Lyo,Ita,FALSE,FALSE
