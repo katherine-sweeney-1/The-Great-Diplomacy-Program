@@ -24,14 +24,13 @@ def det_valid_support(cmds):
                     cmd_success = True
         if cmd_success and cmd_obj.origin.is_occ:
             if cmd_obj.origin.is_occ == 1:
-                print("YO", unit_id, cmd_obj.origin.name)
-
+                #print("YO", unit_id, cmd_obj.origin.name)
                 origin = cmd_obj.origin
                 for each_cmd in cmds:
                     if cmds[each_cmd] == origin:
                         sup_id = each
                         sup_obj = cmds[sup_id].origin.is_occ
-                        print("aye", unit_id, each)
+                        #print("aye", unit_id, each)
                         break
             else:
                 sup_id = cmd_obj.origin.is_occ.id
@@ -48,18 +47,18 @@ def det_valid_support(cmds):
                     if sup_obj.destination == cmd_obj.destination and sup_obj.origin == cmd_obj.origin:
                         cmd_strength = 1
                         sup_obj.cmd_strength(cmd_strength)
-                        print("test 1", unit_id, sup_id, sup_obj.strength)
+                        #print("test 1", unit_id, sup_id, sup_obj.strength)
                     elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
                         cmd_strength = 1
                         sup_obj.cmd_strength(cmd_strength)
-                        print("test 2", unit_id, sup_id, sup_obj.strength)
+                        #print("test 2", unit_id, sup_id, sup_obj.strength)
                     elif cmd_obj.loc == cmd_obj.origin and cmd_obj.origin == cmd_obj.destination:
                         cmd_strength = 1
                         sup_obj.cmd_strength(cmd_strength)
-                        print("test 3", unit_id, sup_id, sup_obj.strength)
+                        #print("test 3", unit_id, sup_id, sup_obj.strength)
                     else:
                         cmd_strength = 0
-                        print("oof", unit_id, sup_id, sup_obj.strength)
+                        #print("oof", unit_id, sup_id, sup_obj.strength)
                 else:
                     cmd_strength = 0
             else:
@@ -69,7 +68,7 @@ def det_valid_support(cmds):
             cmd_strength = 0
         #cmds[sup_id].cmd_strength(cmd_strength)
         cmd_obj.success(cmd_success)
-        print(unit_id, cmd_obj.succeed)
+        #print(unit_id, cmd_obj.succeed)
         #if cmd_success:
     """
             # add command strength if unit occupies the destination for support

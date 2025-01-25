@@ -7,14 +7,14 @@ cmds_4a = {
         "country": "AU",
         "owner" : "Liam"
     },
-    "AU02": {                           # fail - IT01 takes Tri
+    "AU02": {                           # fail - IT01 takes Tri CODE WRONG  
         "location" : "Bud",
         "origin" : "Bud",
         "destination" : "Tri",
         "country": "AU",
         "owner" : "Liam"
     },
-    "AU03": {                           # success
+    "AU03": {                           # success doesn't count strength for AU01
         "location" : "Gre",
         "origin" : "Alb",
         "destination" : "Alb",
@@ -168,7 +168,7 @@ cmds_4a = {
         "country" : "RU",
         "owner" : "Katherine"
     },
-    "RU03": {                           # fail
+    "RU03": {                           # fail issue with counting support holds
         "location" : "Rum",
         "origin" : "Gal",
         "destination" : "Gal",
@@ -210,7 +210,7 @@ cmds_4a = {
         "country" : "TU",
         "owner" : "Adam"
     },
-    "TU03": {                           # fail CODE SAYS TRUE
+    "TU03": {                           # fail
         "location" : "Bla",
         "origin" : "Bla",
         "destination" : "Sev",
