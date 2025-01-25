@@ -20,8 +20,16 @@ class Coastal_Node (Node):
         self.sibling = sibling_node
         return self.sibling
     
-    def assign_occ_to_family(self):
-        if self.is_occ:
+    def assign_occ_to_family(self, parent_occ):
+        if parent_occ:
+            self.is_occ = 1
+            self.sibling.is_occ = 1
+            """
+            elif if_child_occ:
+                self.is_occ = 1
+                self.parent.is_occ = 1
+            """
+        else:
             self.parent.is_occ = 1
             self.sibling.is_occ = 1
         return self

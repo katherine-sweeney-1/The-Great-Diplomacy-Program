@@ -27,9 +27,8 @@ def check_other_attacks(unit_id, cmd, dict_wo_cmd, recur_unit_id):
     return cmd.succeed
 
 def det_attack_outcome(unit_id, cmd, all_cmds):
+    print("UNIT", unit_id)
     if cmd.destination.is_occ:
-        #if cmd.destination.is_occ.cmdr == cmd.origin.cmdr:
-            
         # special case node occupied => get id for unit on special case node
         if cmd.destination.is_occ == 1:
             destination_node = cmd.destination
@@ -37,17 +36,20 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
                 if all_cmds[each_cmd].loc == destination_node:
                     unit_dest_id = each_cmd
                     break
+                    """
+                    issue with FR05 destination Spa-SC and FR03 location Spa
+                    
+                    """
         # regular case node occupied => get id for unit on node
-        else:
-            unit_dest_id = cmd.destination.is_occ.id
+                else:
+                    unit_dest_id = cmd.destination.is_occ.id
         unit_dest_obj = all_cmds[unit_dest_id]
-        #if unit_on_dest_id in all_cmds:
-        # if unit on destination attacks
         if unit_dest_id in all_cmds and unit_dest_obj.unit.cmdr != cmd.unit.cmdr:
             if unit_dest_obj.loc == unit_dest_obj.origin and unit_dest_obj.destination != unit_dest_obj.origin:
                 unit_on_dest_outcome = det_attack_outcome (unit_dest_id, unit_dest_obj, all_cmds)
                 if unit_on_dest_outcome:
                     outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+                    print("checking", unit_id, outcome)
                 else:
                     outcome = False
             else:
@@ -64,9 +66,6 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
         outcome = check_other_attacks(unit_id, cmd, all_cmds, False)
     cmd.success(outcome)
     return cmd.succeed
-
-
-
 
 def det_hold_outcome(unit_id, cmd, all_cmds):
     other_attack_outcome = check_other_attacks(unit_id, cmd, all_cmds, False)

@@ -8,6 +8,14 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\D
 from Commanders_2 import cmdrs_2
 from Commands_2 import cmds_2
 from Units_2 import units_2
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Data_Set_3"))
+from Commanders_3 import cmdrs_3
+from Commands_3 import cmds_3a, cmds_3b
+from Units_3 import units_3a, units_3b
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Data_Set_4"))
+from Commanders_4 import cmdrs_4
+from Commands_4 import cmds_4a
+from Units_4 import units_4a
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
 from Run_Functions import tgdp_objs
 from Run_Functions import tgdp_filter_cmds
@@ -16,9 +24,9 @@ from Run_Functions import tgdp_process_cmds
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-cmdrs_data = cmdrs_2
-cmds_data = cmds_2
-units_data = units_2
+cmdrs_data = cmdrs_4
+cmds_data = cmds_4a
+units_data = units_4a
 
 commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data, units_data, cmds_data)
 

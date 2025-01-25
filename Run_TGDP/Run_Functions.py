@@ -10,6 +10,8 @@ from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Commands"))
 from Functions_Command import create_commands
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
+from Class_Unit import Unit
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Process_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
@@ -45,10 +47,20 @@ def update_commanders(commanders, nodes, cmdrs_data, units_data):
 def coastal_node_assign_occ(all_nodes):
     for each_node in all_nodes:
         if isinstance (all_nodes[each_node], Coastal_Node):
-            all_nodes[each_node].assign_occ_to_family()
+            parent_occ = False
+            if isinstance(all_nodes[each_node].is_occ, Unit):
+                all_nodes[each_node].assign_occ_to_family(parent_occ)
+        elif len(each_node[:3]) > 0:
+            if isinstance(all_nodes[each_node].is_occ, Unit):
+                parent_occ = True
+                for each in all_nodes:
+                    if each[:3] in each_node and each != each_node:
+                        all_nodes[each].assign_occ_to_family(parent_occ)
+                #if all_nodes[each_node].is_occ:
+                #all_nodes[each_node].is_occ = 1     #parent node
     return all_nodes
 
-def update_units(units):
+def assign_occ(units):
     for unit in units:
         occupied_node = units[unit].loc
         occupied_node.assign_occ(units[unit])
@@ -70,7 +82,7 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
     commanders = create_commanders(cmdrs_data)
     nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
-    units = update_units(units)
+    units = assign_occ(units)
     nodes = coastal_node_assign_occ(nodes)
     commands = create_commands(cmds_data, commanders, units, nodes)
     return commands, commanders, nodes, units

@@ -103,6 +103,8 @@ Processing Moves
 
         => Attack - is destination the destination for another attack? 
 
+        => support issue: support cut is not showing
+
 
 
 

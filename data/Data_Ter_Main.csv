@@ -32,7 +32,7 @@ Lvn,Livonia,Coast,Stp Bot Bal Pru War Mos,Rus,FALSE,FALSE
 Mos,Moscow,Land,Stp Lvn War Ukr Sev,Rus,TRUE,Rus
 War,Warsaw,Land,Lvn Mos Ukr Gal Sil Pru,Rus,TRUE,Rus
 Ukr,Ukraine,Land,Mos Sev Rum Gal War,Rus,FALSE,FALSE
-Sev,Sevastopol,Coast,Mos Ukr Rum Arm,Rus,TRUE,Rus
+Sev,Sevastopol,Coast,Mos Ukr Rum Arm Bla,Rus,TRUE,Rus
 Pic,Picardy,Coast,Eng Bel Bur Par Bre,Fra,FALSE,FALSE
 Bre,Brest,Coast,Eng Pic Par Gas Mao,Fra,TRUE,Fra
 Par,Paris,Land,Bre Pic Bur Gas,Fra,TRUE,Fra
