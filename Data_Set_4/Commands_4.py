@@ -175,7 +175,7 @@ cmds_4a = {
         "country" : "RU",
         "owner" : "Katherine"
     },
-    "RU04": {                           # fail
+    "RU04": {                           # fail code says true
         "location" : "Sev",
         "origin" : "Rum",
         "destination" : "Rum",

@@ -44,18 +44,39 @@ def det_valid_support(cmds):
                         print(unit_id, sup_id, cmds[sup_id].strength)
                 """
                 if sup_obj.loc != cmd_obj.loc:
-                    if sup_obj.destination == cmd_obj.destination and sup_obj.origin == cmd_obj.origin:
+                    """
+                        if sup_obj.destination == cmd_obj.destination and sup_obj.origin == cmd_obj.origin:
+                            cmd_strength = 1
+                            sup_obj.cmd_strength(cmd_strength)
+                        elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                            cmd_strength = 1
+                            sup_obj.cmd_strength(cmd_strength)
+                        elif cmd_obj.loc == cmd_obj.origin and cmd_obj.origin == cmd_obj.destination:
+                            cmd_strength = 1
+                            sup_obj.cmd_strength(cmd_strength)
+                        """
+                    # support an attack
+                    if cmd_obj.origin and sup_obj.origin and sup_obj.destination == cmd_obj.destination:
+                        print("TEST 1")
                         cmd_strength = 1
                         sup_obj.cmd_strength(cmd_strength)
-                        #print("test 1", unit_id, sup_id, sup_obj.strength)
+                    # support a unit who holds
+                    # support a hold for a unit who supports an attack
                     elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                        print("TEST 2")
                         cmd_strength = 1
                         sup_obj.cmd_strength(cmd_strength)
-                        #print("test 2", unit_id, sup_id, sup_obj.strength)
-                    elif cmd_obj.loc == cmd_obj.origin and cmd_obj.origin == cmd_obj.destination:
+                    #elif cmd_obj.loc == cmd_obj.origin and cmd_obj.origin == cmd_obj.destination:
+                        #print("TEST 3")
+                        #cmd_strength = 1
+                        #sup_obj.cmd_strength(cmd_strength)
+                    # supporting a hold
+                    #elif cmd_obj.origin == sup_obj.origin and sup_obj.destination == sup_obj.origin:
+                    elif sup_obj.origin == sup_obj.destination and sup_obj.loc != sup_obj.origin:
                         cmd_strength = 1
+                        print("TEST 3")
                         sup_obj.cmd_strength(cmd_strength)
-                        #print("test 3", unit_id, sup_id, sup_obj.strength)
+                        
                     else:
                         cmd_strength = 0
                         #print("oof", unit_id, sup_id, sup_obj.strength)
