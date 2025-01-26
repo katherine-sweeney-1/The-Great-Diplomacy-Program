@@ -32,7 +32,7 @@ def check_other_attacks(unit_id, cmd, dict_wo_cmd, recur_unit_id):
     return cmd.succeed
 
 def det_attack_outcome(unit_id, cmd, all_cmds):
-    print("UNIT", unit_id)
+    #print(unit_id)
     if cmd.destination.is_occ:
         # special case node occupied => get id for unit on special case node
         if cmd.destination.is_occ == 1:
@@ -40,7 +40,6 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
             if isinstance(destination_node, Coastal_Node):
                 destination_parent = destination_node.name[:3]
                 for each_cmd in all_cmds:
-                #if isinstance(cmd.destination, Coastal_Node):
                     if all_cmds[each_cmd].destination == destination_parent:
                         unit_dest_id = each_cmd
                         break
@@ -48,29 +47,24 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
                         unit_dest_id = each_cmd
                         break
             else:
+                #print("fuck", unit_id)
                 for indiv_cmd in all_cmds:
-                    if cmd.destination.name in all_cmds[indiv_cmd].loc and cmd.destination.name != all_cmds[indiv_cmd].loc:
+                    if cmd.destination.name in all_cmds[indiv_cmd].loc.name:# and cmd.destination.name != all_cmds[indiv_cmd].loc.name:
                         unit_dest_id = indiv_cmd
         # regular case node occupied => get id for unit on node
         else:
             unit_dest_id = cmd.destination.is_occ.id
-                #destination = all_cmds[each_cmd].destination
-                #if destination a special coastal case
-            """
-                    issue with FR05 destination Spa-SC and FR03 location Spa
-                        
-            """
         unit_dest_obj = all_cmds[unit_dest_id]
-        if unit_dest_id in all_cmds and unit_dest_obj.unit.cmdr != cmd.unit.cmdr:
+        if unit_dest_id in all_cmds :
             if unit_dest_obj.loc == unit_dest_obj.origin and unit_dest_obj.destination != unit_dest_obj.origin:
                 unit_on_dest_outcome = det_attack_outcome (unit_dest_id, unit_dest_obj, all_cmds)
                 if unit_on_dest_outcome:
                     outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
-                    #print("checking", unit_id, outcome)
                 else:
+                
                     outcome = False
             else:
-                if cmd.strength > 1:
+                if cmd.strength > unit_dest_obj.strength:
                     outcome = True
                 else:
                     outcome = False

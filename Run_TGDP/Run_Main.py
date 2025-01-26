@@ -24,9 +24,9 @@ from Run_Functions import tgdp_process_cmds
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-cmdrs_data = cmdrs_4
-cmds_data = cmds_4a
-units_data = units_4a
+cmdrs_data = cmdrs_3
+cmds_data = cmds_3b
+units_data = units_3b
 
 commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data, units_data, cmds_data)
 

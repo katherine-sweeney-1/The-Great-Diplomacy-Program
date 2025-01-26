@@ -7,14 +7,14 @@ cmds_4a = {
         "country": "AU",
         "owner" : "Liam"
     },
-    "AU02": {                           # fail - IT01 takes Tri CODE WRONG  
+    "AU02": {                           # success  
         "location" : "Bud",
         "origin" : "Bud",
         "destination" : "Tri",
         "country": "AU",
         "owner" : "Liam"
     },
-    "AU03": {                           # success doesn't count strength for AU01
+    "AU03": {                           # success
         "location" : "Gre",
         "origin" : "Alb",
         "destination" : "Alb",
@@ -42,7 +42,7 @@ cmds_4a = {
         "country": "UK",
         "owner" : "Mercy"
     },
-    "UK04": {                           # fails - Nth is occupied due to failed attack
+    "UK04": {                           # fail
         "location" : "Edi",
         "origin" : "Edi",
         "destination" : "Nth",
@@ -84,7 +84,7 @@ cmds_4a = {
         "country": "FR",
         "owner" : "Sunny"
     },
-    "GE01": {                           # fail - Nth is occupied due to failed attack 
+    "GE01": {                           # fail
         "location" : "Den",
         "origin" : "Den",
         "destination" : "Nth",
@@ -105,14 +105,14 @@ cmds_4a = {
         "country" : "GE",
         "owner" : "Will"
     },
-    "GE04": {                           # fail CODE SAYS TRUE
+    "GE04": {                           # fail
         "location" : "Kie",
         "origin" : "Kie",
         "destination" : "Hol",
         "country" : "GE",
         "owner" : "Will"
     },
-    "GE05": {                           # fail CODE SAYS TRUE
+    "GE05": {                           # fail
         "location" : "Ber",
         "origin" : "Ber",
         "destination" : "Kie",
@@ -147,7 +147,7 @@ cmds_4a = {
         "country" : "IT",
         "owner" : "Kamran"
     },
-    "IT05": {                           # fail - bounce CODE SAYS TRUE
+    "IT05": {                           # fail 
         "location" : "Ven",
         "origin" : "Ven",
         "destination" : "Tri",
@@ -168,14 +168,14 @@ cmds_4a = {
         "country" : "RU",
         "owner" : "Katherine"
     },
-    "RU03": {                           # fail issue with counting support holds
+    "RU03": {                           # fail
         "location" : "Rum",
         "origin" : "Gal",
         "destination" : "Gal",
         "country" : "RU",
         "owner" : "Katherine"
     },
-    "RU04": {                           # fail code says true
+    "RU04": {                           # fail
         "location" : "Sev",
         "origin" : "Rum",
         "destination" : "Rum",
@@ -203,7 +203,7 @@ cmds_4a = {
         "country" : "TU",
         "owner" : "Adam"
     },
-    "TU02": {                           # fail CODE SAYS TRUE
+    "TU02": {                           # fail
         "location" : "Bul",
         "origin" : "Bul",
         "destination" : "Rum",
@@ -217,7 +217,7 @@ cmds_4a = {
         "country" : "TU",
         "owner" : "Adam"
     },
-    "TU04": {                           # fail CODE SAYS TRUE
+    "TU04": {                           # fail
         "location" : "Con",
         "origin" : "Con",
         "destination" : "Bul-EC",

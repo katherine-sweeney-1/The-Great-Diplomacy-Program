@@ -118,7 +118,7 @@ cmds_1 = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "RU02": {                       # success - support holds support is cut by GE04
+    "RU02": {                       # fail - support holds support is cut by GE04
         "location" : "Mos",
         "origin" : "Sev",
         "destination" : "Sev",
