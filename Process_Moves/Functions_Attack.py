@@ -32,7 +32,6 @@ def check_other_attacks(unit_id, cmd, dict_wo_cmd, recur_unit_id):
     return cmd.succeed
 
 def det_attack_outcome(unit_id, cmd, all_cmds):
-    #print(unit_id)
     if cmd.destination.is_occ:
         # special case node occupied => get id for unit on special case node
         if cmd.destination.is_occ == 1:
@@ -47,9 +46,8 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
                         unit_dest_id = each_cmd
                         break
             else:
-                #print("fuck", unit_id)
                 for indiv_cmd in all_cmds:
-                    if cmd.destination.name in all_cmds[indiv_cmd].loc.name:# and cmd.destination.name != all_cmds[indiv_cmd].loc.name:
+                    if cmd.destination.name in all_cmds[indiv_cmd].loc.name:
                         unit_dest_id = indiv_cmd
         # regular case node occupied => get id for unit on node
         else:
