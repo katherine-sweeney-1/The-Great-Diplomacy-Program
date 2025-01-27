@@ -20,19 +20,22 @@ sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\C
 from Run_Functions import tgdp_objs
 from Run_Functions import tgdp_filter_cmds
 from Run_Functions import tgdp_process_cmds
+from Run_Functions import tgdp_process_outcomes
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-cmdrs_data = cmdrs_3
-cmds_data = cmds_3b
-units_data = units_3b
+cmdrs_data = cmdrs_4
+cmds_data = cmds_4a
+units_data = units_4a
 
 commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data, units_data, cmds_data)
 
 valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
 
 valid_commands = tgdp_process_cmds(valid_commands)
+
+nodes, units = tgdp_process_outcomes(valid_commands, nodes, units)
 
 """
 for cmdr in commanders:

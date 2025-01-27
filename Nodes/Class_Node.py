@@ -35,6 +35,10 @@ class Node ():
         else:
             self.hsc = False
         return self.hsc
+    
+    def assign_outcome_occ(self, unit):
+        self.outcome_occ = unit
+        return self.outcome_occ
 
     def print_statements (self):
         print("Territory {} / {}".format(self.name, self.full_name))
