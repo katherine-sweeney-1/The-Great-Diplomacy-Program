@@ -1,7 +1,7 @@
 
 from Class_Command import Command
 
-def create_commands(commands_starting_data, commanders, units, nodes):   # function uses nested dictionary data
+def create_commands(commands_starting_data, commanders, nodes, units):
     cmds_dict = {}
     for each_cmd in commands_starting_data: 
         one_cmd = Command(commands_starting_data[each_cmd]["country"])
