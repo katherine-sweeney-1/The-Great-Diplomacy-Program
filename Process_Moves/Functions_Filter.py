@@ -45,12 +45,3 @@ def filter_neighbors(cmd, nodes):
             #cmd.legal = 0
     return cmd
 
-"""
-Attack: loc A, origin A, dest C
-
-Support (A): loc A, origin B, dest C
-
-Support (H): loc A, origin B, dest B
-
-Hold: loc A, origin A, dest A
-"""

@@ -50,7 +50,6 @@ UNIT CLASS
 
         => Create unit dictionary (4b)
 
-
     To Do
 
         => Add unit.command function? 
@@ -85,41 +84,31 @@ FILTERING MOVES
 
         => Location and destination must be neighbors and origin and destination must be neighbors
 
-    To Do
-
 
 Processing Moves
 
     Completed
 
-        => Support - Determine valid supports
+        => Determine outcomes of orders
 
-        => Support - Count total number of supports and add to attacking command's strength
-        
-
-    To Do
-
-        => Attack - is destination occupied? 
-
-        => Attack - is destination the destination for another attack? 
-
-        => support issue: support cut is not showing
+        => Continue to debug
 
 
+Post Outcome
+
+    Completed
+    
+        => Determine if a unit is displaced
+
+        => Determine retreat options (holding off on disband for now)
+
+        => Update units with new locations
+
+        => Update nodes with new occupy status
+
+        => turn count
 
 
-Eventually (do not forget)
-
-    Storing moves in SQL table 
-
-    Map GUI
-
-    Check what territories people own, lost, occupy, etc. (make that it's own thing and not part of the commander class)
-
-
-NOTES
-
-    Every property between two objects is bidirectional
 
 
 

@@ -18,6 +18,8 @@ from Functions_Filter import filter_unit_type
 from Functions_Filter import filter_neighbors
 from Functions_Support import det_valid_support
 from Functions_Attack import det_success_attacks
+from Functions_Post_Outcome import det_outcome_locs
+from Functions_Post_Outcome import det_retreats
 
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
@@ -56,15 +58,15 @@ def coastal_node_assign_occ(all_nodes):
                 for each in all_nodes:
                     if each[:3] in each_node and each != each_node:
                         all_nodes[each].assign_occ_to_family(parent_occ)
-                #if all_nodes[each_node].is_occ:
-                #all_nodes[each_node].is_occ = 1     #parent node
     return all_nodes
 
-def assign_occ(units):
+def assign_occ(nodes, units):
+    for node in nodes:
+        nodes[node].assign_occ(False)
     for unit in units:
         occupied_node = units[unit].loc
         occupied_node.assign_occ(units[unit])
-    return units
+    return nodes
 
 def run_filter_owners(commands, commanders, units):
     valid_cmds = {}
@@ -82,9 +84,9 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
     commanders = create_commanders(cmdrs_data)
     nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
-    units = assign_occ(units)
+    nodes = assign_occ(nodes, units)
     nodes = coastal_node_assign_occ(nodes)
-    commands = create_commands(cmds_data, commanders, units, nodes)
+    commands = create_commands(cmds_data, commanders, nodes, units)
     return commands, commanders, nodes, units
 
 def tgdp_filter_cmds(commands, commanders, nodes):
@@ -110,3 +112,23 @@ def tgdp_process_cmds(commands):
     for unit_id in commands:
         print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
     return commands
+
+def tgdp_process_outcomes(commands, nodes, units):
+    units = det_outcome_locs(commands, nodes, units)
+    units = det_retreats(units)
+    for each in units:
+        unit = units[each]
+        if unit.retreat:
+            retreat_choice = unit.retreat[0]
+            retreat_node = nodes[retreat_choice]
+            unit.assign_loc(retreat_node, False, False)
+    nodes = assign_occ(nodes, units)
+    """
+    for node in nodes:
+        if nodes[node].is_occ:
+            if nodes[node].is_occ == 1:
+                print(node, nodes[node].is_occ)
+            else:
+                print(node, nodes[node].is_occ.id)
+    """
+    return nodes, units

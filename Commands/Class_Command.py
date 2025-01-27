@@ -41,6 +41,14 @@ class Command ():
         self.succeed = cmd_valid_boolean
         return self.succeed
     
+    def retreat_boolean(self, possible_retreat):
+        self.retreat = possible_retreat
+        return self.retreat
+    
+    def outcome_location(self, node):
+        self.outcome_loc = node
+        return self.outcome_loc
+    
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))
         print("loc: {}, origin: {}, dest: {}".format(self.loc.name, self.origin.name, self.destination.name))

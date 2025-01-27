@@ -147,7 +147,7 @@ cmds_4a = {
         "country" : "IT",
         "owner" : "Kamran"
     },
-    "IT05": {                           # fail 
+    "IT05": {                           # fail
         "location" : "Ven",
         "origin" : "Ven",
         "destination" : "Tri",
