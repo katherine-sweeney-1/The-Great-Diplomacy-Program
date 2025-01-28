@@ -46,6 +46,11 @@ cmds_data_list = [cmds_3a, cmds_3b]
 units_data_list = units_3a
 turn_count = 1901
 
+"""
+move to run functions at some point
+"""
+
+
 for cmds_data in cmds_data_list:
     if turn_count == 1901:
         commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds_data)
