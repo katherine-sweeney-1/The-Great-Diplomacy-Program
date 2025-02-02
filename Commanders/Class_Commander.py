@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
+sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Units"))
 from Functions_Unit import create_unit
 
 class Commander ():
