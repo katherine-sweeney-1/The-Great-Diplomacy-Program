@@ -13,7 +13,7 @@ import Map_Functions as funcs
 #create_map.display_image(map_link, "data")
 
 
-create_database = funcs.create_sql_db("katherine", "P4$$word")
+create_database = funcs.create_sql_db("katherine")
 print(create_database)
 
 

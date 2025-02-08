@@ -1,18 +1,18 @@
 import sys
 import os
-sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Nodes"))
+sys.path.append(os.path.join("/home/katherine/Documents/The-great-diplomacy-program/Nodes"))
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
 from Functions_Node import retrieve_node_strings
 from Class_Sub_Node import Coastal_Node
-sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Commanders"))
+sys.path.append(os.path.join("/home/katherine/Documents/The-great-diplomacy-program/Commanders"))
 from Functions_Commander import create_commanders
 from Functions_Commander import retrieve_cmdr_strings
-sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Commands"))
+sys.path.append(os.path.join("/home/katherine/Documents/The-great-diplomacy-program/Commands"))
 from Functions_Command import create_commands
-sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Units"))
+sys.path.append(os.path.join("/home/katherine/Documents/The-great-diplomacy-program/Units"))
 from Class_Unit import Unit
-sys.path.append(os.path.join("/home/katherine/Documents/TGDP_Code/The-Great-Diplomacy-Program/Process_Moves"))
+sys.path.append(os.path.join("/home/katherine/Documents/The-great-diplomacy-program/Process_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
 from Functions_Filter import filter_neighbors
