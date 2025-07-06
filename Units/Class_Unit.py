@@ -20,6 +20,37 @@ class Unit ():
     def assign_retreat_disband(self, bool):
         self.retreat = bool
         return self.retreat
+    
+    def create_table(self, db):
+    #use the triple quotes """ syntax to construct a SQL query
+        db.query("""
+            CREATE TABLE IF NOT EXISTS units_1 (
+            ID TEXT,
+            type TEXT,
+            commander TEXT,
+            location TEXT
+            )
+            """
+        )
+        #call CURSOR.execute and pass in our SQL query
+        db.store_result()
+
+    def drop_table(db):
+        #construct another SQL query to drop tables
+        db.query("""   
+            DROP TABLE IF EXISTS units_1;
+        """
+        )
+        db.store_result()
+
+    def save(self,db):
+        sql = """
+            INSERT INTO units_1 (ID, type, location, commander) VALUES ("{}", "{}", "{}", "{}")
+        """.format(self.id, self.type, self.loc.name, self.cmdr.human)
+        #db.query(sql, (self.id, self.type, self.loc, self.cmdr))
+        db.query(sql)
+        db.store_result()
+
 
     def print_statements (self):
         print(" ")

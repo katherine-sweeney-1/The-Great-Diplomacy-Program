@@ -20,28 +20,6 @@ from Functions_Support import det_valid_support
 from Functions_Attack import det_success_attacks
 from Functions_Post_Outcome import det_outcome_locs
 from Functions_Post_Outcome import det_retreats
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_1"))
-from Commanders_1 import cmdrs_1
-from Commands_1 import cmds_1
-from Units_1 import units_1
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_2"))
-from Commanders_2 import cmdrs_2
-from Commands_2 import cmds_2
-from Units_2 import units_2
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_3"))
-from Commanders_3 import cmdrs_3
-from Commands_3 import cmds_3a, cmds_3b
-from Units_3 import units_3a, units_3b
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_4"))
-from Commanders_4 import cmdrs_4
-from Commands_4 import cmds_4a
-from Units_4 import units_4a
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
-from Functions_Command import create_commands
-
-data_nodes = "data/Data_Ter_Main.csv"
-data_coastal = "data/Data_Ter_Special_Coasts.csv"
-
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
     nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
@@ -133,11 +111,13 @@ def tgdp_process_cmds(commands):
         print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
     return commands
 
-def tgdp_process_outcomes(commands, nodes, units):
+def tgdp_process_outcomes(commands, nodes, units, db):
     units = det_outcome_locs(commands, nodes, units)
     units = det_retreats(units)
     for each in units:
         unit = units[each]
+        unit.create_table(db)
+        unit.save(db)
         if unit.retreat:
             retreat_choice = unit.retreat[0]
             retreat_node = nodes[retreat_choice]
@@ -152,20 +132,3 @@ def tgdp_process_outcomes(commands, nodes, units):
                 print(node, nodes[node].is_occ.id)
     """
     return nodes, units
-
-cmdrs_data_list = cmdrs_3
-cmds_data_list = [cmds_3a, cmds_3b]
-units_data_list = units_3a
-
-def run_main():
-    turn_count = 1901
-    for cmds_data in cmds_data_list:
-        if turn_count == 1901:
-            commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds_data)
-        else:
-            commands = create_commands(cmds_data, commanders, nodes, units)
-        valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-        valid_commands = tgdp_process_cmds(valid_commands)
-        nodes, units = tgdp_process_outcomes(valid_commands, nodes, units)
-        turn_count = turn_count + 0.5
-        print(turn_count)
