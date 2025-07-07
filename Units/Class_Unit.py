@@ -22,7 +22,6 @@ class Unit ():
         return self.retreat
     
     def create_table(self, db):
-    #use the triple quotes """ syntax to construct a SQL query
         db.query("""
             CREATE TABLE IF NOT EXISTS units_1 (
             ID TEXT,
@@ -32,11 +31,9 @@ class Unit ():
             )
             """
         )
-        #call CURSOR.execute and pass in our SQL query
         db.store_result()
 
     def drop_table(db):
-        #construct another SQL query to drop tables
         db.query("""   
             DROP TABLE IF EXISTS units_1;
         """
@@ -47,7 +44,6 @@ class Unit ():
         sql = """
             INSERT INTO units_1 (ID, type, location, commander) VALUES ("{}", "{}", "{}", "{}")
         """.format(self.id, self.type, self.loc.name, self.cmdr.human)
-        #db.query(sql, (self.id, self.type, self.loc, self.cmdr))
         db.query(sql)
         db.store_result()
 

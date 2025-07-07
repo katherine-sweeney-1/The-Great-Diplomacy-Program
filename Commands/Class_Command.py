@@ -49,6 +49,38 @@ class Command ():
         self.outcome_loc = node
         return self.outcome_loc
     
+    def create_table(self, db):
+    #use the triple quotes """ syntax to construct a SQL query
+        db.query("""
+            CREATE TABLE IF NOT EXISTS moves_1 (
+            ID TEXT
+            )
+            """
+        )
+        #eventually add the outcome location part to the table
+        db.store_result()
+        return db
+
+    def drop_table(db):
+        db.query("""   
+            DROP TABLE IF EXISTS moves_1;
+        """
+        )
+        db.store_result()
+
+    def save(self,db):
+        #sql = """
+        #    INSERT INTO moves_1 (Unit, Commander, Location, Origin, Destination) VALUES ("{}", "{}", "{}", "{}", "{}")
+        #    """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name)
+        sql = """
+            INSERT INTO moves_1 (ID) VALUES ("{}")
+        """.format(self.unit.id)
+        print(sql)
+        db.query(sql)
+        db.store_result()
+
+
+
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))
         print("loc: {}, origin: {}, dest: {}".format(self.loc.name, self.origin.name, self.destination.name))

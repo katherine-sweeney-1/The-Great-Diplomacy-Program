@@ -50,7 +50,7 @@ def run_main():
         else:
             commands = create_commands(cmds_data, commanders, nodes, units)
         valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-        valid_commands = tgdp_process_cmds(valid_commands)
+        valid_commands = tgdp_process_cmds(valid_commands, db)
         nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db)
         turn_count = turn_count + 0.5
         print(turn_count)
