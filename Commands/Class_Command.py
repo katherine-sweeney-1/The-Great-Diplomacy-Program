@@ -53,7 +53,11 @@ class Command ():
     #use the triple quotes """ syntax to construct a SQL query
         db.query("""
             CREATE TABLE IF NOT EXISTS moves_1 (
-            ID TEXT
+            UNIT_ID TEXT,
+            Commander TEXT,
+            Location TEXT,
+            Origin TEXT,
+            Destination TEXT
             )
             """
         )
@@ -69,13 +73,10 @@ class Command ():
         db.store_result()
 
     def save(self,db):
-        #sql = """
-        #    INSERT INTO moves_1 (Unit, Commander, Location, Origin, Destination) VALUES ("{}", "{}", "{}", "{}", "{}")
-        #    """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name)
         sql = """
-            INSERT INTO moves_1 (ID) VALUES ("{}")
-        """.format(self.unit.id)
-        print(sql)
+            INSERT INTO moves_1 (UNIT_ID, Commander, Location, Origin, Destination) VALUES ("{}", "{}", "{}", "{}", "{}")
+            """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name)
+        #print(sql)
         db.query(sql)
         db.store_result()
 
