@@ -51,12 +51,13 @@ class Command ():
     
     def create_table(self, db):
         db.query("""
-            CREATE TABLE IF NOT EXISTS moves_1 (
+            CREATE TABLE IF NOT EXISTS moves_2 (
             UNIT_ID TEXT,
             Commander TEXT,
             Location TEXT,
             Origin TEXT,
-            Destination TEXT
+            Destination TEXT,
+            Outcome TEXT
             )
             """
         )
@@ -66,15 +67,15 @@ class Command ():
 
     def drop_table(db):
         db.query("""   
-            DROP TABLE IF EXISTS moves_1;
+            DROP TABLE IF EXISTS moves_2;
         """
         )
         db.store_result()
 
     def save(self,db):
         sql = """
-            INSERT INTO moves_1 (UNIT_ID, Commander, Location, Origin, Destination) VALUES ("{}", "{}", "{}", "{}", "{}")
-            """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name)
+            INSERT INTO moves_2 (UNIT_ID, Commander, Location, Origin, Destination, Outcome) VALUES ("{}", "{}", "{}", "{}", "{}", "{}")
+            """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name, self.outcome_loc.name)
         db.query(sql)
         db.store_result()
 
