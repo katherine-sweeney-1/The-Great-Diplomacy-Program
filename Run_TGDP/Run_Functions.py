@@ -108,9 +108,7 @@ def tgdp_process_cmds(commands, db):
     commands = det_valid_support(commands)
     commands = det_success_attacks(commands)
     for unit_id in commands:
-        #commands[unit_id].create_table(db)
-        #commands[unit_id].save(db)
-        print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
+       print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
     return commands
 
 def tgdp_process_outcomes(commands, nodes, units, db):
@@ -124,7 +122,6 @@ def tgdp_process_outcomes(commands, nodes, units, db):
             retreat_choice = unit.retreat[0]
             retreat_node = nodes[retreat_choice]
             unit.assign_loc(retreat_node, False, False)
-    #for unit_id in commands:
         db_moves = commands[each].create_table(db)
         commands[each].save(db_moves)
     nodes = assign_occ(nodes, units)

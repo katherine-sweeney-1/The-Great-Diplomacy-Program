@@ -50,7 +50,6 @@ class Command ():
         return self.outcome_loc
     
     def create_table(self, db):
-    #use the triple quotes """ syntax to construct a SQL query
         db.query("""
             CREATE TABLE IF NOT EXISTS moves_1 (
             UNIT_ID TEXT,
@@ -76,11 +75,8 @@ class Command ():
         sql = """
             INSERT INTO moves_1 (UNIT_ID, Commander, Location, Origin, Destination) VALUES ("{}", "{}", "{}", "{}", "{}")
             """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name)
-        #print(sql)
         db.query(sql)
         db.store_result()
-
-
 
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))
