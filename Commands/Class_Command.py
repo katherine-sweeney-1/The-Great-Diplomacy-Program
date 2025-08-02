@@ -49,9 +49,9 @@ class Command ():
         self.outcome_loc = node
         return self.outcome_loc
     
-    def create_table(self, db):
+    def create_table(self, db, count):
         db.query("""
-            CREATE TABLE IF NOT EXISTS moves_2 (
+            CREATE TABLE IF NOT EXISTS moves_2_{} (
             UNIT_ID TEXT,
             Commander TEXT,
             Location TEXT,
@@ -59,9 +59,8 @@ class Command ():
             Destination TEXT,
             Outcome TEXT
             )
-            """
+            """.format(count)
         )
-        #eventually add the outcome location part to the table
         db.store_result()
         return db
 
