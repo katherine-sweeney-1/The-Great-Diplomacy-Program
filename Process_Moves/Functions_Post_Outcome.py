@@ -26,6 +26,7 @@ def det_outcome_locs(cmds, nodes, units):
                     outcome_node = cmds[unit_id].loc
         units[unit_id].assign_retreat_disband(retreat_bool)
         units[unit_id].assign_loc(outcome_node, False, False)
+        cmds[unit_id].outcome_location(outcome_node)
     return units
 
 def det_retreats(units):
