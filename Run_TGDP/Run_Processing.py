@@ -1,5 +1,6 @@
 import sys
 import os
+"""
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes"))
 from Functions_Node import create_nodes
 from Functions_Node import create_special_nodes
@@ -12,6 +13,7 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Functions_Command import create_commands
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
 from Class_Unit import Unit
+"""
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Process_Moves"))
 from Functions_Filter import filter_owner
 from Functions_Filter import filter_unit_type
@@ -20,6 +22,8 @@ from Functions_Support import det_valid_support
 from Functions_Attack import det_success_attacks
 from Functions_Post_Outcome import det_outcome_locs
 from Functions_Post_Outcome import det_retreats
+from Run_Objects import assign_occ
+"""
 def run_create_nodes(data_nodes_main, data_nodes_coastal):
     nodes = create_nodes(data_nodes_main)
     nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
@@ -66,6 +70,7 @@ def assign_occ(nodes, units):
         occupied_node = units[unit].loc
         occupied_node.assign_occ(units[unit])
     return nodes
+"""
 
 def run_filter_owners(commands, commanders, units):
     valid_cmds = {}
@@ -77,7 +82,7 @@ def run_filter_owners(commands, commanders, units):
         else:
             valid_cmds[cmding_unit] = cmd_obj
     return valid_cmds, invalid_cmds
-
+"""
 def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_data):
     commanders = create_commanders(cmdrs_data)
     nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
@@ -86,6 +91,7 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
     nodes = coastal_node_assign_occ(nodes)
     commands = create_commands(cmds_data, commanders, nodes, units)
     return commands, commanders, nodes, units
+"""
 
 def tgdp_filter_cmds(commands, commanders, nodes):
     valid_cmds = {}

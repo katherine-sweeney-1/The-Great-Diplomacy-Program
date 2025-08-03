@@ -49,9 +49,9 @@ class Command ():
         self.outcome_loc = node
         return self.outcome_loc
     
-    def create_table(self, db, count):
+    def create_table(self, db):
         db.query("""
-            CREATE TABLE IF NOT EXISTS moves_2_{} (
+            CREATE TABLE IF NOT EXISTS moves_2_1901 (
             UNIT_ID TEXT,
             Commander TEXT,
             Location TEXT,
@@ -59,21 +59,21 @@ class Command ():
             Destination TEXT,
             Outcome TEXT
             )
-            """.format(count)
+            """
         )
         db.store_result()
         return db
 
     def drop_table(db):
         db.query("""   
-            DROP TABLE IF EXISTS moves_2;
+            DROP TABLE IF EXISTS moves_2_1901;
         """
         )
         db.store_result()
 
     def save(self,db):
         sql = """
-            INSERT INTO moves_2 (UNIT_ID, Commander, Location, Origin, Destination, Outcome) VALUES ("{}", "{}", "{}", "{}", "{}", "{}")
+            INSERT INTO moves_2_1901 (UNIT_ID, Commander, Location, Origin, Destination, Outcome) VALUES ("{}", "{}", "{}", "{}", "{}", "{}")
             """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name, self.outcome_loc.name)
         db.query(sql)
         db.store_result()
