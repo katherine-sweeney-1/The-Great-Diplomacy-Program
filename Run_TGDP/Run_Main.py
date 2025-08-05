@@ -46,12 +46,16 @@ def run_main():
     db = mysql_connect()
     for cmds_data in cmds_data_list:
         if turn_count == 1901:
+            # Create objects
             commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds_data)
         else:
+            # Create commands
             commands = create_commands(cmds_data, commanders, nodes, units)
+        # Determine and process valid commands
         valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
         valid_commands = tgdp_process_cmds(valid_commands)
-        # sql database used here to store outcomes
+        # Update nodes and units
+        # sql database to store outcomes
         nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db)
         turn_count = turn_count + 0.5
         print(turn_count)
