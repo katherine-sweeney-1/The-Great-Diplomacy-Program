@@ -189,7 +189,7 @@ cmds_3b = {
     },
     "UK02": {                           # fail - GE03 takes Hol
         "location" : "Nth",
-        "origin" : "Nth",
+        "origin" : "Yor",
         "destination" : "Hol",
         "country": "UK",
         "owner" : "Mercy"
@@ -197,7 +197,7 @@ cmds_3b = {
     "UK03": {                           # success
         "location" : "Yor",
         "origin" : "Yor",
-        "destination" : "Yor",
+        "destination" : "Nwy",
         "country": "UK",
         "owner" : "Mercy"
     },
@@ -205,21 +205,21 @@ cmds_3b = {
         "location" : "Mao",             # success
         "origin" : "Mao",
         "destination" : "Por",
-        "country": "AU",
+        "country": "FR",
         "owner" : "Sunny"
     },
     "FR02": {                           # success
         "location" : "Bre",
         "origin" : "Bre",
         "destination" : "Bre",
-        "country": "AU",
+        "country": "FR",
         "owner" : "Sunny"
     },
     "FR03": {                           # success        
         "location" : "Spa",
         "origin" : "Spa",
         "destination" : "Spa",
-        "country": "AU",
+        "country": "FR",
         "owner" : "Sunny"
     },
     "GE01": {                           # success

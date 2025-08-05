@@ -19,10 +19,10 @@ from Commands_4 import cmds_4a
 from Units_4 import units_4a
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
-from Run_Functions import tgdp_objs
-from Run_Functions import tgdp_filter_cmds
-from Run_Functions import tgdp_process_cmds
-from Run_Functions import tgdp_process_outcomes
+from Run_Objects import tgdp_objs
+from Run_Processing import tgdp_filter_cmds
+from Run_Processing import tgdp_process_cmds
+from Run_Processing import tgdp_process_outcomes
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
@@ -50,8 +50,8 @@ def run_main():
         else:
             commands = create_commands(cmds_data, commanders, nodes, units)
         valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-        valid_commands = tgdp_process_cmds(valid_commands, db, turn_count)
+        valid_commands = tgdp_process_cmds(valid_commands)
         # sql database used here to store outcomes
-        nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db, turn_count)
+        nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db)
         turn_count = turn_count + 0.5
         print(turn_count)

@@ -5,6 +5,7 @@ def retrieve_cmd_dest_dict(cmds):
     return cmd_dest_dict
 
 def det_valid_support(cmds):
+    print(cmds)
     for unit_id in cmds:
         if cmds[unit_id].loc == cmds[unit_id].origin:
             continue
