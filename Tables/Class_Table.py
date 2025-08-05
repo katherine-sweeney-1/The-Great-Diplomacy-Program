@@ -5,11 +5,6 @@ class Table ():
         print("TURN", self.turn_string)
 
     def create_table(self, db):
-            #print("testing", db)
-            db.query("""
-            use tgdp_1;"""
-            )
-            #db.query("""show tables;""")
             db.query("""
                 CREATE TABLE IF NOT EXISTS game1_{} (
                 UNIT_ID TEXT,
