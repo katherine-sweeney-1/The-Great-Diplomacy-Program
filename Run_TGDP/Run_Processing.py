@@ -9,6 +9,8 @@ from Functions_Attack import det_success_attacks
 from Functions_Convoy import convoying_unit
 from Functions_Post_Outcome import det_outcome_locs
 from Functions_Post_Outcome import det_retreats
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
+from Class_Table import Table
 from Run_Objects import assign_occ
 
 # Filter commands by who owns the units
@@ -51,7 +53,7 @@ def tgdp_process_cmds(commands):
     return commands
 
 #Process outcome locations and retreats
-def tgdp_process_outcomes(commands, nodes, units, db):
+def tgdp_process_outcomes(commands, nodes, units, db, turn_count):
     units = det_outcome_locs(commands, nodes, units)
     units = det_retreats(units)
     for each in units:
@@ -62,7 +64,8 @@ def tgdp_process_outcomes(commands, nodes, units, db):
             retreat_choice = unit.retreat[0]
             retreat_node = nodes[retreat_choice]
             unit.assign_loc(retreat_node, False, False)
-        db_moves = commands[each].create_table(db)
-        commands[each].save(db_moves)
+    db_table = Table(turn_count)
+    db_table.create_table(db)
+    db_table.save(db, commands)
     nodes = assign_occ(nodes, units)
     return nodes, units

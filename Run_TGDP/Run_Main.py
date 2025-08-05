@@ -1,6 +1,7 @@
 import sys
 import os
 from MySQLdb import _mysql
+"""
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_1"))
 from Commanders_1 import cmdrs_1
 from Commands_1 import cmds_1
@@ -17,6 +18,11 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Commanders_4 import cmdrs_4
 from Commands_4 import cmds_4a
 from Units_4 import units_4a
+"""
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Game_1"))
+from Cmdrs_1 import cmdrs_1
+from Cmds_1 import cmds_1a
+from Units_1 import units_1a
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
 from Run_Objects import tgdp_objs
@@ -27,9 +33,9 @@ from Run_Processing import tgdp_process_outcomes
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-cmdrs_data_list = cmdrs_3
-cmds_data_list = [cmds_3a, cmds_3b]
-units_data_list = units_3a
+cmdrs_data_list = cmdrs_1
+cmds_data_list = [cmds_1a]
+units_data_list = units_1a
 
 
 def mysql_connect():
@@ -52,10 +58,10 @@ def run_main():
             # Create commands
             commands = create_commands(cmds_data, commanders, nodes, units)
         # Determine and process valid commands
-        valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-        valid_commands = tgdp_process_cmds(valid_commands)
+    valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
+    valid_commands = tgdp_process_cmds(valid_commands)
         # Update nodes and units
         # sql database to store outcomes
-        nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db)
-        turn_count = turn_count + 0.5
-        print(turn_count)
+    nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db, turn_count)
+    turn_count = turn_count + 0.5
+    print(turn_count)

@@ -48,35 +48,6 @@ class Command ():
     def outcome_location(self, node):
         self.outcome_loc = node
         return self.outcome_loc
-    
-    def create_table(self, db):
-        db.query("""
-            CREATE TABLE IF NOT EXISTS moves_2_1901 (
-            UNIT_ID TEXT,
-            Commander TEXT,
-            Location TEXT,
-            Origin TEXT,
-            Destination TEXT,
-            Outcome TEXT
-            )
-            """
-        )
-        db.store_result()
-        return db
-
-    def drop_table(db):
-        db.query("""   
-            DROP TABLE IF EXISTS moves_2_1901;
-        """
-        )
-        db.store_result()
-
-    def save(self,db):
-        sql = """
-            INSERT INTO moves_2_1901 (UNIT_ID, Commander, Location, Origin, Destination, Outcome) VALUES ("{}", "{}", "{}", "{}", "{}", "{}")
-            """.format(self.unit.id, self.human.human, self.loc.name, self.origin.name, self.destination.name, self.outcome_loc.name)
-        db.query(sql)
-        db.store_result()
 
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))
