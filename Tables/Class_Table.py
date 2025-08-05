@@ -26,6 +26,10 @@ class Table ():
         db.store_result()
 
     def save(self,db, cmds):
+        sql = """
+            DELETE FROM game1_{};
+            """.format(self.turn_string)
+        db.query(sql)
         for cmd_string in cmds:
             cmd = cmds[cmd_string]
             sql = """
