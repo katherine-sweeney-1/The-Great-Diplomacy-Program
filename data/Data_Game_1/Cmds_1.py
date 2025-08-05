@@ -156,3 +156,162 @@ cmds_1a = {
     }
 
 }
+
+cmds_1b = {
+
+    "AU01": {
+        "location" : "Adr",             # success
+        "origin" : "Adr",
+        "destination" : "Apu",
+        "country": "AU",
+        "owner" : "Kamran"
+    },
+    "AU02": {                           # fail
+        "location" : "Boh",
+        "origin" : "Boh",
+        "destination" : "Mun",
+        "country": "AU",
+        "owner" : "Kamran"
+    },
+    "AU03": {                           # success
+        "location" : "Ser",
+        "origin" : "Bul",
+        "destination" : "Gre",
+        "country": "AU",
+        "owner" : "Kamran"
+    },
+    "UK01": {
+        "location" : "Nth",             # success
+        "origin" : "Nth",
+        "destination" : "Den",
+        "country": "UK",
+        "owner" : "Will"
+    },
+    "UK02": {                           # success
+        "location" : "Nwg",
+        "origin" : "Nwg",
+        "destination" : "Nwy",
+        "country": "UK",
+        "owner" : "Will"
+    },
+    "UK03": {                           # fail
+        "location" : "Yor",
+        "origin" : "Yor",
+        "destination" : "Lon",
+        "country": "UK",
+        "owner" : "Will"
+    },
+    "FR01": {
+        "location" : "Eng",             # fail
+        "origin" : "Eng",
+        "destination" : "Lon",
+        "country": "FR",
+        "owner" : "Mercy"
+    },
+    "FR02": {                           # fail
+        "location" : "Pic",
+        "origin" : "Pic",
+        "destination" : "Bel",
+        "country": "FR",
+        "owner" : "Mercy"
+    },
+    "FR03": {                           # success        
+        "location" : "Spa",
+        "origin" : "Spa",
+        "destination" : "Por",
+        "country": "FR",
+        "owner" : "Mercy"
+    },
+    "GE01": {                           # success
+        "location" : "Hol",
+        "origin" : "Ruh",
+        "destination" : "Bel",
+        "country" : "GE",
+        "owner" : "Keaton"
+    },
+    "GE02": {                           # success
+        "location" : "Ruh",
+        "origin" : "Ruh",
+        "destination" : "Bel",
+        "country" : "GE",
+        "owner" : "Keaton"
+    },
+    "GE03": {                           # fail
+        "location" : "Kie",
+        "origin" : "Kie",
+        "destination" : "Mun",
+        "country" : "GE",
+        "owner" : "Keaton"
+    },
+    "IT01": {                           # success
+        "location" : "Ven",
+        "origin" : "Tyr",
+        "destination" : "Tri",
+        "country" : "IT",
+        "owner" : "Katherine"
+    },
+    "IT02": {                           # success
+        "location" : "Tyr",
+        "origin" : "Tyr",
+        "destination" : "Tri",
+        "country" : "IT",
+        "owner" : "Katherine"
+    },
+    "IT03": {                           # fail
+        "location" : "Ion",
+        "origin" : "Ion",
+        "destination" : "Gre",
+        "country" : "IT",
+        "owner" : "Katherine"
+    },
+    "RU01": {                           # success
+        "location" : "Bot",
+        "origin" : "Bot",
+        "destination" : "Swe",
+        "country" : "RU",
+        "owner" : "Michael"
+    },
+    "RU02": {                           # success
+        "location" : "Gal",
+        "origin" : "Gal",
+        "destination" : "Sil",
+        "country" : "RU",
+        "owner" : "Michael"
+    },
+    "RU03": {                           # success
+        "location" : "Sev",
+        "origin" : "Sev",
+        "destination" : "Ukr",
+        "country" : "RU",
+        "owner" : "Michael"
+    },
+    "RU04": {                           # fsuccess
+        "location" : "Rum",
+        "origin" : "Rum",
+        "destination" : "Rum",
+        "country" : "RU",
+        "owner" : "Michael"
+    },
+    "TU01": {                           # success
+        "location" : "Bul",
+        "origin" : "Bul",
+        "destination" : "Gre",
+        "country" : "TU",
+        "owner" : "Adam"
+    },
+    "TU02": {                           # fail with no convoy function
+        "location" : "Arm",
+        "origin" : "Arm",
+        "destination" : "Bul",
+        "country" : "TU",
+        "owner" : "Adam"
+    },
+    "TU03": {                           # fail with no convoy function
+        "location" : "Bla",
+        "origin" : "Arm",
+        "destination" : "Bul",
+        "country" : "TU",
+        "owner" : "Adam"
+    }
+
+}

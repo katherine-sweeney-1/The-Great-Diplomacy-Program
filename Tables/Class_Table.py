@@ -2,8 +2,14 @@ class Table ():
 
     def __init__ (self, turn_count):
         self.turn_string = str(turn_count)
+        print("TURN", self.turn_string)
 
     def create_table(self, db):
+            #print("testing", db)
+            db.query("""
+            use tgdp_1;"""
+            )
+            #db.query("""show tables;""")
             db.query("""
                 CREATE TABLE IF NOT EXISTS game1_{} (
                 UNIT_ID TEXT,
@@ -26,6 +32,8 @@ class Table ():
         db.store_result()
 
     def save(self,db, cmds):
+        sql = """USE tgdp_1;"""
+        db.query(sql)
         sql = """
             DELETE FROM game1_{};
             """.format(self.turn_string)

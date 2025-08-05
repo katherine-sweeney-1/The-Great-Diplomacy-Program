@@ -57,13 +57,13 @@ def tgdp_process_outcomes(commands, nodes, units, db, turn_count):
     units = det_outcome_locs(commands, nodes, units)
     units = det_retreats(units)
     for each in units:
-        unit = units[each]
-        unit.create_table(db)
-        unit.save(db)
-        if unit.retreat:
-            retreat_choice = unit.retreat[0]
+        #unit = units[each]
+       # unit.create_table(db)
+       # unit.save(db)
+        if units[each].retreat:
+            retreat_choice = units[each].retreat[0]
             retreat_node = nodes[retreat_choice]
-            unit.assign_loc(retreat_node, False, False)
+            units[each].assign_loc(retreat_node, False, False)
     db_table = Table(turn_count)
     db_table.create_table(db)
     db_table.save(db, commands)

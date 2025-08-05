@@ -21,7 +21,7 @@ from Units_4 import units_4a
 """
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Game_1"))
 from Cmdrs_1 import cmdrs_1
-from Cmds_1 import cmds_1a
+from Cmds_1 import cmds_1a, cmds_1b
 from Units_1 import units_1a
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
@@ -34,8 +34,9 @@ data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
 cmdrs_data_list = cmdrs_1
-cmds_data_list = [cmds_1a]
+cmds = cmds_1b
 units_data_list = units_1a
+turn_count = 1901.5
 
 
 def mysql_connect():
@@ -48,20 +49,20 @@ def mysql_connect():
     return db
 
 def run_main():
-    turn_count = 1901
+    #turn_count = 1901
     db = mysql_connect()
-    for cmds_data in cmds_data_list:
-        if turn_count == 1901:
+    #for cmds_data in cmds_data_list:
+    #if turn_count == 1901:
             # Create objects
-            commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds_data)
-        else:
-            # Create commands
-            commands = create_commands(cmds_data, commanders, nodes, units)
-        # Determine and process valid commands
+    commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds)
+    #else:
+        # Create commands
+        #commands = create_commands(cmds, commanders, nodes, units)
+    # Determine and process valid commands
     valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
     valid_commands = tgdp_process_cmds(valid_commands)
-        # Update nodes and units
-        # sql database to store outcomes
+    # Update nodes and units
+    # sql database to store outcomes
     nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db, turn_count)
-    turn_count = turn_count + 0.5
-    print(turn_count)
+    #turn_count = turn_count + 0.5
+    #print(turn_count)
