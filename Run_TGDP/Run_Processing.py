@@ -26,7 +26,7 @@ def run_filter_owners(commands, commanders, units):
     return valid_cmds, invalid_cmds
 
 # Filter commands for legal commands
-def tgdp_filter_cmds(commands, commanders, nodes):
+def filter_cmds(commands, commanders, nodes):
     valid_cmds = {}
     invalid_cmds = {}
     for cmding_unit in commands:
@@ -44,7 +44,7 @@ def tgdp_filter_cmds(commands, commanders, nodes):
     return valid_cmds, invalid_cmds
 
 # Process commands
-def tgdp_process_cmds(commands):
+def process_cmds(commands):
     #commands = convoying_unit(commands)
     commands = det_valid_support(commands)
     commands = det_success_attacks(commands)
@@ -53,19 +53,22 @@ def tgdp_process_cmds(commands):
     return commands
 
 #Process outcome locations and retreats
-def tgdp_process_outcomes(commands, nodes, units, db, turn_count):
+def process_outcomes(commands, nodes, units):
     units = det_outcome_locs(commands, nodes, units)
     units = det_retreats(units)
     for each in units:
-        #unit = units[each]
-       # unit.create_table(db)
-       # unit.save(db)
+        # nit = units[each]
+        # unit.create_table(db)
+        # unit.save(db)
         if units[each].retreat:
             retreat_choice = units[each].retreat[0]
             retreat_node = nodes[retreat_choice]
             units[each].assign_loc(retreat_node, False, False)
-    db_table = Table(turn_count)
-    db_table.create_table(db)
-    db_table.save(db, commands)
     nodes = assign_occ(nodes, units)
     return nodes, units
+
+def yield_table (commands):
+    db_table = Table()
+    db_table.create_table()
+    db_table.save(commands)
+    return db_table

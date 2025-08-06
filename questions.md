@@ -129,3 +129,8 @@ Notes on Rules
         -   this is where recursion happened last time
 
     Take note of diagram 17
+
+
+SQL
+
+UPDATE table_name SET Origin="xyz", Destintaition = "abc" WHERE UNIT_ID = "AU01";

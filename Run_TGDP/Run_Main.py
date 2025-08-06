@@ -1,6 +1,6 @@
 import sys
 import os
-from MySQLdb import _mysql
+#from MySQLdb import _mysql
 """
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Set_1"))
 from Commanders_1 import cmdrs_1
@@ -26,9 +26,10 @@ from Units_1 import units_1a
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
 from Run_Objects import tgdp_objs
-from Run_Processing import tgdp_filter_cmds
-from Run_Processing import tgdp_process_cmds
-from Run_Processing import tgdp_process_outcomes
+from Run_Processing import filter_cmds
+from Run_Processing import process_cmds
+from Run_Processing import process_outcomes
+from Run_Processing import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
@@ -38,7 +39,7 @@ cmds = cmds_1b
 units_data_list = units_1a
 turn_count = 1901.5
 
-
+"""
 def mysql_connect():
     db = _mysql.connect(
         user = "root",
@@ -47,10 +48,10 @@ def mysql_connect():
         db = 'tgdp_1'
     )
     return db
-
+"""
 def run_main():
     #turn_count = 1901
-    db = mysql_connect()
+    #db = mysql_connect()
     #for cmds_data in cmds_data_list:
     #if turn_count == 1901:
             # Create objects
@@ -59,10 +60,11 @@ def run_main():
         # Create commands
         #commands = create_commands(cmds, commanders, nodes, units)
     # Determine and process valid commands
-    valid_commands, invalid_commands = tgdp_filter_cmds(commands, commanders, nodes)
-    valid_commands = tgdp_process_cmds(valid_commands)
+    valid_commands, invalid_commands = filter_cmds(commands, commanders, nodes)
+    valid_commands = process_cmds(valid_commands)
     # Update nodes and units
     # sql database to store outcomes
-    nodes, units = tgdp_process_outcomes(valid_commands, nodes, units, db, turn_count)
+    nodes, units = process_outcomes(valid_commands, nodes, units)
+    db_table = yield_table(commands)
     #turn_count = turn_count + 0.5
     #print(turn_count)
