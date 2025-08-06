@@ -35,7 +35,7 @@ class Command ():
     
     def cmd_strength(self, additional_strength):
         self.strength = self.strength + additional_strength
-        print(self.unit.id, self.strength)
+        print("COMAND CLASS", self.unit.id, self.strength)
         return self.strength
     
     def success(self, cmd_valid_boolean):

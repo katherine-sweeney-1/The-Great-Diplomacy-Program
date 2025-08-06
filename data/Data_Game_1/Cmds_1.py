@@ -229,7 +229,7 @@ cmds_1b = {
         "country" : "GE",
         "owner" : "Keaton"
     },
-    "GE02": {                           # success
+    "GE02": {                           # success INCORRECT
         "location" : "Ruh",
         "origin" : "Ruh",
         "destination" : "Bel",
@@ -292,7 +292,7 @@ cmds_1b = {
         "country" : "RU",
         "owner" : "Michael"
     },
-    "TU01": {                           # success
+    "TU01": {                           # success INCORRECT
         "location" : "Bul",
         "origin" : "Bul",
         "destination" : "Gre",
