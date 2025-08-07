@@ -11,9 +11,7 @@ class Table ():
     )
 
     def create_table(self):
-            self.db.query("""
-            USE tgdp_1;
-            """)
+            self.db.query("""USE tgdp_1;""")
             self.db.store_result()
             self.db.query("""
                 CREATE TABLE IF NOT EXISTS game1_1901_fall (
