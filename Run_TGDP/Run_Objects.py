@@ -62,16 +62,22 @@ def assign_occ(nodes, units):
     for unit in units:
         occupied_node = units[unit].loc
         occupied_node.assign_occ(units[unit])
-    return nodes
+    return nodes, units
 
 # Create Objects
 def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_data):
     commanders = create_commanders(cmdrs_data)
     nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
-    nodes = assign_occ(nodes, units)
+    nodes, units = assign_occ(nodes, units)
     #for unit in units:
         #print(unit, units[unit].is_occ)
     nodes = coastal_node_assign_occ(nodes)
+    for nd in nodes:
+        if nodes[nd].is_occ != False:
+            print(nd, nodes[nd].is_occ)
+    commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
     commands = create_commands(cmds_data, commanders, nodes, units)
+    #for cmd in commands:
+        #print(cmd, commands[cmd].loc.is_occ, commands[cmd].origin.is_occ)
     return commands, commanders, nodes, units

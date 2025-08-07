@@ -48,6 +48,8 @@ def process_cmds(commands):
     #commands = convoying_unit(commands)
     #commands = det_valid_support(commands)
     #for cmd in commands:
+    #for cmd_name in commands:
+        #print(commands[cmd_name].unit.id, commands[cmd_name].loc.is_occ, commands[cmd_name].origin.is_occ)
     commands = det_valid_support(commands)
     #print(cmd, commands[cmd].strength)
     commands = det_success_attacks(commands)
