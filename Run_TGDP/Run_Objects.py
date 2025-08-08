@@ -70,14 +70,14 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
     nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
     nodes, units = assign_occ(nodes, units)
-    #for unit in units:
-        #print(unit, units[unit].is_occ)
     nodes = coastal_node_assign_occ(nodes)
-    for nd in nodes:
-        if nodes[nd].is_occ != False:
-            print(nd, nodes[nd].is_occ)
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
+    #for nd in nodes:
+        #if nodes[nd].is_occ != False:
+            #print(nd, nodes[nd].is_occ)
     commands = create_commands(cmds_data, commanders, nodes, units)
     #for cmd in commands:
-        #print(cmd, commands[cmd].loc.is_occ, commands[cmd].origin.is_occ)
+        #location = commands[cmd].loc
+        #origin = commands[cmd].origin
+        #print("test", cmd, location.is_occ, origin.is_occ)
     return commands, commanders, nodes, units

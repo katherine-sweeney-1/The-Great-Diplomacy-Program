@@ -19,7 +19,16 @@ class Command ():
         return self.unit
     
     def assign_loc(self, loc_string, nodes):
-        self.loc = nodes[loc_string]
+        #for nd in nodes:
+         #   print(nd, nodes[nd].is_occ)
+            #if loc_string == nd:
+             #   node_obj = nodes[loc_string]
+        #print("CHECK", loc_string, nodes[loc_string].is_occ)
+        node_obj = nodes[loc_string]
+        print(nodes[loc_string].is_occ)
+        #print(node_obj.name, node_obj.is_occ)
+        self.loc = node_obj
+        #print("class cmd check", self.loc.name, self.loc.is_occ)
         return self.loc
     
     def assign_origin (self, origin_string, nodes):
@@ -35,7 +44,6 @@ class Command ():
     
     def cmd_strength(self, additional_strength):
         self.strength = self.strength + additional_strength
-        print("COMAND CLASS", self.unit.id, self.strength)
         return self.strength
     
     def success(self, cmd_valid_boolean):
