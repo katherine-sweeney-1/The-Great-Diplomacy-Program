@@ -24,13 +24,8 @@ def run_main():
     # Create objects
     commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds)
     # Determine and process valid commands
-    #for node in nodes:
-        #print(nodes[node].is_occ)
-    #for cmd in commands:
-        #print(commands[cmd].origin.is_occ)
     valid_commands, invalid_commands = filter_cmds(commands, commanders, nodes)
     valid_commands = process_cmds(valid_commands)
-
     # Update nodes and units
     # sql database to store outcomes
     nodes, units = process_outcomes(valid_commands, nodes, units)

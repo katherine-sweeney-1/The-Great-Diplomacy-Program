@@ -28,7 +28,7 @@ def det_valid_support(cmds):
                     #print("yessss")
                 #print("test")
         #the origin is occupied is not being ran
-        print(cmd_obj.origin.is_occ, cmd_obj.loc.name, cmd_obj.origin.name)
+        #print(cmd_obj.origin.is_occ, cmd_obj.loc.is_occ, cmd_obj.origin.name)
         if cmd_success and cmd_obj.origin.is_occ != False:
             #print("check")
             if cmd_obj.origin.is_occ == 1:

@@ -19,20 +19,20 @@ class Command ():
         return self.unit
     
     def assign_loc(self, loc_string, nodes):
-        #for nd in nodes:
-         #   print(nd, nodes[nd].is_occ)
-            #if loc_string == nd:
-             #   node_obj = nodes[loc_string]
-        #print("CHECK", loc_string, nodes[loc_string].is_occ)
-        node_obj = nodes[loc_string]
-        print(nodes[loc_string].is_occ)
-        #print(node_obj.name, node_obj.is_occ)
-        self.loc = node_obj
-        #print("class cmd check", self.loc.name, self.loc.is_occ)
+        print("self", self)
+        print("loc string", loc_string)
+        print("nodes")
+        print("nodes[loc_string]", nodes[loc_string])
+        print("nodes[loc_string].is_occ", nodes[loc_string].is_occ)
+        self.loc = nodes[loc_string]
+        print("nodes[loc_string]", nodes[loc_string])
+        print("self.loc", self.loc)
+        print(" ")
         return self.loc
     
     def assign_origin (self, origin_string, nodes):
         self.origin = nodes[origin_string]
+        #print(self.unit.id, self.origin.is_occ)
         return self.origin
     
     def assign_destination (self, dest_string, nodes):

@@ -134,3 +134,5 @@ Notes on Rules
 SQL
 
 UPDATE table_name SET Origin="xyz", Destintaition = "abc" WHERE UNIT_ID = "AU01";
+
+add command ID for command objects? Right now it uses units for ID's

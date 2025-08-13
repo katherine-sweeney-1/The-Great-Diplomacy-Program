@@ -2,8 +2,6 @@
 from Class_Command import Command
 
 def create_commands(commands_starting_data, commanders, nodes, units):
-    #for nd in nodes:
-        #print("test func cmd", nd, nodes[nd].is_occ)
     cmds_dict = {}
     for each_cmd in commands_starting_data: 
         one_cmd = Command(commands_starting_data[each_cmd]["country"])
