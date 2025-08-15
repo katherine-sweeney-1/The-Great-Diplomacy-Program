@@ -47,11 +47,7 @@ def filter_cmds(commands, commanders, nodes):
 def process_cmds(commands):
     #commands = convoying_unit(commands)
     #commands = det_valid_support(commands)
-    #for cmd in commands:
-    #for cmd_name in commands:
-        #print(commands[cmd_name].unit.id, commands[cmd_name].loc.is_occ, commands[cmd_name].origin.is_occ)
     commands = det_valid_support(commands)
-    #print(cmd, commands[cmd].strength)
     commands = det_success_attacks(commands)
     for unit_id in commands:
        print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
@@ -67,8 +63,6 @@ def process_outcomes(commands, nodes, units):
             retreat_node = nodes[retreat_choice]
             units[each].assign_loc(retreat_node, False, False)
     nodes = assign_occ(nodes, units)
-    #for node_id in nodes:
-     #   print(nodes[node_id].is_occ)
     return nodes, units
 
 def yield_table (commands):
