@@ -39,7 +39,7 @@ def det_valid_support(cmds):
                         sup_obj = cmds[sup_id].origin.is_occ.id
                         break
             else:
-                sup_id = cmd_obj.origin.id
+                sup_id = cmd_obj.origin.name
             sup_obj = cmds[sup_id]
             #print(cmds, sup_id)
             if sup_id in cmds:

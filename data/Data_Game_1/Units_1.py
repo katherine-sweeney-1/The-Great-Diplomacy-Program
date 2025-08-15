@@ -132,3 +132,138 @@ units_1a = {
         "country" : "TU"
     },
 }
+
+units_1b = {
+    "AU01": {
+        "type" : "fleet",
+        "loc" : "Adr",
+        "command" : "filler",
+        "country" : "AU"
+    },   
+    "AU02": {                       
+        "type" : "army",
+        "loc" : "Boh",
+        "command" : "filler",
+        "country" : "AU"
+    },  
+    "AU03": {                       
+        "type" : "army",
+        "loc" : "Ser",
+        "command" : "filler",
+        "country" : "AU"
+    },    
+    "UK01": {
+        "type" : "fleet",
+        "loc" : "Nth",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK02": {
+        "type" : "fleet",
+        "loc" : "Nwg",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "UK03": {
+        "type" : "army",
+        "loc" : "Yor",
+        "command" : "filler",
+        "country" : "UK"
+    },
+    "FR01": {
+        "type" : "fleet",
+        "loc" : "Eng",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "FR02": {
+        "type" : "army",
+        "loc" : "Pic",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "FR03": {
+        "type" : "army",
+        "loc" : "Spa",
+        "command" : "filler",
+        "country" : "FR"
+    },
+    "GE01": {
+        "type" : "fleet",
+        "loc" : "Hol",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE02": {
+        "type" : "army",
+        "loc" : "Ruh",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "GE03": {
+        "type" : "army",
+        "loc" : "Kie",
+        "command" : "filler",
+        "country" : "GE"
+    },
+    "IT01": {
+        "type" : "army",
+        "loc" : "Ven",
+        "command" : "filler",
+        "country" : "IT"
+    },
+    "IT02": {
+        "type" : "army",
+        "loc" : "Tyr",
+        "command" : "filler",
+        "country" : "IT"
+    },
+    "IT03": {
+        "type" : "fleet",
+        "loc" : "Ion",
+        "command" : "filler",
+        "country" : "IT"
+    },
+    "RU01": {
+        "type" : "fleet",
+        "loc" : "Bot",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU02": {
+        "type" : "army",
+        "loc" : "Gal",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU03": {
+        "type" : "army",
+        "loc" : "Sev",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "RU04": {
+        "type" : "fleet",
+        "loc" : "Rum",
+        "command" : "filler",
+        "country" : "RU"
+    },
+    "TU01": {
+        "type" : "army",
+        "loc" : "Bul",
+        "command" : "filler",
+        "country" : "TU"
+    },
+    "TU02": {
+        "type" : "army",
+        "loc" : "Arm",
+        "command" : "filler",
+        "country" : "TU"
+    },
+    "TU03": {
+        "type" : "fleet",
+        "loc" : "Bla",
+        "command" : "filler",
+        "country" : "TU"
+    },
+}
