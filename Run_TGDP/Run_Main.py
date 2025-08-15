@@ -21,7 +21,6 @@ units_data_list = units_1b
 turn_count = 1901.5
 
 def run_main():
-    print(cmds)
     # Create objects
     commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds)
     # Determine and process valid commands
