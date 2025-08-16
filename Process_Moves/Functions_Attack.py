@@ -25,7 +25,7 @@ def check_other_attacks(unit_id, cmd, dict_wo_cmd, recur_unit_id):
                     outcome = False
                     break
             else:
-                outcome = "fuck"
+                outcome = True
         else:
             outcome = True
     cmd.success(outcome)
