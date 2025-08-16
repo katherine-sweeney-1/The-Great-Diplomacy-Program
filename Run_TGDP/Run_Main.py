@@ -4,6 +4,9 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Cmdrs_1 import cmdrs_1
 from Cmds_1 import cmds_1a, cmds_1b
 from Units_1 import units_1a, units_1b
+from Cmdrs_2 import cmdrs_2
+from Cmds_2 import cmds_2a, cmds_2b
+from Units_2 import units_2a, units_2b
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
 from Run_Objects import tgdp_objs
@@ -15,9 +18,9 @@ from Run_Processing import yield_table
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 
-cmdrs_data_list = cmdrs_1
-cmds = cmds_1b
-units_data_list = units_1b
+cmdrs_data_list = cmdrs_2
+cmds = cmds_2b
+units_data_list = units_2b
 turn_count = 1901.5
 
 def run_main():
