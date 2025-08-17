@@ -31,16 +31,16 @@ def parse_cmdrs (txt):
                 elif stripped_line[16] == "/":
                      dest_count = 3
             location, origin, destination = det_node_names(line, loc_count, origin_count, dest_count)
-            print(commander, country, unit_name)
-            print(line)
-            print("loc", location)
-            print("origin", origin)
-            print("dest", destination)
-            print(" ")
             unit_count += 1
+            parsed_dict[unit_name] = {
+                 "location": location,
+                 "origin": origin,
+                 "destination": destination,
+                 "country": country,
+                 "owner": commander
+            }
         line_count += 1
-
-#figure out how to numerate units
+    return parsed_dict
 
 def det_node_names(line, loc_count, origin_count, dest_count):       
     stripped_line = line[2:]
@@ -65,6 +65,10 @@ def det_node_names(line, loc_count, origin_count, dest_count):
     elif stripped_line[loc_count + 3 : loc_count + 6] == " C ":
         origin = stripped_line[loc_count + 6: loc_count + origin_count + 9]
         destination = stripped_line[loc_count + origin_count + 13 : loc_count + origin_count + dest_count + 16]
+    # holds --> get origin and destination
+    elif stripped_line[loc_count + 4] == "H":
+         origin = location
+         destination = location
     # attacks --> get origin and destination
     else:
         origin = stripped_line[loc_count + 0:loc_count + origin_count + 3]
