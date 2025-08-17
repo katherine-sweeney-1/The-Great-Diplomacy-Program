@@ -1,0 +1,54 @@
+﻿AU
+Kamran
+A Bud S Vie  SUCCEEDS
+F Tri to Ven  FAILS
+A Vie S Bud  SUCCEEDS
+
+UK
+Will
+F Den S Pru to Kie  SUCCEEDS
+F ENG S IRI to MAO  FAILS
+F IRI to MAO  FAILS
+F NTH S ENG  SUCCEEDS
+A Wal tp Lon  SUCCEEDS
+
+FR
+Mercy
+F Bel S Bre to ENG  FAILS
+F Bre to ENG  FAILS
+A Gas to Mar  SUCCEEDS
+A Par to Gas  SUCCEEDS
+A Pic S Bel  SUCCEEDS
+
+GE
+Keaton
+A Boh H  SUCCEEDS
+F Hol S Ruh to Bel  SUCCEEDS
+A Ruh to Bel  FAILS
+
+IT
+Katherine
+A Apu to Ven  FAILS
+A Bur to Mun  FAILS
+F Nap H  SUCCEEDS
+F Tun H  SUCCEEDS
+A Tyr S Gal to Vie  SUCCEEDS
+
+RU
+Michael
+F BAL C Pru to Kie  SUCCEEDS
+A Ber S Sil to Mun  SUCCEEDS
+A Gal to Boh  FAILS
+A Pru to Kie  SUCCEEDS
+F Rum to Sev  SUCCEEDS
+A Sil to Mun  SUCCEEDS
+A War to Sil  SUCCEEDS
+
+TU
+Adam
+F AEG to Gre  SUCCEEDS
+A Alb to Ser  SUCCEEDS
+F Bul/ec S Ser to Rum  SUCCEEDS
+F ION to TYS  SUCCEEDS
+A Ser to Rum  SUCCEEDS
+F Smy to EAS  SUCCEEDS 
