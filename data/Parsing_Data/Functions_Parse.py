@@ -76,8 +76,8 @@ def det_node_names(line, loc_count, origin_count, dest_count):
         destination = stripped_line[loc_count + origin_count + 13 : loc_count + origin_count + dest_count + 16]
     # holds --> get origin and destination
     elif stripped_line[loc_count + 4] == "H":
-         origin = location
-         destination = location
+        origin = location
+        destination = location
     # attacks --> get origin and destination
     else:
         origin = stripped_line[loc_count + 0:loc_count + origin_count + 3]
