@@ -1,6 +1,7 @@
 import sys
 import os
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Data_Game_1"))
+"""
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Hard_Data/Data_Game_1"))
 from Cmdrs_1 import cmdrs_1
 from Cmds_1 import cmds_1a, cmds_1b
 from Units_1 import units_1a, units_1b
@@ -10,7 +11,9 @@ from Units_2 import units_2a, units_2b
 from Cmdrs_3 import cmdrs_3
 from Cmds_3 import cmds_3a
 from Units_3 import units_3a
+"""
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Parsing_Data"))
+from Cmdrs_1 import cmdrs_1_1903
 from Functions_Parse import parse_cmds_units
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
@@ -41,7 +44,7 @@ def run_main_original():
 
 
 def run_main_testing():
-    cmdrs_data_list = cmdrs_3
+    cmdrs_data_list = cmdrs_1_1903
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     #for each in parsed_units:
         #print(each, parsed_units[each])
