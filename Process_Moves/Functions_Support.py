@@ -18,7 +18,6 @@ def det_valid_support(cmds):
                         break
                     else:
                         cmd_success = True
-                        print("yes")
                 else:
                     cmd_success = True
         if cmd_success and cmd_obj.origin.is_occ != False:

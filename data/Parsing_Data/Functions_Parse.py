@@ -1,5 +1,6 @@
-def parse_cmdrs (txt):
-    parsed_dict = {}
+def parse_cmds_units (txt):
+    parsed_cmds = {}
+    parsed_units = {}
     file = open(txt)
     lines = file.readlines()
     line_count = 0
@@ -7,6 +8,10 @@ def parse_cmdrs (txt):
     commander = ""
     for line in lines:   
         stripped_line = ''.join([char for char in line if char.isalnum()])
+        if len(stripped_line) > 0 and stripped_line[0] == "F":
+             unit_type = "fleet"
+        elif len(stripped_line) > 0 and stripped_line[0] == "A":
+             unit_type = "army"
         # country --> get country and commander info
         if len(stripped_line) == 2:
             country = stripped_line
@@ -15,7 +20,7 @@ def parse_cmdrs (txt):
             unit_count = 1
         # commands --> get location, origin, and destination
         if stripped_line != commander and stripped_line != country and stripped_line != "":
-            unit_name = country + str(unit_count)
+            unit_name = country + str(0) + str(unit_count)
             loc_count = 0
             origin_count = 0
             dest_count = 0
@@ -32,15 +37,20 @@ def parse_cmdrs (txt):
                      dest_count = 3
             location, origin, destination = det_node_names(line, loc_count, origin_count, dest_count)
             unit_count += 1
-            parsed_dict[unit_name] = {
+            parsed_cmds[unit_name] = {
                  "location": location,
                  "origin": origin,
                  "destination": destination,
                  "country": country,
                  "owner": commander
             }
+            parsed_units[unit_name] = {
+                 "type": unit_type,
+                 "loc": location,
+                 "country": country
+            }
         line_count += 1
-    return parsed_dict
+    return parsed_cmds, parsed_units
 
 def det_node_names(line, loc_count, origin_count, dest_count):       
     stripped_line = line[2:]
@@ -48,7 +58,6 @@ def det_node_names(line, loc_count, origin_count, dest_count):
     # get location
     if loc_count != 0:
         location = stripped_line[0:6]
-        location = location.replace("/", "-")
     else:
         location = stripped_line[0:3]
     # supports --> get origin and destination
@@ -73,11 +82,22 @@ def det_node_names(line, loc_count, origin_count, dest_count):
     else:
         origin = stripped_line[loc_count + 0:loc_count + origin_count + 3]
         destination = stripped_line[loc_count + origin_count + 7 : loc_count + origin_count + dest_count + 10]
+    # format word
+    # title node names
+    location = location.title()
+    origin = origin.title()
+    destination = destination.title()
     # replace "/" with "-"
     if "/" in location:
-                location = location.replace("/", "-")
+        location = location.replace("/", "-")
+        last_letter = location[-1].upper()
+        location = location[:-1] + last_letter
     if "/" in origin:
         origin = origin.replace("/", "-")
+        last_letter = origin[-1].upper()
+        origin = origin[:-1] + last_letter
     if "/" in destination:
         destination = destination.replace("/", "-")
+        last_letter = destination[-1].upper()
+        destination = destination[:-1] + last_letter
     return location, origin, destination
