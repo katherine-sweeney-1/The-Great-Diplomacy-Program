@@ -1,0 +1,53 @@
+﻿AU
+A Bud to Tri  FAILS
+F Tri to Ven  FAILS
+A Vie S Bud to Tri  FAILS
+
+
+UK
+F Den to HEL  SUCCEEDS
+F ENG to MAO  SUCCEEDS
+F IRI S ENG to MAO  SUCCEEDS
+A Lon H  SUCCEEDS
+F NTH to ENG  FAILS
+
+
+FR
+F Bel S Bre to ENG  FAILS 
+F Bre to ENG  FAILS 
+A Gas to Mar  SUCCEEDS
+A Par to Gas  SUCCEEDS
+A Pic S Bel  SUCCEEDS
+
+
+GE
+A Boh H  SUCCEEDS
+F Hol S Ruh to Bel  SUCCEEDS
+A Ruh to Bel  FAILS
+
+
+IT
+A Apu to Ven  FAILS
+A Bur to Mun  FAILS
+F Nap H  SUCCEEDS
+F Tun H  SUCCEEDS
+A Tyr S Gal to Vie  SUCCEEDS
+
+
+RU
+F BAL S Kie  SUCCEEDS
+A Ber S Mun  SUCCEEDS
+A Gal to Vie  SUCCEEDS
+A Kie S Mun  SUCCEEDS
+A Mun S Kie  FAILS
+F Sev to Rum  SUCCEEDS
+A Sil S Mun  SUCCEEDS
+
+
+TU
+F Bul/ec H  SUCCEEDS
+F EAS to ION  SUCCEEDS
+F Gre S EAS to ION  SUCCEEDS
+A Rum to Bud  SUCCEEDS
+A Ser S Rum to Bud  SUCCEEDS
+F TYS S EAS to ION  SUCCEEDS
