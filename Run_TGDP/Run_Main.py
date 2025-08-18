@@ -26,7 +26,7 @@ from Run_Processing import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-cmds_data = "data/Txt_Hard_Data/Game1_1903_Spring.txt"
+cmds_data = "data/Txt_Hard_Data/Game1_1903_Fall.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -39,22 +39,24 @@ def run_main_original():
     valid_commands, invalid_commands = filter_cmds(commands, commanders, nodes)
     valid_commands = process_cmds(valid_commands)
     # Update nodes and units
-    # sql database to store outcomes
     nodes, units = process_outcomes(valid_commands, nodes, units)
+    # sql database to store outcomes
     db_table = yield_table(valid_commands)
 
 
 def run_main_testing():
     cmdrs_data_list = cmdrs_1_1903
+    # Extract data for commands and units
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     # Create objects
     commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, parsed_units, parsed_cmds)
-    # Determine and process valid commands
+    # Determine valid commands
     valid_commands, invalid_commands = filter_cmds(commands, commanders, nodes)
+    # Process valid commands
     valid_commands = process_cmds(valid_commands)
     # Update nodes and units
-    # sql database to store outcomes
     nodes, units = process_outcomes(valid_commands, nodes, units)
+    # sql database to store outcomes
     db_table = yield_table(valid_commands)
 
 # add a success or fail check function eventually

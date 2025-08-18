@@ -71,6 +71,6 @@ def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_
     commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
     nodes, units = assign_occ(nodes, units)
     nodes = coastal_node_assign_occ(nodes)
-   # commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
+    # commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
     commands = create_commands(cmds_data, commanders, nodes, units)
     return commands, commanders, nodes, units

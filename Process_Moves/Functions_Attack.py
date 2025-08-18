@@ -54,25 +54,68 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
             unit_dest_id = cmd.destination.is_occ.id
         unit_dest_obj = all_cmds[unit_dest_id]
         if unit_dest_id in all_cmds :
+            #print(cmd.unit.id, "checking")
             if unit_dest_obj.loc == unit_dest_obj.origin and unit_dest_obj.destination != unit_dest_obj.origin:
                 unit_on_dest_outcome = det_attack_outcome (unit_dest_id, unit_dest_obj, all_cmds)
                 if unit_on_dest_outcome:
+                    """
                     outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+                    """
+                    #print(cmd.unit.id, "checking")
+                    other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+                    if other_outcome == True:
+                        outcome = True
+                        #outcome = check_commanders(cmd, unit_dest_obj)
+                    else:
+                        if cmd.strength > unit_dest_obj.strength:
+                            outcome = True
+                            #outcome = check_commanders(cmd, unit_dest_obj)
+                        else:
+                            outcome = False
                 else:
-                
-                    outcome = False
+                    if cmd.strength > unit_dest_obj.strength:
+                        outcome = check_commanders(cmd, unit_dest_obj)
+                    else:
+                        outcome = False
             else:
                 if cmd.strength > unit_dest_obj.strength:
-                    outcome = True
+                    #outcome = True
+                    outcome = check_commanders(cmd, unit_dest_obj)
                 else:
                     outcome = False
         else:
+            
             if cmd in all_cmds and cmd.strength > unit_dest_obj.strength:
-                outcome = check_other_attacks(unit_id, cmd, all_cmds, False)
+                #outcome = check_other_attacks(unit_id, cmd, all_cmds, False)
+                other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+                if other_outcome == True:
+                    outcome = True
+                    #outcome = check_commanders(cmd, unit_dest_obj)
+                else:
+                    if cmd.strength > unit_dest_obj.strength:
+                        outcome = True
+                        #outcome = check_commanders(cmd, unit_dest_obj)
+                    else:
+                        outcome = False
             else:
                 outcome = True
+                #outcome = check_commanders(cmd, unit_dest_obj)
+        # issue with dispalcing a unit of the same country 
+        # happens when other attack fails 
     else:
         outcome = check_other_attacks(unit_id, cmd, all_cmds, False)
+        """
+        print(cmd.unit.id, unit_dest_id, "test")
+        other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+        if other_outcome == True:
+            outcome = True
+        else:
+            if cmd.strength > unit_dest_obj.strength:
+                outcome = True
+            else:
+                outcome = False
+        """
+    # issue is with commands attacking their own units successfully
     cmd.success(outcome)
     return cmd.succeed
 
@@ -95,3 +138,10 @@ def det_success_attacks(commands):
         else:
             continue
     return commands
+
+def check_commanders(cmd, unit_dest_obj):
+    if cmd.human == unit_dest_obj.human:
+        outcome = False
+    else:
+        outcome = True
+    return outcome

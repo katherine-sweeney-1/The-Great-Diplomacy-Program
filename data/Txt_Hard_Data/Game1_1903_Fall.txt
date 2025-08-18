@@ -1,10 +1,12 @@
 ﻿AU
+Kamran
 A Bud to Tri  FAILS
 F Tri to Ven  FAILS
 A Vie S Bud to Tri  FAILS
 
 
 UK
+Will
 F Den to HEL  SUCCEEDS
 F ENG to MAO  SUCCEEDS
 F IRI S ENG to MAO  SUCCEEDS
@@ -13,6 +15,7 @@ F NTH to ENG  FAILS
 
 
 FR
+Mercy
 F Bel S Bre to ENG  FAILS 
 F Bre to ENG  FAILS 
 A Gas to Mar  SUCCEEDS
@@ -21,12 +24,14 @@ A Pic S Bel  SUCCEEDS
 
 
 GE
+Keaton
 A Boh H  SUCCEEDS
 F Hol S Ruh to Bel  SUCCEEDS
 A Ruh to Bel  FAILS
 
 
 IT
+Katherine
 A Apu to Ven  FAILS
 A Bur to Mun  FAILS
 F Nap H  SUCCEEDS
@@ -35,6 +40,7 @@ A Tyr S Gal to Vie  SUCCEEDS
 
 
 RU
+Michael
 F BAL S Kie  SUCCEEDS
 A Ber S Mun  SUCCEEDS
 A Gal to Vie  SUCCEEDS
@@ -45,6 +51,7 @@ A Sil S Mun  SUCCEEDS
 
 
 TU
+Adam
 F Bul/ec H  SUCCEEDS
 F EAS to ION  SUCCEEDS
 F Gre S EAS to ION  SUCCEEDS

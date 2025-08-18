@@ -18,9 +18,16 @@ def parse_cmds_units (txt):
             commander = lines[line_count + 1]
             commander = ''.join([char for char in commander if char.isalnum()])
             unit_count = 1
+        # command --> get success and fail status
+        else:
+            if stripped_line[-5:-1] == "FAIL":
+                outcome = False
+            else:
+                outcome = True
         # commands --> get location, origin, and destination
         if stripped_line != commander and stripped_line != country and stripped_line != "":
             unit_name = country + str(0) + str(unit_count)
+            unit_count += 1
             loc_count = 0
             origin_count = 0
             dest_count = 0
@@ -36,13 +43,13 @@ def parse_cmds_units (txt):
                 elif stripped_line[16] == "/":
                      dest_count = 3
             location, origin, destination = det_node_names(line, loc_count, origin_count, dest_count)
-            unit_count += 1
             parsed_cmds[unit_name] = {
                  "location": location,
                  "origin": origin,
                  "destination": destination,
                  "country": country,
-                 "owner": commander
+                 "owner": commander,
+                 "outcome": outcome
             }
             parsed_units[unit_name] = {
                  "type": unit_type,
