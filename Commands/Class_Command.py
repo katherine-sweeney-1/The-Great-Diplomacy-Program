@@ -48,6 +48,10 @@ class Command ():
     def outcome_location(self, node):
         self.outcome_loc = node
         return self.outcome_loc
+    
+    def predet_outcome(self, predet_outcome):
+        self.predet_outcome = predet_outcome
+        return self.predet_outcome
 
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

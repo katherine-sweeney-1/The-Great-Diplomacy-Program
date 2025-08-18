@@ -47,6 +47,7 @@ def run_main_original():
 def run_main_testing():
     cmdrs_data_list = cmdrs_1_1903
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
+    #print(parsed_cmds)
     # Create objects
     commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, parsed_units, parsed_cmds)
     # Determine and process valid commands

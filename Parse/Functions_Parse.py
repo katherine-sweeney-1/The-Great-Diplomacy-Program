@@ -18,6 +18,12 @@ def parse_cmds_units (txt):
             commander = lines[line_count + 1]
             commander = ''.join([char for char in commander if char.isalnum()])
             unit_count = 1
+        # command --> get success and fail status
+        else:
+            if stripped_line[-5:-1] == "FAIL":
+                outcome = False
+            else:
+                outcome = True
         # commands --> get location, origin, and destination
         if stripped_line != commander and stripped_line != country and stripped_line != "":
             unit_name = country + str(0) + str(unit_count)
@@ -42,7 +48,8 @@ def parse_cmds_units (txt):
                  "origin": origin,
                  "destination": destination,
                  "country": country,
-                 "owner": commander
+                 "owner": commander,
+                 "outcome": outcome
             }
             parsed_units[unit_name] = {
                  "type": unit_type,

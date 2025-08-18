@@ -46,11 +46,13 @@ def filter_cmds(commands, commanders, nodes):
 # Process commands
 def process_cmds(commands):
     #commands = convoying_unit(commands)
-    #commands = det_valid_support(commands)
     commands = det_valid_support(commands)
     commands = det_success_attacks(commands)
     for unit_id in commands:
-       print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
+        if commands[unit_id].succeed == commands[unit_id].predet_outcome:
+           print(unit_id, "Correct outcome")
+        else:
+            print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
     return commands
 
 #Process outcome locations and retreats
