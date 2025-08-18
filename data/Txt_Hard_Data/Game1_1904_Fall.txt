@@ -1,0 +1,55 @@
+﻿AU
+Kamran
+F Ven H  SUCCEEDS
+
+
+UK
+Will
+F Den to Kie  SUCCEEDS
+F Hol S Den to Kie  SUCCEEDS
+F IRI to NAO  SUCCEEDS
+A Lon to Nwy  SUCCEEDS
+F Por to MAO  SUCCEEDS
+
+
+FR
+Mercy
+A Bur to Ruh  FAILS
+F ENG S Pic to Bel  SUCCEEDS
+F NTH C Lon to Nwy  SUCCEEDS
+A Pic to Bel  SUCCEEDS
+A Pie S Ven  SUCCEEDS
+A Spa H  SUCCEEDS
+
+
+IT
+Katherine
+A Apu to Ven  FAILS
+F Nap to Rom  SUCCEEDS
+A Tri S Apu to Ven  SUCCEEDS
+F WES to Spa/sc  FAILS
+
+
+RU
+Michael
+F BAL to Den  SUCCEEDS
+F BLA to Bul/ec  FAILS
+A Gal to Bud  SUCCEEDS
+A Kie H  FAILS
+A Mun to Bur  FAILS
+A Ruh to Bel  FAILS
+F Sev to Rum  SUCCEEDS
+A Sil to Ber  SUCCEEDS
+A Ukr S Sev to Rum  SUCCEEDS
+A Vie S Gal to Bud  SUCCEEDS
+
+
+TU
+Adam
+F AEG to Con  SUCCEEDS
+A Ank S AEG to Con  SUCCEEDS
+A Bud to Vie  FAILS
+F Bul/ec to BLA  FAILS
+F ION to Nap  SUCCEEDS
+A Rum to Gal  SUCCEEDS
+F Tun H  SUCCEEDS
