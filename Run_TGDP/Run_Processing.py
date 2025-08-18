@@ -50,7 +50,7 @@ def process_cmds(commands):
     commands = det_success_attacks(commands)
     for unit_id in commands:
         if commands[unit_id].succeed == commands[unit_id].predet_outcome:
-           print(unit_id, "Correct outcome")
+           print(unit_id, "Correct outcome", commands[unit_id].succeed)
         else:
             print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
     return commands
