@@ -36,8 +36,8 @@ def filter_cmds(commands, commanders, nodes):
         cmd_obj = filter_neighbors(cmd_obj, nodes)
         if cmd_obj.legal != 1:
             invalid_cmds[cmding_unit] = cmd_obj
-            cmd_obj.origin = cmd_obj.loc
-            cmd_obj.destination = cmd_obj.loc
+            #cmd_obj.origin = cmd_obj.loc
+            #cmd_obj.destination = cmd_obj.loc
             valid_cmds[cmding_unit] = cmd_obj
         else:
             valid_cmds[cmding_unit] = cmd_obj

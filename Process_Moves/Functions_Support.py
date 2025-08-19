@@ -6,12 +6,14 @@ def retrieve_cmd_dest_dict(cmds):
 
 def det_valid_support(cmds):
     for unit_id in cmds:
+        # if a unit is attacking
         if cmds[unit_id].loc == cmds[unit_id].origin:
             continue
         cmd_obj = cmds[unit_id]
+        # if a unit is supporting
         if cmd_obj.loc != cmd_obj.origin:
-            # if another unit attacks the supporting unit
             for each in cmds:
+                # if another unit attacks the supporting unit
                 if cmds[each].destination == cmd_obj.loc:
                     if cmds[each].loc == cmds[each].origin:
                         cmd_success = False
@@ -32,6 +34,7 @@ def det_valid_support(cmds):
                 sup_id = cmd_obj.origin.is_occ.id
             sup_obj = cmds[sup_id]
             if sup_id in cmds:
+                #print(sup_id, sup_obj.strength)
                 if sup_obj.loc != cmd_obj.loc:
                     if cmd_obj.origin and sup_obj.origin and sup_obj.destination == cmd_obj.destination:
                         cmd_strength = 1
@@ -45,6 +48,7 @@ def det_valid_support(cmds):
                     
                     else:
                         cmd_strength = 0
+                    #print(sup_id, sup_obj.strength)
                 else:
                     cmd_strength = 0
             else:
@@ -53,4 +57,5 @@ def det_valid_support(cmds):
         else:
             cmd_strength = 0
         cmd_obj.success(cmd_success)
+        #print(cmd_obj.unit.id, cmd_obj.strength, cmd_obj.success)
     return cmds
