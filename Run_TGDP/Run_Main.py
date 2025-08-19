@@ -26,7 +26,7 @@ from Run_Processing import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-cmds_data = "data/Txt_Hard_Data/Game1_1904_Fall.txt"
+cmds_data = "data/Txt_Hard_Data/Game1_1903_Spring.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -45,7 +45,7 @@ def run_main_original():
 
 
 def run_main_testing():
-    cmdrs_data_list = cmdrs_1_1904b
+    cmdrs_data_list = cmdrs_1_1903
     # Extract data for commands and units
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     # Create objects
