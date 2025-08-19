@@ -6,7 +6,7 @@ def parse_cmds_units (txt):
     line_count = 0
     country = ""
     commander = ""
-    for line in lines:   
+    for line in lines:
         stripped_line = ''.join([char for char in line if char.isalnum()])
         if len(stripped_line) > 0 and stripped_line[0] == "F":
              unit_type = "fleet"
@@ -26,7 +26,11 @@ def parse_cmds_units (txt):
                 outcome = True
         # commands --> get location, origin, and destination
         if stripped_line != commander and stripped_line != country and stripped_line != "":
-            unit_name = country + str(0) + str(unit_count)
+            # unit name
+            if unit_count > 9:
+                unit_name = country + str(unit_count)
+            else:
+                unit_name = country + str(0) + str(unit_count)
             unit_count += 1
             loc_count = 0
             origin_count = 0
@@ -36,11 +40,14 @@ def parse_cmds_units (txt):
                 # location is coastal
                 if line[5] == "/":
                     loc_count = 3
-                # origin is coastal
-                elif stripped_line[9] == "/" or stripped_line[10] == "/":
-                     origin_count = 3
-                # only destination is coastal:
-                elif stripped_line[16] == "/":
+                # origin is coastal, support
+                if (line[7] == "S" or line[7] == "C") and line[13] == "/":
+                    origin_count = 3
+                # attack, destination is coastal
+                if line[6:8] == "to" and line[12] == "/":
+                     dest_count = 3
+                # support attack, destination is coastal:
+                elif len(line) > 18 and line[18] == "/":
                      dest_count = 3
             location, origin, destination = det_node_names(line, loc_count, origin_count, dest_count)
             parsed_cmds[unit_name] = {
@@ -73,6 +80,7 @@ def det_node_names(line, loc_count, origin_count, dest_count):
         origin = stripped_line[loc_count + 6 : loc_count + origin_count + 9]
         # supports --> get destination for supporting attacks
         if "to" in stripped_line:
+            
             destination = stripped_line[loc_count + 13: loc_count + origin_count + dest_count+ 16]
         # supports --> get destination for supporting holds
         else:
@@ -87,7 +95,10 @@ def det_node_names(line, loc_count, origin_count, dest_count):
         destination = location
     # attacks --> get origin and destination
     else:
-        origin = stripped_line[loc_count + 0:loc_count + origin_count + 3]
+        if stripped_line[7:9] == "to":
+            origin = stripped_line[0 : loc_count + 3]
+        else:
+            origin = stripped_line[loc_count + 0 : loc_count+ 3]
         destination = stripped_line[loc_count + origin_count + 7 : loc_count + origin_count + dest_count + 10]
     # format word
     # title node names
