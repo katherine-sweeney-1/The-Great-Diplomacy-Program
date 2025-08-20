@@ -1,0 +1,58 @@
+﻿AU
+Kamran
+F Tri H  SUCCEEDS
+
+
+UK
+Will
+A Edi - Nwy  FAILS
+F Hol S Kie  FAILS
+F Kie H  FAILS
+F NAO H  SUCCEEDS
+F NWG C Edi - Nwy  SUCCEEDS
+A Swe S Edi - Nwy
+
+
+FR
+Mercy
+A Bel - Hol  SUCCEEDS
+A Bur - Gas  SUCCEEDS
+A Mar - Pie  SUCCEEDS
+F NTH - Lon  SUCCEEDS
+A Pie - Tus  SUCCEEDS
+F SKA - Swe  SUCCEEDS
+
+
+IT
+Katherine
+A Alb S Tri  SUCCEEDS
+F Rom H  SUCCEEDS
+
+
+RU
+Michael
+A Ber - Kie  SUCCEEDS
+F BLA - Sev  FAILS
+A Bud S Gal  SUCCEEDS
+F Den S SKA - Swe  SUCCEEDS
+A Gal S Bud  SUCCEEDS
+A Mun S Ber - Kie  SUCCEEDS
+A Nwy S SKA - Swe  FAILS
+A Ruh S Bel - Hol  SUCCEEDS
+F Sev - Rum  FAILS
+A Ukr S Sev - Rum  SUCCEEDS
+A Vie - Tri  FAILS
+
+
+
+
+TU
+Adam
+A Ank S Arm  SUCCEEDS
+A Arm - Sev  FAILS
+F Bul/ec S Rum  SUCCEEDS
+F Con - BLA  FAILS
+F Nap S TYS  SUCCEEDS
+A Rum S Ser  FAILS
+A Ser S Rum  SUCCEEDS
+F TYS S Nap  SUCCEEDS

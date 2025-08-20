@@ -15,7 +15,7 @@ from Units_3 import units_3a
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Parse"))
 from Functions_Parse import parse_cmds_units
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Txt_Hard_Data"))
-from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b
+from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands 
 from Run_Objects import tgdp_objs
@@ -26,7 +26,7 @@ from Run_Processing import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-cmds_data = "data/Txt_Hard_Data/Game1_1904_Fall.txt"
+cmds_data = "data/Txt_Hard_Data/Game1_1906_Spring.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -44,7 +44,7 @@ def run_main_original():
 
 
 def run_main_testing():
-    cmdrs_data_list = cmdrs_1_1904b
+    cmdrs_data_list = cmdrs_1_1906
     # Extract data for commands and units
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     # Create objects

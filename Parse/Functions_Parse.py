@@ -7,6 +7,7 @@ def parse_cmds_units (txt):
     country = ""
     commander = ""
     for line in lines:
+        line = line.replace("-", "to")
         stripped_line = ''.join([char for char in line if char.isalnum()])
         if len(stripped_line) > 0 and stripped_line[0] == "F":
              unit_type = "fleet"
@@ -84,7 +85,7 @@ def det_node_names(line, loc_count, origin_count, dest_count):
             destination = stripped_line[loc_count + 13: loc_count + origin_count + dest_count+ 16]
         # supports --> get destination for supporting holds
         else:
-            destination = stripped_line[loc_count + origin_count + 6 : origin_count + dest_count + 9]
+            destination = stripped_line[loc_count + origin_count + 6 : loc_count + origin_count + dest_count + 9]
     # convoys --> get origin and destination
     elif stripped_line[loc_count + 3 : loc_count + 6] == " C ":
         origin = stripped_line[loc_count + 6: loc_count + origin_count + 9]
