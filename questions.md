@@ -141,3 +141,16 @@ python debugger json
 cmd line debugger
 
 nodes[node].is_occ shows the occupied status for the first turn 
+
+____________________________________________________________________________________________
+
+
+
+Eventually Include
+
+    - retreats => check if this actually works
+
+    - builds/tears
+
+    - Continuity of game so it runs as one game and not isolated moves
+

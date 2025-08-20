@@ -26,13 +26,12 @@ from Run_Processing import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-cmds_data = "data/Txt_Hard_Data/Game1_1903_Spring.txt"
+cmds_data = "data/Txt_Hard_Data/Game1_1904_Fall.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
     cmds = cmds_3a
     units_data_list = units_3a
-    #parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     # Create objects
     commands, commanders, nodes, units = tgdp_objs(data_nodes, data_coastal, cmdrs_data_list, units_data_list, cmds)
     # Determine and process valid commands
@@ -45,7 +44,7 @@ def run_main_original():
 
 
 def run_main_testing():
-    cmdrs_data_list = cmdrs_1_1903
+    cmdrs_data_list = cmdrs_1_1904b
     # Extract data for commands and units
     parsed_cmds, parsed_units = parse_cmds_units(cmds_data)
     # Create objects
@@ -58,5 +57,3 @@ def run_main_testing():
     nodes, units = process_outcomes(valid_commands, nodes, units)
     # sql database to store outcomes
     db_table = yield_table(valid_commands)
-
-# add a success or fail check function eventually
