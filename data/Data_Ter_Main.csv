@@ -1,6 +1,6 @@
 Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?
-Nwg,Norwegian Sea,Sea,Nap Cly Edi Nth Nwy Bar,Neutral,FALSE,FALSE
-Nao,North Atlantic Ocean,Sea,Iri Lvp Cly Nwg,Neutral,FALSE,FALSE
+Nwg,Norwegian Sea,Sea,Nao Cly Edi Nth Nwy Bar,Neutral,FALSE,FALSE
+Nao,North Atlantic Ocean,Sea,Mao Iri Lvp Cly Nwg,Neutral,FALSE,FALSE
 Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE
 Edi,Edinburgh,Coast,Cly Lvp Nth Nwg Yor,Eng,TRUE,Eng
 Lvp,Liverpool,Coast,Nap Cly Edi Yor Wal Iri,Eng,TRUE,Eng
@@ -39,7 +39,7 @@ Par,Paris,Land,Bre Pic Bur Gas,Fra,TRUE,Fra
 Bur,Burgundy,Land,Bel Ruh Mun Mar Gas Par Pic,Fra,FALSE,FALSE
 Gas,Gascony,Coast,Bre Par Bur Mar Spa Mao,Fra,FALSE,FALSE
 Mar,Marseilles,Coast,Gas Bur Pie Lyo Spa,Fra,TRUE,Fra
-Mao,Mid-Atlantic Ocean,Sea,Iri Eng Bre Gas Spa Por Wes Naf,Neutral,FALSE,FALSE
+Mao,Mid-Atlantic Ocean,Sea,Nao Iri Eng Bre Gas Spa Por Wes Naf,Neutral,FALSE,FALSE
 Spa,Spain,Coast,Gas Mao Por Wes Lyo Mar,Neutral,TRUE,FALSE
 Por,Portugal,Coast,Mao Spa,Neutral,TRUE,FALSE
 Naf,North Africa,Coast,Mao Wes Tun,Neutral,FALSE,FALSE

@@ -1,6 +1,6 @@
 Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?
 Stp-NC,St. Petersburg (North Coast),Coast,Bar Fin Nwy Stp-SC,Rus,TRUE,Rus
-Stp-SC,St. Petersburg (South Coast),Coast,Bot Fin Lvn Mos Stp-NC,Rus,TRUE,Rus
+Stp-SC,St. Petersburg (South Coast),Coast,Bot Fin Lvn Mos Stp-NC Nwy,Rus,TRUE,Rus
 Spa-NC,Spain (North Coast),Coast,Gas Mao Por Spa-SC,Neutral,TRUE,FALSE
 Spa-SC,Spain (South Coast),Coast,Por Wes Lyo Mar Spa-NC,Neutral,TRUE,FALSE
 Bul-EC,Bulgaria (East Coast),Coast,Rum Bla Con Ser Bul-SC,Neutral,TRUE,FALSE

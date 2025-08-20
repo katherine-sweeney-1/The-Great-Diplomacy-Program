@@ -7,6 +7,7 @@ def parse_cmds_units (txt):
     country = ""
     commander = ""
     for line in lines:
+        line = line.replace("-", "to")
         stripped_line = ''.join([char for char in line if char.isalnum()])
         if len(stripped_line) > 0 and stripped_line[0] == "F":
              unit_type = "fleet"
@@ -43,6 +44,8 @@ def parse_cmds_units (txt):
                 # origin is coastal, support
                 if (line[7] == "S" or line[7] == "C") and line[13] == "/":
                     origin_count = 3
+                elif (line[6] == "S" or line[6] == "C") and line[11] == "/":
+                    origin_count = 3
                 # attack, destination is coastal
                 if line[6:8] == "to" and line[12] == "/":
                      dest_count = 3
@@ -76,15 +79,15 @@ def det_node_names(line, loc_count, origin_count, dest_count):
         location = stripped_line[0:3]
     # supports --> get origin and destination
     if stripped_line[loc_count + 3 : loc_count + 6] == " S ":
+        #print("yes", location)
         # supports --> get origin
         origin = stripped_line[loc_count + 6 : loc_count + origin_count + 9]
         # supports --> get destination for supporting attacks
         if "to" in stripped_line:
-            
-            destination = stripped_line[loc_count + 13: loc_count + origin_count + dest_count+ 16]
+            destination = stripped_line[loc_count + origin_count + 13: loc_count + origin_count + dest_count+ 16]
         # supports --> get destination for supporting holds
         else:
-            destination = stripped_line[loc_count + origin_count + 6 : origin_count + dest_count + 9]
+            destination = stripped_line[loc_count + origin_count + 6 : loc_count + origin_count + dest_count + 9]
     # convoys --> get origin and destination
     elif stripped_line[loc_count + 3 : loc_count + 6] == " C ":
         origin = stripped_line[loc_count + 6: loc_count + origin_count + 9]
