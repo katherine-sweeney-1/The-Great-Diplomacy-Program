@@ -21,6 +21,12 @@ def det_outcome_locs(cmds, nodes, units):
                                 outcome_node = cmds[unit_id].loc
                                 retreat_bool = True
                                 break
+                            else:
+                                retreat_bool = False
+                        else:
+                            retreat_bool = False
+                    else:
+                        retreat_bool = False
                 else:
                     retreat_bool = False
                     outcome_node = cmds[unit_id].loc
@@ -31,7 +37,7 @@ def det_outcome_locs(cmds, nodes, units):
 
 def det_retreats(units):
     for unit in units:
-        if units[unit].retreat:
+        if units[unit].retreat == True:
             neighbors = units[unit].loc.nbrs
             retreat_options = []
             for nbr in neighbors:

@@ -36,8 +36,8 @@ def filter_cmds(commands, commanders, nodes):
         cmd_obj = filter_neighbors(cmd_obj, nodes)
         if cmd_obj.legal != 1:
             invalid_cmds[cmding_unit] = cmd_obj
-            #cmd_obj.origin = cmd_obj.loc
-            #cmd_obj.destination = cmd_obj.loc
+            cmd_obj.origin = cmd_obj.loc
+            cmd_obj.destination = cmd_obj.loc
             valid_cmds[cmding_unit] = cmd_obj
         else:
             valid_cmds[cmding_unit] = cmd_obj
@@ -49,7 +49,7 @@ def process_cmds(commands):
     commands = det_valid_support(commands)
     commands = det_success_attacks(commands)
     for unit_id in commands:
-        if commands[unit_id].succeed == commands[unit_id].predet_outcome:
+        if commands[unit_id].succeed == commands[unit_id].predet_outcome and commands[unit_id].legal == 1:
            print(unit_id, "Correct outcome", commands[unit_id].succeed)
         else:
             print(unit_id, commands[unit_id].strength, commands[unit_id].legal, commands[unit_id].succeed)
