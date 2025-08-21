@@ -1,0 +1,53 @@
+﻿AU
+Kamran
+F Tri H  SUCCEEDS
+
+
+UK
+Will
+A Lvp - Wal  SUCCEEDS
+F NTH - ENG  SUCCEEDS
+
+
+FR
+Mercy
+A Bur - Mun  FAILS
+F ENG - Pic  SUCCEEDS
+F Lon H  SUCCEEDS
+A Pie - Ven  SUCCEEDS
+A Ruh - Kie  FAILS
+F SKA - Swe  SUCCEEDS
+F Tus - Rom  SUCCEEDS
+A Tyr - Vie  FAILS
+
+
+RU
+Michael
+A Bel - Bur  FAILS
+A Boh S Vie - Tyr  SUCCEEDS
+A Bud H  SUCCEEDS
+A Gal S Bud  FAILS
+A Hol S Kie - Ruh  SUCCEEDS
+A Kie - Ruh  SUCCEEDS
+A Mos S Ukr  SUCCEEDS
+A Mun S Vie - Tyr  FAILS
+F Nwy H  SUCCEEDS
+F Swe - Den  SUCCEEDS
+A Ukr S Gal  SUCCEEDS
+A Vie - Tyr  SUCCEEDS
+
+
+
+
+TU
+Adam
+F AEG C Con - Gre  SUCCEEDS
+A Arm S Sev  SUCCEEDS
+F BLA S Bul/ec - Rum  SUCCEEDS
+F Bul/ec - Rum  FAILS
+A Con - Gre  SUCCEEDS
+F Rom - TYS  SUCCEEDS
+A Rum - Gal  FAILS
+A Ser - Bud  FAILS
+A Sev H  SUCCEEDS
+F TYS - WES  SUCCEEDS
