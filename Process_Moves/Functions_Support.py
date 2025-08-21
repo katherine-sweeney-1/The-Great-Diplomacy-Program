@@ -3,8 +3,8 @@ def retrieve_cmd_dest_dict(cmds):
     for cmd in cmds:
         cmd_dest_dict[cmd] = cmds[cmd].destination
     return cmd_dest_dict
-
-def det_valid_support(cmds):
+"""
+def det_valid_support(cmds, unit_id = None):
     for unit_id in cmds:
         # if a unit is attacking
         if cmds[unit_id].loc == cmds[unit_id].origin:
@@ -14,10 +14,11 @@ def det_valid_support(cmds):
         if cmd_obj.loc != cmd_obj.origin:
             for other_unit in cmds:
                 # if another unit attacks the supporting unit
-                if cmds[other_unit].destination == cmd_obj.loc:
+                if cmd_obj.loc == cmds[other_unit].destination:
                     if cmds[other_unit].loc == cmds[other_unit].origin:
                         # check if command supports an attack on the unit trying to cut support
                         if cmd_obj.destination == cmds[other_unit].loc:
+                            print("test 1", unit_id, other_unit)
                             cmd_success = True
                         else:
                             cmd_success = False
@@ -26,12 +27,13 @@ def det_valid_support(cmds):
                         cmd_success = True
                 else:
                     cmd_success = True
+        print(unit_id, cmd_success)
         if cmd_success and cmd_obj.origin.is_occ != False:
             if cmd_obj.origin.is_occ == 1:
                 origin = cmd_obj.origin
                 for each_cmd in cmds:
                     if cmds[each_cmd] == origin:
-                        sup_id = each
+                        sup_id = each_cmd
                         sup_obj = cmds[sup_id].origin.is_occ.id
                         break
             else:
@@ -60,3 +62,183 @@ def det_valid_support(cmds):
             cmd_strength = 0
         cmd_obj.success(cmd_success)
     return cmds
+"""
+
+
+def det_valid_support(cmds, unit_id = None):
+    for unit_id in cmds:
+        # if a unit is attacking
+        if cmds[unit_id].loc == cmds[unit_id].origin:
+            continue
+        cmd_obj = cmds[unit_id]
+        # if a unit is supporting
+        if cmd_obj.loc != cmd_obj.origin:
+            for other_unit in cmds:
+                # if another unit attacks the supporting unit
+                if cmd_obj.loc == cmds[other_unit].destination:
+                    if cmds[other_unit].loc == cmds[other_unit].origin:
+                        # check if command supports an attack on the unit trying to cut support
+                        if cmd_obj.destination == cmds[other_unit].loc:
+                            print("test 1", unit_id, other_unit)
+                            for pot_other_support in cmds:
+                                # if there is a command that's not the supporting unit or attacking unit
+                                #if cmds[pot_other_support].loc != cmd_obj.loc and cmds[pot_other_support].loc != cmds[other_unit].loc:
+                                    # if the command is supporting an attack
+                                if cmds[pot_other_support].loc != cmds[pot_other_support].origin and cmds[pot_other_support].origin != cmds[pot_other_support].destination:
+                                        #print("yes 1", "unit", unit_id, "attacking unit", cmds[other_unit].unit.id, "pot sup", cmds[pot_other_support].unit.id)
+                                        
+                                    pot_other_suppoprt_success = det_valid_support
+                                    #else:
+                                        #continue
+                                else:
+                                    continue
+                            # check if anything supports the attack on supporting unit in question
+                            # if yes => check if support is valid
+                            # if support is valid => supporting unit in question is not successful
+                            # if supporting the attacki is not valid => supporting unit in question is successful
+                            print("check", unit_id, cmd_success)
+                            #cmd_success = True
+                        else:
+                            cmd_success = False
+                            break
+                    else:
+                        cmd_success = True
+                else:
+                    cmd_success = True
+        print(unit_id, cmd_success)
+        if cmd_success and cmd_obj.origin.is_occ != False:
+            if cmd_obj.origin.is_occ == 1:
+                origin = cmd_obj.origin
+                for each_cmd in cmds:
+                    if cmds[each_cmd] == origin:
+                        sup_id = each_cmd
+                        sup_obj = cmds[sup_id].origin.is_occ.id
+                        break
+            else:
+                sup_id = cmd_obj.origin.is_occ.id
+            sup_obj = cmds[sup_id]
+            if sup_id in cmds:
+                if sup_obj.loc != cmd_obj.loc:
+                    if cmd_obj.origin and sup_obj.origin and sup_obj.destination == cmd_obj.destination:
+                        cmd_strength = 1
+                        sup_obj.cmd_strength(cmd_strength)
+                    elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                        cmd_strength = 1
+                        sup_obj.cmd_strength(cmd_strength)
+                    elif sup_obj.origin == sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                        cmd_strength = 1
+                        sup_obj.cmd_strength(cmd_strength)
+                    
+                    else:
+                        cmd_strength = 0
+                else:
+                    cmd_strength = 0
+            else:
+                cmd_strength = 0
+    
+        else:
+            cmd_strength = 0
+        cmd_obj.success(cmd_success)
+    return cmds
+
+
+
+
+
+
+
+
+
+
+def det_valid_support(cmds, id = None):
+    # if there is a particular support to look at
+    if id != None:
+        unit_id = id
+        cmd_obj = cmds[unit_id]
+        cmd_success = is_support_cut(unit_id, cmds)
+        cmd_strength = det_sup_strength(cmd_obj, cmd_success, cmds)
+    else:
+        for unit_id in cmds:
+        # if a unit is attacking
+            if cmds[unit_id].loc == cmds[unit_id].origin:
+                continue
+            cmd_obj = cmds[unit_id]
+            cmd_success = is_support_cut(unit_id, cmds)
+            cmd_strength = det_sup_strength(cmd_obj, cmd_success, cmds)
+    return cmds
+
+
+def is_support_cut(unit_id, cmds):
+    cmd_obj = cmds[unit_id]
+    if cmd_obj.loc != cmd_obj.origin:
+        for other_unit in cmds:
+            # if another unit attacks the supporting unit
+            if cmd_obj.loc == cmds[other_unit].destination:
+                if cmds[other_unit].loc == cmds[other_unit].origin:
+                    # check if command supports an attack on the unit trying to cut support
+                    if cmd_obj.destination == cmds[other_unit].loc:
+                        print("test 1", unit_id, other_unit)
+                        for pot_other_support in cmds:
+                        # if there is a command that's not the supporting unit or attacking unit
+                        #if cmds[pot_other_support].loc != cmd_obj.loc and cmds[pot_other_support].loc != cmds[other_unit].loc:
+                            # if the command is supporting an attack
+                            if cmds[pot_other_support].loc != cmds[pot_other_support].origin and cmds[pot_other_support].origin != cmds[pot_other_support].destination:
+                                #print("yes 1", "unit", unit_id, "attacking unit", cmds[other_unit].unit.id, "pot sup", cmds[pot_other_support].unit.id)
+                                
+                                pot_other_suppoprt_success = det_valid_support(cmds, unit_id)
+                                if pot_other_suppoprt_success:
+                                    cmd_success = False
+                                else:
+                                    cmd_success = True
+                            #else:
+                                #continue
+                            else:
+                                continue
+                    # check if anything supports the attack on supporting unit in question
+                    # if yes => check if support is valid
+                    # if support is valid => supporting unit in question is not successful
+                    # if supporting the attacki is not valid => supporting unit in question is successful
+                        print("check", unit_id, cmd_success)
+                    #cmd_success = True
+                    else:
+                        cmd_success = False
+                        break
+                else:
+                    cmd_success = True
+            else:
+                cmd_success = True
+    print(unit_id, cmd_success)
+        
+def det_sup_strength(cmd_obj, cmd_success, cmds):
+    if cmd_success and cmd_obj.origin.is_occ != False:
+        if cmd_obj.origin.is_occ == 1:
+            origin = cmd_obj.origin
+            for each_cmd in cmds:
+                if cmds[each_cmd] == origin:
+                    sup_id = each_cmd
+                    sup_obj = cmds[sup_id].origin.is_occ.id
+                    break
+        else:
+            sup_id = cmd_obj.origin.is_occ.id
+        sup_obj = cmds[sup_id]
+        if sup_id in cmds:
+            if sup_obj.loc != cmd_obj.loc:
+                if cmd_obj.origin and sup_obj.origin and sup_obj.destination == cmd_obj.destination:
+                    cmd_strength = 1
+                    sup_obj.cmd_strength(cmd_strength)
+                elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                    cmd_strength = 1
+                    sup_obj.cmd_strength(cmd_strength)
+                elif sup_obj.origin == sup_obj.destination and sup_obj.loc != sup_obj.origin:
+                    cmd_strength = 1
+                    sup_obj.cmd_strength(cmd_strength)    
+                else:
+                    cmd_strength = 0
+            else:
+                cmd_strength = 0
+        else:
+            cmd_strength = 0
+    else:
+        cmd_strength = 0
+    cmd_obj.success(cmd_success)
+    return cmd_obj.success
