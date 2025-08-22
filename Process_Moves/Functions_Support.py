@@ -13,22 +13,16 @@ def det_valid_support(cmds, unit_id = None, recur_bool = None):
         # if a unit is supporting
         if cmd_obj.loc != cmd_obj.origin:
             for other_unit in cmds:
-                # if another unit attacks the supporting unit
+                # if another unit affects the supporting unit
                 if cmd_obj.loc == cmds[other_unit].destination:
-                    if unit_id == "FR03":
-                                print("0 check")
-                    
-                    
+                    # check if the affecting command is an attack
                     if cmds[other_unit].loc == cmds[other_unit].origin:
-                        #print("check", unit_id)
                         # check if command supports an attack on the unit trying to cut support
                         if cmd_obj.destination == cmds[other_unit].loc:
                             print("check 1", unit_id)
 
-
-
-
-
+                            """
+                            # recursion attempt
                             for pot_other_support in cmds:
                                 if cmds[pot_other_support].loc != cmds[pot_other_support].origin and cmds[pot_other_support].origin != cmds[pot_other_support].destination:
                                     if recur_bool:
@@ -48,27 +42,19 @@ def det_valid_support(cmds, unit_id = None, recur_bool = None):
                                 else:
                                     continue
 
-
-
+                            """
 
                             #print("test 2", unit_id, other_unit)
-                            #cmd_success = True
+                            cmd_success = True
                         else:
-                            if unit_id == "FR03":
-                                print("ues")
                             cmd_success = False
                             break
                     else:
-                        if unit_id == "FR03":
-                                print("ues 2")
                         cmd_success = True
 
 
                 else:
-                    if unit_id == "FR03":
-                                print("ues 3")
                     cmd_success = True
-        #print(unit_id, cmd_success)
         if cmd_success and cmd_obj.origin.is_occ != False:
             if cmd_obj.origin.is_occ == 1:
                 origin = cmd_obj.origin
