@@ -4,7 +4,6 @@ class Command ():
         self.country = country_string
         self.legal = 1
         self.strength = 1
-        self.cmd_value = 1
 
     def assign_cmdr(self, cmding_owner, commanders):
         self.human = commanders[cmding_owner]

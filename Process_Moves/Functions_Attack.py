@@ -36,45 +36,45 @@ def check_other_attacks(unit_id, cmd, dict_wo_cmd, recur_unit_id):
     cmd.success(outcome)
     return cmd.succeed
 
-def det_attack_outcome(unit_id, cmd, all_cmds):
+def get_attack_outcome(unit_id, cmd, all_cmds):
     if cmd.destination.is_occ:
-        unit_dest_id, unit_dest_obj = get_dest_obj(cmd, all_cmds)
-        unit_dest_obj = all_cmds[unit_dest_id]
-        if unit_dest_id in all_cmds :
-            if unit_dest_obj.loc == unit_dest_obj.origin and unit_dest_obj.destination != unit_dest_obj.origin:
-                if cmd.loc == unit_dest_obj.destination and cmd.destination == unit_dest_obj.loc:
+        destination_command_id, destination_command = get_dest_obj(cmd, all_cmds)
+        #unit_dest_obj = all_cmds[unit_on_destination_id]
+        if destination_command_id in all_cmds :
+            if destination_command.loc == destination_command.origin and destination_command.destination != destination_command.origin:
+                if cmd.loc == destination_command.destination and cmd.destination == destination_command.loc:
                     outcome = False
                     unit_on_dest_outcome = False
                 else:
-                    unit_on_dest_outcome = det_attack_outcome (unit_dest_id, unit_dest_obj, all_cmds)
+                    unit_on_dest_outcome = get_attack_outcome (destination_command_id, destination_command, all_cmds)
                 if unit_on_dest_outcome:
-                    other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+                    other_outcome = check_other_attacks(unit_id, cmd, all_cmds, destination_command_id)
                     if other_outcome == True:
                         outcome = True
                     else:
-                        if cmd.strength > unit_dest_obj.strength:
+                        if cmd.strength > destination_command.strength:
                             outcome = True
                         else:
                             outcome = False
                 else:
-                    if cmd.strength > unit_dest_obj.strength:
-                        outcome = check_commanders(cmd, unit_dest_obj)
+                    if cmd.strength > destination_command.strength:
+                        outcome = check_commanders(cmd, destination_command)
                     else:
                         outcome = False
             else:
-                if cmd.strength > unit_dest_obj.strength:
+                if cmd.strength > destination_command.strength:
                     #outcome = True
-                    outcome = check_commanders(cmd, unit_dest_obj)
+                    outcome = check_commanders(cmd, destination_command)
                 else:
                     outcome = False
         else:
             
-            if cmd in all_cmds and cmd.strength > unit_dest_obj.strength:
-                other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
+            if cmd in all_cmds and cmd.strength > destination_command.strength:
+                other_outcome = check_other_attacks(unit_id, cmd, all_cmds, destination_command_id)
                 if other_outcome == True:
                     outcome = True
                 else:
-                    if cmd.strength > unit_dest_obj.strength:
+                    if cmd.strength > destination_command.strength:
                         outcome = True
                     else:
                         outcome = False
@@ -96,7 +96,7 @@ def det_attack_outcome(unit_id, cmd, all_cmds):
     cmd.success(outcome)
     return cmd.succeed
 
-def det_hold_outcome(unit_id, cmd, all_cmds):
+def get_hold_outcome(unit_id, cmd, all_cmds):
     other_attack_outcome = check_other_attacks(unit_id, cmd, all_cmds, False)
     if other_attack_outcome:
         outcome = True
@@ -109,41 +109,41 @@ def det_hold_outcome(unit_id, cmd, all_cmds):
     cmd.success(outcome)
     return cmd
 
-def det_success_attacks(commands):
-    for unit_id in commands:
-        cmd = commands[unit_id]
+def get_success_attacks(commands):
+    for id in commands:
+        cmd = commands[id]
         if cmd.loc == cmd.destination:
-            det_hold_outcome(unit_id, commands[unit_id], commands)
+            get_hold_outcome(id, commands[id], commands)
         elif cmd.loc == cmd.origin and cmd.origin != cmd.destination:
-            det_attack_outcome(unit_id, commands[unit_id], commands)
+            get_attack_outcome(id, commands[id], commands)
         else:
             continue
     return commands
 
-def check_commanders(cmd, unit_dest_obj):
-    if cmd.human == unit_dest_obj.human:
+def check_commanders(cmd, destination_command):
+    if cmd.human == destination_command.human:
         outcome = False
     else:
         outcome = True
     return outcome
 
-def get_dest_obj(cmd, all_cmds):
+def get_dest_obj(cmd, commands):
     if cmd.destination.is_occ == 1:
         destination_node = cmd.destination
         if isinstance(destination_node, Coastal_Node):
             destination_parent = destination_node.name[:3]
-            for each_cmd in all_cmds:
-                if all_cmds[each_cmd].destination == destination_parent:
-                    unit_dest_id = each_cmd
+            for id in commands:
+                if commands[id].destination == destination_parent:
+                    destination_command_id = id
                     break
-                elif destination_parent in all_cmds[each_cmd].loc.name:
-                    unit_dest_id = each_cmd
+                elif destination_parent in commands[id].loc.name:
+                    destination_command_id = id
                     break
         else:
-            for indiv_cmd in all_cmds:
-                if cmd.destination.name in all_cmds[indiv_cmd].loc.name:
-                    unit_dest_id = indiv_cmd
+            for id in commands:
+                if cmd.destination.name in commands[id].loc.name:
+                    destination_command_id = id
     else:
-        unit_dest_id = cmd.destination.is_occ.id
-    unit_dest_obj = all_cmds[unit_dest_id]
-    return unit_dest_id, unit_dest_obj
+        destination_command_id = cmd.destination.is_occ.id
+    destination_command = commands[destination_command_id]
+    return destination_command_id, destination_command
