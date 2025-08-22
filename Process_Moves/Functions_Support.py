@@ -1,25 +1,25 @@
-def retrieve_cmd_dest_dict(cmds):
+def retrieve_cmd_dest_dict(commands):
     cmd_dest_dict = {}
-    for cmd in cmds:
-        cmd_dest_dict[cmd] = cmds[cmd].destination
+    for id in commands:
+        cmd_dest_dict[id] = commands[id].destination
     return cmd_dest_dict
 
-def det_valid_support(cmds, unit_id = None, recur_bool = None):
-    for unit_id in cmds:
+def get_valid_support(commands, id = None, recur_bool = None):
+    for id in commands:
         # if a unit is attacking
-        if cmds[unit_id].loc == cmds[unit_id].origin:
+        if commands[id].loc == commands[id].origin:
             continue
-        cmd_obj = cmds[unit_id]
+        command = commands[id]
         # if a unit is supporting
-        if cmd_obj.loc != cmd_obj.origin:
-            for other_unit in cmds:
+        if command.loc != command.origin:
+            for other_id in commands:
                 # if another unit affects the supporting unit
-                if cmd_obj.loc == cmds[other_unit].destination:
+                if command.loc == commands[other_id].destination:
                     # check if the affecting command is an attack
-                    if cmds[other_unit].loc == cmds[other_unit].origin:
+                    if commands[other_id].loc == commands[other_id].origin:
                         # check if command supports an attack on the unit trying to cut support
-                        if cmd_obj.destination == cmds[other_unit].loc:
-                            print("check 1", unit_id)
+                        if command.destination == commands[other_id].loc:
+                            print("check 1", id)
 
                             """
                             # recursion attempt
@@ -45,50 +45,50 @@ def det_valid_support(cmds, unit_id = None, recur_bool = None):
                             """
 
                             #print("test 2", unit_id, other_unit)
-                            cmd_success = True
+                            command_success = True
                         else:
-                            cmd_success = False
+                            command_success = False
                             break
                     else:
-                        cmd_success = True
+                        command_success = True
 
 
                 else:
-                    cmd_success = True
-        if cmd_success and cmd_obj.origin.is_occ != False:
-            if cmd_obj.origin.is_occ == 1:
-                origin = cmd_obj.origin
-                for each_cmd in cmds:
-                    if cmds[each_cmd] == origin:
-                        sup_id = each_cmd
-                        sup_obj = cmds[sup_id].origin.is_occ.id
+                    command_success = True
+        if command_success and command.origin.is_occ != False:
+            if command.origin.is_occ == 1:
+                origin = command.origin
+                for id in commands:
+                    if commands[id] == origin:
+                        supported_command_id = id
+                        supported_command = commands[supported_command_id].origin.is_occ.id
                         break
             else:
-                sup_id = cmd_obj.origin.is_occ.id
-            sup_obj = cmds[sup_id]
-            if sup_id in cmds:
-                if sup_obj.loc != cmd_obj.loc:
-                    if cmd_obj.origin and sup_obj.origin and sup_obj.destination == cmd_obj.destination:
-                        cmd_strength = 1
-                        sup_obj.cmd_strength(cmd_strength)
-                    elif sup_obj.origin != sup_obj.destination and sup_obj.loc != sup_obj.origin:
-                        cmd_strength = 1
-                        sup_obj.cmd_strength(cmd_strength)
-                    elif sup_obj.origin == sup_obj.destination and sup_obj.loc != sup_obj.origin:
-                        cmd_strength = 1
-                        sup_obj.cmd_strength(cmd_strength)
+                supported_command_id = command.origin.is_occ.id
+            supported_command = commands[supported_command_id]
+            if supported_command_id in commands:
+                if supported_command.loc != command.loc:
+                    if command.origin and supported_command.origin and supported_command.destination == command.destination:
+                        command_strength = 1
+                        supported_command.cmd_strength(command_strength)
+                    elif supported_command.origin != supported_command.destination and supported_command.loc != supported_command.origin:
+                        command_strength = 1
+                        supported_command.cmd_strength(command_strength)
+                    elif supported_command.origin == supported_command.destination and supported_command.loc != supported_command.origin:
+                        command_strength = 1
+                        supported_command.cmd_strength(command_strength)
                     
                     else:
-                        cmd_strength = 0
+                        command_strength = 0
                 else:
-                    cmd_strength = 0
+                    command_strength = 0
             else:
-                cmd_strength = 0
+                command_strength = 0
     
         else:
-            cmd_strength = 0
-        cmd_obj.success(cmd_success)
-    return cmds
+            command_strength = 0
+        command.success(command_success)
+    return commands
 
 
 """
