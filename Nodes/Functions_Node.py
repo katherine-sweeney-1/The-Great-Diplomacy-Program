@@ -1,6 +1,10 @@
 from Class_Node import Node
 from Class_Sub_Node import Coastal_Node
 from Visualize_Node_Class import GraphVisualization
+import sys
+import os
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
+from Class_Unit import Unit
 
 def get_nodes_data_dictionary(csv_file):
     nodes_data_dictionary = {}
@@ -59,6 +63,30 @@ def create_nodes(nodes_data, nodes_data_coastal):
         nodes[node_id].assign_dot(dots_string)
         nodes[node_id].assign_hsc(homesupplycenter_string)
     return nodes
+
+# Coastal nodes occupied status
+def assign_occ_coastal(nodes):
+    for id in nodes:
+        if isinstance (nodes[id], Coastal_Node):
+            parent_occ = False
+            if isinstance(nodes[id].is_occ, Unit):
+                nodes[id].assign_occ_to_family(parent_occ)
+        elif len(id[:3]) > 0:
+            if isinstance(nodes[id].is_occ, Unit):
+                parent_occ = True
+                for each_id in nodes:
+                    if each_id[:3] in id and each_id != id:
+                        nodes[each_id].assign_occ_to_family(parent_occ)
+    return nodes
+
+# Nodes occupied status
+def assign_occ(nodes, units):
+    for id in nodes:
+        nodes[id].assign_occ(False)
+    for id in units:
+        occupied_node = units[id].loc
+        occupied_node.assign_occ(units[id])
+    return nodes, units
 
 def create_graph (nodes):
     territory_graph = GraphVisualization()
