@@ -6,6 +6,7 @@ import os
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
 from Class_Unit import Unit
 
+# get a dictionary of node data
 def get_nodes_data_dictionary(csv_file):
     nodes_data_dictionary = {}
     # parse the csv file
@@ -26,18 +27,19 @@ def get_nodes_data_dictionary(csv_file):
         i += 1
     return nodes_data_dictionary
 
+# create node objects
 def create_nodes(nodes_data, nodes_data_coastal):
     nodes_main = {}
     nodes_coastal = {}
     nodes_data_dictionary = get_nodes_data_dictionary(nodes_data)
-    special_dict = get_nodes_data_dictionary(nodes_data_coastal)
+    coastal_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
     # create nodes for non-coastal territories
     for id in nodes_data_dictionary:
         node = Node(id, nodes_data_dictionary[id])
         nodes_main[id] = node
     # create nodes for coastal territories
-    for id in special_dict:
-        each_node = Coastal_Node(id, special_dict[id])
+    for id in coastal_dictionary:
+        each_node = Coastal_Node(id, coastal_dictionary[id])
         parent_name = each_node.name[:3]
         parent_node = nodes_main[parent_name]
         each_node.assign_parent(parent_node)
@@ -59,9 +61,9 @@ def create_nodes(nodes_data, nodes_data_coastal):
         homesupplycenter_string = node_data_dictionary[node_id]["Home SupCenter"]
         neighbors_string = neighbors_string.split(" ")
         # assign string data to node class properties
-        nodes[node_id].assign_nbrs(nodes, neighbors_string)
+        nodes[node_id].assign_neighbors(nodes, neighbors_string)
         nodes[node_id].assign_dot(dots_string)
-        nodes[node_id].assign_hsc(homesupplycenter_string)
+        nodes[node_id].assign_supply_center(homesupplycenter_string)
     return nodes
 
 # Coastal nodes occupied status
@@ -69,10 +71,10 @@ def assign_occ_coastal(nodes):
     for id in nodes:
         if isinstance (nodes[id], Coastal_Node):
             parent_occ = False
-            if isinstance(nodes[id].is_occ, Unit):
+            if isinstance(nodes[id].is_occupied, Unit):
                 nodes[id].assign_occ_to_family(parent_occ)
         elif len(id[:3]) > 0:
-            if isinstance(nodes[id].is_occ, Unit):
+            if isinstance(nodes[id].is_occupied, Unit):
                 parent_occ = True
                 for each_id in nodes:
                     if each_id[:3] in id and each_id != id:
@@ -80,18 +82,18 @@ def assign_occ_coastal(nodes):
     return nodes
 
 # Nodes occupied status
-def assign_occ(nodes, units):
+def assign_occupied(nodes, units):
     for id in nodes:
-        nodes[id].assign_occ(False)
-    for id in units:
-        occupied_node = units[id].loc
-        occupied_node.assign_occ(units[id])
+        nodes[id].assign_occupied(False)
+    for unit_id in units:
+        occupied_node = units[unit_id].location
+        occupied_node.assign_occupied(units[unit_id])
     return nodes, units
 
 def create_graph (nodes):
     territory_graph = GraphVisualization()
     for territory in nodes:
-        nbrs = nodes[territory].nbrs.split(" ")
+        nbrs = nodes[territory].neighbors.split(" ")
         for each_nbr in nbrs:
             territory_graph.addEdge(territory, each_nbr)
     return territory_graph

@@ -3,19 +3,19 @@ class Unit ():
     def __init__ (self, unit_id, unit_type):
         self.id = unit_id
         self.type = unit_type
-        self.loc = []
+        self.location = []
         self.command = []
 
-    def assign_loc (self, node_obj, loc_string, nodes_dict):
+    def assign_location (self, node_obj, loc_string, nodes_dict):
         if node_obj:
-            self.loc = node_obj
+            self.location = node_obj
         else:
-            self.loc = nodes_dict[loc_string]
-        return self.loc
+            self.location = nodes_dict[loc_string]
+        return self.location
 
-    def assign_cmdr(self, cmdr_obj):
-        self.cmdr = cmdr_obj
-        return self.cmdr
+    def assign_commander(self, cmdr_obj):
+        self.commander = cmdr_obj
+        return self.commander
     
     def assign_retreat_disband(self, bool):
         self.retreat = bool

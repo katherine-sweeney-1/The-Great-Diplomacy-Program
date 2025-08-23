@@ -2,22 +2,20 @@ import sys
 import os
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes"))
 from Functions_Node import create_nodes
-from Functions_Node import assign_occ
+from Functions_Node import assign_occupied
 from Functions_Node import assign_occ_coastal
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commanders"))
 from Functions_Commander import create_commanders
 from Functions_Commander import update_commanders
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
-from Class_Unit import Unit
 
 # Create Objects
-def tgdp_objs(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
+def create_objects(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
     commanders = create_commanders(commanders_data)
     nodes = create_nodes(nodes_data, nodes_data_coastal)
     commanders, units = update_commanders(commanders, nodes, commanders_data, units_data)
-    nodes, units = assign_occ(nodes, units)
+    nodes, units = assign_occupied(nodes, units)
     nodes = assign_occ_coastal(nodes)
     commands = create_commands(commands_data, commanders, nodes, units)
     return commands, commanders, nodes, units

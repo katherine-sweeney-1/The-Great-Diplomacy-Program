@@ -1,24 +1,18 @@
-def retrieve_cmd_dest_dict(commands):
-    cmd_dest_dict = {}
-    for id in commands:
-        cmd_dest_dict[id] = commands[id].destination
-    return cmd_dest_dict
-
 def get_valid_support(commands, id = None, recur_bool = None):
     for id in commands:
         # if a unit is attacking
-        if commands[id].loc == commands[id].origin:
+        if commands[id].location == commands[id].origin:
             continue
         command = commands[id]
         # if a unit is supporting
-        if command.loc != command.origin:
+        if command.location != command.origin:
             for other_id in commands:
                 # if another unit affects the supporting unit
-                if command.loc == commands[other_id].destination:
+                if command.location == commands[other_id].destination:
                     # check if the affecting command is an attack
-                    if commands[other_id].loc == commands[other_id].origin:
+                    if commands[other_id].location == commands[other_id].origin:
                         # check if command supports an attack on the unit trying to cut support
-                        if command.destination == commands[other_id].loc:
+                        if command.destination == commands[other_id].location:
                             print("check 1", id)
 
                             """
@@ -55,26 +49,26 @@ def get_valid_support(commands, id = None, recur_bool = None):
 
                 else:
                     command_success = True
-        if command_success and command.origin.is_occ != False:
-            if command.origin.is_occ == 1:
+        if command_success and command.origin.is_occupied != False:
+            if command.origin.is_occupied == 1:
                 origin = command.origin
                 for id in commands:
                     if commands[id] == origin:
                         supported_command_id = id
-                        supported_command = commands[supported_command_id].origin.is_occ.id
+                        supported_command = commands[supported_command_id].origin.is_occupied.id
                         break
             else:
-                supported_command_id = command.origin.is_occ.id
+                supported_command_id = command.origin.is_occupied.id
             supported_command = commands[supported_command_id]
             if supported_command_id in commands:
-                if supported_command.loc != command.loc:
+                if supported_command.location != command.location:
                     if command.origin and supported_command.origin and supported_command.destination == command.destination:
                         command_strength = 1
                         supported_command.cmd_strength(command_strength)
-                    elif supported_command.origin != supported_command.destination and supported_command.loc != supported_command.origin:
+                    elif supported_command.origin != supported_command.destination and supported_command.location != supported_command.origin:
                         command_strength = 1
                         supported_command.cmd_strength(command_strength)
-                    elif supported_command.origin == supported_command.destination and supported_command.loc != supported_command.origin:
+                    elif supported_command.origin == supported_command.destination and supported_command.location != supported_command.origin:
                         command_strength = 1
                         supported_command.cmd_strength(command_strength)
                     

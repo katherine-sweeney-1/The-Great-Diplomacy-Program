@@ -1,14 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
-from Class_Sub_Node import Coastal_Node
-
-def retrieve_cmd_dest_dict(commands):
-    destination_commands_dictionary = {}
-    for id in commands:
-        destination_commands_dictionary[id] = commands[id].destination
-    return destination_commands_dictionary
-
 def check_other_attacks(command_id, command, commands, destination_command_id):
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
@@ -18,16 +7,16 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         dictionary_without_command.pop(destination_command_id)
     # check if another command attacks the same destination as the command in question
     for id in dictionary_without_command:
-        other_cmd = dictionary_without_command[id]
+        other_command = dictionary_without_command[id]
         # another attack on destination => check other attacks
-        if other_cmd.destination == command.destination:
-            if other_cmd.origin != command.origin:
-                if command.strength > other_cmd.strength:
+        if other_command.destination == command.destination:
+            if other_command.origin != command.origin:
+                if command.strength > other_command.strength:
                     outcome = True
                 else:
-                    if command.strength > other_cmd.strength:
+                    if command.strength > other_command.strength:
                         outcome = True
-                    elif command.strength == other_cmd.strength and command.loc == command.destination:
+                    elif command.strength == other_command.strength and command.location == command.destination:
                         outcome = True
                     else:
                         outcome = False
@@ -40,15 +29,15 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
     return command.succeed
 
 def get_attack_outcome(command_id, command, commands):
-    if command.destination.is_occ:
+    if command.destination.is_occupied:
         # get the command for the unit on the destination
-        destination_command_id, destination_command = get_dest_obj(command, commands)
+        destination_command_id, destination_command = get_destination(command, commands)
         # if the unit on the destination has a command
         if destination_command_id in commands:
             # if the unit on the destination is attacking 
-            if destination_command.loc == destination_command.origin and destination_command.destination != destination_command.origin:
+            if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
                 # if the command and unit on destination are trying to attack each other
-                if command.loc == destination_command.destination and command.destination == destination_command.loc:
+                if command.location == destination_command.destination and command.destination == destination_command.location:
                     outcome = False
                     unit_on_dest_outcome = False
                 # if they're not attacking each other, get the outcome for the command on the destination
@@ -119,8 +108,8 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        attacking_unit_id, attacking_unit_obj = get_dest_obj(command, commands)
-        if command.strength > attacking_unit_obj.strength:
+        attacking_unit_id, attacking_unit = get_destination(command, commands)
+        if command.strength > attacking_unit.strength:
             outcome = True
         else:
             outcome = False
@@ -131,10 +120,10 @@ def get_success_attacks(commands):
     for id in commands:
         cmd = commands[id]
         # if hold, run hold outcome function
-        if cmd.loc == cmd.destination:
+        if cmd.location == cmd.destination:
             get_hold_outcome(id, commands[id], commands)
         # if attack, run attack outcome function
-        elif cmd.loc == cmd.origin and cmd.origin != cmd.destination:
+        elif cmd.location == cmd.origin and cmd.origin != cmd.destination:
             get_attack_outcome(id, commands[id], commands)
         # if not an attack or hold then continue to next command
         else:
@@ -150,8 +139,8 @@ def check_commanders(command, destination_command):
         outcome = True
     return outcome
 
-def get_dest_obj(command, commands):
-    if command.destination.is_occ == 1:
+def get_destination(command, commands):
+    if command.destination.is_occupied == 1:
         destination_node = command.destination
         # nest 8 lines of code replaced the commented out section below 
         destination_parent = destination_node.name[:3]
@@ -159,7 +148,7 @@ def get_dest_obj(command, commands):
             if commands[id].destination == destination_parent:
                 destination_command_id = id
                 break
-            elif destination_parent in commands[id].loc.name:
+            elif destination_parent in commands[id].location.name:
                 destination_command_id = id
                 break
         # get destination node for coastal cases
@@ -170,7 +159,7 @@ def get_dest_obj(command, commands):
                 if commands[id].destination == destination_parent:
                     destination_command_id = id
                     break
-                elif destination_parent in commands[id].loc.name:
+                elif destination_parent in commands[id].location.name:
                     destination_command_id = id
                     break
         """
@@ -179,11 +168,11 @@ def get_dest_obj(command, commands):
         """
         else:
             for id in commands:
-                if command.destination.name in commands[id].loc.name:
+                if command.destination.name in commands[id].location.name:
                     destination_command_id = id
         """
     # get destination node for non-coastal cases
     else:
-        destination_command_id = command.destination.is_occ.id
+        destination_command_id = command.destination.is_occupied.id
     destination_command = commands[destination_command_id]
     return destination_command_id, destination_command
