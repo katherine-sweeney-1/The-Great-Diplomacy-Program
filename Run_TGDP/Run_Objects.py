@@ -2,8 +2,6 @@ import sys
 import os
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes"))
 from Functions_Node import create_nodes
-from Functions_Node import create_special_nodes
-from Functions_Node import retrieve_node_strings
 from Class_Sub_Node import Coastal_Node
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commanders"))
 from Functions_Commander import create_commanders
@@ -13,20 +11,11 @@ from Functions_Command import create_commands
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
 from Class_Unit import Unit
 
-# Nodes
+"""
 def run_create_nodes(nodes_data, nodes_data_coastal):
-    nodes = create_nodes(nodes_data)
-    nodes_coastal = create_special_nodes(nodes, nodes_data_coastal)
-    for each_coastal in nodes_coastal:
-        nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
-    all_nodes = {**nodes, **nodes_coastal}
-    for each_node in all_nodes:
-        nbrs_string, dots_string, hsc_string = retrieve_node_strings(each_node, nodes_data, nodes_data_coastal)
-        all_nodes[each_node].assign_nbrs(all_nodes, nbrs_string)
-        all_nodes[each_node].assign_dot(dots_string)
-        all_nodes[each_node].assign_hsc(hsc_string)
-    return all_nodes
-
+    nodes = create_nodes(nodes_data, nodes_data_coastal)
+    return nodes
+"""
 # Commanders
 def update_commanders(commanders, nodes, commanders_data, units_data):
     units = {}
@@ -67,7 +56,8 @@ def assign_occ(nodes, units):
 # Create Objects
 def tgdp_objs(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
     commanders = create_commanders(commanders_data)
-    nodes = run_create_nodes(nodes_data, nodes_data_coastal)
+    #nodes = run_create_nodes(nodes_data, nodes_data_coastal)
+    nodes = create_nodes(nodes_data, nodes_data_coastal)
     commanders, units = update_commanders(commanders, nodes, commanders_data, units_data)
     nodes, units = assign_occ(nodes, units)
     nodes = coastal_node_assign_occ(nodes)

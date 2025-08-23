@@ -22,40 +22,43 @@ def get_nodes_data_dictionary(csv_file):
         i += 1
     return nodes_data_dictionary
 
-def create_nodes (csv_file):
-    nodes = {}
-    nodes_data_dictionary = get_nodes_data_dictionary(csv_file)
+def create_nodes(nodes_data, nodes_data_coastal):
+    nodes_main = {}
+    nodes_coastal = {}
+    nodes_data_dictionary = get_nodes_data_dictionary(nodes_data)
+    special_dict = get_nodes_data_dictionary(nodes_data_coastal)
+    # create nodes for non-coastal territories
     for id in nodes_data_dictionary:
         node = Node(id, nodes_data_dictionary[id])
-        nodes[id] = node
-    return nodes
-
-def create_special_nodes (nodes, coastal_csv):
-    coastal_nodes = {}
-    special_dict = get_nodes_data_dictionary(coastal_csv)
+        nodes_main[id] = node
+    # create nodes for coastal territories
     for id in special_dict:
         each_node = Coastal_Node(id, special_dict[id])
         parent_name = each_node.name[:3]
-        parent_node = nodes[parent_name]
+        parent_node = nodes_main[parent_name]
         each_node.assign_parent(parent_node)
-        coastal_nodes[id] = each_node
-    return coastal_nodes
-
-def assign_sibling_nodes(nodes_coastal):
+        nodes_coastal[id] = each_node
+    # coastal nodes assign sibling nodes
     for each_coastal in nodes_coastal:
-        nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
-    return nodes_coastal
-
-def retrieve_node_strings(node_name, nodes_data, nodes_coastal_data):
-    if "-" in node_name:
-        node_data_dictionary = get_nodes_data_dictionary(nodes_coastal_data)
-    else:
-        node_data_dictionary = get_nodes_data_dictionary(nodes_data)
-    neighbors_string = node_data_dictionary[node_name]["Neighbors"]
-    dots_string = node_data_dictionary[node_name]["Dot"]
-    homesupplycenter_string = node_data_dictionary[node_name]["Home SupCenter"]
-    neighbors_string = neighbors_string.split(" ")
-    return neighbors_string, dots_string, homesupplycenter_string
+        for each_coastal in nodes_coastal:
+            nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
+    # combine non-coastal and coastal nodes
+    nodes = {**nodes_main, **nodes_coastal}
+    # assign class properties to nodes
+    for node_id in nodes:
+        if "-" in node_id:
+            node_data_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
+        else:
+            node_data_dictionary = get_nodes_data_dictionary(nodes_data)
+        neighbors_string = node_data_dictionary[node_id]["Neighbors"]
+        dots_string = node_data_dictionary[node_id]["Dot"]
+        homesupplycenter_string = node_data_dictionary[node_id]["Home SupCenter"]
+        neighbors_string = neighbors_string.split(" ")
+        # assign string data to node class properties
+        nodes[node_id].assign_nbrs(nodes, neighbors_string)
+        nodes[node_id].assign_dot(dots_string)
+        nodes[node_id].assign_hsc(homesupplycenter_string)
+    return nodes
 
 def create_graph (nodes):
     territory_graph = GraphVisualization()
