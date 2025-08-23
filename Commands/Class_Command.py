@@ -5,7 +5,7 @@ class Command ():
         self.legal = 1
         self.strength = 1
 
-    def assign_cmdr(self, cmding_owner, commanders):
+    def assign_commander(self, cmding_owner, commanders):
         self.human = commanders[cmding_owner]
         return self.human
     
@@ -17,9 +17,9 @@ class Command ():
             self.unit = 0
         return self.unit
     
-    def assign_loc(self, loc_string, nodes):
-        self.loc = nodes[loc_string]
-        return self.loc
+    def assign_location(self, loc_string, nodes):
+        self.location = nodes[loc_string]
+        return self.location
     
     def assign_origin (self, origin_string, nodes):
         self.origin = nodes[origin_string]
@@ -46,11 +46,11 @@ class Command ():
     
     def outcome_location(self, node):
         self.outcome_loc = node
-        return self.outcome_loc
+        return self.outcome_location
     
-    def predet_outcome(self, predet_outcome):
+    def predetermined_outcome(self, predet_outcome):
         self.predet_outcome = predet_outcome
-        return self.predet_outcome
+        return self.predetermined_outcome
 
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

@@ -5,12 +5,12 @@ def create_commands(commands_starting_data, commanders, nodes, units):
     cmds_dict = {}
     for each_cmd in commands_starting_data: 
         one_cmd = Command(commands_starting_data[each_cmd]["country"])
-        one_cmd.assign_cmdr(commands_starting_data[each_cmd]["owner"], commanders)
+        one_cmd.assign_commander(commands_starting_data[each_cmd]["owner"], commanders)
         one_cmd.assign_unit(each_cmd, units)
-        one_cmd.assign_loc(commands_starting_data[each_cmd]["location"], nodes)
+        one_cmd.assign_location(commands_starting_data[each_cmd]["location"], nodes)
         one_cmd.assign_origin(commands_starting_data[each_cmd]["origin"], nodes)
         one_cmd.assign_destination(commands_starting_data[each_cmd]["destination"], nodes)
-        one_cmd.predet_outcome(commands_starting_data[each_cmd]["outcome"])
+        one_cmd.predetermined_outcome(commands_starting_data[each_cmd]["outcome"])
         if one_cmd.unit != 0:
             cmds_dict[one_cmd.unit.id] = one_cmd
     return cmds_dict

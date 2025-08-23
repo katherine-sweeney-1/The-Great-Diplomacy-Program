@@ -34,7 +34,7 @@ class Commander ():
         hsc = {}
         for each_ter in nodes_strings_list:
             node_obj = all_nodes_dict[each_ter]
-            if node_obj.hsc != False:
+            if node_obj.supply_center != False:
                 hsc[each_ter] = node_obj
         self.hsc_nodes = hsc
         return self.hsc_nodes

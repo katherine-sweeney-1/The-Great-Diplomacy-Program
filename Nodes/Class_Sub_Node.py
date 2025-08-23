@@ -23,21 +23,21 @@ class Coastal_Node (Node):
     def assign_occ_to_family(self, parent_occ):
         if parent_occ:
             self.is_occ = 1
-            self.sibling.is_occ = 1
+            self.sibling.is_occupied = 1
             """
             elif if_child_occ:
                 self.is_occ = 1
                 self.parent.is_occ = 1
             """
         else:
-            self.parent.is_occ = 1
-            self.sibling.is_occ = 1
+            self.parent.is_occupied = 1
+            self.sibling.is_occupied = 1
         return self
             
     def print_statements(self):
         print("node {} has parent node {} and sibling node {}".format(self.name, self.parent.name, self.sibling.name))
-        print("occupied {}, {}, {}".format(self.is_occ, self.parent.is_occ, self.sibling.is_occ))
+        print("occupied {}, {}, {}".format(self.is_occ, self.parent.is_occ, self.sibling.is_occupied))
         print("Territory {} / {}".format(self.name, self.full_name))
         print("dot status: {}, hsc status {},occupied status {}".format(self.dot, self.hsc, self.is_occ))
-        print("neighbors: {}".format(self.nbrs))
+        print("neighbors: {}".format(self.neighbors))
         print(" ")
