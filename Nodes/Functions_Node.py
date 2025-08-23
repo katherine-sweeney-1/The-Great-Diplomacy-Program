@@ -32,14 +32,14 @@ def create_nodes(nodes_data, nodes_data_coastal):
     nodes_main = {}
     nodes_coastal = {}
     nodes_data_dictionary = get_nodes_data_dictionary(nodes_data)
-    special_dict = get_nodes_data_dictionary(nodes_data_coastal)
+    coastal_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
     # create nodes for non-coastal territories
     for id in nodes_data_dictionary:
         node = Node(id, nodes_data_dictionary[id])
         nodes_main[id] = node
     # create nodes for coastal territories
-    for id in special_dict:
-        each_node = Coastal_Node(id, special_dict[id])
+    for id in coastal_dictionary:
+        each_node = Coastal_Node(id, coastal_dictionary[id])
         parent_name = each_node.name[:3]
         parent_node = nodes_main[parent_name]
         each_node.assign_parent(parent_node)

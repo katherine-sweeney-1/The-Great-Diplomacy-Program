@@ -36,9 +36,9 @@ class Node ():
             self.supply_center = False
         return self.supply_center
     
-    def assign_outcome_occ(self, unit):
-        self.outcome_occ = unit
-        return self.outcome_occ
+    def assign_outcome_occupied(self, unit):
+        self.outcome_occupied = unit
+        return self.outcome_occupied
 
     def print_statements (self):
         print("Territory {} / {}".format(self.name, self.full_name))

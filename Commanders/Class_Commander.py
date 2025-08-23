@@ -30,7 +30,7 @@ class Commander ():
         self.dots_owned = dots_owned
         return self.dots_owned
     
-    def retrieve_hsc(self, nodes_strings_list, all_nodes_dict):
+    def retrieve_supply_center(self, nodes_strings_list, all_nodes_dict):
         hsc = {}
         for each_ter in nodes_strings_list:
             node_obj = all_nodes_dict[each_ter]
@@ -42,8 +42,8 @@ class Commander ():
     def print_statements(self):
         for each_unit in self.unit_members:
             print("commander {} for country {} has unit {} in location {}".
-                  format(self.human, self.country, each_unit, self.unit_members[each_unit].loc.name))
-            print("unit {} has commander {}".format(each_unit, self.unit_members[each_unit].cmdr.human))
+                  format(self.human, self.country, each_unit, self.unit_members[each_unit].location.name))
+            print("unit {} has commander {}".format(each_unit, self.unit_members[each_unit].commander.human))
         print("dots owned: {}".format(self.dots_owned))
         print("hsc: {}".format(self.hsc_nodes))
         print(" ")
