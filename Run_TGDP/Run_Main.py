@@ -16,12 +16,8 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Functions_Parse import parse_cmds_units
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Txt_Hard_Data"))
 from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906, cmdrs_1_1906b, cmdrs_1_1907, cmdrs_1_1907b, cmdrs_1_1908
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
-from Functions_Command import create_commands 
 from Run_Objects import tgdp_objs
 from Run_Processing import tgdp_processing
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Process_Moves"))
-from Functions_Filter import filter_cmds
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
 from Functions_Table import yield_table
 

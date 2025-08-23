@@ -1,15 +1,3 @@
-import sys
-import os
-sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
-from Class_Sub_Node import Coastal_Node
-
-"""
-def retrieve_command_destination_dictionary(commands):
-    destination_commands_dictionary = {}
-    for id in commands:
-        destination_commands_dictionary[id] = commands[id].destination
-    return destination_commands_dictionary
-"""
 def check_other_attacks(command_id, command, commands, destination_command_id):
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
@@ -120,8 +108,8 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        attacking_unit_id, attacking_unit_obj = get_dest_obj(command, commands)
-        if command.strength > attacking_unit_obj.strength:
+        attacking_unit_id, attacking_unit = get_dest_obj(command, commands)
+        if command.strength > attacking_unit.strength:
             outcome = True
         else:
             outcome = False
@@ -171,7 +159,7 @@ def get_dest_obj(command, commands):
                 if commands[id].destination == destination_parent:
                     destination_command_id = id
                     break
-                elif destination_parent in commands[id].loc.name:
+                elif destination_parent in commands[id].location.name:
                     destination_command_id = id
                     break
         """
@@ -180,7 +168,7 @@ def get_dest_obj(command, commands):
         """
         else:
             for id in commands:
-                if command.destination.name in commands[id].loc.name:
+                if command.destination.name in commands[id].location.name:
                     destination_command_id = id
         """
     # get destination node for non-coastal cases

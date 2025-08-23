@@ -4,8 +4,8 @@ def create_unit(units_data, unit_id_string, nodes_dict, cmdr):
     unit_type = units_data[unit_id_string]["type"]
     unit_loc_string = units_data[unit_id_string]["loc"]
     unit = Unit(unit_id_string, unit_type)
-    unit.assign_loc(False, unit_loc_string, nodes_dict)
-    unit.assign_cmdr(cmdr)
+    unit.assign_location(False, unit_loc_string, nodes_dict)
+    unit.assign_commander(cmdr)
     return unit
 
 def retrieve_units_dict(units_dict, cmdr):

@@ -85,9 +85,9 @@ def assign_occ_coastal(nodes):
 def assign_occupied(nodes, units):
     for id in nodes:
         nodes[id].assign_occupied(False)
-    for id in units:
-        occupied_node = units[id].loc
-        occupied_node.assign_occupied(units[id])
+    for unit_id in units:
+        occupied_node = units[unit_id].location
+        occupied_node.assign_occupied(units[unit_id])
     return nodes, units
 
 def create_graph (nodes):

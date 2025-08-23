@@ -9,8 +9,6 @@ from Functions_Commander import create_commanders
 from Functions_Commander import update_commanders
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
 from Functions_Command import create_commands
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
-from Class_Unit import Unit
 
 # Create Objects
 def tgdp_objs(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):

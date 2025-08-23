@@ -5,8 +5,6 @@ from Functions_Support import get_valid_support
 from Functions_Attack import get_success_attacks
 from Functions_Convoy import convoying_unit
 from Functions_Post_Outcome import process_outcomes
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
-from Class_Table import Table
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Process_Moves"))
 from Functions_Filter import filter_cmds
 

@@ -28,7 +28,7 @@ def filter_unit_type(command):
     return command
 
 # filter by neighboring destinations
-def filter_neighbors(command, nodes):
+def filter_neighbors(command):
     # attacks and supports
     if isinstance(command.origin, Coastal_Node):
         if command.destination in command.origin.neighbors.values():
@@ -69,7 +69,7 @@ def filter_cmds(commands, commanders, nodes):
         command = commands[id]
         command = filter_owner(command, commanders)
         command = filter_unit_type(command)
-        command = filter_neighbors(command, nodes)
+        command = filter_neighbors(command)
         if command.legal != 1:
             invalid_commands[id] =command
             command.origin = command.location

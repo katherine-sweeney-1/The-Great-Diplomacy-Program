@@ -1,9 +1,3 @@
-def retrieve_cmd_dest_dict(commands):
-    cmd_dest_dict = {}
-    for id in commands:
-        cmd_dest_dict[id] = commands[id].destination
-    return cmd_dest_dict
-
 def get_valid_support(commands, id = None, recur_bool = None):
     for id in commands:
         # if a unit is attacking

@@ -4,7 +4,7 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Run_Objects import assign_occupied
 
 # get outcome locations for processed commands
-def get_outcome_locs(commands, nodes, units):
+def get_outcome_locs(commands, units):
     for id in commands:
         if commands[id].succeed:
             # outcome location for holds
@@ -37,7 +37,7 @@ def get_outcome_locs(commands, nodes, units):
                     retreat_bool = False
                     outcome_node = commands[id].location
         units[id].assign_retreat_disband(retreat_bool)
-        units[id].assign_loc(outcome_node, False, False)
+        units[id].assign_location(outcome_node, False, False)
         commands[id].outcome_location(outcome_node)
     return units
 
@@ -45,7 +45,7 @@ def get_outcome_locs(commands, nodes, units):
 def get_retreats(units):
     for unit in units:
         if units[unit].retreat == True:
-            neighbors = units[unit].location.nbrs
+            neighbors = units[unit].location.neighbors
             retreat_options = []
             for neighbor in neighbors:
                 if neighbors[neighbor].is_occupied:
@@ -62,7 +62,7 @@ def get_retreats(units):
 
 # process outcomes
 def process_outcomes(commands, nodes, units):
-    units = get_outcome_locs(commands, nodes, units)
+    units = get_outcome_locs(commands, units)
     units = get_retreats(units)
     for id in units:
         if units[id].retreat:
