@@ -14,25 +14,25 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Class_Unit import Unit
 
 # Nodes
-def run_create_nodes(data_nodes_main, data_nodes_coastal):
-    nodes = create_nodes(data_nodes_main)
-    nodes_coastal = create_special_nodes(nodes, data_nodes_coastal)
+def run_create_nodes(nodes_data, nodes_data_coastal):
+    nodes = create_nodes(nodes_data)
+    nodes_coastal = create_special_nodes(nodes, nodes_data_coastal)
     for each_coastal in nodes_coastal:
         nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
     all_nodes = {**nodes, **nodes_coastal}
     for each_node in all_nodes:
-        nbrs_string, dots_string, hsc_string = retrieve_node_strings(each_node, data_nodes_main, data_nodes_coastal)
+        nbrs_string, dots_string, hsc_string = retrieve_node_strings(each_node, nodes_data, nodes_data_coastal)
         all_nodes[each_node].assign_nbrs(all_nodes, nbrs_string)
         all_nodes[each_node].assign_dot(dots_string)
         all_nodes[each_node].assign_hsc(hsc_string)
     return all_nodes
 
 # Commanders
-def update_commanders(commanders, nodes, cmdrs_data, units_data):
+def update_commanders(commanders, nodes, commanders_data, units_data):
     units = {}
     for id in commanders:
         commander = commanders[id]
-        unit_members_strings, dots_owned_strings, country_string = retrieve_cmdr_strings(commander.human, cmdrs_data)
+        unit_members_strings, dots_owned_strings, country_string = retrieve_cmdr_strings(commander.human, commanders_data)
         commander.assign_country(country_string)
         commander.add_units(units_data, unit_members_strings, nodes)
         units = {**units, **commander.unit_members}
@@ -65,12 +65,12 @@ def assign_occ(nodes, units):
     return nodes, units
 
 # Create Objects
-def tgdp_objs(data_nodes_main, data_nodes_coastal, cmdrs_data, units_data, cmds_data):
-    commanders = create_commanders(cmdrs_data)
-    nodes = run_create_nodes(data_nodes_main, data_nodes_coastal)
-    commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
+def tgdp_objs(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
+    commanders = create_commanders(commanders_data)
+    nodes = run_create_nodes(nodes_data, nodes_data_coastal)
+    commanders, units = update_commanders(commanders, nodes, commanders_data, units_data)
     nodes, units = assign_occ(nodes, units)
     nodes = coastal_node_assign_occ(nodes)
     # commanders, units = update_commanders(commanders, nodes, cmdrs_data, units_data)
-    commands = create_commands(cmds_data, commanders, nodes, units)
+    commands = create_commands(commands_data, commanders, nodes, units)
     return commands, commanders, nodes, units
