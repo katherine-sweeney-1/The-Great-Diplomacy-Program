@@ -12,43 +12,13 @@ from Functions_Post_Outcome import get_retreats
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
 from Class_Table import Table
 from Run_Objects import assign_occ
-
-# Filter commands by who owns the units
-def run_filter_owners(commands, commanders, units):
-    valid_commands = {}
-    invalid_commands = {}
-    for cmding_unit in commands:
-        cmd_obj = filter_owner(commands[cmding_unit], commanders, units)
-        if cmd_obj.legal != 1:
-            invalid_commands[cmding_unit] = cmd_obj
-        else:
-            valid_commands[cmding_unit] = cmd_obj
-    return valid_commands, invalid_commands
-
-# Filter commands for legal commands
-def filter_cmds(commands, commanders, nodes):
-    valid_commands = {}
-    invalid_commands = {}
-    for id in commands:
-        command = commands[id]
-        command = filter_owner(command, commanders)
-        command = filter_unit_type(command)
-        command = filter_neighbors(command, nodes)
-        if command.legal != 1:
-            invalid_commands[id] =command
-            command.origin = command.loc
-            command.destination = command.loc
-            valid_commands[id] = command
-        else:
-            valid_commands[id] = command
-    return valid_commands, invalid_commands
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Process_Moves"))
+from Functions_Filter import filter_cmds
 
 # Process commands
 def process_cmds(commands):
     #commands = convoying_unit(commands)
     commands = get_valid_support(commands)
-    #for c in commands:
-        #print("check", c, commands[c].loc.name, commands[c].origin.name, commands[c].destination.name)
     commands = get_success_attacks(commands)
     for id in commands:
         if commands[id].succeed == commands[id].predet_outcome and commands[id].legal == 1:
@@ -68,6 +38,14 @@ def process_outcomes(commands, nodes, units):
             units[id].assign_loc(retreat_node, False, False)
     nodes = assign_occ(nodes, units)
     return nodes, units
+
+# need to include filter owners I think 
+# do this later 
+def tgdp_processing(commands, commanders, nodes, units):
+    valid_commands, invalid_commands = filter_cmds(commands, commanders, nodes)
+    valid_commands = process_cmds(valid_commands)
+    nodes, units = process_outcomes(valid_commands, nodes, units)
+    return nodes, units, valid_commands
 
 def yield_table (commands):
     db_table = Table()

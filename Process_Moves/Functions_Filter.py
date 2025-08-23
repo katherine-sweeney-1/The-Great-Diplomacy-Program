@@ -45,3 +45,33 @@ def filter_neighbors(command, nodes):
             #cmd.legal = 0
     return command
 
+# Filter commands by who owns the units
+# THIS IS NoT RUNNING I THINK
+def run_filter_owners(commands, commanders, units):
+    valid_commands = {}
+    invalid_commands = {}
+    for cmding_unit in commands:
+        cmd_obj = filter_owner(commands[cmding_unit], commanders, units)
+        if cmd_obj.legal != 1:
+            invalid_commands[cmding_unit] = cmd_obj
+        else:
+            valid_commands[cmding_unit] = cmd_obj
+    return valid_commands, invalid_commands
+
+# Filter commands for legal commands
+def filter_cmds(commands, commanders, nodes):
+    valid_commands = {}
+    invalid_commands = {}
+    for id in commands:
+        command = commands[id]
+        command = filter_owner(command, commanders)
+        command = filter_unit_type(command)
+        command = filter_neighbors(command, nodes)
+        if command.legal != 1:
+            invalid_commands[id] =command
+            command.origin = command.loc
+            command.destination = command.loc
+            valid_commands[id] = command
+        else:
+            valid_commands[id] = command
+    return valid_commands, invalid_commands

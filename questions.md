@@ -154,3 +154,5 @@ Eventually Include
 
     - Continuity of game so it runs as one game and not isolated moves
 
+    - I think the filter owners is not implemented in the program 
+
