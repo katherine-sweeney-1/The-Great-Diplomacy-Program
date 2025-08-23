@@ -4,7 +4,7 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Run_Objects import assign_occupied
 
 # get outcome locations for processed commands
-def get_outcome_locs(commands, units):
+def get_outcome_nodes(commands, units):
     for id in commands:
         if commands[id].succeed:
             # outcome location for holds
@@ -62,7 +62,7 @@ def get_retreats(units):
 
 # process outcomes
 def process_outcomes(commands, nodes, units):
-    units = get_outcome_locs(commands, units)
+    units = get_outcome_nodes(commands, units)
     units = get_retreats(units)
     for id in units:
         if units[id].retreat:

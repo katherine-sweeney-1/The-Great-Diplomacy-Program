@@ -11,7 +11,7 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Functions_Command import create_commands
 
 # Create Objects
-def tgdp_objs(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
+def create_objects(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
     commanders = create_commanders(commanders_data)
     nodes = create_nodes(nodes_data, nodes_data_coastal)
     commanders, units = update_commanders(commanders, nodes, commanders_data, units_data)

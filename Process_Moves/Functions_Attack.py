@@ -7,16 +7,16 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         dictionary_without_command.pop(destination_command_id)
     # check if another command attacks the same destination as the command in question
     for id in dictionary_without_command:
-        other_cmd = dictionary_without_command[id]
+        other_command = dictionary_without_command[id]
         # another attack on destination => check other attacks
-        if other_cmd.destination == command.destination:
-            if other_cmd.origin != command.origin:
-                if command.strength > other_cmd.strength:
+        if other_command.destination == command.destination:
+            if other_command.origin != command.origin:
+                if command.strength > other_command.strength:
                     outcome = True
                 else:
-                    if command.strength > other_cmd.strength:
+                    if command.strength > other_command.strength:
                         outcome = True
-                    elif command.strength == other_cmd.strength and command.location == command.destination:
+                    elif command.strength == other_command.strength and command.location == command.destination:
                         outcome = True
                     else:
                         outcome = False
@@ -31,7 +31,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 def get_attack_outcome(command_id, command, commands):
     if command.destination.is_occupied:
         # get the command for the unit on the destination
-        destination_command_id, destination_command = get_dest_obj(command, commands)
+        destination_command_id, destination_command = get_destination(command, commands)
         # if the unit on the destination has a command
         if destination_command_id in commands:
             # if the unit on the destination is attacking 
@@ -108,7 +108,7 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        attacking_unit_id, attacking_unit = get_dest_obj(command, commands)
+        attacking_unit_id, attacking_unit = get_destination(command, commands)
         if command.strength > attacking_unit.strength:
             outcome = True
         else:
@@ -139,7 +139,7 @@ def check_commanders(command, destination_command):
         outcome = True
     return outcome
 
-def get_dest_obj(command, commands):
+def get_destination(command, commands):
     if command.destination.is_occupied == 1:
         destination_node = command.destination
         # nest 8 lines of code replaced the commented out section below 

@@ -1,4 +1,4 @@
-def parse_cmds_units (txt):
+def parse_commands_and_units (txt):
     parsed_cmds = {}
     parsed_units = {}
     file = open(txt)

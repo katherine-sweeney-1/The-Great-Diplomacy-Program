@@ -53,16 +53,16 @@ def filter_neighbors(command):
 def run_filter_owners(commands, commanders, units):
     valid_commands = {}
     invalid_commands = {}
-    for cmding_unit in commands:
-        cmd_obj = filter_owner(commands[cmding_unit], commanders, units)
-        if cmd_obj.legal != 1:
-            invalid_commands[cmding_unit] = cmd_obj
+    for id in commands:
+        command = filter_owner(commands[id], commanders, units)
+        if command.legal != 1:
+            invalid_commands[id] = command
         else:
-            valid_commands[cmding_unit] = cmd_obj
+            valid_commands[id] = command
     return valid_commands, invalid_commands
 
 # Filter commands for legal commands
-def filter_cmds(commands, commanders, nodes):
+def filter_commands(commands, commanders):
     valid_commands = {}
     invalid_commands = {}
     for id in commands:
