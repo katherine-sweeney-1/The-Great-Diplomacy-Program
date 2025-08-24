@@ -13,31 +13,31 @@ class Commander ():
         self.country = country_string
         return self.country
     
-    def add_units(self, units_data, strings_list, nodes_dict):
-        unit_members = {}
-        for each_unit_string in strings_list:
-            one_member = create_unit(units_data, each_unit_string, nodes_dict, self)
-            unit_members[each_unit_string] = one_member
-        self.unit_members = unit_members
+    def add_units(self, units_data, strings_list, nodes):
+        units = {}
+        for unit_data_id in strings_list:
+            unit = create_unit(units_data, unit_data_id, nodes, self)
+            units[unit_data_id] = unit
+        self.unit_members = units
         return self.unit_members
 
-    def retrieve_dots_owned(self, nodes_strings_list, all_nodes_dict):
+    def retrieve_dots_owned(self, nodes_strings_list, nodes):
         dots_owned = {}
-        for each_dot_string in nodes_strings_list:
-            node_obj = all_nodes_dict[each_dot_string]
-            if node_obj.dot == True:
-                dots_owned[each_dot_string] = node_obj
+        for node_data_id in nodes_strings_list:
+            node = nodes[node_data_id]
+            if node.dot == True:
+                dots_owned[node_data_id] = node
         self.dots_owned = dots_owned
         return self.dots_owned
     
-    def retrieve_supply_center(self, nodes_strings_list, all_nodes_dict):
-        hsc = {}
-        for each_ter in nodes_strings_list:
-            node_obj = all_nodes_dict[each_ter]
-            if node_obj.supply_center != False:
-                hsc[each_ter] = node_obj
-        self.hsc_nodes = hsc
-        return self.hsc_nodes
+    def retrieve_supply_center(self, nodes_strings_list, nodes):
+        supply_centers = {}
+        for node_data_id in nodes_strings_list:
+            node = nodes[node_data_id]
+            if node.supply_center != False:
+                supply_centers[node_data_id] = node
+        self.supply_centers = supply_centers
+        return self.supply_centers
 
     def print_statements(self):
         for each_unit in self.unit_members:

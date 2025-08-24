@@ -1,10 +1,10 @@
 from Class_Unit import Unit
 
-def create_unit(units_data, unit_id_string, nodes_dict, cmdr):
-    unit_type = units_data[unit_id_string]["type"]
-    unit_loc_string = units_data[unit_id_string]["loc"]
-    unit = Unit(unit_id_string, unit_type)
-    unit.assign_location(False, unit_loc_string, nodes_dict)
+def create_unit(units_data, unit_data_id, nodes, cmdr):
+    unit_type = units_data[unit_data_id]["type"]
+    unit_loc_string = units_data[unit_data_id]["loc"]
+    unit = Unit(unit_data_id, unit_type)
+    unit.assign_location(False, unit_loc_string, nodes)
     unit.assign_commander(cmdr)
     return unit
 

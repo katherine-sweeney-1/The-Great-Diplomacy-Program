@@ -10,9 +10,9 @@ class Coastal_Node (Node):
         return self.parent
     
     def assign_sibling(self, coastal_dictionary):
-        for each_ter in coastal_dictionary:
-            if self.name[:3] in each_ter and self.name != each_ter:
-                sibling_name = each_ter
+        for coastal_id in coastal_dictionary:
+            if self.name[:3] in coastal_id and self.name != coastal_id:
+                sibling_name = coastal_id
                 break
             else:
                 continue
