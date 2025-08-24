@@ -29,27 +29,27 @@ def get_nodes_data_dictionary(csv_file):
 
 # create node objects
 def create_nodes(nodes_data, nodes_data_coastal):
-    nodes_main = {}
+    nodes_noncoastal = {}
     nodes_coastal = {}
     nodes_data_dictionary = get_nodes_data_dictionary(nodes_data)
     coastal_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
     # create nodes for non-coastal territories
-    for id in nodes_data_dictionary:
-        node = Node(id, nodes_data_dictionary[id])
-        nodes_main[id] = node
+    for node_data_id in nodes_data_dictionary:
+        node = Node(node_data_id, nodes_data_dictionary[node_data_id])
+        nodes_noncoastal[node_data_id] = node
     # create nodes for coastal territories
-    for id in coastal_dictionary:
-        each_node = Coastal_Node(id, coastal_dictionary[id])
-        parent_name = each_node.name[:3]
-        parent_node = nodes_main[parent_name]
-        each_node.assign_parent(parent_node)
-        nodes_coastal[id] = each_node
+    for coastal_data_id in coastal_dictionary:
+        node = Coastal_Node(coastal_data_id, coastal_dictionary[coastal_data_id])
+        parent_name = node.name[:3]
+        parent_node = nodes_noncoastal[parent_name]
+        node.assign_parent(parent_node)
+        nodes_coastal[coastal_data_id] = node
     # coastal nodes assign sibling nodes
-    for each_coastal in nodes_coastal:
-        for each_coastal in nodes_coastal:
-            nodes_coastal[each_coastal].assign_sibling(nodes_coastal)
+    for coastal_id in nodes_coastal:
+        for coastal_id in nodes_coastal:
+            nodes_coastal[coastal_id].assign_sibling(nodes_coastal)
     # combine non-coastal and coastal nodes
-    nodes = {**nodes_main, **nodes_coastal}
+    nodes = {**nodes_noncoastal, **nodes_coastal}
     # assign class properties to nodes
     for node_id in nodes:
         if "-" in node_id:
@@ -68,23 +68,23 @@ def create_nodes(nodes_data, nodes_data_coastal):
 
 # Coastal nodes occupied status
 def assign_occ_coastal(nodes):
-    for id in nodes:
-        if isinstance (nodes[id], Coastal_Node):
+    for node_id in nodes:
+        if isinstance (nodes[node_id], Coastal_Node):
             parent_occ = False
-            if isinstance(nodes[id].is_occupied, Unit):
-                nodes[id].assign_occ_to_family(parent_occ)
-        elif len(id[:3]) > 0:
-            if isinstance(nodes[id].is_occupied, Unit):
+            if isinstance(nodes[node_id].is_occupied, Unit):
+                nodes[node_id].assign_occ_to_family(parent_occ)
+        elif len(node_id[:3]) > 0:
+            if isinstance(nodes[node_id].is_occupied, Unit):
                 parent_occ = True
                 for each_id in nodes:
-                    if each_id[:3] in id and each_id != id:
+                    if each_id[:3] in node_id and each_id != node_id:
                         nodes[each_id].assign_occ_to_family(parent_occ)
     return nodes
 
 # Nodes occupied status
 def assign_occupied(nodes, units):
-    for id in nodes:
-        nodes[id].assign_occupied(False)
+    for node_id in nodes:
+        nodes[node_id].assign_occupied(False)
     for unit_id in units:
         occupied_node = units[unit_id].location
         occupied_node.assign_occupied(units[unit_id])
@@ -92,10 +92,10 @@ def assign_occupied(nodes, units):
 
 def create_graph (nodes):
     territory_graph = GraphVisualization()
-    for territory in nodes:
-        nbrs = nodes[territory].neighbors.split(" ")
-        for each_nbr in nbrs:
-            territory_graph.addEdge(territory, each_nbr)
+    for node_id in nodes:
+        neighbors = nodes[node_id].neighbors.split(" ")
+        for neighbor in neighbors:
+            territory_graph.addEdge(node_id, neighbor)
     return territory_graph
 
 def run_create_graph (nodes):

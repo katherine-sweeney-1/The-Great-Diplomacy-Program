@@ -15,23 +15,23 @@ class Node ():
         return self.is_occupied
     
     def assign_neighbors(self, nodes, neighbors_string):
-        neighbors_dictionary = {}
-        for each_nbr in neighbors_string:
-            nbr = nodes[each_nbr]
-            neighbors_dictionary[each_nbr] = nbr
-        self.neighbors = neighbors_dictionary
+        neighbors = {}
+        for neighbor_data_id in neighbors_string:
+            neighbor = nodes[neighbor_data_id]
+            neighbors[neighbor_data_id] = neighbor
+        self.neighbors = neighbors
         return self.neighbors
     
-    def assign_dot(self, dot_str):
-        if dot_str == "TRUE":
+    def assign_dot(self, dot_string):
+        if dot_string == "TRUE":
             self.dot = True
         else:
             self.dot = False
         return self.dot
 
-    def assign_supply_center(self, hsc_str):
-        if hsc_str != "FALSE":
-            self.supply_center = hsc_str
+    def assign_supply_center(self, supply_center_string):
+        if supply_center_string != "FALSE":
+            self.supply_center = supply_center_string
         else:
             self.supply_center = False
         return self.supply_center

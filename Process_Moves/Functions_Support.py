@@ -1,9 +1,9 @@
 def get_valid_support(commands, id = None, recur_bool = None):
-    for id in commands:
+    for command_id in commands:
         # if a unit is attacking
-        if commands[id].location == commands[id].origin:
+        if commands[command_id].location == commands[command_id].origin:
             continue
-        command = commands[id]
+        command = commands[command_id]
         # if a unit is supporting
         if command.location != command.origin:
             for other_id in commands:
@@ -13,7 +13,7 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     if commands[other_id].location == commands[other_id].origin:
                         # check if command supports an attack on the unit trying to cut support
                         if command.destination == commands[other_id].location:
-                            print("check 1", id)
+                            print("check 1", command_id)
 
                             """
                             # recursion attempt
@@ -49,17 +49,20 @@ def get_valid_support(commands, id = None, recur_bool = None):
 
                 else:
                     command_success = True
+        # if the support affects another command (ie if there is a unit on the origin), get the supported command
         if command_success and command.origin.is_occupied != False:
+            # get supported command for coastal territory
             if command.origin.is_occupied == 1:
                 origin = command.origin
-                for id in commands:
-                    if commands[id] == origin:
-                        supported_command_id = id
-                        supported_command = commands[supported_command_id].origin.is_occupied.id
+                for potential_supported_id in commands:
+                    if commands[potential_supported_id] == origin:
+                        supported_command_id = commands[potential_supported_id].origin.is_occupied.id
                         break
+            # get supported command for non-coastal territory
             else:
                 supported_command_id = command.origin.is_occupied.id
             supported_command = commands[supported_command_id]
+            # assign strength to the supported command
             if supported_command_id in commands:
                 if supported_command.location != command.location:
                     if command.origin and supported_command.origin and supported_command.destination == command.destination:
@@ -78,7 +81,7 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     command_strength = 0
             else:
                 command_strength = 0
-    
+        # strength of zero if the supporting command does not affect another command
         else:
             command_strength = 0
         command.success(command_success)

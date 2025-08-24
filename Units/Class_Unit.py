@@ -6,15 +6,15 @@ class Unit ():
         self.location = []
         self.command = []
 
-    def assign_location (self, node_obj, loc_string, nodes_dict):
-        if node_obj:
-            self.location = node_obj
+    def assign_location (self, node, location_string, nodes):
+        if node:
+            self.location = node
         else:
-            self.location = nodes_dict[loc_string]
+            self.location = nodes[location_string]
         return self.location
 
-    def assign_commander(self, cmdr_obj):
-        self.commander = cmdr_obj
+    def assign_commander(self, commander):
+        self.commander = commander
         return self.commander
     
     def assign_retreat_disband(self, bool):
