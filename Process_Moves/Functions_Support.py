@@ -13,19 +13,17 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     if commands[other_id].location == commands[other_id].origin:
                         # check if command supports an attack on the unit trying to cut support
                         if command.destination == commands[other_id].location:
-                            print("check 1", command_id)
-
-                            """
                             # recursion attempt
-                            for pot_other_support in cmds:
-                                if cmds[pot_other_support].loc != cmds[pot_other_support].origin and cmds[pot_other_support].origin != cmds[pot_other_support].destination:
+                            """
+                            for pot_other_support in commands:
+                                if commands[pot_other_support].location != commands[pot_other_support].origin and commands[pot_other_support].origin != commands[pot_other_support].destination:
                                     if recur_bool:
-                                        print("test 0", unit_id)
+                                        print("test 5", command_id)
                                         cmd_success = True
                                         break
                                     else:
-                                        print("test 1", unit_id)
-                                        other_success = pot_other_suppoprt_success = det_valid_support(cmds, unit_id, True)
+                                        print("test 6", command_id)
+                                        other_success = get_valid_support(commands, command_id, True)
                                         if other_success:
                                             cmd_success = False
                                             break
@@ -35,20 +33,30 @@ def get_valid_support(commands, id = None, recur_bool = None):
                                         #break
                                 else:
                                     continue
-
                             """
+                            supported_attack_outcome = check_supported_attack_on_support(commands, command_id, True)
+                            if supported_attack_outcome:
+                                command_success = True
+                                
+                            else:
+                                command_success = False
+                                break
+                                
+
 
                             #print("test 2", unit_id, other_unit)
-                            command_success = True
+                            #command_success = True
                         else:
                             command_success = False
                             break
                     else:
                         command_success = True
-
-
                 else:
                     command_success = True
+                
+                if command_success == False:
+                    break
+                
         # if the support affects another command (ie if there is a unit on the origin), get the supported command
         if command_success and command.origin.is_occupied != False:
             # get supported command for coastal territory
@@ -87,6 +95,25 @@ def get_valid_support(commands, id = None, recur_bool = None):
         command.success(command_success)
     return commands
 
+def check_supported_attack_on_support(commands, command_id, recursion_boolean):
+    for pot_other_support in commands:
+        if commands[pot_other_support].location != commands[pot_other_support].origin and commands[pot_other_support].origin != commands[pot_other_support].destination:
+            if recursion_boolean:
+                command_success = True
+                break
+            else:
+                other_success = get_valid_support(commands, command_id, True)
+                if other_success:
+                    command_success = False
+                    break
+                else:
+                    command_success = True
+                    break
+        else:
+            command_success = False
+            #print("check 4", command_success)
+            #continue
+    return command_success
 
 """
 def det_valid_support(cmds, unit_id = None):

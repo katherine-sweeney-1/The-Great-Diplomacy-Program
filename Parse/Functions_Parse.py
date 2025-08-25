@@ -43,9 +43,19 @@ def parse_commands_and_units (txt):
                     loc_count = 3
                 # origin is coastal, support
                 if (line[7] == "S" or line[7] == "C") and line[13] == "/":
+                    print("check 1", line)
                     origin_count = 3
+                    if "to" in line:
+                        dest_count = 0
+                    else:
+                        dest_count = 3
                 elif (line[6] == "S" or line[6] == "C") and line[11] == "/":
                     origin_count = 3
+                    print("check 2", line)
+                    if "to" in line:
+                        dest_count = 0
+                    else:
+                        dest_count = 3
                 # attack, destination is coastal
                 if line[6:8] == "to" and line[12] == "/":
                      dest_count = 3
@@ -79,7 +89,6 @@ def det_node_names(line, loc_count, origin_count, dest_count):
         location = stripped_line[0:3]
     # supports --> get origin and destination
     if stripped_line[loc_count + 3 : loc_count + 6] == " S ":
-        #print("yes", location)
         # supports --> get origin
         origin = stripped_line[loc_count + 6 : loc_count + origin_count + 9]
         # supports --> get destination for supporting attacks
@@ -87,7 +96,10 @@ def det_node_names(line, loc_count, origin_count, dest_count):
             destination = stripped_line[loc_count + origin_count + 13: loc_count + origin_count + dest_count+ 16]
         # supports --> get destination for supporting holds
         else:
-            destination = stripped_line[loc_count + origin_count + 6 : loc_count + origin_count + dest_count + 9]
+            destination = origin
+            #if origin_count == 3:
+            #    destination = stripped_line[loc_count + origin_count + 3 : loc_count + origin_count + dest_count + 9]
+            #destination = stripped_line[loc_count + origin_count + 6 : loc_count + origin_count + dest_count + 9]
     # convoys --> get origin and destination
     elif stripped_line[loc_count + 3 : loc_count + 6] == " C ":
         origin = stripped_line[loc_count + 6: loc_count + origin_count + 9]
