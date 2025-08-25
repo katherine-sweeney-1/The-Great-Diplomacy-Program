@@ -1,4 +1,10 @@
+import sys
+import os
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
+from Class_Sub_Node import Coastal_Node
+
 def check_other_attacks(command_id, command, commands, destination_command_id):
+    
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
     dictionary_without_command.pop(command_id)
@@ -30,8 +36,10 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 
 def get_attack_outcome(command_id, command, commands):
     if command.destination.is_occupied:
+        #print(command_id)
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
+        #print("look", command_id, destination_command_id)
         # if the unit on the destination has a command
         if destination_command_id in commands:
             # if the unit on the destination is attacking 
@@ -108,11 +116,29 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        attacking_command_id, attacking_command = get_destination(command, commands)
-        if command.strength >= attacking_command.strength:
+        print("checking  check ", command_id, command.strength)
+        #for attacking_command in commands:
+        dictionary_without_command = commands.copy()
+        dictionary_without_command.pop(command_id)
+        for attacking_command_id in dictionary_without_command:
+            attacking_command = dictionary_without_command[attacking_command_id]
+            if attacking_command.location == attacking_command.origin and attacking_command.destination == command.location:
+                if command.strength >= attacking_command.strength:
+                    outcome = True
+                else:
+                    outcome = False
+                    break
+            else:
+                outcome = True
+        #attacking_command_id, attacking_command = get_destination(command, commands)
+        
+        #print("checking  check ", command_id, command.strength, attacking_command_id, attacking_command.strength)
+        """
+        if command.strength >= 2:# attacking_command.strength:
             outcome = True
         else:
             outcome = False
+        """
     command.success(outcome)
     return command
 
@@ -126,6 +152,7 @@ def check_commanders(command, destination_command):
     return outcome
 
 def get_destination(command, commands):
+    print("uhhhhh", command.unit.id)
     if command.destination.is_occupied == 1:
         destination_node = command.destination
         # next 8 lines of code replaced the commented out section below 
@@ -138,7 +165,7 @@ def get_destination(command, commands):
                 destination_command_id = command_id
                 break
         # get destination node for coastal cases
-        """
+        
         if isinstance(destination_node, Coastal_Node):
             destination_parent = destination_node.name[:3]
             for id in commands:
@@ -148,15 +175,16 @@ def get_destination(command, commands):
                 elif destination_parent in commands[id].location.name:
                     destination_command_id = id
                     break
-        """
+        
         # not sure is this is necessary
         # get destination node for non-coastal cases
-        """
+        
         else:
+            print("test 1", command_id)
             for id in commands:
                 if command.destination.name in commands[id].location.name:
                     destination_command_id = id
-        """
+        
     # get destination node for non-coastal cases
     else:
         destination_command_id = command.destination.is_occupied.id

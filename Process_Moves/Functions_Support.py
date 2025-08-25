@@ -13,10 +13,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     if commands[other_id].location == commands[other_id].origin:
                         # check if command supports an attack on the unit trying to cut support
                         if command.destination == commands[other_id].location:
-                            print(command_id)
-                            print(" ")
-
-                            
                             # recursion attempt
                             """
                             for pot_other_support in commands:
@@ -39,12 +35,12 @@ def get_valid_support(commands, id = None, recur_bool = None):
                                     continue
                             """
                             supported_attack_outcome = check_supported_attack_on_support(commands, command_id, True)
-                            print(command_id, supported_attack_outcome)
                             if supported_attack_outcome:
                                 command_success = True
-                                break
+                                
                             else:
                                 command_success = False
+                                break
                                 
 
 
@@ -114,7 +110,9 @@ def check_supported_attack_on_support(commands, command_id, recursion_boolean):
                     command_success = True
                     break
         else:
-            continue
+            command_success = False
+            #print("check 4", command_success)
+            #continue
     return command_success
 
 """
