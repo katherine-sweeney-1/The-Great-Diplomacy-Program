@@ -109,7 +109,7 @@ def get_hold_outcome(command_id, command, commands):
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
         attacking_command_id, attacking_command = get_destination(command, commands)
-        if command.strength > attacking_command.strength:
+        if command.strength >= attacking_command.strength:
             outcome = True
         else:
             outcome = False
