@@ -116,7 +116,6 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        print("checking  check ", command_id, command.strength)
         #for attacking_command in commands:
         dictionary_without_command = commands.copy()
         dictionary_without_command.pop(command_id)
@@ -152,7 +151,6 @@ def check_commanders(command, destination_command):
     return outcome
 
 def get_destination(command, commands):
-    print("uhhhhh", command.unit.id)
     if command.destination.is_occupied == 1:
         destination_node = command.destination
         # next 8 lines of code replaced the commented out section below 
@@ -180,7 +178,6 @@ def get_destination(command, commands):
         # get destination node for non-coastal cases
         
         else:
-            print("test 1", command_id)
             for id in commands:
                 if command.destination.name in commands[id].location.name:
                     destination_command_id = id
