@@ -43,7 +43,6 @@ def parse_commands_and_units (txt):
                     loc_count = 3
                 # origin is coastal, support
                 if (line[7] == "S" or line[7] == "C") and line[13] == "/":
-                    print("check 1", line)
                     origin_count = 3
                     if "to" in line:
                         dest_count = 0
@@ -51,7 +50,6 @@ def parse_commands_and_units (txt):
                         dest_count = 3
                 elif (line[6] == "S" or line[6] == "C") and line[11] == "/":
                     origin_count = 3
-                    print("check 2", line)
                     if "to" in line:
                         dest_count = 0
                     else:
