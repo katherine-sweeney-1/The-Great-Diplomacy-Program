@@ -293,16 +293,19 @@ def get_valid_support(commands, id = None, recur_bool = None):
 
 def is_support_for_attacking_cut(commands, command_id, other_id):
     for supported_attack in commands:
-        #if command_id == "RU03":
-        #if supported_attack != command_id and supported_attack.destination 
-        print("command id", command_id, commands[command_id].origin.name, commands[command_id].destination.name)
-        print("supported attack", supported_attack, commands[supported_attack].origin.name, commands[supported_attack].destination.name)
+        # if the attack (that's trying to cut support) has support
         if supported_attack != command_id and supported_attack != other_id:
             if commands[supported_attack].origin == commands[command_id].origin and commands[supported_attack].destination == commands[command_id].destination and commands[supported_attack].destination == commands[other_id].location:
                 print("YEEESSSS")
                 print(command_id, other_id, supported_attack)
-                command_success = True
-                break
+                if commands[supported_attack].human == commands[command_id].human:
+                    command_success = True
+                    break
+                else:
+                    command_success = False
+                # there needs to be another if statement i think
+                #command_success = True
+                #break
             else:
                 command_success = False
         else:
