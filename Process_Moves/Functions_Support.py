@@ -238,7 +238,7 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 if command.location == commands[other_id].destination and commands[other_id].location == commands[other_id].origin:
                     # check if cut attempt has its own support
                     print(" oooooooooo")
-                    command_success = check_cut_attempt_support(commands, command_id, other_id)
+                    command_success = check_cut_attempt_on_support(commands, command_id, other_id)
                     #break
                 #else:
                     #print("uhhh", command_id)
@@ -290,17 +290,24 @@ def get_valid_support(commands, id = None, recur_bool = None):
         command.success(command_success)
     return commands
 
+
 def is_support_for_attacking_cut(commands, command_id, other_id):
     for supported_attack in commands:
-        #if command_id == "RU03":
-        #if supported_attack != command_id and supported_attack.destination 
-        print("command id", command_id, commands[command_id].origin.name, commands[command_id].destination.name)
-        print("supported attack", supported_attack, commands[supported_attack].origin.name, commands[supported_attack].destination.name)
-        
-        if commands[supported_attack].origin == commands[command_id].origin and commands[supported_attack].destination == commands[command_id].destination and commands[supported_attack].destination == commands[other_id].location:
-            print("YEEESSSS")
-            command_success = True
-            break
+        # if the attack (that's trying to cut support) has support
+        if supported_attack != command_id and supported_attack != other_id:
+            if commands[supported_attack].origin == commands[command_id].origin and commands[supported_attack].destination == commands[command_id].destination and commands[supported_attack].destination == commands[other_id].location:
+                print("YEEESSSS")
+                print(command_id, other_id, supported_attack)
+                if commands[supported_attack].human == commands[command_id].human:
+                    command_success = True
+                    break
+                else:
+                    command_success = False
+                # there needs to be another if statement i think
+                #command_success = True
+                #break
+            else:
+                command_success = False
         else:
             command_success = False
             #break
@@ -308,7 +315,8 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
             print("testing 1", command_id, command_success)
     return command_success
 
-def check_cut_attempt_support(commands, command_id, other_id):
+# check if the support is cut
+def check_cut_attempt_on_support(commands, command_id, other_id):
     for cutting_support_id in commands:
         # if the cut attempt has its own support
         if commands[cutting_support_id] != (commands[command_id] and commands[other_id]) and commands[cutting_support_id].origin == commands[other_id].origin and commands[cutting_support_id].destination == commands[other_id].destination:
@@ -321,6 +329,7 @@ def check_cut_attempt_support(commands, command_id, other_id):
                 else:
                     cutting_support_outcome = True
                     command_success = cutting_support_outcome
+        # if the cut attempt does not have support
         else:
             #command_success = True
             #print("testing", command_success)
