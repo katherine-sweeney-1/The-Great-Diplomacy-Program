@@ -341,9 +341,11 @@ def check_cut_attempt_on_support(commands, command_id, other_id):
         # if the cut attempt (other_id) has its own support (cutting_support_id)
         if cutting_support_id != command_id and cutting_support_id != other_id and commands[cutting_support_id].origin:
             print("test 0 ")
-            if commands[other_id].origin and commands[cutting_support_id].destination == commands[other_id].destination:
+            # check if the the support (cutting_support_id) supports the cut attempt's (other_id) attack
+            if commands[other_id].origin == commands[cutting_support_id].origin and commands[cutting_support_id].destination == commands[other_id].destination:
                 print(" check test 2", command_id, other_id, cutting_support_id)
-                if commands[cutting_support_id].location == commands[other_id].destination:
+                if commands[command_id].location == commands[cutting_support_id].destination:
+                    print("YESSSSS")
                     command_success = False
                     break
                 else:
