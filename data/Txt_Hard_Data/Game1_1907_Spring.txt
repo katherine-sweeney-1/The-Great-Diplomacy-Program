@@ -23,7 +23,7 @@ A Ven - Tyr  SUCCEEDS
 
 IT
 Katherine
-F Rom H  SUCCEEDS
+F Rom H  FAILS
 
 
 RU
