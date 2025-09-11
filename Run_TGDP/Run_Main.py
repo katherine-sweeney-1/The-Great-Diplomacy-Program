@@ -23,7 +23,7 @@ from Functions_Table import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-commands_data = "data/Txt_Hard_Data/Game1_1907_Fall.txt"
+commands_data = "data/Txt_Hard_Data/Game1_1907_Spring.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -34,8 +34,15 @@ def run_main_original():
     db_table = yield_table(processed_commands)
 
 def run_main_testing():
-    commanders_data = cmdrs_1_1907b
+    commanders_data = cmdrs_1_1907
     parsed_cmds, parsed_units = parse_commands_and_units(commands_data)
     commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
     nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
     db_table = yield_table(processed_commands)
+
+
+"""
+
+issue with hold for spring 1907
+
+"""

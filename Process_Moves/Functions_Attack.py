@@ -4,7 +4,6 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id):
-    
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
     dictionary_without_command.pop(command_id)
@@ -36,10 +35,8 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 
 def get_attack_outcome(command_id, command, commands):
     if command.destination.is_occupied:
-        #print(command_id)
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
-        #print("look", command_id, destination_command_id)
         # if the unit on the destination has a command
         if destination_command_id in commands:
             # if the unit on the destination is attacking 
@@ -116,7 +113,6 @@ def get_hold_outcome(command_id, command, commands):
         outcome = True
     # if there are other attacks check the strengths of the attack(s) and the hold
     else:
-        #for attacking_command in commands:
         dictionary_without_command = commands.copy()
         dictionary_without_command.pop(command_id)
         for attacking_command_id in dictionary_without_command:
