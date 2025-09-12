@@ -1,4 +1,4 @@
-﻿Austria
+﻿AU
 Mercy
 A Bud - Ser  SUCCEEDS
 F Tri - ADR  SUCCEEDS
@@ -12,28 +12,28 @@ F Lon - NTH  SUCCEEDS
 A Lvp - Yor  SUCCEEDS
 
 
-France
+FR
 Will
 F Bre - MAO  SUCCEEDS
 A Mar - Bur  SUCCEEDS
 A Par - Pic  SUCCEEDS
 
 
-Germany
+GE
 Katherine
 A Ber - Kie  SUCCEEDS
 F Kie - Hol  SUCCEEDS
 A Mun - Ruh  SUCCEEDS
 
 
-Italy
+IT
 Adam
 F Nap - ION  SUCCEEDS
 A Rom - Tus  SUCCEEDS
 A Ven - Tyr  SUCCEEDS
 
 
-Russia
+RU
 Liam
 A Mos - Ukr  SUCCEEDS
 F Sev - Rum  SUCCEEDS
@@ -41,7 +41,7 @@ F Stp/sc - Nwy  FAILS
 A War H  SUCCEEDS
 
 
-Turkey
+TU
 Michael
 F Ank - BLA  SUCCEEDS
 A Con - Bul  SUCCEEDS

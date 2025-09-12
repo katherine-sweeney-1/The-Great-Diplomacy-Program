@@ -24,7 +24,7 @@ from Functions_Table import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-commands_data = "data/Txt_Hard_Data/Game2_1901_Spring.txt"
+commands_data = "data/Txt_Hard_Data/Game2_1901_Fall.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -37,6 +37,8 @@ def run_main_original():
 def run_main_testing():
     commanders_data = cmdrs_2_1901
     parsed_cmds, parsed_units = parse_commands_and_units(commands_data)
+    #print(parsed_cmds)
+    print(parsed_units)
     commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
     nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
     db_table = yield_table(processed_commands)
