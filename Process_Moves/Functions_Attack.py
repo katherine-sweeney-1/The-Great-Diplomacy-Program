@@ -33,6 +33,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
     command.success(outcome)
     return command.succeed
 
+"""
 def get_attack_outcome(command_id, command, commands):
     if command.destination.is_occupied:
         # get the command for the unit on the destination
@@ -91,19 +92,57 @@ def get_attack_outcome(command_id, command, commands):
                 outcome = True
     else:
         outcome = check_other_attacks(command_id, command, commands, False)
-        """
-        print(cmd.unit.id, unit_dest_id, "test")
-        other_outcome = check_other_attacks(unit_id, cmd, all_cmds, unit_dest_id)
-        if other_outcome == True:
-            outcome = True
-        else:
-            if cmd.strength > unit_dest_obj.strength:
-                outcome = True
-            else:
-                outcome = False
-        """
     command.success(outcome)
     return command.succeed
+"""
+
+
+
+
+def get_attack_outcome(command_id, command, commands):
+    if command.destination.is_occupied:
+        # get the command for the unit on the destination
+        destination_command_id, destination_command = get_destination(command, commands)
+        # if the unit on the destination is attacking 
+        if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
+            # if the command and unit on destination are trying to attack each other
+            if command.location == destination_command.destination and command.destination == destination_command.location:
+                outcome = False
+                destination_command_outcome = False
+            # if they're not attacking each other, get the outcome for the command on the destination
+            else:
+                destination_command_outcome = get_attack_outcome (destination_command_id, destination_command, commands)
+            # if destination's command is successful, check for other attacks on the destination
+            if destination_command_outcome:
+                other_attacks_on_destination_outcome = check_other_attacks(command_id, command, commands, destination_command_id)
+                if other_attacks_on_destination_outcome == True:
+                    outcome = True
+                else:
+                    if command.strength > destination_command.strength:
+                        outcome = True
+                    else:
+                        outcome = False
+            # if the destination's command is not successful, check the strength of the command and destination command
+            # ensure the commands have different commanders
+            else:
+                if command.strength > destination_command.strength:
+                    outcome = check_commanders(command, destination_command)
+                else:
+                    outcome = False
+        # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
+        # ensure the commands have different commanders 
+        else:
+            if command.strength > destination_command.strength:
+                #outcome = True
+                outcome = check_commanders(command, destination_command)
+            else:
+                outcome = False
+    else:
+        outcome = check_other_attacks(command_id, command, commands, False)
+    command.success(outcome)
+    return command.succeed
+
+
 
 def get_hold_outcome(command_id, command, commands):
     # check for other attacks that affect the hold
@@ -125,15 +164,6 @@ def get_hold_outcome(command_id, command, commands):
                     break
             else:
                 outcome = True
-        #attacking_command_id, attacking_command = get_destination(command, commands)
-        
-        #print("checking  check ", command_id, command.strength, attacking_command_id, attacking_command.strength)
-        """
-        if command.strength >= 2:# attacking_command.strength:
-            outcome = True
-        else:
-            outcome = False
-        """
     command.success(outcome)
     return command
 
@@ -149,7 +179,6 @@ def check_commanders(command, destination_command):
 def get_destination(command, commands):
     if command.destination.is_occupied == 1:
         destination_node = command.destination
-        # next 8 lines of code replaced the commented out section below 
         destination_parent = destination_node.name[:3]
         for command_id in commands:
             if commands[command_id].destination == destination_parent:
@@ -159,7 +188,6 @@ def get_destination(command, commands):
                 destination_command_id = command_id
                 break
         # get destination node for coastal cases
-        
         if isinstance(destination_node, Coastal_Node):
             destination_parent = destination_node.name[:3]
             for id in commands:
@@ -169,10 +197,8 @@ def get_destination(command, commands):
                 elif destination_parent in commands[id].location.name:
                     destination_command_id = id
                     break
-        
-        # not sure is this is necessary
+        # not sure if this is necessary
         # get destination node for non-coastal cases
-        
         else:
             for id in commands:
                 if command.destination.name in commands[id].location.name:
