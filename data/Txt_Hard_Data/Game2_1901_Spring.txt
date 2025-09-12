@@ -1,0 +1,48 @@
+﻿Austria
+Mercy
+A Bud - Ser  SUCCEEDS
+F Tri - ADR  SUCCEEDS
+A Vie - Gal  SUCCEEDS
+
+
+UK
+Kamran
+F Edi - NWG  SUCCEEDS
+F Lon - NTH  SUCCEEDS
+A Lvp - Yor  SUCCEEDS
+
+
+France
+Will
+F Bre - MAO  SUCCEEDS
+A Mar - Bur  SUCCEEDS
+A Par - Pic  SUCCEEDS
+
+
+Germany
+Katherine
+A Ber - Kie  SUCCEEDS
+F Kie - Hol  SUCCEEDS
+A Mun - Ruh  SUCCEEDS
+
+
+Italy
+Adam
+F Nap - ION  SUCCEEDS
+A Rom - Tus  SUCCEEDS
+A Ven - Tyr  SUCCEEDS
+
+
+Russia
+Liam
+A Mos - Ukr  SUCCEEDS
+F Sev - Rum  SUCCEEDS
+F Stp/sc - Nwy  FAILS
+A War H  SUCCEEDS
+
+
+Turkey
+Michael
+F Ank - BLA  SUCCEEDS
+A Con - Bul  SUCCEEDS
+A Smy - Con  SUCCEEDS
