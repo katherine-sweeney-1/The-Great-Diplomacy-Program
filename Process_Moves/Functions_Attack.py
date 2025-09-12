@@ -213,6 +213,7 @@ def get_destination(command, commands):
 def get_success_attacks(commands):
     for command_id in commands:
         command = commands[command_id]
+        command = commands[command_id]
         # if hold, run hold outcome function
         if command.location == command.destination:
             get_hold_outcome(command_id, commands[command_id], commands)
