@@ -7,7 +7,6 @@ def parse_commands_and_units (txt):
     country = ""
     commander = ""
     for line in lines:
-        print(line)
         line = line.replace("-", "to")
         stripped_line = ''.join([char for char in line if char.isalnum()])
         if len(stripped_line) > 0 and stripped_line[0] == "F":
