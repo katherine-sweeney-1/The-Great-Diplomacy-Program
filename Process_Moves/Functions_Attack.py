@@ -3,7 +3,9 @@ import os
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
 from Class_Sub_Node import Coastal_Node
 
+"""
 def check_other_attacks(command_id, command, commands, destination_command_id):
+    print("check other attacks", command_id)
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
     dictionary_without_command.pop(command_id)
@@ -15,6 +17,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         other_command = dictionary_without_command[other_command_id]
         # another attack on destination => check other attacks
         if other_command.destination == command.destination:
+            print("test 1", command_id, other_command.unit.id)
             if other_command.origin != command.origin:
                 if command.strength > other_command.strength:
                     outcome = True
@@ -32,6 +35,108 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
             outcome = True
     command.success(outcome)
     return command.succeed
+"""
+"""
+def check_other_attacks(command_id, command, commands, destination_command_id):
+    print("check other attacks", command_id)
+    # get a dictionary without the command to check if there are other attacking commands
+    dictionary_without_command = commands.copy()
+    dictionary_without_command.pop(command_id)
+    # remove the command for the unit on the destination
+    if destination_command_id != False:
+        dictionary_without_command.pop(destination_command_id)
+        for other_command_id in dictionary_without_command:
+            other_command = dictionary_without_command[other_command_id]
+            if other_command.location == commands[destination_command_id].destination:
+                outcome = True
+                break
+            else:
+                if other_command.destination == command.destination:
+                    if other_command.origin != command.origin:
+                        if command.strength > other_command.strength:
+                            outocme = True
+                        else:
+                            if command.strength > other_command.strength:
+                                outcome = True
+                            elif command.strength == other_command.strength and command.location == command.destination:
+                                outcome = True
+                            else:
+                                outcome = False
+                                break
+                    else:
+                        outcome = True
+                else:
+                    outcome = True
+    # check if another command attacks the same destination as the command in question
+    else:
+        for other_command_id in dictionary_without_command:
+            other_command = dictionary_without_command[other_command_id]
+            # another attack on destination => check other attacks
+            if other_command.destination == command.destination:
+                print("test 1", command_id, other_command.unit.id)
+                if other_command.origin != command.origin:
+                    if command.strength > other_command.strength:
+                        outcome = True
+                    else:
+                        if command.strength > other_command.strength:
+                            outcome = True
+                        elif command.strength == other_command.strength and command.location == command.destination:
+                            outcome = True
+                        else:
+                            outcome = False
+                            break
+                else:
+                    outcome = True
+            else:
+                outcome = True
+    command.success(outcome)
+    return command.succeed
+"""
+def check_other_attacks(command_id, command, commands, destination_command_id):
+    # get a dictionary without the command to check if there are other attacking commands
+    dictionary_without_command = commands.copy()
+    dictionary_without_command.pop(command_id)
+    # remove the command for the unit on the destination
+    if destination_command_id != False:
+        dictionary_without_command.pop(destination_command_id)
+        for other_command_id in dictionary_without_command:
+            other_command = dictionary_without_command[other_command_id]
+            if other_command.location == commands[destination_command_id].destination:
+                outcome = True
+                break
+            else:
+                outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
+                if outcome == False:
+                    break
+    # check if another command attacks the same destination as the command in question
+    else:
+        for other_command_id in dictionary_without_command:
+            other_command = dictionary_without_command[other_command_id]
+            # another attack on destination => check other attacks
+            outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
+            if outcome == False:
+                break
+    command.success(outcome)
+    return command.succeed
+
+def check_if_other_attack_is_on_destination(command_id, command, other_command):
+    if other_command.destination == command.destination:
+        if other_command.origin != command.origin:
+            if command.strength > other_command.strength:
+                outcome = True
+            else:
+                if command.strength > other_command.strength:
+                    outcome = True
+                elif command.strength == other_command.strength and command.location == command.destination:
+                    outcome = True
+                else:
+                    outcome = False
+        else:
+            outcome = True
+    else:
+        outcome = True
+    return outcome
+
 
 """
 def get_attack_outcome(command_id, command, commands):
@@ -111,6 +216,7 @@ def get_attack_outcome(command_id, command, commands):
                 destination_command_outcome = False
             # if they're not attacking each other, get the outcome for the command on the destination
             else:
+                #print("check 1", command_id, command.destination.name)
                 destination_command_outcome = get_attack_outcome (destination_command_id, destination_command, commands)
             # if destination's command is successful, check for other attacks on the destination
             if destination_command_outcome:
@@ -125,8 +231,10 @@ def get_attack_outcome(command_id, command, commands):
             # if the destination's command is not successful, check the strength of the command and destination command
             # ensure the commands have different commanders
             else:
+                #print("check 2", command_id)
                 if command.strength > destination_command.strength:
                     outcome = check_commanders(command, destination_command)
+                    #print("check 3", command_id, outcome)
                 else:
                     outcome = False
         # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
