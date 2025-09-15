@@ -1,0 +1,60 @@
+﻿AU
+Mercy
+F Alb - Gre  SUCCEEDS
+A Ser S Alb - Gre  SUCCEEDS
+A Tyr - Tri  FAILS
+A Vie S Tyr - Tri  SUCCEEDS
+
+
+UK
+Kamran
+A Den S SKA - Swe  SUCCEEDS
+A Lon S Yor - Wal  SUCCEEDS
+F NTH - Bel  SUCCEEDS
+F NWG S Nwy  SUCCEEDS
+F Nwy S SKA - Swe  SUCCEEDS
+F SKA - Swe  SUCCEEDS
+A Yor - Wal  SUCCEEDS
+
+
+FR
+Will
+A Bel - Hol  FAILS
+A Bur - Mun  SUCCEEDS
+F ENG C Pic - Wal  SUCCEEDS
+F MAO - IRI  SUCCEEDS
+A Pic - Wal  FAILS
+A Ruh S Bur - Mun  SUCCEEDS
+
+
+GE
+Katherine
+F Hol S NTH - Bel  SUCCEEDS
+A Kie S Tyr - Mun  FAILS
+A Mun - Ber  FAILS
+
+
+IT
+Adam
+F ADR S Tri  SUCCEEDS
+F ION - Alb  SUCCEEDS
+A Tri S Gre - Ser  FAILS
+A Ven S Tri  SUCCEEDS
+
+
+RU
+Liam
+F Rum - Bul/ec  FAILS
+A Sil - Ber  FAILS
+A Stp H  SUCCEEDS
+F Swe H  FAILS
+A War - Pru  SUCCEEDS
+
+
+TU
+Michael
+F AEG - Gre  FAILS
+A Arm - Sev  SUCCEEDS
+F BLA S Arm - Sev  SUCCEEDS
+A Bul S Gre - Ser  FAILS
+A Gre - Ser  FAILS
