@@ -1,4 +1,3 @@
-
 def get_valid_support(commands, id = None, recur_bool = None):
     for command_id in commands:
         # if a unit is attacking
@@ -8,6 +7,7 @@ def get_valid_support(commands, id = None, recur_bool = None):
         # if a unit is supporting
         if command.location != command.origin:
             for cut_attempt in commands:
+<<<<<<< HEAD
                 # use parent nodes for processing supports
                 if "-" in commands[cut_attempt].destination.name:
                     commands[cut_attempt].destination = commands[cut_attempt].destination.parent
@@ -86,11 +86,11 @@ def get_valid_support(commands, id = None, recur_bool = None):
             cut_count = 1
             for cut_attempt in commands:
                 cut_count += 1
+=======
+>>>>>>> main
                 command_success = True
                 if command.destination.is_occupied:
-                    print("test 2", command_id)
                     if command.destination.is_occupied.id in command.human.unit_members.keys():
-                        print("test 2.5", command_id)
                         if command.origin != command.destination:
                             command_success = False
                             break
@@ -139,9 +139,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
             command_strength = 0
         command.success(command_success)
     return commands
-"""
-
-
 
 
 
