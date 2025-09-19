@@ -39,4 +39,4 @@ def run_main_testing():
     parsed_cmds, parsed_units = parse_commands_and_units(commands_data)
     commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
     nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
-    db_table = yield_table(processed_commands)
+    #db_table = yield_table(processed_commands)

@@ -1,20 +1,24 @@
-from MySQLdb import _mysql
+#from MySQLdb import _mysql
+#import mysql.connector
 
+import pymysql
 class Table ():
 
     def __init__ (self):
-        self.db = _mysql.connect(
-        user = "root",
+        #self.db = _mysql.connect(
+        self.db = pymysql.connect(
+        #self.db = mysql.connector.connect(
+        user = "diplomacy",
         passwd = "password",
         host = 'localhost',
-        db = 'tgdp_1'
+        db = 'tgdp_testing_1'
     )
 
     def create_table(self):
-            self.db.query("""USE tgdp_1;""")
-            self.db.store_result()
+            self.db.query("""USE tgdp_testing_1;""")
+            #self.db.store_result()
             self.db.query("""
-                CREATE TABLE IF NOT EXISTS game1_1901_fall (
+                CREATE TABLE IF NOT EXISTS game2_1903_fall (
                 UNIT_ID TEXT,
                 Commander TEXT,
                 Location TEXT,
@@ -24,14 +28,14 @@ class Table ():
                 )
                 """
             )
-            self.db.store_result()
+            #self.db.store_result()
             return self.db
 
     def save(self, cmds):
-        sql = """USE tgdp_1;"""
+        sql = """USE tgdp_testing_1;"""
         self.db.query(sql)
         sql = """
-            DELETE FROM game1_1901_fall;
+            DELETE FROM game2_1903_fall;
             """
         self.db.query(sql)
         for cmd_string in cmds:
@@ -41,4 +45,4 @@ class Table ():
                 ON DUPLICATE KEY UPDATE UNIT_ID = UNIT_ID;
                 """.format(cmd.unit.id, cmd.human.human, cmd.location.name, cmd.origin.name, cmd.destination.name, cmd.outcome_loc.name)
             self.db.query(sql)
-        self.db.store_result()
+        #self.db.store_result()
