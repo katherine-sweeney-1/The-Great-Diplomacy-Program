@@ -1,3 +1,4 @@
+
 def get_valid_support(commands, id = None, recur_bool = None):
     for command_id in commands:
         # if a unit is attacking
@@ -7,7 +8,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
         # if a unit is supporting
         if command.location != command.origin:
             for cut_attempt in commands:
-<<<<<<< HEAD
                 # use parent nodes for processing supports
                 if "-" in commands[cut_attempt].destination.name:
                     commands[cut_attempt].destination = commands[cut_attempt].destination.parent
@@ -86,11 +86,11 @@ def get_valid_support(commands, id = None, recur_bool = None):
             cut_count = 1
             for cut_attempt in commands:
                 cut_count += 1
-=======
->>>>>>> main
                 command_success = True
                 if command.destination.is_occupied:
+                    print("test 2", command_id)
                     if command.destination.is_occupied.id in command.human.unit_members.keys():
+                        print("test 2.5", command_id)
                         if command.origin != command.destination:
                             command_success = False
                             break
@@ -139,6 +139,9 @@ def get_valid_support(commands, id = None, recur_bool = None):
             command_strength = 0
         command.success(command_success)
     return commands
+"""
+
+
 
 
 
@@ -204,16 +207,23 @@ def get_valid_support(commands, id = None, recur_bool = None):
 
 def is_support_for_attacking_cut(commands, command_id, other_id):
     for supporting_attack in commands:
-        if supporting_attack != command_id and supporting_attack != other_id and commands[supporting_attack].human == commands[command_id].human:
+        if supporting_attack != command_id and supporting_attack != other_id:# and commands[supporting_attack].human == commands[command_id].human:
             # if the support is supporting an attack on the other_id's location
+            """
+            print(command_id, other_id, supporting_attack)
+            print(commands[supporting_attack].origin.name, commands[command_id].origin.name)
+            print(commands[supporting_attack].destination.name, commands[command_id].destination.name)
+            print(commands[supporting_attack].destination.name, commands[other_id].location.name)
+            print(" ")
+            """
             if commands[supporting_attack].origin == commands[command_id].origin and commands[supporting_attack].destination == commands[command_id].destination and commands[supporting_attack].destination == commands[other_id].location:
                 command_success = True
                 break
             else:
-                print("Test 3")
+                #print("Test 3", command_id, other_id)
                 command_success = False
         else:
-            print("Test 4")
+            #print("Test 4", command_id, other_id)
             command_success = False
     return command_success
 
