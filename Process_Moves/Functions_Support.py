@@ -229,7 +229,6 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
 
 # check if the support is cut
 def check_cut_attempt_on_support(commands, command_id, other_id):
-    print(command_id, other_id)
     for cutting_support_id in commands:
         # if the cut attempt (other_id) has its own support (cutting_support_id)
         if cutting_support_id != command_id and cutting_support_id != other_id and commands[cutting_support_id].origin:
@@ -246,7 +245,6 @@ def check_cut_attempt_on_support(commands, command_id, other_id):
             # if support is for an attack on cut attempt
             command_success = is_support_for_attacking_cut(commands, command_id, other_id)
             if command_success == False:
-                print("Test 2")
                 break
             else:
                 continue
