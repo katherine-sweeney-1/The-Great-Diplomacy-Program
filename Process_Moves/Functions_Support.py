@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
+from Class_Sub_Node import Coastal_Node
 
 def get_valid_support(commands, id = None, recur_bool = None):
     for command_id in commands:
@@ -15,6 +19,17 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 # check if unit supports an attack on support's brethren units
                 if command.destination.is_occupied:
                     #print("test 1", command_id)
+                    print(command_id, command.destination.name, command.destination.is_occupied)
+                    # get occupying unit for coastal nodes
+                    if isinstance (command.destination.is_occupied, int):
+                        if isinstance (command.destination, Coastal_Node):
+                            command.destination.is_occupied.id = command.destination.parent.is_occupied.id
+                        else:
+                            command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
+                        """
+                         issue with occupied regular node of occupied = 1 => need to extract occupying unit
+                        
+                        """
                     if command.destination.is_occupied.id in command.human.unit_members.keys():
                         if command.origin != command.destination:
                             command_success = False
