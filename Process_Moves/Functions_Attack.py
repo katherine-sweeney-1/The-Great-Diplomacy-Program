@@ -266,7 +266,10 @@ def get_attack_outcome(command_id, command, commands, count = None):
                 if count == None:
                     destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 1)
                 else:
-                    destination_command_outcome = False
+                    if destination_command.location == command.destination and destination_command.destination == command.location:
+                        destination_command_outcome = False
+                    else:
+                        destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 2)
             # if destination's command is successful, check for other attacks on the destination
             if destination_command_outcome:
                 other_attacks_on_destination_outcome = check_other_attacks(command_id, command, commands, destination_command_id)
