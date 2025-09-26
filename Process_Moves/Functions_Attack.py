@@ -252,6 +252,7 @@ def get_attack_outcome(command_id, command, commands):
 
 
 def get_attack_outcome(command_id, command, commands, count = None):
+    print(command_id)
     if command.destination.is_occupied:
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
@@ -266,6 +267,10 @@ def get_attack_outcome(command_id, command, commands, count = None):
                 if count == None:
                     destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 1)
                 else:
+                    if isinstance (destination_command.location, Coastal_Node):
+                        destination_command.location = destination_command.location.parent
+                    if isinstance (destination_command.destination, Coastal_Node):
+                        destination_command.destination = destination_command.destination.parent
                     if destination_command.location == command.destination and destination_command.destination == command.location:
                         destination_command_outcome = False
                     else:
