@@ -5,6 +5,7 @@ class Node ():
         self.full_name = node_info["Full Name"]
         self.node_type = node_info["Type"]
         self.is_occupied = False
+        self.parent_status = False
 
     def parse_neighbors(self):
         self.neighbors = self.neighbors.split(" ")
@@ -39,6 +40,10 @@ class Node ():
     def assign_outcome_occupied(self, unit):
         self.outcome_occupied = unit
         return self.outcome_occupied
+    
+    def assign_parent_status (self, unit):
+        self.parent_status = unit
+        return self.parent_status
 
     def print_statements (self):
         print("Territory {} / {}".format(self.name, self.full_name))

@@ -72,13 +72,16 @@ def assign_occ_coastal(nodes):
         if isinstance (nodes[node_id], Coastal_Node):
             parent_occ = False
             if isinstance(nodes[node_id].is_occupied, Unit):
-                nodes[node_id].assign_occ_to_family(parent_occ)
+                node = nodes[each_id[:3]]
+                nodes[node_id].assign_occ_to_family(parent_occ, node)
         elif len(node_id[:3]) > 0:
             if isinstance(nodes[node_id].is_occupied, Unit):
                 parent_occ = True
                 for each_id in nodes:
                     if each_id[:3] in node_id and each_id != node_id:
-                        nodes[each_id].assign_occ_to_family(parent_occ)
+                        node = nodes[each_id[:3]]
+                        nodes[each_id].assign_occ_to_family(parent_occ, node)
+                        #nodes[node].assign_parent_status(node)
     return nodes
 
 # Nodes occupied status
