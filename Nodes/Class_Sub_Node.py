@@ -25,7 +25,7 @@ class Coastal_Node (Node):
             self.is_occupied = 1
             self.sibling.is_occupied = 1
         else:
-            self.parent.is_occupied = 1
+            self.parent.is_occupied = parent_occupied
             self.sibling.is_occupied = 1
         return self
             
