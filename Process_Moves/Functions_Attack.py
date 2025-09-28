@@ -252,7 +252,6 @@ def get_attack_outcome(command_id, command, commands):
 
 
 def get_attack_outcome(command_id, command, commands, count = None):
-    print(command_id)
     if command.destination.is_occupied:
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)

@@ -18,14 +18,12 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 command_success = True
                 # check if unit supports an attack on support's brethren units
                 if command.destination.is_occupied:
-                    #print("test 1", command_id)
-                    print(command_id, command.destination.name, command.destination.is_occupied)
                     # get occupying unit for coastal nodes
-                    if isinstance (command.destination.is_occupied, int):
-                        if isinstance (command.destination, Coastal_Node):
-                            command.destination.is_occupied.id = command.destination.parent.is_occupied.id
-                        else:
-                            command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
+                    #if isinstance (command.destination.is_occupied, int):
+                    if isinstance (command.destination, Coastal_Node):
+                        command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
+                    #else:
+                        #command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
                         """
                          issue with occupied regular node of occupied = 1 => need to extract occupying unit
                         
@@ -37,14 +35,10 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 # check if support is for an attack on support's brethern units
                             #if commands[cut_attempt]
                 # check if there is an attempt to cut support
-                #print(command_id, command.location.name, commands[cut_attempt].destination.name)
-                #print(command_id, cut_attempt, commands[cut_attempt].location.name, commands[cut_attempt].origin.name)
                 if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                     # check if cut attempt has its own support
-                    #print("Test 2", command_id, cut_attempt)
                     command_success = check_cut_attempt_on_support(commands, command_id, cut_attempt)
                 if command_success == False:
-                    #print("Test 3", command_id)
                     break
         # if the support affects another command (ie if there is a unit on the origin), get the supported command
         if command_success and command.origin.is_occupied != False:
