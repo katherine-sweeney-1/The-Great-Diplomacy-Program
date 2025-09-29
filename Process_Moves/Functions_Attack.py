@@ -252,9 +252,22 @@ def get_attack_outcome(command_id, command, commands):
 
 
 def get_attack_outcome(command_id, command, commands, count = None):
-    if command.destination.is_occupied:
+    #print(command_id, command.destination.name)
+    if command.destination.is_occupied != False:
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
+        """
+        # Get occupied command for parent nodes
+        if destination_command.location.parent_status != False:
+            destination_command.location = destination_command.location.parent_status
+        if destination_command.destination != False:
+            destination_command.destination = destination_command.destination.parent_status
+        # Get occupied command for coastal nodes
+        if isinstance (destination_command.location, Coastal_Node):
+            destination_command.location = destination_command.location.parent
+        if isinstance (destination_command.destination, Coastal_Node):
+            destination_command.destination = destination_command.destination.parent
+        """
         # if the unit on the destination is attacking 
         if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
             # if the command and unit on destination are trying to attack each other
@@ -266,10 +279,18 @@ def get_attack_outcome(command_id, command, commands, count = None):
                 if count == None:
                     destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 1)
                 else:
+                    """
+                    # Get occupied command for parent nodes
+                    if destination_command.location.parent_status != False:
+                        destination_command.location = destination_command.location.parent_status
+                    if destination_command.destination != False:
+                        destination_command.destination = destination_command.destination.parent_status
+                    # Get occupied command for coastal nodes
                     if isinstance (destination_command.location, Coastal_Node):
                         destination_command.location = destination_command.location.parent
                     if isinstance (destination_command.destination, Coastal_Node):
                         destination_command.destination = destination_command.destination.parent
+                    """
                     if destination_command.location == command.destination and destination_command.destination == command.location:
                         destination_command_outcome = False
                     else:
@@ -371,6 +392,8 @@ def get_destination(command, commands):
     return destination_command_id, destination_command
 
 def get_success_attacks(commands):
+    for command_id in commands:
+        command = commands[command_id]
     for command_id in commands:
         command = commands[command_id]
         # run attack and hold functions for coastal nodes

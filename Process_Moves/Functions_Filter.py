@@ -61,6 +61,26 @@ def run_filter_owners(commands, commanders, units):
             valid_commands[command_id] = command
     return valid_commands, invalid_commands
 
+# get commands for coastal territories so .is_occupied returns the command and not 0 or 1
+def get_commands_for_coastals(command):
+    if isinstance (command.location, Coastal_Node):
+        #print(1, command.location.parent_status.name)
+        command.location.is_occupied = command.location.parent_status
+    if isinstance (command.origin, Coastal_Node):
+        command.origin.is_occupied = command.origin.parent_status
+    if isinstance (command.destination, Coastal_Node):
+        command.destination.is_occupied = command.destination.parent_status
+    # Get occupied commands for parent nodes
+    if command.location.parent_status != False:
+        #print(2, command.location.parent_status.name)
+        command.location = command.location.parent_status
+    if command.origin.parent_status != False:
+        command.origin = command.origin.parent_status
+    if command.destination.parent_status != False:
+        command.destination = command.destination.parent_status
+    return command
+
+
 # Filter commands for legal commands
 def filter_commands(commands, commanders):
     valid_commands = {}
@@ -70,6 +90,7 @@ def filter_commands(commands, commanders):
         command = filter_owner(command, commanders)
         command = filter_unit_type(command)
         command = filter_neighbors(command)
+        command = get_commands_for_coastals(command)
         if command.legal != 1:
             invalid_commands[command_id] =command
             command.origin = command.location

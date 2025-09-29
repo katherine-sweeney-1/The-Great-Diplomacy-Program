@@ -66,19 +66,37 @@ def create_nodes(nodes_data, nodes_data_coastal):
         nodes[node_id].assign_supply_center(homesupplycenter_string)
     return nodes
 
+"""
 # Coastal nodes occupied status
 def assign_occ_coastal(nodes):
     for node_id in nodes:
         if isinstance (nodes[node_id], Coastal_Node):
             parent_occ = False
             if isinstance(nodes[node_id].is_occupied, Unit):
-                nodes[node_id].assign_occ_to_family(parent_occ)
+                node = nodes[each_id[:3]]
+                print("check 0", node.name)
+                nodes[node_id].assign_occ_to_family(parent_occ, node)
         elif len(node_id[:3]) > 0:
             if isinstance(nodes[node_id].is_occupied, Unit):
                 parent_occ = True
                 for each_id in nodes:
                     if each_id[:3] in node_id and each_id != node_id:
-                        nodes[each_id].assign_occ_to_family(parent_occ)
+                        node = nodes[each_id[:3]]
+                        print("check", each_id, node_id, node.name)
+                        nodes[each_id].assign_occ_to_family(parent_occ, node)
+                        #nodes[node].assign_parent_status(node)
+    return nodes
+"""
+
+# Coastal nodes occupied status
+def assign_occ_coastal(nodes):
+    for node_id in nodes:
+        if isinstance (nodes[node_id], Coastal_Node):
+            parent_occupied = False
+            if isinstance(nodes[node_id].is_occupied, Unit):
+                parent_node = nodes[node_id[:3]]
+                parent_occupied = True
+                nodes[node_id].assign_occ_to_family(parent_occupied, parent_node)
     return nodes
 
 # Nodes occupied status
