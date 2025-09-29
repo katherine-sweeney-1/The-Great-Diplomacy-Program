@@ -24,16 +24,11 @@ def get_valid_support(commands, id = None, recur_bool = None):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
                     #else:
                         #command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
-                        """
-                         issue with occupied regular node of occupied = 1 => need to extract occupying unit
-                        
-                        """
-                    if command.destination.is_occupied.id in command.human.unit_members.keys():
+                    if command.destination.is_occupied in command.human.unit_members.keys():
                         if command.origin != command.destination:
                             command_success = False
                             break
                 # check if support is for an attack on support's brethern units
-                            #if commands[cut_attempt]
                 # check if there is an attempt to cut support
                 if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                     # check if cut attempt has its own support

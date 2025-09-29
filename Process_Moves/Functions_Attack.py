@@ -394,20 +394,6 @@ def get_destination(command, commands):
 def get_success_attacks(commands):
     for command_id in commands:
         command = commands[command_id]
-        # Get occupied commands for coastal nodes
-        if isinstance (command.location, Coastal_Node):
-            command.location = command.location.parent_status
-        if isinstance (command.origin, Coastal_Node):
-            command.origin = command.origin.parent_status
-        if isinstance (command.destination, Coastal_Node):
-            command.destination = command.destination.parent_status
-        # Get occupied commands for parent nodes
-        if command.location.parent_status != False:
-            command.location = command.location.parent_status
-        if command.origin.parent_status != False:
-            command.origin = command.origin.parent_status
-        if command.destination.parent_status != False:
-            command.destination = command.destination.parent_status
     for command_id in commands:
         command = commands[command_id]
         # run attack and hold functions for coastal nodes
