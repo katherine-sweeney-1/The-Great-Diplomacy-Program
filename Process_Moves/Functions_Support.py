@@ -19,11 +19,8 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 # check if unit supports an attack on support's brethren units
                 if command.destination.is_occupied:
                     # get occupying unit for coastal nodes
-                    #if isinstance (command.destination.is_occupied, int):
                     if isinstance (command.destination, Coastal_Node):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
-                    #else:
-                        #command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
                     if command.destination.is_occupied in command.human.unit_members.keys():
                         if command.origin != command.destination:
                             command_success = False
@@ -213,21 +210,12 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
     for supporting_attack in commands:
         if supporting_attack != command_id and supporting_attack != other_id:# and commands[supporting_attack].human == commands[command_id].human:
             # if the support is supporting an attack on the other_id's location
-            """
-            print(command_id, other_id, supporting_attack)
-            print(commands[supporting_attack].origin.name, commands[command_id].origin.name)
-            print(commands[supporting_attack].destination.name, commands[command_id].destination.name)
-            print(commands[supporting_attack].destination.name, commands[other_id].location.name)
-            print(" ")
-            """
             if commands[supporting_attack].origin == commands[command_id].origin and commands[supporting_attack].destination == commands[command_id].destination and commands[supporting_attack].destination == commands[other_id].location:
                 command_success = True
                 break
             else:
-                #print("Test 3", command_id, other_id)
                 command_success = False
         else:
-            #print("Test 4", command_id, other_id)
             command_success = False
     return command_success
 
