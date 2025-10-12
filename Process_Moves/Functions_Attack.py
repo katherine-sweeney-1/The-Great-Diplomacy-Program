@@ -3,44 +3,6 @@ import os
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
 from Class_Sub_Node import Coastal_Node
 
-"""
-def check_other_attacks(command_id, command, commands, destination_command_id):
-    #print(command_id)
-    # get a dictionary without the command to check if there are other attacking commands
-    dictionary_without_command = commands.copy()
-    dictionary_without_command.pop(command_id)
-    # remove the command for the unit on the destination
-    if destination_command_id != False:
-        dictionary_without_command.pop(destination_command_id)
-
-        for other_command_id in dictionary_without_command:
-            other_command = dictionary_without_command[other_command_id]
-            if command_id == "FR06" or command_id == "GE01":
-                print(1, command_id, other_command_id)
-            if other_command.location == commands[destination_command_id].destination:
-                #print(command_id, other_command.unit.id)
-                #outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
-                #print("YES", command_id, outcome)
-                outcome = True
-                break
-            else:
-                #print(command_id, other_command_id)
-                outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
-                #print(command_id, outcome)
-                if outcome == False:
-                    break
-    # check if another command attacks the same destination as the command in question
-    else:
-        for other_command_id in dictionary_without_command:
-            other_command = dictionary_without_command[other_command_id]
-            # another attack on destination => check other attacks
-            outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
-            if outcome == False:
-                break
-    command.success(outcome)
-    return command.succeed
-"""
-
 def check_other_attacks(command_id, command, commands, destination_command_id):
     # get a dictionary without the command to check if there are other attacking commands
     dictionary_without_command = commands.copy()
@@ -51,7 +13,6 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         for other_command_id in dictionary_without_command:
             other_command = dictionary_without_command[other_command_id]
             if other_command.destination == commands[destination_command_id].destination and other_command.location == other_command.origin:
-                #outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
                 outcome = True
                 break
             else:
@@ -135,7 +96,6 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # ensure the commands have different commanders 
         else:
             if command.strength > destination_command.strength:
-                #outcome = True
                 outcome = check_commanders(command, destination_command)
             else:
                 outcome = False
@@ -177,6 +137,8 @@ def check_commanders(command, destination_command):
     return outcome
 
 def get_destination(command, commands):
+    #code under this if statement may be obsolete now
+    """
     if command.destination.is_occupied == 1:
         destination_node = command.destination
         destination_parent = destination_node.name[:3]
@@ -203,10 +165,11 @@ def get_destination(command, commands):
             for id in commands:
                 if command.destination.name in commands[id].location.name:
                     destination_command_id = id
-        
+    
     # get destination node for non-coastal cases
     else:
-        destination_command_id = command.destination.is_occupied.id
+    """
+    destination_command_id = command.destination.is_occupied.id
     destination_command = commands[destination_command_id]
     return destination_command_id, destination_command
 

@@ -18,6 +18,10 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 command_success = True
                 # check if unit supports an attack on support's brethren units
                 if command.destination.is_occupied:
+                    # support does not work if it supports an attack on a unit in its own country
+                    if command.location.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
+                        command_success = False
+                        break
                     # get occupying unit for coastal nodes
                     if isinstance (command.destination, Coastal_Node):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
