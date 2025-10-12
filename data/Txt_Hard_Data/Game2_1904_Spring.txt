@@ -40,7 +40,7 @@ F ADR S Tri  SUCCEEDS
 F Alb S Nap - ION  SUCCEEDS
 F Nap - ION  SUCCEEDS
 A Tri S Alb  SUCCEEDS
-A Ven S Tri  FAILS (Disrupted)
+A Ven S Tri  FAILS
 
 
 RU

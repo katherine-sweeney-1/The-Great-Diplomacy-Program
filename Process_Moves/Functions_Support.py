@@ -98,7 +98,6 @@ def check_cut_attempt_on_support(commands, command_id, other_id):
             # check if the the support (cutting_support_id) supports the cut attempt's (other_id) attack
             if commands[other_id].origin == commands[cutting_support_id].origin and commands[cutting_support_id].destination == commands[other_id].destination:
                 if commands[command_id].location == commands[cutting_support_id].destination:
-                    #print("Test 1")
                     command_success = False
                     break
                 else:
