@@ -33,13 +33,21 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 
 def check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command = None):
     if other_command.destination == command.destination:
+        # if the other command is attacking
         if other_command.origin != command.origin:
+            # if the other command is attacking on an occupied territory
             if destination_command != None:
+                # if the destination command is being attacked by other command and is not attacking (i.e. hold or support)
                 if destination_command.destination == other_command.origin and destination_command.origin == destination_command.location:
                     if other_command.strength >= destination_command.strength:
                         outcome = False
                     else:
                         outcome = True
+                else:
+                    if command.strength > other_command.strength:
+                        outcome = True
+                    else:
+                        outcome = False
             else:
                 if command.strength > other_command.strength:
                     outcome = True
