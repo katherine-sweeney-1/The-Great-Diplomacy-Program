@@ -20,12 +20,24 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
                 outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
                 if outcome == False:
                     break
-        # check if another command attacks the same destination as the command in question
+    # check if another command attacks the same destination as the command in question
     else:
         for other_command_id in dictionary_without_command:
             other_command = dictionary_without_command[other_command_id]
             # another attack on destination => check other attacks
-            outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
+            #if command_id == "UK03":
+                #print(command_id, 2)
+                #print(" ")
+            if command.destination.is_occupied:
+                if command_id == "UK03":
+                    print("check 1")
+                destination_unit_id = command.destination.is_occupied.id
+                destination_command = commands[destination_unit_id]
+                outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
+            else:
+                if command_id == "UK03":
+                    print("check 2")
+                outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
             if outcome == False:
                 break
     command.success(outcome)
@@ -33,6 +45,8 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 
 def check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command = None):
     if other_command.destination == command.destination:
+        #if command_id == "UK03":
+          #          print("check")
         # if the other command is attacking
         if other_command.origin != command.origin:
             # if the other command is attacking on an occupied territory
@@ -61,6 +75,19 @@ def check_if_other_attack_is_on_destination(command_id, command, other_command, 
         else:
             outcome = True
     else:
+        # need to consider "train effect"
+        # train effect: no competing attacks on destination, command is unsuccessful because destination command is unsuccessful
+        if destination_command != None:
+            if command_id == "UK03":
+                print("yes")
+
+        else:
+            outcome = True
+
+
+
+
+
         outcome = True
     return outcome
 
