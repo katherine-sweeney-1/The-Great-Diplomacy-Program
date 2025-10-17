@@ -16,7 +16,7 @@ sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Prog
 from Functions_Parse import parse_commands_and_units
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Txt_Hard_Data"))
 from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906, cmdrs_1_1906b, cmdrs_1_1907, cmdrs_1_1907b, cmdrs_1_1908
-from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b
+from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b, cmdrs_2_1905
 from Run_Objects import create_objects
 from Run_Processing import run_processing
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
@@ -24,7 +24,7 @@ from Functions_Table import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-commands_data = "data/Txt_Hard_Data/Game2_1904_Fall.txt"
+commands_data = "data/Txt_Hard_Data/Game2_1905_Spring.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
@@ -35,7 +35,7 @@ def run_main_original():
     db_table = yield_table(processed_commands)
 
 def run_main_testing():
-    commanders_data = cmdrs_2_1904b
+    commanders_data = cmdrs_2_1905
     parsed_cmds, parsed_units = parse_commands_and_units(commands_data)
     commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
     nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
