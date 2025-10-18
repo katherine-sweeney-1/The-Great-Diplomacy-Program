@@ -2,6 +2,8 @@ import sys
 import os
 sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Nodes"))
 from Class_Sub_Node import Coastal_Node
+sys.path.append(os.path.join("C:\\Users\\kathe\\Documents\\Py_Code\\Diplomacy\\Units"))
+from Class_Unit import Unit
 
 # filter by unit owners
 def filter_owner(command, commanders):
@@ -63,55 +65,31 @@ def run_filter_owners(commands, commanders, units):
 
 # get commands for coastal territories so .is_occupied returns the command and not 0 or 1
 def get_commands_for_coastals(commands, command):
-
-    """
-    
-    issue with UK03 occupied status
-    it is occupied (by UK04 on Stp-SC) but says it's not occupied
-    
-    
-    
-    """
-    # Let command's occupied status be the parent status
     if isinstance (command.location, Coastal_Node):
-        #command.location.is_occupied = command.location.parent_status
         if isinstance (command.location.is_occupied, int):
-            print("1a", command.unit.id)
             command_occupied_status = command.location.parent_status
-            print("ehckec", command_occupied_status)
         else:
-            print("1b", command.unit.id)
             command_occupied_status = command.location.is_occupied
-        #command.location = command.location.parent
         command.location.is_occupied = command_occupied_status
     if isinstance (command.origin, Coastal_Node):
-        #command.origin.is_occupied = command.origin.parent_status
         if isinstance (command.origin.is_occupied, int):
             command_occupied_status = command.origin.parent_status
-            print("2a", command.unit.id)
         else:
             command_occupied_status = command.origin.is_occupied
-            print("2b", command.unit.id)
-        #command.origin = command.origin.parent
         command.origin.is_occupied = command_occupied_status
     if isinstance (command.destination, Coastal_Node):
-        print(command.unit.id)
-        #command.destination.is_occupied = command.destination.parent_status
         if isinstance (command.destination.is_occupied, int):
             command_occupied_status = command.destination.parent_status
-            print("3a", command.unit.id)
         else:
             command_occupied_status = command.destination.is_occupied
-            print("3b", command.unit.id)
-        #command.destination = command.destination.parent
         command.destination.is_occupied = command_occupied_status
     # Get occupied commands for parent nodes
     if command.location.parent_status != False:
-        command.location = command.location.parent_status
+        command.location.is_occupied = command.location.parent_status
     if command.origin.parent_status != False:
-        command.origin = command.origin.parent_status
+        command.origin.is_occupied = command.origin.parent_status
     if command.destination.parent_status != False:
-        command.destination = command.destination.parent_status
+        command.destination.is_occupied = command.destination.parent_status
     return command
 
 
