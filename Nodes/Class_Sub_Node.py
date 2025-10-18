@@ -20,14 +20,14 @@ class Coastal_Node (Node):
         self.sibling = sibling_node
         return self.sibling
     
-    def assign_occ_to_family(self, parent_occupied, node):
+    def assign_occ_to_family(self, parent_occupied, node, occupying_unit):
         if parent_occupied:
             self.is_occupied = 1
             self.sibling.is_occupied = 1
-            self.parent_status = self.assign_parent_status(node)
+            self.parent_status = self.assign_parent_status(occupying_unit)
         else:
             self.parent.is_occupied = 1
-            self.parent_status = self.assign_parent_status(node)
+            self.parent_status = self.assign_parent_status(occupying_unit)
             self.sibling.is_occupied = 1
         return self
             
