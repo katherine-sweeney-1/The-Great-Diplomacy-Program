@@ -1,0 +1,56 @@
+﻿AU
+Mercy
+A Pie - Tyr  FAILS
+A Vie - Bud  FAILS
+
+
+UK
+Kamran
+F IRI - MAO  FAILS
+A Lon H  SUCCEEDS
+F NTH - ENG  FAILS
+A Nwy - Swe  SUCCEEDS
+F Stp/sc H  SUCCEEDS
+A Swe - Fin  SUCCEEDS
+
+
+FR
+Will
+A Bel S Hol  SUCCEEDS
+A Bur - Mun  SUCCEEDS
+A Hol S Kie  SUCCEEDS
+A Kie S Den  SUCCEEDS
+F MAO - ENG  FAILS
+A Mar H  SUCCEEDS
+F NAO S Wal - Lvp  SUCCEEDS
+F Spa/sc - MAO  FAILS
+F Wal - Lvp  SUCCEEDS
+
+
+IT
+Adam
+A Bud - Vie  FAILS
+F ION S Tri - Alb  FAILS
+A Rom - Ven  FAILS
+F Tri - Alb  FAILS
+A Tyr S Bud - Vie  FAILS
+F Ven - Tri  FAILS
+
+
+RU
+Liam
+A Ber - Sil  SUCCEEDS
+F Den H  SUCCEEDS
+A Mos - Sev  FAILS
+A Pru - War  SUCCEEDS
+
+
+TU
+Michael
+F AEG - ION  FAILS
+A Arm - Sev  FAILS
+A Bul - Rum  SUCCEEDS
+A Gal - Bud  SUCCEEDS
+A Gre - Alb  FAILS
+F Rum - BLA  SUCCEEDS
+A Ser S Gal - Bud  SUCCEEDS

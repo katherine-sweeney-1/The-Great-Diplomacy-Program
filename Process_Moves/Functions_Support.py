@@ -6,10 +6,12 @@ from Class_Sub_Node import Coastal_Node
 def get_valid_support(commands, id = None, recur_bool = None):
     for command_id in commands:
         # if a unit is attacking
+        print(command_id, commands[command_id].location.name, commands[command_id].origin.name, commands[command_id].destination.name)
         if commands[command_id].location == commands[command_id].origin:
             continue
         command = commands[command_id]
         # if a unit is supporting
+        print(command_id)
         if command.location != command.origin:
             for cut_attempt in commands:
                 # use parent nodes for processing supports
