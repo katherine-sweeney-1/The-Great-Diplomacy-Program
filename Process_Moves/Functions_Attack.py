@@ -74,6 +74,12 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
         # if the unit on the destination is attacking 
+        """
+        print(command_id)
+        print(command.strength)
+        print(destination_command_id, destination_command.strength)
+        print(" ")
+        """
         if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
             # if the command and unit on destination are trying to attack each other
             if command.location == destination_command.destination and command.destination == destination_command.location:

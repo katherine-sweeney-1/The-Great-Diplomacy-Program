@@ -24,7 +24,7 @@ from Functions_Table import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
-commands_data = "data/Txt_Hard_Data/Game2_1905_Spring.txt"
+commands_data = "data/Txt_Hard_Data/Game2_1905_Fall.txt"
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
