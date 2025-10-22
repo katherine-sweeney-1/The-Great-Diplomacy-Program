@@ -65,24 +65,28 @@ def run_filter_owners(commands, commanders, units):
 
 # get commands for coastal territories so .is_occupied returns the command and not 0 or 1
 def get_commands_for_coastals(commands, command):
+    # get occupying units
     if isinstance (command.location, Coastal_Node):
         if isinstance (command.location.is_occupied, int):
             command_occupied_status = command.location.parent_status
         else:
             command_occupied_status = command.location.is_occupied
         command.location.is_occupied = command_occupied_status
+        command.location = command.location.parent
     if isinstance (command.origin, Coastal_Node):
         if isinstance (command.origin.is_occupied, int):
             command_occupied_status = command.origin.parent_status
         else:
             command_occupied_status = command.origin.is_occupied
         command.origin.is_occupied = command_occupied_status
+        command.origin = command.origin.parent
     if isinstance (command.destination, Coastal_Node):
         if isinstance (command.destination.is_occupied, int):
             command_occupied_status = command.destination.parent_status
         else:
             command_occupied_status = command.destination.is_occupied
         command.destination.is_occupied = command_occupied_status
+        command.destination = command.destination.parent
     # Get occupied commands for parent nodes
     if command.location.parent_status != False:
         command.location.is_occupied = command.location.parent_status
