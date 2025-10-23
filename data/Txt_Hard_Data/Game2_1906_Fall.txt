@@ -1,0 +1,56 @@
+﻿AU
+Mercy
+A Vie - Tri  SUCCEEDS
+
+
+UK
+Kamran
+F BOT C Fin - Lvn  SUCCEEDS
+F Edi - NTH  SUCCEEDS
+A Fin - Lvn  SUCCEEDS
+F IRI - NAO  SUCCEEDS
+A Stp S Fin - Lvn  SUCCEEDS
+
+
+FR
+Will
+A Bel - Ruh  SUCCEEDS
+A Boh S Tyr - Vie  SUCCEEDS
+F ENG - Lon  SUCCEEDS
+A Hol - Kie  SUCCEEDS
+A Kie - Mun  SUCCEEDS
+F Lvp S MAO - IRI  SUCCEEDS
+F MAO - IRI  SUCCEEDS
+F NWG - Nwy  SUCCEEDS
+A Pie H  SUCCEEDS
+F WES - TYS  SUCCEEDS
+
+
+IT
+Adam
+F ION - Gre  FAILS
+A Nap H  SUCCEEDS
+F Tri H  FAILS
+A Tyr - Vie  SUCCEEDS
+F Ven S Tri  SUCCEEDS
+
+
+RU
+Liam
+F Den - Swe  SUCCEEDS
+A Gal - Bud  FAILS
+A Mos H  SUCCEEDS
+A War S Mos  SUCCEEDS
+
+
+TU
+Michael
+F AEG - Gre  FAILS
+A Alb S Vie - Tri  SUCCEEDS
+F BLA - Sev  SUCCEEDS
+A Bud S Vie - Tri  FAILS
+F Con - AEG  FAILS
+F EAS S Con - AEG  SUCCEEDS
+A Rum S Sev - Ukr  SUCCEEDS
+A Ser S Vie - Tri  SUCCEEDS
+A Sev - Ukr  SUCCEEDS

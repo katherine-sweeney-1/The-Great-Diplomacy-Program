@@ -6,7 +6,6 @@ class Node ():
         self.node_type = node_info["Type"]
         self.is_occupied = False
         self.parent_status = False
-        self.parent = False
 
     def parse_neighbors(self):
         self.neighbors = self.neighbors.split(" ")
