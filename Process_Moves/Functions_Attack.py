@@ -5,6 +5,7 @@ from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id):
     # get a dictionary without the command to check if there are other attacking commands
+    print(command_id, destination_command_id)
     dictionary_without_command = commands.copy()
     dictionary_without_command.pop(command_id)
     # remove the command for the unit on the destination
@@ -13,9 +14,17 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         for other_command_id in dictionary_without_command:
             other_command = dictionary_without_command[other_command_id]
             if other_command.destination == commands[destination_command_id].destination and other_command.location == other_command.origin:
+                print("yes")
+                print(command_id)
+                print(commands[command_id].location.name, commands[command_id].origin.name, commands[command_id].destination.name)
+                print("destination command")
+                print(destination_command.location.name, destination_command.origin.name, destination_command.destination.name)
+                print("other command", other_command.unit.id)
+                print(other_command.location.name, other_command.origin.name, other_command.destination.name)
                 outcome = True
                 break
             else:
+                #print("no")
                 destination_command = commands[destination_command_id]
                 outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
                 if outcome == False:
@@ -74,12 +83,6 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
         # if the unit on the destination is attacking 
-        """
-        print(command_id)
-        print(command.strength)
-        print(destination_command_id, destination_command.strength)
-        print(" ")
-        """
         if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
             # if the command and unit on destination are trying to attack each other
             if command.location == destination_command.destination and command.destination == destination_command.location:
