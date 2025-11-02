@@ -50,10 +50,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 # need to loop through and find all relevant attacks for check other attacks
 # check other attacks only considers the first attack that's relevant
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
-    #print(command_id)
     # get a dictionary without the command to check if there are other attacking commands
-    #print(command_id, destination_command_id)
-    #print(command_id)
     dictionary_without_command = commands.copy()
     dictionary_without_command.pop(command_id)
     relevant_attacking_commands = {}
@@ -92,6 +89,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
         #print("test", len(relevant_attacking_commands))
         if len(relevant_attacking_commands) > 0:
             if command_id == "TU02":
+                print("test")
                 print(command_id)
                 print(relevant_attacking_commands)
             for relevant_attack_id in relevant_attacking_commands:
@@ -100,13 +98,24 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                 #if one_attacking_command.destination == relevant_attacking_commands[relevant_attack_id].destination and relevant_attack_id.location == relevant_attack_id.origin:
                     #other_attacking_commands[other_command_id] = other_command
                 if len(relevant_attacking_commands) > 1:
-                    """
+                    print("check")
                     print(command_id)
-                    print(relevant_attacking_commands
-                    """
+                    print(relevant_attacking_commands)
+                    
+                    #relevant_attack_outcome = get_attack_outcome(relevant_attack_id, one_attacking_command, commands)
+                    if count == None:
+                        print("okkkkkkkk")
+                        relevant_attack_outcome = check_other_attacks(relevant_attack_id, one_attacking_command, commands, destination_command_id, count = 1)
+                    else:
+                        #if one_attacking_command.location == command.destination and command.destination == one_attacking_command.location:
+                            #print("uhhhh")
+                        relevant_attack_outcome = False
+                        #else:
+                            #print("yyyyyyyyyy")
+                            #relevant_attack_outcome = check_other_attacks(relevant_attack_id, one_attacking_command, commands, destination_command_id, count = 2)
 
 
-                    relevant_attack_outcome = get_attack_outcome(relevant_attack_id, one_attacking_command, commands)
+
                     if destination_command_id == relevant_attack_id:
                         if outcome == False:
                             #print("check 1", command_id)
