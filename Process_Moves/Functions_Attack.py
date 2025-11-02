@@ -49,7 +49,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
 
 # need to loop through and find all relevant attacks for check other attacks
 # check other attacks only considers the first attack that's relevant
-def check_other_attacks(command_id, command, commands, destination_command_id):
+def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
     #print(command_id)
     # get a dictionary without the command to check if there are other attacking commands
     #print(command_id, destination_command_id)
@@ -69,11 +69,16 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
                 print(other_command.location.name, other_command.origin.name)
                 print(" ")
             """
-            if other_command.destination == commands[destination_command_id].destination and other_command.location == other_command.origin:
-                #print("YES", command_id, other_command_id)
+            if other_command.destination == commands[destination_command_id].location and other_command.location == other_command.origin:
+                if command_id == "TU02":
+                    print("YES", command_id, other_command_id)
+                    print("Destination command", destination_command_id)
+                    print("destination loc", commands[destination_command_id].location.name)
+                    print("destination cmd's origin", commands[destination_command_id].origin.name)
+                    print("destination cmd's destination", commands[destination_command_id].destination.name)
                 relevant_attacking_commands[other_command_id] = commands[other_command_id]
-            else:
-                continue
+            #else:
+                #continue
         """
         
         issue - need to include scenario of
@@ -86,15 +91,21 @@ def check_other_attacks(command_id, command, commands, destination_command_id):
         """
         #print("test", len(relevant_attacking_commands))
         if len(relevant_attacking_commands) > 0:
-            #print(command_id)
+            if command_id == "TU02":
+                print(command_id)
+                print(relevant_attacking_commands)
             for relevant_attack_id in relevant_attacking_commands:
                 one_attacking_command = relevant_attacking_commands[relevant_attack_id]
                 #print(one_attacking_command)
                 #if one_attacking_command.destination == relevant_attacking_commands[relevant_attack_id].destination and relevant_attack_id.location == relevant_attack_id.origin:
                     #other_attacking_commands[other_command_id] = other_command
                 if len(relevant_attacking_commands) > 1:
+                    """
                     print(command_id)
-                    print(relevant_attacking_commands)
+                    print(relevant_attacking_commands
+                    """
+
+
                     relevant_attack_outcome = get_attack_outcome(relevant_attack_id, one_attacking_command, commands)
                     if destination_command_id == relevant_attack_id:
                         if outcome == False:
@@ -253,9 +264,7 @@ def check_commanders(command_id, command, commands, destination_command):
     if command.human == destination_command.human:
         outcome = False
     else:
-        
         # might need to check for other attacks
-
         destination_command_id = destination_command.unit.id
         outcome = check_other_attacks(command_id, command, commands, destination_command_id)
         #outcome = True
