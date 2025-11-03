@@ -4,6 +4,7 @@ class Command ():
         self.country = country_string
         self.legal = 1
         self.strength = 1
+        self.check_other_attacks = False
 
     def assign_commander(self, cmding_owner, commanders):
         self.human = commanders[cmding_owner]
@@ -46,11 +47,15 @@ class Command ():
     
     def outcome_location(self, node):
         self.outcome_loc = node
-        return self.outcome_location
+        return self.outcome_loc
     
     def predetermined_outcome(self, predet_outcome):
         self.predet_outcome = predet_outcome
-        return self.predetermined_outcome
+        return self.predet_outcome
+
+    def checking_other_attacks(self, check_other_attacks_boolean):
+        self.check_other_attacks = check_other_attacks_boolean
+        return self.check_other_attacks
 
     def print_statement(self):
         print("command for unit {}, country {} has commander {}".format(self.unit.id, self.country, self.human.human))

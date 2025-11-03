@@ -26,6 +26,22 @@ data_nodes = "data/Data_Ter_Main.csv"
 data_coastal = "data/Data_Ter_Special_Coasts.csv"
 commands_data = "data/Txt_Hard_Data/Game2_1906_Fall.txt"
 
+
+input_data = {}
+input_data["data/Txt_Hard_Data/Game2_1901_Spring.txt"] = cmdrs_2_1901
+input_data["data/Txt_Hard_Data/Game2_1901_Fall.txt"] = cmdrs_2_1901
+input_data["data/Txt_Hard_Data/Game2_1902_Spring.txt"] = cmdrs_2_1902
+input_data["data/Txt_Hard_Data/Game2_1902_Fall.txt"] = cmdrs_2_1902
+input_data["data/Txt_Hard_Data/Game2_1903_Spring.txt"] = cmdrs_2_1903
+input_data["data/Txt_Hard_Data/Game2_1903_Fall.txt"] = cmdrs_2_1903
+input_data["data/Txt_Hard_Data/Game2_1904_Spring.txt"] = cmdrs_2_1904
+input_data["data/Txt_Hard_Data/Game2_1904_Fall.txt"] = cmdrs_2_1904b
+input_data["data/Txt_Hard_Data/Game2_1905_Spring.txt"] = cmdrs_2_1905
+input_data["data/Txt_Hard_Data/Game2_1905_Fall.txt"] = cmdrs_2_1905
+input_data["data/Txt_Hard_Data/Game2_1906_Spring.txt"] = cmdrs_2_1906
+input_data["data/Txt_Hard_Data/Game2_1906_Fall.txt"] = cmdrs_2_1906
+input_data["data/Txt_Hard_Data/Game2_1907_Spring.txt"] = cmdrs_2_1907
+
 def run_main_original():
     cmdrs_data_list = cmdrs_3
     cmds = cmds_3a
@@ -40,3 +56,21 @@ def run_main_testing():
     commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
     nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
     #db_table = yield_table(processed_commands)
+
+def run_main_unit_testing():
+    count = 0
+    for commands_data in input_data:
+        game_year = 1901 + count/2
+        game_year = int(game_year)
+        game_season = count % 2
+        if game_season == 0:
+            game_season = "Spring"
+        if game_season != "Spring":
+            game_season = "Fall"
+        commanders_data = input_data[commands_data]
+        parsed_cmds, parsed_units = parse_commands_and_units(commands_data)
+        commands, commanders, nodes, units = create_objects(data_nodes, data_coastal, commanders_data, parsed_units, parsed_cmds)
+        print("Game 2 {} {}".format(game_year, game_season))
+        nodes, units, processed_commands = run_processing(commands, commanders, nodes, units)
+        print(" ")
+        count += 1

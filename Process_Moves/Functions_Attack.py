@@ -53,7 +53,8 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
     # get a dictionary without the command to check if there are other attacking commands
     #dictionary_without_command = commands.copy()
     #dictionary_without_command.pop(command_id)
-    print("check", command_id)
+    #print("check", command_id)
+
     relevant_attacking_commands = {}
     # remove the command for the unit on the destination
     if destination_command_id != False:
@@ -71,12 +72,14 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                 """
                 if other_command.destination == commands[destination_command_id].location and other_command.location == other_command.origin:
                     if command_id == "TU02":
+                        """
                         print("YES", command_id, other_command_id)
                         print("Destination command", destination_command_id)
                         print("destination loc", commands[destination_command_id].location.name)
                         print("destination cmd's origin", commands[destination_command_id].origin.name)
                         print("destination cmd's destination", commands[destination_command_id].destination.name)
                         print(" ")
+                        """
                 #if command_id != other_command_id:
                     relevant_attacking_commands[other_command_id] = commands[other_command_id]
             #else:
@@ -91,36 +94,43 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
         
         
         """
+        """
         print(command_id)
         print("test", len(relevant_attacking_commands))
         print(relevant_attacking_commands)
         print(" ")
+        """
         if len(relevant_attacking_commands) > 0:
+            """
             if command_id == "TU02":
                 print("test")
                 print(command_id)
                 print(relevant_attacking_commands)
                 print(" ")
+            """
             for relevant_attack_id in relevant_attacking_commands:
                 one_attacking_command = relevant_attacking_commands[relevant_attack_id]
                 #print(one_attacking_command)
                 #if one_attacking_command.destination == relevant_attacking_commands[relevant_attack_id].destination and relevant_attack_id.location == relevant_attack_id.origin:
                     #other_attacking_commands[other_command_id] = other_command
                 if len(relevant_attacking_commands) > 1:
-                    
+                    """
                     print("check")
                     print(command_id)
                     print(relevant_attacking_commands)
                     print(" ")
+                    """
                     #relevant_attack_outcome = get_attack_outcome(relevant_attack_id, one_attacking_command, commands)
                     if count == None:
+                        """
                         print("okkkkkkkk")
                         print(command_id, relevant_attack_id)
                         print(" ")
+                        """
                         relevant_attack_outcome = check_other_attacks(relevant_attack_id, one_attacking_command, commands, destination_command_id, count = 1)
                     else:
                         #if one_attacking_command.location == command.destination and command.destination == one_attacking_command.location:
-                        print("uhhhh", command_id)
+                        #print("uhhhh", command_id)
                         relevant_attack_outcome = False
                         #else:
                             #print("yyyyyyyyyy")
@@ -166,6 +176,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
             if outcome == False:
                 break
     command.success(outcome)
+    command.checking_other_attacks(True)
     return command.succeed
 
 
