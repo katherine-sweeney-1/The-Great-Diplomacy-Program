@@ -25,6 +25,11 @@ def get_valid_support(commands, id = None, recur_bool = None):
                         if destination_command.origin == destination_command.destination:
                             command_success = False
                             break
+                        supported_command_id = command.origin.is_occupied.id
+                        supported_command = commands[supported_command_id]
+                        if supported_command.location.is_occupied.commander.human != destination_command.location.is_occupied.commander.human:
+                            command_success = False
+                            break
                     # get occupying unit for coastal nodes
                     if isinstance (command.destination, Coastal_Node):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
