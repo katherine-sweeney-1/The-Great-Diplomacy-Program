@@ -44,6 +44,7 @@ input_data_2["data/Txt_Hard_Data/Game2_1907_Spring.txt"] = cmdrs_2_1907
 
 input_data_3 = {}
 input_data_3["data/Txt_Hard_Data/Game3_1901_Spring.txt"] = cmdrs_3_1901
+input_data_3["data/Txt_Hard_Data/Game3_1901_Fall.txt"] = cmdrs_3_1901
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
