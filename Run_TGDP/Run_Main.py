@@ -12,8 +12,9 @@ from Cmdrs_3 import cmdrs_3
 from Cmds_3 import cmds_3a
 from Units_3 import units_3a
 """
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Parse"))
-from Functions_Parse import parse_commands_and_units
+#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Parse"))
+#from Functions_Parse import parse_commands_and_units
+from The-Great-Diplomacy-Program.Parse.Functions_Parse import parse_commands_and_units
 sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Txt_Hard_Data"))
 from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906, cmdrs_1_1906b, cmdrs_1_1907, cmdrs_1_1907b, cmdrs_1_1908
 from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b, cmdrs_2_1905, cmdrs_2_1906, cmdrs_2_1907
