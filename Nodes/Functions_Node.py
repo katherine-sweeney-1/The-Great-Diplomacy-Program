@@ -2,8 +2,9 @@ from Class_Node import Node
 from Class_Sub_Node import Coastal_Node
 from Visualize_Node_Class import GraphVisualization
 import sys
-import os
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
+#import os
+#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Units"))
+sys.path.append("../The_Great_Diplomacy_Program/Units")
 from Class_Unit import Unit
 
 # get a dictionary of node data

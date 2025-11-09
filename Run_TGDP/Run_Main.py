@@ -1,26 +1,12 @@
 import sys
-import os
-"""
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Hard_Data/Data_Game_1"))
-from Cmdrs_1 import cmdrs_1
-from Cmds_1 import cmds_1a, cmds_1b
-from Units_1 import units_1a, units_1b
-from Cmdrs_2 import cmdrs_2
-from Cmds_2 import cmds_2a, cmds_2b
-from Units_2 import units_2a, units_2b
-from Cmdrs_3 import cmdrs_3
-from Cmds_3 import cmds_3a
-from Units_3 import units_3a
-"""
-#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Parse"))
-#from Functions_Parse import parse_commands_and_units
-from Parse import Parse_Objects
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/data/Txt_Hard_Data"))
+sys.path.append("../The_Great_Diplomacy_Program/Parse")
+from Parse_Objects import parse_commands_and_units
+sys.path.append("../The_Great_Diplomacy_Program/data/Txt_Hard_Data")
 from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906, cmdrs_1_1906b, cmdrs_1_1907, cmdrs_1_1907b, cmdrs_1_1908
 from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b, cmdrs_2_1905, cmdrs_2_1906, cmdrs_2_1907
 from Run_Objects import create_objects
 from Run_Processing import run_processing
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Tables"))
+sys.path.append("../The_Great_Diplomacy_Program/Tables")
 from Functions_Table import yield_table
 
 data_nodes = "data/Data_Ter_Main.csv"

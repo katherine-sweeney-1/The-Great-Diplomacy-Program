@@ -1,4 +1,5 @@
 from Functions_Parse import determine_node_name
+
 def parse_commands_and_units (txt):
     parsed_cmds = {}
     parsed_units = {}

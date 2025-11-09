@@ -1,13 +1,16 @@
 import sys
-import os
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes"))
+#import os
+#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes"))
+sys.path.append("../The_Great_Diplomacy_Program/Nodes")
 from Functions_Node import create_nodes
 from Functions_Node import assign_occupied
 from Functions_Node import assign_occ_coastal
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commanders"))
+#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commanders"))
+sys.path.append("../The_Great_Diplomacy_Program/Commanders")
 from Functions_Commander import create_commanders
 from Functions_Commander import update_commanders
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
+#sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Commands"))
+sys.path.append("../The_Great_Diplomacy_Program/Commands")
 from Functions_Command import create_commands
 
 # Create Objects
