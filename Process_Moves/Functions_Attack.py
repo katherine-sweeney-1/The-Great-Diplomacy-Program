@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.join("/home/katherine/Documents/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
+sys.path.append(os.path.join("/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"))
 from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
