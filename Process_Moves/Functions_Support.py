@@ -8,10 +8,8 @@ def get_valid_support(commands, id = None, recur_bool = None):
         # if a unit is attacking
         if commands[command_id].location == commands[command_id].origin:
             continue
-        if id != None:
-            command = commands[id]
-        else:
-            command = commands[command_id]
+        
+        command = commands[command_id]
         # if a unit is supporting
         if command.location != command.origin:
             for cut_attempt in commands:
@@ -24,7 +22,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     # support does not work if it supports an attack on a unit in its own country
                     # if support command supports an attack from another country to its own country's unit
                     if command.location.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
-                        
                         destination_command_id = command.destination.is_occupied.id
                         destination_command = commands[destination_command_id]
                         if destination_command.origin == destination_command.destination:
@@ -37,7 +34,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
                             break
                     # if support command supports an attack from another country to that other country's unit
                     elif command.origin.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
-                        
                         destination_command_id = command.destination.is_occupied.id
                         destination_command = commands[destination_command_id]
                         if destination_command.origin == destination_command.destination:
@@ -48,25 +44,17 @@ def get_valid_support(commands, id = None, recur_bool = None):
                         if supported_command.location.is_occupied.commander.human != destination_command.location.is_occupied.commander.human:
                             command_success = False
                             break
-
-
-
                     # get occupying unit for coastal nodes
                     if isinstance (command.destination, Coastal_Node):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
                     if command.destination.is_occupied in command.human.unit_members.keys():
-                        
                         if command.origin != command.destination:
                             command_success = False
                             break
                 # check if there is an attempt to cut support
-                
                     if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
-                        #if command_id == "IT01":
-                         #   print("check 1", command_id)
                         # check if cut attempt has its own support
-                        if commands[cut_attempt].location == commands[cut_attempt].origin and commands[cut_attempt].origin != commands[cut_attempt].destination and command.destination.is_occupied == True:
-                            
+                        if commands[cut_attempt].location == commands[cut_attempt].origin and commands[cut_attempt].origin != commands[cut_attempt].destination and command.destination.is_occupied == True: 
                             destination_id = command.destination.is_occupied.id
                             destination_command = commands[destination_id]
                             if commands[cut_attempt].destination == destination_command.location:
@@ -75,19 +63,11 @@ def get_valid_support(commands, id = None, recur_bool = None):
                             else:
                                 command_success = True
                         else:
-                            #if command_id == "IT01":
-                             #   print("check 2", command_id)
                             command_success = check_cut_attempt_on_support(commands, command_id, cut_attempt)
-                            
-                            """
-                            need to add an if statment i think
-                            """
                         if command_success == False:
                             break
-
                 elif command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                     # check if cut attempt has its own support
-                   # print("checking", command_id)
                     command_success = check_cut_attempt_on_support(commands, command_id, cut_attempt)
                 if command_success == False:
                     break
@@ -116,7 +96,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     elif supported_command.origin == supported_command.destination and supported_command.location != supported_command.origin:
                         command_strength = 1
                         supported_command.cmd_strength(command_strength)
-                    
                     else:
                         command_strength = 0
                 else:
@@ -129,62 +108,30 @@ def get_valid_support(commands, id = None, recur_bool = None):
         command.success(command_success)
     return commands
 
-
-
-
-
-
 def is_support_for_attacking_cut(commands, command_id, other_id):
-    #if command_id == "IT01":
-    #print("is_support_for_attacking_cut", command_id, other_id)
     for supporting_attack in commands:
         if supporting_attack != command_id and supporting_attack != other_id:# and commands[supporting_attack].human == commands[command_id].human:
             # if the support is supporting an attack on the other_id's location
-            #if command_id == "IT01":
-                #print("is_support_for_attacking_cut 0", command_id, other_id, supporting_attack)
             if commands[supporting_attack].origin == commands[other_id].origin and commands[supporting_attack].destination == commands[supporting_attack].destination and commands[command_id].destination == commands[supporting_attack].location:
-                #if command_id == "IT01":
-                    #print("YES", command_id, other_id, supporting_attack)
                 command_success = False
             if commands[supporting_attack].origin == commands[command_id].origin and commands[supporting_attack].destination == commands[command_id].destination and commands[supporting_attack].destination == commands[other_id].location:
-                #if command_id == "IT01":
-                #print("is_support_for_attacking_cut 1", command_id, other_id, supporting_attack)
-                #if commands[supporting_attack].origin == commands[other_id].origin and commands[supporting_attack].destination == commands[other_id]
-                #if commands[supporting_attack].origin == commands[other_id].origin and commands[supporting_attack].destination == commands[supporting_attack].destination and commands[command_id].destination == commands[supporting_attack].location:
                 command_success = True
                 for supported_attack_on_support in commands:
                     if supported_attack_on_support != command_id and supported_attack_on_support != other_id and supported_attack_on_support != supporting_attack:
                         if commands[supported_attack_on_support].origin == commands[other_id].origin and commands[supported_attack_on_support].destination == commands[other_id].destination:
-                            print("YEs", command_id)
-                            #command_success = False
-                            #break
                             supported_attack_on_support_success = get_individual_valid_support(commands, commands[supported_attack_on_support])
                             if supported_attack_on_support_success == True:
                                 command_success = False
+                                break
                             else:
                                 command_success = True
                         else:
                             command_success = True
                 if command_success == True:
                     break
-                #else:
-                    #command_success = False
-                    #break
-                """
-                    if command_id == "IT01":
-                        print("YES", command_id, other_id, supporting_attack)
-                    command_success = False
-                command_success = True
-                break
-                """
             else:
-                #if command_id == "IT01":
-                #    print("is_support_for_attacking_cut 2", command_id, other_id, supporting_attack)
                 command_success = False
-                #break
         else:
-            #if command_id == "IT01":
-                #print("is_support_for_attacking_cut 3", command_id, other_id, supporting_attack)
             command_success = False
     return command_success
 
@@ -194,34 +141,19 @@ def check_cut_attempt_on_support(commands, command_id, cut_support_id):
         # if the cut attempt (cut_support_id) has its own support (cutting_support_id)
         if cutting_support_id != command_id and cutting_support_id != cut_support_id and commands[cutting_support_id].origin:
             # check if the the support (cutting_support_id) supports the cut attempt's (other_id) attack
-            #print("check cut 1", command_id)
-            #if command_id == "IT01":
-                #print("check 3", command_id, cut_support_id, cutting_support_id)
             if commands[cut_support_id].origin == commands[cutting_support_id].origin and commands[cutting_support_id].destination == commands[cut_support_id].destination:
-                #if command_id == "IT01":
-                #    print("check 4", command_id, cut_support_id, cutting_support_id)
                 if commands[command_id].location == commands[cutting_support_id].destination:
-                    #if command_id == "IT01":
-                     #   print("check 5", command_id, cut_support_id, cutting_support_id)
                     command = commands[command_id]
-                    
                     for attack_on_cut_support_id in commands:
-                        #if command_id == "IT01":
-                         #   print("check 6", command_id)
                         if commands[attack_on_cut_support_id].destination == commands[cutting_support_id].location:
                             command_success = False
                             break
                         else:
                             command_success = True
-                            #break
-                    #break
                 else:
                     command_success = True
-                    #break
         # if the cut attempt does not have support
         else:
-            if command_id == "IT01":
-                print("check 3b", command_id)
             # if support is for an attack on cut attempt
             command_success = is_support_for_attacking_cut(commands, command_id, cut_support_id)
             if command_success == False:
@@ -246,7 +178,6 @@ def get_individual_valid_support(commands, command):
                     # support does not work if it supports an attack on a unit in its own country
                     # if support command supports an attack from another country to its own country's unit
                     if command.location.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
-                        
                         destination_command_id = command.destination.is_occupied.id
                         destination_command = commands[destination_command_id]
                         if destination_command.origin == destination_command.destination:
@@ -270,9 +201,6 @@ def get_individual_valid_support(commands, command):
                         if supported_command.location.is_occupied.commander.human != destination_command.location.is_occupied.commander.human:
                             command_success = False
                             break
-
-
-
                     # get occupying unit for coastal nodes
                     if isinstance (command.destination, Coastal_Node):
                         command.destination.is_occupied.id = command.destination.sibling.is_occupied.id
@@ -282,7 +210,6 @@ def get_individual_valid_support(commands, command):
                             command_success = False
                             break
                 # check if there is an attempt to cut support
-                
                     if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                         #if command_id == "IT01":
                          #   print("check 1", command_id)
@@ -300,16 +227,10 @@ def get_individual_valid_support(commands, command):
                             #if command_id == "IT01":
                              #   print("check 2", command_id)
                             command_success = check_cut_attempt_on_support(commands, command_id, cut_attempt)
-                            
-                            """
-                            need to add an if statment i think
-                            """
                         if command_success == False:
                             break
-
                 elif command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                     # check if cut attempt has its own support
-                   # print("checking", command_id)
                     command_success = check_cut_attempt_on_support(commands, command_id, cut_attempt)
                 if command_success == False:
                     break
