@@ -116,6 +116,8 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                 command_success = False
             if commands[supporting_attack].origin == commands[command_id].origin and commands[supporting_attack].destination == commands[command_id].destination and commands[supporting_attack].destination == commands[other_id].location:
                 command_success = True
+                if command_id == "GE01":
+                    print(0, command_id)
                 for supported_attack_on_support in commands:
                     if supported_attack_on_support != command_id and supported_attack_on_support != other_id and supported_attack_on_support != supporting_attack:
                         if commands[supported_attack_on_support].origin == commands[other_id].origin and commands[supported_attack_on_support].destination == commands[other_id].destination:
@@ -131,6 +133,7 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                     break
             else:
                 command_success = False
+                break
         else:
             command_success = False
     return command_success
