@@ -8,7 +8,6 @@ def get_valid_support(commands, id = None, recur_bool = None):
         # if a unit is attacking
         if commands[command_id].location == commands[command_id].origin:
             continue
-        
         command = commands[command_id]
         # if a unit is supporting
         if command.location != command.origin:
@@ -19,6 +18,7 @@ def get_valid_support(commands, id = None, recur_bool = None):
                 command_success = True
                 # check if unit supports an attack on support's brethren units
                 if command.destination.is_occupied:
+
                     # support does not work if it supports an attack on a unit in its own country
                     # if support command supports an attack from another country to its own country's unit
                     if command.location.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
@@ -36,12 +36,15 @@ def get_valid_support(commands, id = None, recur_bool = None):
                     elif command.origin.is_occupied.commander.human == command.destination.is_occupied.commander.human and command.origin != command.destination:
                         destination_command_id = command.destination.is_occupied.id
                         destination_command = commands[destination_command_id]
+                        
                         if destination_command.origin == destination_command.destination:
                             command_success = False
                             break
+                        
                         supported_command_id = command.origin.is_occupied.id
                         supported_command = commands[supported_command_id]
-                        if supported_command.location.is_occupied.commander.human != destination_command.location.is_occupied.commander.human:
+                        if supported_command.location.is_occupied.commander.human == destination_command.location.is_occupied.commander.human:
+                            print(3, command_id)
                             command_success = False
                             break
                     # get occupying unit for coastal nodes
@@ -133,7 +136,6 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                     break
             else:
                 command_success = False
-                break
         else:
             command_success = False
     return command_success
