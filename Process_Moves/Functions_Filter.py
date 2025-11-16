@@ -41,13 +41,19 @@ def filter_neighbors(command):
             command.legal = "neighboring territory error coastal"
     # holds
     else:
-        if command.origin in command.destination.neighbors.values():
+        if command.location in command.destination.neighbors.values():
+            if command.origin in command.destination.neighbors.values():
+                command.legal = command.legal
+            elif command.destination.name == command.origin.name:
+                command.legal = command.legal
+            else:
+                command.legal = "invalid order - non-neighbor territory"
+        elif command.origin in command.destination.neighbors.values():
             command.legal = command.legal
-        elif command.destination.name == command.origin.name:
-            command.legal = command.legal
+        elif command.location == command.origin == command.destination:
+            command.legal = command.legal 
         else:
-            command.legal = "neighboring territory error"
-            #cmd.legal = 0
+            command.legal = "invalid order - non-neighbor territory"
     return command
 
 # Filter commands by who owns the units

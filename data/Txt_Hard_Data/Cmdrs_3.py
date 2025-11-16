@@ -93,3 +93,35 @@ cmdrs_3_1903 = {
                    "Dots Owned": ["Smy", "Ank", "Con", "Bul", "Sev"]
                    }
 }
+
+cmdrs_3_1904 = {
+    "Adam" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04"],
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ser"]
+                   },
+    "Liam" : {"Country": "UK", 
+                   "Unit Members": ["UK01", "UK02", "UK03", "UK04", "UK05"],
+                   "Dots Owned": ["Edi", "Lon", "Lvp", "Bel", "Hol"]
+                   },
+    "Mercy" : {"Country": "FR",
+                    "Unit Members": ["FR01", "FR02", "FR03"],
+                    "Dots Owned": ["Par", "Mar", "Bre"]
+                    },
+    "Kamran" : {"Country": "GE", 
+                   "Unit Members": ["GE01"],
+                   "Dots Owned": ["War"]
+                   },
+
+    "Michael" : {"Country": "IT", 
+                   "Unit Members": ["IT01", "IT02", "IT03", "IT04", "IT05"],
+                   "Dots Owned": ["Rom", "Nap", "Ven", "Tun", "Por"]
+                   },
+    "Katherine" : {"Country": "RU", 
+                   "Unit Members": ["RU01", "RU02", "RU03", "RU04", "RU05", "RU06", "RU07", "RU08"],
+                   "Dots Owned": ["Stp-SC", "War", "Mos", "Swe", "Den", "Nwy", "Ber", "Kie"]
+                   },
+    "Will" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Bul", "Sev", "Rum"]
+                   }
+}
