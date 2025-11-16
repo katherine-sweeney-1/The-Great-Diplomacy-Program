@@ -2,6 +2,6 @@ Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?
 Stp-NC,St. Petersburg (North Coast),Coast,Bar Fin Nwy Stp-SC,Rus,TRUE,Rus
 Stp-SC,St. Petersburg (South Coast),Coast,Bot Fin Lvn Mos Stp-NC,Rus,TRUE,Rus
 Spa-NC,Spain (North Coast),Coast,Gas Mao Por Spa-SC,Neutral,TRUE,FALSE
-Spa-SC,Spain (South Coast),Coast,Por Wes Lyo Mar Spa-NC,Neutral,TRUE,FALSE
+Spa-SC,Spain (South Coast),Coast,Por Wes Lyo Mar Spa-NC Mao,Neutral,TRUE,FALSE
 Bul-EC,Bulgaria (East Coast),Coast,Rum Bla Con Ser Bul-SC,Neutral,TRUE,FALSE
 Bul-SC,Bulgaria (South Coast),Coast,Ser Aeg Con Gre Bul-EC,Neutral,TRUE,FALSE
