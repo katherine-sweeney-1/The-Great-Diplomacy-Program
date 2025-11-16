@@ -48,13 +48,6 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                 destination_command = commands[destination_unit_id]
                 outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
             else:
-                """
-                if command_id == "RU04":
-                    print(" ")
-                    print("occupied")
-                    print(command_id)
-                    print(" ")
-                """
                 # error with check if other attack is on destination function
                 outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
             if outcome == False:
@@ -100,6 +93,7 @@ def check_if_other_attack_is_on_destination(command_id, command, other_command, 
     return outcome
 
 def get_attack_outcome(command_id, command, commands, count = None):
+    #print(command_id, command.strength)
     if command.destination.is_occupied != False:
         # get the command for the unit on the destination
         destination_command_id, destination_command = get_destination(command, commands)
