@@ -1,0 +1,58 @@
+﻿AU
+Adam
+A Bud - Gal  FAILS
+F Gre S Con  FAILS
+A Tri - Tyr  SUCCEEDS
+A Vie S Bud - Gal  SUCCEEDS
+
+
+UK
+Liam
+F Bre H  SUCCEEDS
+F Hol H  SUCCEEDS
+A Lvp - Edi  SUCCEEDS
+F NTH - Den  FAILS
+A Yor - Lon  SUCCEEDS
+
+
+FR
+Mercy
+F ENG - NTH  SUCCEEDS
+F NWG S ENG - NTH  SUCCEEDS
+A Pic - Bel  SUCCEEDS
+
+
+GE
+Kamran
+A Sil - Gal  FAILS
+
+
+IT
+Michael
+F MAO - IRI  SUCCEEDS
+A Pie - Mar  SUCCEEDS
+F Spa/sc - MAO  SUCCEEDS
+F TYS - LYO  SUCCEEDS
+A Ven - Pie  SUCCEEDS
+
+
+RU
+Katherine
+A Ber - Kie  FAILS
+F Kie - Den  FAILS
+A Lvn - Mos  FAILS
+A Mun H  SUCCEEDS
+A Pru - Ber  FAILS
+A Swe - Nwy  SUCCEEDS
+A Ukr - Gal  FAILS
+A War S Ukr - Gal  SUCCEEDS
+
+
+TU
+Will
+F AEG - Gre  SUCCEEDS
+F BLA C Con - Sev  SUCCEEDS
+A Bul S AEG - Gre  SUCCEEDS
+A Con - Sev  FAILS
+F Rum H  SUCCEEDS
+A Sev - Mos  FAILS

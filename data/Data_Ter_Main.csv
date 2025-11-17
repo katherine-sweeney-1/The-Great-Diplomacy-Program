@@ -3,7 +3,7 @@ Nwg,Norwegian Sea,Sea,Nao Cly Edi Nth Nwy Bar,Neutral,FALSE,FALSE
 Nao,North Atlantic Ocean,Sea,Mao Iri Lvp Cly Nwg,Neutral,FALSE,FALSE
 Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE
 Edi,Edinburgh,Coast,Cly Lvp Nth Nwg Yor,Eng,TRUE,Eng
-Lvp,Liverpool,Coast,Nap Cly Edi Yor Wal Iri,Eng,TRUE,Eng
+Lvp,Liverpool,Coast,Nap Cly Edi Yor Wal Iri Nao,Eng,TRUE,Eng
 Yor,Yorkshire,Coast,Edi Lon Lvp Nth Wal,Eng,FALSE,FALSE
 Wal,Wales,Coast,Eng Iri Lon Lvp Yor,Eng,FALSE,FALSE
 Lon,London,Coast,Eng Nth Wal Yor,Eng,TRUE,Eng
