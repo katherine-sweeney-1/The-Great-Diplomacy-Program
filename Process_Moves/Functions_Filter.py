@@ -39,6 +39,13 @@ def filter_neighbors(command):
             command.legal = command.legal
         else:
             command.legal = "neighboring territory error coastal"
+    elif isinstance(command.location, Coastal_Node):
+        if command.destination in command.location.neighbors.values():
+            command.legal = command.legal
+        elif command.destination.name == command.location.name:
+            command.legal = command.legal
+        else:
+            command.legal = "neighboring territory error coastal"
     # holds
     else:
         if command.location in command.destination.neighbors.values():

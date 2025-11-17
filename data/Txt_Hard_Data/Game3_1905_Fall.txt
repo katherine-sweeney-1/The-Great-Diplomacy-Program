@@ -1,0 +1,56 @@
+﻿AU
+Adam
+A Bud S Ser  SUCCEEDS
+F EAS - Smy  FAILS
+A Ser S Bud  SUCCEEDS
+A Tri - Vie  SUCCEEDS
+
+
+UK
+Liam
+F Bel S Hol  SUCCEEDS
+F Bre - ENG  SUCCEEDS
+F Hol S Bel  SUCCEEDS
+A Lon - Wal  SUCCEEDS
+A Lvp H  FAILS
+
+
+FR
+Mercy
+F NTH - SKA  SUCCEEDS
+F NWG - Edi  SUCCEEDS
+
+
+IT
+Michael
+A Bur - Par  SUCCEEDS
+F LYO - Spa/sc  SUCCEEDS
+A Mar - Gas  SUCCEEDS
+F NAO S Wal - Lvp  SUCCEEDS
+F TYS - WES  SUCCEEDS
+F Ven - ADR  SUCCEEDS
+F Wal - Lvp  SUCCEEDS
+
+
+RU
+Katherine
+F Den S Kie  SUCCEEDS
+A Gal - Rum  FAILS
+A Kie S Den  SUCCEEDS
+A Mos - Sev  FAILS
+A Mun S Sil - Boh  SUCCEEDS
+A Nwy H  SUCCEEDS
+A Sil - Boh  SUCCEEDS
+F Stp/nc S Nwy  SUCCEEDS
+A Ukr S Gal - Rum  SUCCEEDS
+
+
+TU
+Will
+F Ank - Con  SUCCEEDS
+A Arm - Smy  FAILS
+F BLA S Sev  SUCCEEDS
+A Bul S Rum  SUCCEEDS
+F Gre S Bul  SUCCEEDS
+A Rum S Bul  FAILS
+A Sev S Rum  FAILS
