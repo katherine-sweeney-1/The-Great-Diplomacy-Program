@@ -26,6 +26,16 @@ def filter_unit_type(command):
     else:
         if command.destination.node_type == "Land":
             command.legal = "unit type error - fleet attempts move directed at inland"
+        elif command.destination.node_type == "Coast":
+            if command.location in command.destination.fleet_neighbors.values():
+                print("YES", command.unit.id)
+            else:
+                if command.location != command.destination:
+                    print("no", command.unit.id)
+                    print(command.location.name)
+                    for nbr in command.destination.fleet_neighbors.values():
+                        print(nbr.name)
+                    print(" ")
             #cmd.legal = 0
     return command
 
