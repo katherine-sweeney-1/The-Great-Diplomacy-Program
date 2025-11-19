@@ -14,9 +14,9 @@ sys.path.append("../The_Great_Diplomacy_Program/Commands")
 from Functions_Command import create_commands
 
 # Create Objects
-def create_objects(nodes_data, nodes_data_coastal, commanders_data, units_data, commands_data):
+def create_objects(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal, commanders_data, units_data, commands_data):
     commanders = create_commanders(commanders_data)
-    nodes = create_nodes(nodes_data, nodes_data_coastal)
+    nodes = create_nodes(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal)
     commanders, units = update_commanders(commanders, nodes, commanders_data, units_data)
     nodes, units = assign_occupied(nodes, units)
     nodes = assign_occ_coastal(nodes)

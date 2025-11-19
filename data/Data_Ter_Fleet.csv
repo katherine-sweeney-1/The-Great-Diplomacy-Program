@@ -1,7 +1,7 @@
 Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?
 Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE
 Edi,Edinburgh,Coast,Cly Nth Nwg Yor,Eng,TRUE,Eng
-Lvp,Liverpool,Coast, Cly Wal Iri Nao,Eng,TRUE,Eng
+Lvp,Liverpool,Coast,Cly Wal Iri Nao,Eng,TRUE,Eng
 Yor,Yorkshire,Coast,Edi Lon Nth,Eng,FALSE,FALSE
 Wal,Wales,Coast,Eng Iri Lon Lvp,Eng,FALSE,FALSE
 Lon,London,Coast,Eng Nth Wal Yor,Eng,TRUE,Eng
