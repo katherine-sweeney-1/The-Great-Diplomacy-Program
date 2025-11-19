@@ -26,6 +26,12 @@ def filter_unit_type(command):
     else:
         if command.destination.node_type == "Land":
             command.legal = "unit type error - fleet attempts move directed at inland"
+        elif command.destination.node_type == "Coast":
+            if command.location in command.destination.fleet_neighbors.values():
+                command.legal = command.legal
+            else:
+                if command.location != command.destination:
+                    command.legal = "invalid order"
             #cmd.legal = 0
     return command
 
@@ -117,9 +123,10 @@ def filter_commands(commands, commanders):
     for command_id in commands:
         command = commands[command_id]
         command = filter_owner(command, commanders)
-        command = filter_unit_type(command)
+        #command = filter_unit_type(command)
         command = filter_neighbors(command)
         command = get_commands_for_coastals(command)
+        command = filter_unit_type(command)
         if command.legal != 1:
             invalid_commands[command_id] =command
             command.origin = command.location
