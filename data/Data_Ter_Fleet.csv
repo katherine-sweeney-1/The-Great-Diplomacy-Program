@@ -1,0 +1,43 @@
+Territory (Abbr),Territory Name,Territory Type,Adjacent Territories,Country,Dot?,Home Supply Center?
+Cly,Clyde,Coast,Nap Nwg Lvp Edi,Eng,FALSE,FALSE
+Edi,Edinburgh,Coast,Cly Nth Nwg Yor,Eng,TRUE,Eng
+Lvp,Liverpool,Coast,Cly Wal Iri Nao,Eng,TRUE,Eng
+Yor,Yorkshire,Coast,Edi Lon Nth,Eng,FALSE,FALSE
+Wal,Wales,Coast,Eng Iri Lon Lvp,Eng,FALSE,FALSE
+Lon,London,Coast,Eng Nth Wal Yor,Eng,TRUE,Eng
+Nwy,Norway,Coast,Bar Nth Nwg Ska Stp Swe,Neutral,FALSE,FALSE
+Fin,Finland,Coast,Bot Stp Swe,Neutral,FALSE,FALSE
+Swe,Sweden,Coast,Bal Bot Den Fin Nwy Ska,Neutral,TRUE,FALSE
+Den,Denmark,Coast,Bal Hel Kie Nth Ska Swe,Neutral,TRUE,FALSE
+Hol,Holland,Coast,Hel Nth Bel Kie,Neutral,TRUE,FALSE
+Bel,Belgium,Coast,Nth Eng Pic Hol,Neutral,TRUE,FALSE
+Kie,Kiel,Coast,Hol Hel Den Bal Ber,Ger,TRUE,Ger
+Ber,Berlin,Coast,Bal Pru Kie,Ger,TRUE,Ger
+Pru,Prussia,Coast,Bal Lvn Ber,Ger,FALSE,FALSE
+Stp,St. Petersburg,Coast,Bar Fin Nwy Bot Lvn,Rus,TRUE,Rus
+Lvn,Livonia,Coast,Stp Bot Bal Pru,Rus,FALSE,FALSE
+Sev,Sevastopol,Coast,Rum Arm Bla,Rus,TRUE,Rus
+Pic,Picardy,Coast,Eng Bel Bre,Fra,FALSE,FALSE
+Bre,Brest,Coast,Eng Pic Gas Mao,Fra,TRUE,Fra
+Gas,Gascony,Coast,Bre Mar Spa Mao,Fra,FALSE,FALSE
+Mar,Marseilles,Coast,Gas Pie Lyo Spa,Fra,TRUE,Fra
+Spa,Spain,Coast,Gas Mao Por Wes Lyo Mar,Neutral,TRUE,FALSE
+Por,Portugal,Coast,Mao Spa,Neutral,TRUE,FALSE
+Naf,North Africa,Coast,Mao Wes Tun,Neutral,FALSE,FALSE
+Tun,Tunisia,Coast,Naf Wes Tys Ion,Neutral,TRUE,FALSE
+Tri,Trieste,Coast,Alb Adr Ven,Aus,TRUE,Aus
+Pie,Piedmont,Coast,Mar Tus Lyo,Ita,FALSE,FALSE
+Tus,Tuscany,Coast,Pie Rom Tys Lyo,Ita,FALSE,FALSE
+Ven,Venice,Coast,Tri Adr Apu,Ita,TRUE,Ita
+Rom,Rome,Coast,Tus Nap Tys,Ita,TRUE,Ita
+Apu,Apulia,Coast,Adr Ion Nap Ven,Ita,FALSE,FALSE
+Nap,Naples,Coast,Rom Apu Ion Tys,Ita,TRUE,Ita
+Alb,Albania,Coast,Tri Gre Ion Adr,Neutral,FALSE,FALSE
+Rum,Rumania,Coast,Sev Bla Bul,Neutral,TRUE,FALSE
+Bul,Bulgaria,Coast,Rum Bla Con Aeg Gre,Neutral,TRUE,FALSE
+Gre,Greece,Coast,Alb Bul Aeg Ion,Neutral,TRUE,FALSE
+Con,Constantinople,Coast,Bul Bla Ank Smy Aeg,Tur,TRUE,Tur
+Ank,Ankora,Coast,Bla Arm Con,Tur,TRUE,Tur
+Arm,Armenia,Coast,Sev Bla Ank,Tur,FALSE,FALSE
+Smy,Smyrna,Coast,Con Syr Eas Aeg,Tur,TRUE,Tur
+Syr,Syria,Coast,Eas Smy,Tur,FALSE,FALSE
