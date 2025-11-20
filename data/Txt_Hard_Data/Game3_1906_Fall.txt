@@ -52,5 +52,5 @@ F BLA - Con  SUCCEEDS
 F Gre H  SUCCEEDS
 A Rum S Ser  SUCCEEDS
 A Ser S Gre  SUCCEEDS
-A Sev S Rum  FAILS (Disrupted)
+A Sev S Rum  FAILS
 F Smy S BLA - Con  FAILS

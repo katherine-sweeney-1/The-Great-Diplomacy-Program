@@ -6,6 +6,7 @@ from Class_Sub_Node import Coastal_Node
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
     # get a dictionary without the command to check if there are other attacking commands
     relevant_attacking_commands = {}
+    #print(command_id)
     # remove the command for the unit on the destination
     if destination_command_id != False:
         relevant_attacking_commands[command_id] = command
@@ -57,6 +58,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
     return command.succeed
 
 def check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command = None):
+    #print(command_id)
     if other_command.destination == command.destination:
         # if the other command is attacking
         if other_command.origin != command.origin:
@@ -99,6 +101,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
         destination_command_id, destination_command = get_destination(command, commands)
         # if the unit on the destination is attacking 
         if destination_command.location == destination_command.origin and destination_command.destination != destination_command.origin:
+            #print(command_id)
             # if the command and unit on destination are trying to attack each other
             if command.location == destination_command.destination and command.destination == destination_command.location:
                 outcome = False
@@ -132,9 +135,46 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
         # ensure the commands have different commanders 
         else:
+            #print(command_id, destination_command.unit.id)
             if command.strength > destination_command.strength:
                 outcome = check_commanders(command_id, command, commands, destination_command)
             else:
+                """
+                problem is in this area of code
+                """
+                
+                if command.strength > destination_command.strength:
+                    outcome = check_commanders(command_id, command, commands, destination_command)
+                else:
+                    """
+                    print(command_id)
+                    if count == None:
+                        print("test 1", command_id)
+                        destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 1)
+                        print("Destination command outcome", destination_command_outcome)
+                    else:
+                        print("Test 2", command_id)
+                        if destination_command.location == command.destination and destination_command.destination == command.location:
+                            destination_command_outcome = False
+                        else:
+                            destination_command_outcome = get_attack_outcome(destination_command_id, destination_command, commands, count = 2)
+                        print("dest outcome", command_id, destination_command_outcome)
+                    if destination_command_outcome:
+                        print("test", command_id)
+                        other_attacks_on_destination_outcome = check_other_attacks(command_id, command, commands, destination_command_id)
+                        if other_attacks_on_destination_outcome == True:
+                            outcome = True
+                        else:
+                            if command.strength > destination_command.strength:
+                                outcome = True
+                            else:
+                                outcome = False
+                    else:
+                        if command.strength > destination_command.strength:
+                            outcome = check_commanders(command_id, command, commands, destination_command)
+                        else:
+                            outcome = False
+                    """
                 outcome = False
     else:
         outcome = check_other_attacks(command_id, command, commands, False)
