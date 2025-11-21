@@ -4,6 +4,7 @@ sys.path.append(os.path.join("/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"
 from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
+    #print(command_id, destination_command_id)
     # get a dictionary without the command to check if there are other attacking commands
     relevant_attacking_commands = {}
     #print("check other attacks", command_id, destination_command_id)
@@ -15,8 +16,11 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                 other_command = commands[other_command_id]
                 if other_command.destination == commands[destination_command_id].location and other_command.location == other_command.origin:
                     relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                #if other_command.destination == command.location and other_command.location == other_command.origin:
+                    #relevant_attacking_commands[other_command_id] = commands[other_command_id]
         # determine if command has a higher strength than other attacks
         if len(relevant_attacking_commands) > 0:
+            print(relevant_attacking_commands)
             #print(command_id, relevant_attacking_commands)
             for relevant_attack_id in relevant_attacking_commands:
                 one_attacking_command = relevant_attacking_commands[relevant_attack_id]
@@ -36,10 +40,13 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                             outcome = False
                             break
                 else:
-                    print("CEHCKING", command_id, destination_command_id, "other command", one_attacking_command.unit.id)
-                    outcome = True
-                    #destination_command = commands[destination_command_id]
-                    #outcome = check_if_other_attack_is_on_destination(command_id, command, one_attacking_command, destination_command)
+                    #print("CEHCKING", command_id, destination_command_id, "other command", one_attacking_command.unit.id)
+                    #outcome = True
+                    destination_command = commands[destination_command_id]
+                    print(command_id, one_attacking_command.unit.id)
+                    print("Destination command", destination_command.unit.id)
+                    print(" ")
+                    outcome = check_if_other_attack_is_on_destination(command_id, command, one_attacking_command, destination_command)
         else:
             outcome = True
             #destination_command = commands[destination_command_id]
@@ -97,6 +104,12 @@ def check_if_other_attack_is_on_destination(command_id, command, other_command, 
         else:
             outcome = True
     else:
+        if command_id == "RU01" or command_id == "RU05":
+            print("command", command_id)
+            print("other command", other_command.unit.id)
+            if destination_command != None:
+                print("destination command", destination_command.unit.id)
+            print(" ")
         outcome = True
     return outcome
 
@@ -146,7 +159,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
         # ensure the commands have different commanders 
         else:
-            #print(command_id, destination_command.unit.id)
+            #print("check", command_id, destination_command.unit.id)
             if command.strength > destination_command.strength:
                 outcome = check_commanders(command_id, command, commands, destination_command)
             else:
