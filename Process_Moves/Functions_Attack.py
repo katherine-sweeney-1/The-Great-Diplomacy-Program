@@ -11,23 +11,39 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
     # remove the command for the unit on the destination
     if destination_command_id != False:
         relevant_attacking_commands[command_id] = command
+        destination_command = commands[destination_command_id]
+        relevant_attacking_commands[destination_command_id] = destination_command
+        print("command", command_id)
+        print("destination command 1", destination_command_id)
+        """
         for other_command_id in commands:
             if command_id != other_command_id and destination_command_id != other_command_id:
                 other_command = commands[other_command_id]
                 if other_command.destination == commands[destination_command_id].location and other_command.location == other_command.origin:
                     relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                elif other_command.location == commands[destination_command_id].destination and other_command.location == other_command.origin:
+                    relevant_attacking_commands[other_command_id] = commands[other_command_id]
                 #if other_command.destination == command.location and other_command.location == other_command.origin:
                     #relevant_attacking_commands[other_command_id] = commands[other_command_id]
+        """
+        relevant_attacking_commands = get_relevant_attacks(command_id, destination_command_id, commands, relevant_attacking_commands)
+        #last_relevant_attack = retrieve_last_relevant_attack(relevant_attacking_commands)
+        #print("last relevant attack", last_relevant_attack)
+        print(command_id)
+        print("relative attacking commands")
+        print(relevant_attacking_commands)
+        print(" ")
         # determine if command has a higher strength than other attacks
-        if len(relevant_attacking_commands) > 0:
-            print(relevant_attacking_commands)
+        if len(relevant_attacking_commands) > 2:
+            #print(relevant_attacking_commands)
             #print(command_id, relevant_attacking_commands)
             for relevant_attack_id in relevant_attacking_commands:
                 one_attacking_command = relevant_attacking_commands[relevant_attack_id]
-                if len(relevant_attacking_commands) > 1 and one_attacking_command != command:
+                if len(relevant_attacking_commands) > 3 and one_attacking_command != command:
                     if command.strength > one_attacking_command.strength:
                         outcome = True
                     else:
+                        
                         # if the destination command attacks one attacking command and if destination command beats one attacking command, then command wins
                         destination_command = commands[destination_command_id]
                         if destination_command.location == destination_command.origin and destination_command.destination == one_attacking_command.location:
@@ -39,13 +55,14 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                         else:
                             outcome = False
                             break
+                        
                 else:
                     #print("CEHCKING", command_id, destination_command_id, "other command", one_attacking_command.unit.id)
                     #outcome = True
                     destination_command = commands[destination_command_id]
-                    print(command_id, one_attacking_command.unit.id)
-                    print("Destination command", destination_command.unit.id)
-                    print(" ")
+                    #print(command_id, one_attacking_command.unit.id)
+                    #print("Destination command", destination_command.unit.id)
+                    #print(" ")
                     outcome = check_if_other_attack_is_on_destination(command_id, command, one_attacking_command, destination_command)
         else:
             outcome = True
@@ -104,12 +121,6 @@ def check_if_other_attack_is_on_destination(command_id, command, other_command, 
         else:
             outcome = True
     else:
-        if command_id == "RU01" or command_id == "RU05":
-            print("command", command_id)
-            print("other command", other_command.unit.id)
-            if destination_command != None:
-                print("destination command", destination_command.unit.id)
-            print(" ")
         outcome = True
     return outcome
 
@@ -298,3 +309,54 @@ def get_success_attacks(commands):
             else:
                 continue
     return commands
+
+
+def get_relevant_attacks(command_id, destination_command_id, commands, relevant_attacking_commands, last_relevant_attack = None):
+    print("destination command id", destination_command_id)
+    command = commands[command_id]
+    destination_command = commands[destination_command_id]
+    relevant_attack_destination_dict = {}
+    # get relevant_attacks
+    for other_command_id in commands:
+        if command_id != other_command_id and destination_command_id != other_command_id and other_command_id not in relevant_attacking_commands.keys():
+            other_command = commands[other_command_id]
+            if other_command.destination == destination_command.location and other_command.location == other_command.origin:
+                relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                boolean_value = True
+                relevant_other_command_id = other_command_id
+                break
+            elif other_command.location == commands[destination_command_id].destination and other_command.location == other_command.origin:
+                relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                relevant_other_command_id = other_command_id
+                boolean_value = True
+                break
+            else:
+                boolean_value = False
+    if boolean_value == True:
+        relevant_attacking_commands = get_relevant_attacks(destination_command_id, relevant_other_command_id, commands, relevant_attacking_commands)
+    return relevant_attacking_commands
+
+
+
+
+
+def retrieve_last_relevant_attack(relevant_attacking_commands):
+    relevant_attack_destination_dict = {}
+    # get dictionary of commands and their destinations
+    for relevant_attack_id in relevant_attacking_commands:
+        relevant_attacking_command = relevant_attacking_commands[relevant_attack_id]
+        relevant_attack_destination_dict[relevant_attacking_command] = relevant_attacking_command.destination
+    # retrieve last relevant attack from destinations 
+        print("check", relevant_attacking_command.unit.id, relevant_attacking_command.destination.name)
+    for relevant_attack_id in relevant_attacking_commands:
+        relevant_attacking_command = relevant_attacking_commands[relevant_attack_id]
+        if relevant_attacking_command.location in relevant_attack_destination_dict.values():
+            print("true", relevant_attacking_command.location.name, relevant_attacking_command.destination.name)
+            print(relevant_attacking_command.location)
+            print(relevant_attack_destination_dict.values())
+            continue
+        else:
+            print("false")
+            last_relevant_attack = relevant_attacking_command
+            break
+    return last_relevant_attack
