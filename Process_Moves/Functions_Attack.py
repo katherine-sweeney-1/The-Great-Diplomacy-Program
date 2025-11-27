@@ -4,23 +4,51 @@ sys.path.append(os.path.join("/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"
 from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
+    #print(command_id, destination_command_id)
     # get a dictionary without the command to check if there are other attacking commands
     relevant_attacking_commands = {}
     #print("check other attacks", command_id, destination_command_id)
     # remove the command for the unit on the destination
     if destination_command_id != False:
         relevant_attacking_commands[command_id] = command
+        destination_command = commands[destination_command_id]
+        relevant_attacking_commands[destination_command_id] = destination_command
+        #print("command", command_id)
+        #print("destination command 1", destination_command_id)
+        """
         for other_command_id in commands:
             if command_id != other_command_id and destination_command_id != other_command_id:
                 other_command = commands[other_command_id]
                 if other_command.destination == commands[destination_command_id].location and other_command.location == other_command.origin:
                     relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                elif other_command.location == commands[destination_command_id].destination and other_command.location == other_command.origin:
+                    relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                #if other_command.destination == command.location and other_command.location == other_command.origin:
+                    #relevant_attacking_commands[other_command_id] = commands[other_command_id]
+        """
+        relevant_attacking_commands = get_relevant_attacks(command_id, destination_command_id, commands, relevant_attacking_commands)
+        last_relevant_attack = retrieve_last_relevant_attack(relevant_attacking_commands)
+        #last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
+        #print("LST RELEVANT ATTACK OUTCOME", last_relevant_attack_outcome)
+        #print("last relevant attack", last_relevant_attack)
+        """
+        print(command_id)
+        print("relative attacking commands")
+        print(relevant_attacking_commands)
+        print(" ")
+        """
         # determine if command has a higher strength than other attacks
-        if len(relevant_attacking_commands) > 0:
-            #print(command_id, relevant_attacking_commands)
+        if len(relevant_attacking_commands) > 2:
+            print(relevant_attacking_commands)
+            print(command_id)
             for relevant_attack_id in relevant_attacking_commands:
                 one_attacking_command = relevant_attacking_commands[relevant_attack_id]
-                if len(relevant_attacking_commands) > 1 and one_attacking_command != command:
+                if len(relevant_attacking_commands) > 3 and one_attacking_command != command:
+                    """
+                    print(" ")
+                    print("TESTING", command_id)
+                    print(" ")
+                    """
                     if command.strength > one_attacking_command.strength:
                         outcome = True
                     else:
@@ -33,15 +61,70 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                                 outcome = False
                                 break
                         else:
-                            outcome = False
-                            break
+                            relevant_attack_outcome = get_attack_outcome(relevant_attack_id, one_attacking_command, commands)
+                            if relevant_attack_outcome == False:
+                                outcome = False
+                                break
+                            else:
+                                outcome = True
+                            print("TESTING 2")
+                            print(command_id)
+                            print(" ")
+                             
                 else:
-                    print("CEHCKING", command_id, destination_command_id, "other command", one_attacking_command.unit.id)
-                    outcome = True
-                    #destination_command = commands[destination_command_id]
-                    #outcome = check_if_other_attack_is_on_destination(command_id, command, one_attacking_command, destination_command)
+                    destination_command = commands[destination_command_id]
+                    outcome = check_if_other_attack_is_on_destination(command_id, command, one_attacking_command, destination_command)
         else:
-            outcome = True
+            #print("TESTING 3", command_id)
+            if destination_command.location == command.destination and destination_command.destination == command.location:
+                if command.strength > destination_command.strength:
+                    outcome = True
+                else:
+                    outcome = False
+            else:
+                last_relevant_attack = retrieve_last_relevant_attack(relevant_attacking_commands)
+                if last_relevant_attack == None:
+                    #print("TEST", command_id, destination_command_id)
+                    if command.strength > destination_command.strength:
+                        outcome = True
+                    else:
+                        outcome = False
+                #print(" ")
+                #print("TESTING 4")
+                #print(command_id, destination_command_id, last_relevant_attack.unit.id)
+                #print(" ")
+                
+                #outcome = True
+                #if command == last_relevant_attack:
+                    #print("TRUE", command.unit.id)
+                    #outcome = True
+                else:
+                    
+                    last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
+                    #print("LST RELEVANT ATTACK OUTCOME", last_relevant_attack_outcome)
+                    #print("last relevant attack", last_relevant_attack)
+                    """
+                    if outcome is false
+                        if there's only two relevant attacks
+                            if command.strength > last relevant attack.strength:
+                                outocme = true
+                            else:
+                                outcome = false
+                        else:
+                            if command.strength
+                    
+                    """
+                    if last_relevant_attack_outcome == False:
+                        if command.strength > last_relevant_attack.strength:
+                            outcome = True
+                        else:
+                            outcome = False
+                        #print(command_id, "outcome for if statement", outcome)
+                    else:
+                        outcome = True
+                        #print(command_id, "outcome for else statement", outcome)
+                    #outcome = last_relevant_attack_outcome
+                    #print(command_id, "outcome", outcome)
             #destination_command = commands[destination_command_id]
             #outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
     # check if another command attacks the same destination as the command in question
@@ -127,6 +210,12 @@ def get_attack_outcome(command_id, command, commands, count = None):
             # if destination's command is successful, check for other attacks on the destination
             if destination_command_outcome:
                 #print(command_id)
+
+
+
+
+
+
                 other_attacks_on_destination_outcome = check_other_attacks(command_id, command, commands, destination_command_id)
                 #print(other_attacks_on_destination_outcome)
                 if other_attacks_on_destination_outcome == True:
@@ -146,7 +235,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
         # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
         # ensure the commands have different commanders 
         else:
-            #print(command_id, destination_command.unit.id)
+            #print("check", command_id, destination_command.unit.id)
             if command.strength > destination_command.strength:
                 outcome = check_commanders(command_id, command, commands, destination_command)
             else:
@@ -187,6 +276,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
                             outcome = False
                     """
                 outcome = False
+                #print("YES", command_id)
     else:
         outcome = check_other_attacks(command_id, command, commands, False)
     command.success(outcome)
@@ -285,3 +375,65 @@ def get_success_attacks(commands):
             else:
                 continue
     return commands
+
+
+def get_relevant_attacks(command_id, destination_command_id, commands, relevant_attacking_commands, last_relevant_attack = None):
+    #print("destination command id", destination_command_id)
+    command = commands[command_id]
+    destination_command = commands[destination_command_id]
+    relevant_attack_destination_dict = {}
+    # get relevant_attacks
+    for other_command_id in commands:
+        if command_id != other_command_id and destination_command_id != other_command_id and other_command_id not in relevant_attacking_commands.keys():
+            other_command = commands[other_command_id]
+            if other_command.destination == destination_command.location and other_command.location == other_command.origin:
+                relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                boolean_value = True
+                relevant_other_command_id = other_command_id
+                break
+            elif other_command.location == commands[destination_command_id].destination and other_command.location == other_command.origin:
+                relevant_attacking_commands[other_command_id] = commands[other_command_id]
+                relevant_other_command_id = other_command_id
+                boolean_value = True
+                break
+            else:
+                boolean_value = False
+    if boolean_value == True:
+        relevant_attacking_commands = get_relevant_attacks(destination_command_id, relevant_other_command_id, commands, relevant_attacking_commands)
+    return relevant_attacking_commands
+
+
+
+
+
+def retrieve_last_relevant_attack(relevant_attacking_commands):
+    relevant_attack_destination_dict = {}
+    # get dictionary of commands and their destinations
+    for relevant_attack_id in relevant_attacking_commands:
+        relevant_attacking_command = relevant_attacking_commands[relevant_attack_id]
+        relevant_attack_destination_dict[relevant_attacking_command] = relevant_attacking_command.destination
+    # retrieve last relevant attack from destinations 
+        #print("check", relevant_attacking_command.unit.id, relevant_attacking_command.destination.name)
+    count = 0
+    #print(relevant_attacking_commands)
+    for relevant_attack_id in relevant_attacking_commands:
+        relevant_attacking_command = relevant_attacking_commands[relevant_attack_id]
+        #print(relevant_attacking_command.unit.id, relevant_attacking_command.location.name, relevant_attacking_command.destination.name)
+        if relevant_attacking_command.location in relevant_attack_destination_dict.values():# and relevant_attacking_command.destination not in relevant_attack_destination_dict.values():
+            #print("true")
+            #print(relevant_attack_id)
+            count +=1 
+            last_relevant_attack = relevant_attacking_command
+            break
+        else:
+            #print(relevant_attack_id)
+            last_relevant_attack = None
+            #continue
+        """
+        else:
+            print("false")
+            print(relevant_attack_id)
+            last_relevant_attack = relevant_attacking_command
+            break
+        """
+    return last_relevant_attack
