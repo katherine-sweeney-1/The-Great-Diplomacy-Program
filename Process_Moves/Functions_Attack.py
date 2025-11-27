@@ -97,7 +97,28 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                     last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
                     #print("LST RELEVANT ATTACK OUTCOME", last_relevant_attack_outcome)
                     #print("last relevant attack", last_relevant_attack)
-                    outcome = last_relevant_attack_outcome
+                    """
+                    if outcome is false
+                        if there's only two relevant attacks
+                            if command.strength > last relevant attack.strength:
+                                outocme = true
+                            else:
+                                outcome = false
+                        else:
+                            if command.strength
+                    
+                    """
+                    if last_relevant_attack_outcome == False:
+                        if command.strength > last_relevant_attack.strength:
+                            outcome = True
+                        else:
+                            outcome = False
+                        print(command_id, "outcome for if statement", outcome)
+                    else:
+                        outcome = True
+                        print(command_id, "outcome for else statement", outcome)
+                    #outcome = last_relevant_attack_outcome
+                    #print(command_id, "outcome", outcome)
             #destination_command = commands[destination_command_id]
             #outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
     # check if another command attacks the same destination as the command in question
@@ -249,6 +270,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
                             outcome = False
                     """
                 outcome = False
+                print("YES", command_id)
     else:
         outcome = check_other_attacks(command_id, command, commands, False)
     command.success(outcome)
@@ -390,14 +412,15 @@ def retrieve_last_relevant_attack(relevant_attacking_commands):
     print(relevant_attacking_commands)
     for relevant_attack_id in relevant_attacking_commands:
         relevant_attacking_command = relevant_attacking_commands[relevant_attack_id]
-        print(relevant_attacking_command.unit.id, relevant_attacking_command.location.name, relevant_attacking_command.destination.name)
-        if relevant_attacking_command.location in relevant_attack_destination_dict.values() and relevant_attacking_command.destination not in relevant_attack_destination_dict.values():
-            print("true")
-            print(relevant_attack_id)
+        #print(relevant_attacking_command.unit.id, relevant_attacking_command.location.name, relevant_attacking_command.destination.name)
+        if relevant_attacking_command.location in relevant_attack_destination_dict.values():# and relevant_attacking_command.destination not in relevant_attack_destination_dict.values():
+            #print("true")
+            #print(relevant_attack_id)
             count +=1 
             last_relevant_attack = relevant_attacking_command
             break
         else:
+            #print(relevant_attack_id)
             last_relevant_attack = None
             #continue
         """
