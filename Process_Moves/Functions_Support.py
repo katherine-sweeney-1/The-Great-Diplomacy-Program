@@ -16,11 +16,15 @@ def get_valid_support(commands, command):
             if command.location != command.origin and command.origin != command.destination:
                 supported_command_id = command.origin.is_occupied.id
                 supported_command = commands[supported_command_id]
-                """
+                
                 # support is unsuccessful if supported attack ends up holding
                 if supported_command.location == supported_command.origin and supported_command.origin == supported_command.destination:
                     command_success = False
                     break
+                elif supported_command.location != supported_command.origin:
+                    command_success = False
+                    break
+                """
                 # support is unsuccessful if supported attack ends up supporting
                 elif supported_command.location != supported_command.origin:
                     command_success = False
