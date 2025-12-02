@@ -1,0 +1,56 @@
+﻿AU
+Zohaib
+A Bud - Gal  SUCCEEDS
+A Bul S Rum  SUCCEEDS
+A Gal - War  SUCCEEDS
+A Gre S Bul  SUCCEEDS
+A Rum S Bul  SUCCEEDS
+A Ser S Rum  SUCCEEDS
+F TYS H  SUCCEEDS
+A Ukr S Gal - War  SUCCEEDS
+A Ven H  SUCCEEDS
+A Vie S Bud - Gal  SUCCEEDS
+
+
+UK
+Michael
+F ENG - MAO  SUCCEEDS
+F HEL C Lon - HEL  SUCCEEDS
+F Hol S Lon - Kie  SUCCEEDS
+A Lon - Kie  FAILS (Invalid move path)
+F NTH C Lon - Kie  SUCCEEDS
+F Stp/nc - Nwy  FAILS
+A Swe - Nwy  FAILS
+A Wal - Lon  FAILS
+
+
+FR
+Keaton
+A Bel S Bur - Ruh  SUCCEEDS
+F Bre - ENG  SUCCEEDS
+A Bur - Ruh  SUCCEEDS
+A Gas - Par  SUCCEEDS
+A Mar - Bur  SUCCEEDS
+A Mun S Bur - Ruh  SUCCEEDS
+A Por - Spa  SUCCEEDS
+F Tun - WES  SUCCEEDS
+
+
+GE
+Will
+A Kie - Den  SUCCEEDS
+A Ruh - Kie  SUCCEEDS
+
+
+RU
+Kamran
+A Fin H  SUCCEEDS
+F Sev H  SUCCEEDS
+A Sil H  SUCCEEDS
+
+
+TU
+Katherine
+A Ank H  SUCCEEDS
+F BLA H  SUCCEEDS
+A Con H  SUCCEEDS
