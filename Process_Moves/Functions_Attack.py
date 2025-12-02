@@ -123,8 +123,15 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                     if outcome == False:
                         break
                 else:
+                    """
+                    Added this
+                    this may either cause problems or prevent unnecesary runs through the function
+                    """
+                    if other_command.destination == command.destination and other_command != command:
                     # error with check if other attack is on destination function
-                    outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
+                        outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
+                    else:
+                        outcome = True
                 if outcome == False:
                     break
             
@@ -213,7 +220,6 @@ def get_attack_outcome(command_id, command, commands, count = None):
         else:
             outcome = check_other_attacks(command_id, command, commands, False)
         command.success(outcome)
-        #print(command_id, command.succeed)
         return command.succeed
 
 def get_hold_outcome(command_id, command, commands):

@@ -1,0 +1,60 @@
+﻿AU
+Zohaib
+A Bud S Rum  SUCCEEDS
+A Gre - Bul  SUCCEEDS
+A Rum S Gre - Bul  FAILS
+A Ser S Gre - Bul  SUCCEEDS
+A Tri - Ven  SUCCEEDS
+F Ven - Apu  SUCCEEDS
+A Vie S Bud  SUCCEEDS
+
+
+UK
+Michael
+F BAR - Stp/nc  SUCCEEDS
+F Edi - NWG  SUCCEEDS
+F NTH S SKA - Den  FAILS
+F SKA - Den  SUCCEEDS
+A Swe S SKA - Den  SUCCEEDS
+
+
+FR
+Keaton
+A Bel S Bur - Ruh  SUCCEEDS
+A Bur - Ruh  FAILS
+A Mar S Par - Bur  SUCCEEDS
+A Par - Bur  FAILS
+A Pic S Bel  SUCCEEDS
+F Spa/sc - WES  SUCCEEDS
+
+
+GE
+Will
+A Den S BAL - Swe  FAILS
+F HEL - NTH  SUCCEEDS
+F Hol S HEL - NTH  SUCCEEDS
+A Mun S Ruh  SUCCEEDS
+A Ruh H  SUCCEEDS
+
+
+IT
+Liam
+F ION H  SUCCEEDS
+A Tus H  SUCCEEDS
+A Tyr H  SUCCEEDS
+
+
+RU
+Kamran
+F BAL - Kie  SUCCEEDS
+A Gal - Rum  FAILS
+F Sev S Gal - Rum  SUCCEEDS
+A Stp - Fin  SUCCEEDS
+
+
+TU
+Katherine
+F Ank - BLA  SUCCEEDS
+A Arm - Ank  SUCCEEDS
+A Bul - Con  SUCCEEDS
+F Con - AEG  SUCCEEDS
