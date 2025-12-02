@@ -29,12 +29,13 @@ def get_nodes_data_dictionary(csv_file):
     return nodes_data_dictionary
 
 # create node objects
-def create_nodes(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal):
+def create_nodes(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal, nodes_data_fleet_special_coastal):
     nodes_noncoastal = {}
     nodes_coastal = {}
     nodes_data_dictionary = get_nodes_data_dictionary(nodes_data)
     coastal_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
     fleet_coastal_dictionary = get_nodes_data_dictionary(nodes_data_fleet_coastal)
+    fleet_special_coastal_dictionary = get_nodes_data_dictionary(nodes_data_fleet_special_coastal)
     # create nodes for non-coastal territories
     for node_data_id in nodes_data_dictionary:
         node = Node(node_data_id, nodes_data_dictionary[node_data_id])
@@ -55,9 +56,13 @@ def create_nodes(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal):
     # assign class properties to nodes
     for node_id in nodes:
         if "-" in node_id:
-            node_data_dictionary = get_nodes_data_dictionary(nodes_data_coastal)
+            node_data_dictionary = coastal_dictionary #get_nodes_data_dictionary(nodes_data_coastal)
+            fleet_neighbors_string = fleet_special_coastal_dictionary[node_id]["Neighbors"]
+
         else:
-            node_data_dictionary = get_nodes_data_dictionary(nodes_data)
+            node_data_dictionary = nodes_data_dictionary  #get_nodes_data_dictionary(nodes_data)
+            if nodes[node_id].node_type == "Coast":
+                fleet_neighbors_string = fleet_coastal_dictionary[node_id]["Neighbors"]
         neighbors_string = node_data_dictionary[node_id]["Neighbors"]
         dots_string = node_data_dictionary[node_id]["Dot"]
         homesupplycenter_string = node_data_dictionary[node_id]["Home SupCenter"]
@@ -68,12 +73,16 @@ def create_nodes(nodes_data, nodes_data_coastal, nodes_data_fleet_coastal):
         nodes[node_id].assign_supply_center(homesupplycenter_string)
         # Assign coastal fleet neighbors (because fleets can only move along coasts or into seas)
         if nodes[node_id].node_type == "Coast":
+            fleet_neighbors_string = fleet_neighbors_string.split(" ")
+            nodes[node_id].assign_fleet_neighbors(nodes, fleet_neighbors_string)
+            """
             if "-" in node_id:
-                nodes[node_id].assign_fleet_neighbors(nodes, neighbors_string)
+                nodes[node_id].assign_fleet_neighbors(nodes, fleet_neighbors_string)
             else:
-                fleet_neighbors_string = fleet_coastal_dictionary[node_id]["Neighbors"]
+                #fleet_neighbors_string = fleet_coastal_dictionary[node_id]["Neighbors"]
                 fleet_neighbors_string = fleet_neighbors_string.split(" ")
                 nodes[node_id].assign_fleet_neighbors(nodes, fleet_neighbors_string)
+            """
     return nodes
 
 """
