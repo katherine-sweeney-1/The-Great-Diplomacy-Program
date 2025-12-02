@@ -1,0 +1,48 @@
+﻿AU
+Zohaib
+A Bud - Rum  SUCCEEDS
+F Tri - ADR  SUCCEEDS
+A Vie - Bud  SUCCEEDS
+
+
+UK
+Michael
+F Edi - NWG  SUCCEEDS
+F Lon - NTH  SUCCEEDS
+A Lvp - Edi  SUCCEEDS
+
+
+FR
+Keaton
+F Bre - MAO  SUCCEEDS
+A Mar - Spa  SUCCEEDS
+A Par - Pic  SUCCEEDS
+
+
+GE
+Will
+A Ber - Kie  SUCCEEDS
+F Kie - Hol  SUCCEEDS
+A Mun H  SUCCEEDS
+
+
+IT
+Liam
+F Nap - TYS  SUCCEEDS
+A Rom - Tus  SUCCEEDS
+A Ven - Pie  SUCCEEDS
+
+
+RU
+Kamran
+A Mos - Stp  SUCCEEDS
+F Sev - BLA  FAILS
+F Stp/sc - BOT  SUCCEEDS
+A War - Gal  SUCCEEDS
+
+
+TU
+Katherine
+F Ank - BLA  FAILS
+A Con - Bul  SUCCEEDS
+A Smy - Con  SUCCEEDS
