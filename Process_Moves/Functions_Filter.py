@@ -40,13 +40,6 @@ def filter_neighbors(command):
     # attacks and supports
     if command.location != command.origin:
         if command.unit.type == "fleet" and isinstance(command.location, Coastal_Node):
-            print(command.unit.id)
-            print(command.location.name, command.origin.name, command.destination.name)
-            for nbr in command.location.fleet_neighbors.values():
-                print("fleet neighbors", nbr.name)
-            for nbr in command.location.neighbors.values():
-                print("coastal neighbors", nbr.name)
-            #print("fleet neighbors", command.location.fleet_neighbors.values())
             if command.destination in command.location.fleet_neighbors.values() and command.destination in command.location.neighbors.values():
                 command.legal = command.legal
             else:

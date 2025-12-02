@@ -1,11 +1,7 @@
+from Input_Commands_and_Commanders import input_data_1, input_data_2, input_data_3, input_data_4
 import sys
 sys.path.append("../The_Great_Diplomacy_Program/Parse")
 from Parse_Objects import parse_commands_and_units
-sys.path.append("../The_Great_Diplomacy_Program/data/Txt_Hard_Data")
-from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmdrs_1_1906, cmdrs_1_1906b, cmdrs_1_1907, cmdrs_1_1907b, cmdrs_1_1908
-from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b, cmdrs_2_1905, cmdrs_2_1906, cmdrs_2_1907
-from Cmdrs_3 import cmdrs_3_1901, cmdrs_3_1902, cmdrs_3_1903, cmdrs_3_1904, cmdrs_3_1905, cmdrs_3_1906, cmdrs_3_1907, cmdrs_3_1907b, cmdrs_3_1908, cmdrs_3_1909, cmdrs_3_1910, cmdrs_3_1910b
-from Cmdrs_4 import cmdrs_4_1901, cmdrs_4_1902, cmdrs_4_1903, cmdrs_4_1903b, cmdrs_4_1904, cmdrs_4_1905
 from Run_Objects import create_objects
 from Run_Processing import run_processing
 sys.path.append("../The_Great_Diplomacy_Program/Tables")
@@ -17,67 +13,6 @@ data_fleet_coastal = "data/Data_Ter_Fleet.csv"
 commands_data = "data/Txt_Hard_Data/Game2_1906_Fall.txt"
 data_fleet_special_coastal = "data/Data_Ter_Fleet_Special_Coasts.csv"
 
-input_data_1 = {}
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1903_Spring.txt"] = cmdrs_1_1903
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1903_Fall.txt"] = cmdrs_1_1903
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1904_Spring.txt"] = cmdrs_1_1904
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1904_Fall.txt"] = cmdrs_1_1904b
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1905_Spring.txt"] = cmdrs_1_1905
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1905_Fall.txt"] = cmdrs_1_1905
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1906_Spring.txt"] = cmdrs_1_1906
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1906_Fall.txt"] = cmdrs_1_1906b
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1907_Spring.txt"] = cmdrs_1_1907
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1907_Fall.txt"] = cmdrs_1_1907b
-input_data_1["data/Txt_Hard_Data/Game_1/Game1_1908_Spring.txt"] = cmdrs_1_1908
-
-input_data_2 = {}
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1901_Spring.txt"] = cmdrs_2_1901
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1901_Fall.txt"] = cmdrs_2_1901
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1901_Fall.txt"] = cmdrs_2_1901
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1902_Spring.txt"] = cmdrs_2_1902
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1902_Fall.txt"] = cmdrs_2_1902
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1903_Spring.txt"] = cmdrs_2_1903
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1903_Fall.txt"] = cmdrs_2_1903
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1904_Spring.txt"] = cmdrs_2_1904
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1904_Fall.txt"] = cmdrs_2_1904b
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1905_Spring.txt"] = cmdrs_2_1905
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1905_Fall.txt"] = cmdrs_2_1905
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1906_Spring.txt"] = cmdrs_2_1906
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1906_Fall.txt"] = cmdrs_2_1906
-input_data_2["data/Txt_Hard_Data/Game_2/Game2_1907_Spring.txt"] = cmdrs_2_1907
-
-input_data_3 = {}
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1901_Spring.txt"] = cmdrs_3_1901
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1901_Fall.txt"] = cmdrs_3_1901
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1902_Spring.txt"] = cmdrs_3_1902
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1902_Fall.txt"] = cmdrs_3_1902
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1903_Spring.txt"] = cmdrs_3_1903
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1903_Fall.txt"] = cmdrs_3_1903
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1904_Spring.txt"] = cmdrs_3_1904
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1904_Fall.txt"] = cmdrs_3_1904
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1905_Spring.txt"] = cmdrs_3_1905
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1905_Fall.txt"] = cmdrs_3_1905
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1906_Spring.txt"] = cmdrs_3_1906
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1906_Fall.txt"] = cmdrs_3_1906
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1907_Spring.txt"] = cmdrs_3_1907
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1907_Fall.txt"] = cmdrs_3_1907b
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1908_Spring.txt"] = cmdrs_3_1908
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1908_Fall.txt"] = cmdrs_3_1908
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1909_Spring.txt"] = cmdrs_3_1909
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1909_Fall.txt"] = cmdrs_3_1909
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1910_Spring.txt"] = cmdrs_3_1910
-input_data_3["data/Txt_Hard_Data/Game_3/Game3_1910_Fall.txt"] = cmdrs_3_1910b
-
-input_data_4 = {}
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1901_Spring.txt"] = cmdrs_4_1901
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1901_Fall.txt"] = cmdrs_4_1901
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1902_Spring.txt"] = cmdrs_4_1902
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1902_Fall.txt"] = cmdrs_4_1902
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1903_Spring.txt"] = cmdrs_4_1903
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1903_Fall.txt"] = cmdrs_4_1903b
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1904_Spring.txt"] = cmdrs_4_1904
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1904_Fall.txt"] = cmdrs_4_1904
-input_data_4["data/Txt_Hard_Data/Game_4/Game4_1905_Spring.txt"] = cmdrs_4_1905
 
 def run_main_original():
     cmdrs_data_list = cmdrs_3
