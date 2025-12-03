@@ -82,10 +82,10 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                                 destination_unit_id = command.destination.is_occupied.id
                                 destination_command = commands[destination_unit_id]
                                 if other_command != destination_command and other_command.destination == command.destination and command != other_command and other_command.origin != other_command.destination:
-                                    print(command_id, 1, other_command.unit.id)
+                                    #print(command_id, 1, other_command.unit.id)
                                     outcome = check_if_other_attack_is_on_destination(command_id, command, other_command, destination_command)
                                 else:
-                                    print(command_id, 2, other_command.unit.id)
+                                    #print(command_id, 2, other_command.unit.id)
                                     # error with check if other attack is on destination function
                                     outcome = True
                                     #outcome = check_if_other_attack_is_on_destination(command_id, command, other_command)
