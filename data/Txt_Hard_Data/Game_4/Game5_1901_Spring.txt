@@ -29,7 +29,7 @@ A Mun - Bur  SUCCEEDS
 IT
 Katherine
 F Nap - ION  SUCCEEDS
-A Rom - Ven  FAILS (Attack strength is not greater than the defend strength)
+A Rom - Ven  FAILS
 A Ven - Tyr  FAILS
 
 
