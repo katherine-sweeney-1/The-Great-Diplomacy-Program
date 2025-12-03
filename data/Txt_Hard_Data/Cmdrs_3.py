@@ -89,7 +89,7 @@ cmdrs_3_1903 = {
                    "Dots Owned": ["Stp-SC", "War", "Mos", "Swe", "Rum", "Den", "Nwy"]
                    },
     "Will" : {"Country": "TU", 
-                   "Unit Members": ["TU01", "TU02", "TU03", "TU04"],
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05"],
                    "Dots Owned": ["Smy", "Ank", "Con", "Bul", "Sev"]
                    }
 }
