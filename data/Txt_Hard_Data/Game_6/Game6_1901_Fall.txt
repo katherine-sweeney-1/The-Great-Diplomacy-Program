@@ -1,0 +1,48 @@
+﻿AU
+Katherine
+F ADR S Tri - Ven  SUCCEEDS
+A Ser S Bul - Rum  SUCCEEDS
+A Tri - Ven  SUCCEEDS
+
+
+UK
+Sunny
+F ENG - Bel  SUCCEEDS
+F NTH - Nwy  SUCCEEDS
+A Yor - Lon  SUCCEEDS
+
+
+FR
+Michael
+F MAO - Bre  SUCCEEDS
+A Pic - Par  SUCCEEDS
+A Spa - Mar  FAILS
+
+
+GE
+Will
+A Bur - Mar  SUCCEEDS
+F Hol S ENG - Bel  SUCCEEDS
+A Kie - Den  SUCCEEDS
+
+
+IT
+Kamran
+F ION - Tun  SUCCEEDS
+A Pie S Bur - Mar  SUCCEEDS
+A Ven - Tri  FAILS
+
+
+RU
+Justin
+F BOT - Swe  SUCCEEDS
+F Rum H  FAILS
+A Sil - Gal  SUCCEEDS
+A Ukr - Sev  FAILS
+
+
+TU
+Mercy
+A Arm - Sev  FAILS
+A Bul - Rum  SUCCEEDS
+F Con - BLA  SUCCEEDS
