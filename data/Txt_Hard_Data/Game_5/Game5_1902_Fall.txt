@@ -1,0 +1,58 @@
+﻿AU
+Liam
+A Alb S Bud - Ser  FAILS
+A Bud - Ser  FAILS
+F Tri S Alb  FAILS
+A Vie S Tri  SUCCEEDS
+
+
+UK
+Mercy
+F Bel S Lon - Pic  SUCCEEDS
+F ENG C Lon - Pic  SUCCEEDS
+A Lon - Pic  SUCCEEDS
+F NWG - NAO  SUCCEEDS
+F SKA - NTH  SUCCEEDS
+
+
+FR
+Michael
+A Bur - Par  SUCCEEDS
+A Mar - Gas  FAILS
+A Pic - Bre  FAILS
+A Pie - Mar  FAILS
+F Spa/sc S Mar - Gas  FAILS
+
+
+GE
+Will
+A Den H  SUCCEEDS
+A Gas - Bre  FAILS
+F Hol S Bel  SUCCEEDS
+A Kie - Ruh  SUCCEEDS
+A Mun S Kie - Ruh  SUCCEEDS
+
+
+IT
+Katherine
+F Apu - ADR  SUCCEEDS
+F ION S Apu - ADR  FAILS
+A Tyr - Tri  FAILS
+A Ven S Tyr - Tri  SUCCEEDS
+
+
+RU
+Adam
+F BOT - Swe  SUCCEEDS
+A Lvn H  SUCCEEDS
+F Rum S Sev  SUCCEEDS
+A Sev S Rum  SUCCEEDS
+
+
+TU
+Kamran
+F AEG - ION  FAILS
+F BLA S Bul  SUCCEEDS
+A Bul H  SUCCEEDS
+A Gre - Alb  FAILS
+A Ser S Gre - Alb  FAILS

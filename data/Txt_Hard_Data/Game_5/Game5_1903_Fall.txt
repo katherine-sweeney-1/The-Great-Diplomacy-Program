@@ -1,0 +1,58 @@
+﻿AU
+Liam
+A Alb H  SUCCEEDS
+A Ser H  SUCCEEDS
+
+
+UK
+Mercy
+F Bel S NTH  FAILS
+A Bre H  FAILS
+F ENG S NAO - MAO  SUCCEEDS
+F NAO - MAO  SUCCEEDS
+F NTH S Bel  SUCCEEDS
+
+
+FR
+Michael
+A Par S Gas - Bre  SUCCEEDS
+A Pic S Bur - Bel  SUCCEEDS
+A Pie - Tus  SUCCEEDS
+F Spa/sc - Por  SUCCEEDS
+A Tus - Rom  SUCCEEDS
+
+
+GE
+Will
+A Bur - Bel  SUCCEEDS
+A Gas - Bre  SUCCEEDS
+F Hol S Bur - Bel  SUCCEEDS
+A Kie - Den  SUCCEEDS
+A Mun H  SUCCEEDS
+
+
+IT
+Katherine
+F ADR - Ven  SUCCEEDS
+F ION H  SUCCEEDS
+A Tri S ADR - Ven  SUCCEEDS
+A Tyr - Vie  SUCCEEDS
+
+
+RU
+Adam
+A Arm - Ank  SUCCEEDS
+F Rum - BLA  FAILS
+A Sev S Ukr - Rum  SUCCEEDS
+F Swe H  SUCCEEDS
+A Ukr - Rum  FAILS
+A War - Gal  SUCCEEDS
+
+
+TU
+Kamran
+F AEG H  SUCCEEDS
+F BLA H  SUCCEEDS
+A Bul H  SUCCEEDS
+A Gre H  SUCCEEDS
+F Smy H  SUCCEEDS

@@ -4,6 +4,7 @@ from Cmdrs_1 import cmdrs_1_1903, cmdrs_1_1904, cmdrs_1_1904b, cmdrs_1_1905, cmd
 from Cmdrs_2 import cmdrs_2_1901, cmdrs_2_1902, cmdrs_2_1903, cmdrs_2_1904, cmdrs_2_1904b, cmdrs_2_1905, cmdrs_2_1906, cmdrs_2_1907
 from Cmdrs_3 import cmdrs_3_1901, cmdrs_3_1902, cmdrs_3_1903, cmdrs_3_1904, cmdrs_3_1905, cmdrs_3_1906, cmdrs_3_1907, cmdrs_3_1907b, cmdrs_3_1908, cmdrs_3_1909, cmdrs_3_1910, cmdrs_3_1910b
 from Cmdrs_4 import cmdrs_4_1901, cmdrs_4_1902, cmdrs_4_1903, cmdrs_4_1903b, cmdrs_4_1904, cmdrs_4_1905
+from Cmdrs_5 import cmdrs_5_1901, cmdrs_5_1902, cmdrs_5_1903, cmdrs_5_1903b, cmdrs_5_1904, cmdrs_5_1904b, cmdrs_5_1905, cmdrs_5_1906, cmdrs_5_1906b
 
 input_data_1 = {}
 input_data_1["data/Txt_Hard_Data/Game_1/Game1_1903_Spring.txt"] = cmdrs_1_1903
@@ -66,3 +67,17 @@ input_data_4["data/Txt_Hard_Data/Game_4/Game4_1903_Fall.txt"] = cmdrs_4_1903b
 input_data_4["data/Txt_Hard_Data/Game_4/Game4_1904_Spring.txt"] = cmdrs_4_1904
 input_data_4["data/Txt_Hard_Data/Game_4/Game4_1904_Fall.txt"] = cmdrs_4_1904
 input_data_4["data/Txt_Hard_Data/Game_4/Game4_1905_Spring.txt"] = cmdrs_4_1905
+
+input_data_5 = {}
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1901_Spring.txt"] = cmdrs_5_1901
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1901_Fall.txt"] = cmdrs_5_1901
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1902_Spring.txt"] = cmdrs_5_1902
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1902_Fall.txt"] = cmdrs_5_1902
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1903_Spring.txt"] = cmdrs_5_1903
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1903_Fall.txt"] = cmdrs_5_1903b
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1904_Spring.txt"] = cmdrs_5_1904
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1904_Fall.txt"] = cmdrs_5_1904b
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1905_Spring.txt"] = cmdrs_5_1905
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1905_Fall.txt"] = cmdrs_5_1905
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1906_Spring.txt"] = cmdrs_5_1906
+input_data_5["data/Txt_Hard_Data/Game_5/Game5_1906_Fall.txt"] = cmdrs_5_1906b
