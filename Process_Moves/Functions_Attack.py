@@ -78,7 +78,6 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                             # another attack on destination => check other attacks
                             if other_command.location == other_command.origin and other_command.origin != other_command.destination:
                                 if command.destination.is_occupied:
-                                    #print(command_id)
                                     destination_unit_id = command.destination.is_occupied.id
                                     destination_command = commands[destination_unit_id]
                                     if other_command != destination_command and other_command.destination == command.destination and command != other_command and other_command.origin != other_command.destination:
@@ -114,8 +113,9 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                             outcome = False
                     else:
                         last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
+                        # if last relevant outcome is false, attack only needs a strength of 2 to beat it (failed attack has strength 1)
                         if last_relevant_attack_outcome == False:
-                            if command.strength > last_relevant_attack.strength:
+                            if command.strength > 1:
                                 outcome = True
                             else:
                                 outcome = False
@@ -222,7 +222,6 @@ def get_attack_outcome(command_id, command, commands, count = None):
                 if destination_command_outcome:
                     other_attacks_on_destination_outcome = check_other_attacks(command_id, command, commands, destination_command_id)
                     outcome = other_attacks_on_destination_outcome
-
                 # if the destination's command is not successful, check the strength of the command and destination command
                 # ensure the commands have different commanders
                 else:
