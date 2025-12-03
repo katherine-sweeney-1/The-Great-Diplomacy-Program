@@ -1,15 +1,15 @@
 ﻿AU
-Liam
+Katherine
 A Bud - Ser  SUCCEEDS
-F Tri H  SUCCEEDS
-A Vie - Tyr  FAILS
+F Tri - ADR  SUCCEEDS
+A Vie - Tri  SUCCEEDS
 
 
 UK
-Mercy
-F Edi - NWG  SUCCEEDS
-F Lon - NTH  SUCCEEDS
-A Lvp - Wal  SUCCEEDS
+Sunny
+F Edi - NTH  SUCCEEDS
+F Lon - ENG  SUCCEEDS
+A Lvp - Yor  SUCCEEDS
 
 
 FR
@@ -27,22 +27,22 @@ A Mun - Bur  SUCCEEDS
 
 
 IT
-Katherine
+Kamran
 F Nap - ION  SUCCEEDS
-A Rom - Ven  FAILS
-A Ven - Tyr  FAILS
+A Rom - Ven  SUCCEEDS
+A Ven - Pie  SUCCEEDS
 
 
 RU
-Adam
-A Mos - Sev  SUCCEEDS
+Justin
+A Mos - Ukr  SUCCEEDS
 F Sev - Rum  SUCCEEDS
 F Stp/sc - BOT  SUCCEEDS
-A War - Lvn  SUCCEEDS
+A War - Sil  SUCCEEDS
 
 
 TU
-Kamran
-F Ank - BLA  SUCCEEDS
+Mercy
+F Ank - Con  SUCCEEDS
 A Con - Bul  SUCCEEDS
-A Smy - Con  SUCCEEDS
+A Smy - Arm  SUCCEEDS
