@@ -1,0 +1,56 @@
+﻿AU
+Katherine
+F Alb - ADR  SUCCEEDS
+A Bud S Ser  SUCCEEDS
+A Nap H  SUCCEEDS
+A Ser S Bud  SUCCEEDS
+A Tri - Ven  FAILS
+A Ven - Rom  SUCCEEDS
+A Vie - Gal  FAILS
+
+
+UK
+Sunny
+F ENG H  SUCCEEDS
+F MAO H  SUCCEEDS
+F NTH H  SUCCEEDS
+F Nwy H  SUCCEEDS
+A Yor H  SUCCEEDS
+
+
+FR
+Michael
+A Bre H  SUCCEEDS
+F HEL H  SUCCEEDS
+A Par H  SUCCEEDS
+A Spa H  SUCCEEDS
+
+
+GE
+Will
+A Bel - Pic  SUCCEEDS
+F Ber - Kie  SUCCEEDS
+A Bur - Gas  SUCCEEDS
+A Hol S Ber - Kie  SUCCEEDS
+A Kie - Den  SUCCEEDS
+A Mar S Bur - Gas  SUCCEEDS
+A Mun - Bur  SUCCEEDS
+F Swe S Kie - Den  SUCCEEDS
+
+
+IT
+Kamran
+A Tus - Ven  FAILS
+
+
+TU
+Mercy
+F AEG S Gre  SUCCEEDS
+F Bul/ec - Rum  FAILS
+A Con - Bul  FAILS
+A Gre S Con - Bul  SUCCEEDS
+F ION - Nap  FAILS
+A Mos - Stp  SUCCEEDS
+A Rum - Gal  FAILS
+F Smy - EAS  SUCCEEDS
+A Ukr S Bul/ec - Rum  SUCCEEDS

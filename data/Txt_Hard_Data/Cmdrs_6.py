@@ -156,7 +156,7 @@ cmdrs_6_1904 = {
 cmdrs_6_1904b = {
     "Katherine" : {"Country": "AU", 
                    "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05", "AU06", "AU07", "AU08"],
-                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Ser", "Gre", "Rom", "Bul"]
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Ser", "Rom", "Bul", "Gre"]
                    },
     "Sunny" : {"Country": "UK", 
                    "Unit Members": ["UK01", "UK02", "UK03", "UK04", "UK05"],
@@ -180,6 +180,33 @@ cmdrs_6_1904b = {
                    },
     "Mercy" : {"Country": "TU", 
                    "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07"],
-                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "Sev", "Mos", "Bul"]
+                   "Dots Owned": ["Smy", "Ank", "Con", "War", "Sev", "Mos", "Rum"]
+                   }
+}
+
+cmdrs_6_1905 = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05", "AU06", "AU07"],
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Ser", "Rom", "Bul"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01", "UK02", "UK03", "UK04", "UK05"],
+                   "Dots Owned": ["Edi", "Lon", "Lvp", "Bel", "Nwy"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01", "FR02", "FR03", "FR04"],
+                    "Dots Owned": ["Par", "Bre", "Spa", "Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Den", "Hol", "Mar", "Bel", "Swe"]
+                   },
+    "Kamran" : {"Country": "IT", 
+                   "Unit Members": ["IT01"],
+                   "Dots Owned": ["Tun"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "War", "Sev", "Mos", "Bul", "Gre"]
                    }
 }
