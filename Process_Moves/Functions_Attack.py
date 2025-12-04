@@ -4,6 +4,7 @@ sys.path.append(os.path.join("/The-Great-Diplomacy-Program/Nodes/Class_Sub_Node"
 from Class_Sub_Node import Coastal_Node
 
 def check_other_attacks(command_id, command, commands, destination_command_id, count = None):
+    #print(command_id)
     if command.success == True or command.success == False:
         outcome = command.success
     # get a dictionary without the command to check if there are other attacking commands
@@ -17,6 +18,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
             relevant_attacking_commands = get_relevant_attacks(command_id, destination_command_id, commands, relevant_attacking_commands)
             last_relevant_attack = retrieve_last_relevant_attack(relevant_attacking_commands)
             # determine if command has a higher strength than other attacks
+            #print(command_id, relevant_attacking_commands)
             if len(relevant_attacking_commands) > 2:
                 for relevant_attack_id in relevant_attacking_commands:
                     one_attacking_command = relevant_attacking_commands[relevant_attack_id]
@@ -32,11 +34,15 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                                 else:
                                     last_relevant_attack_outcome = get_attack_outcome (destination_command_id, destination_command, commands)
                                     if last_relevant_attack_outcome == False:
-                                        if command.strength > last_relevant_attack.strength:
-                                            outcome = True
-                                        else:
+                                        if command.human == last_relevant_attack.human:
                                             outcome = False
                                             break
+                                        else:
+                                            if command.strength > last_relevant_attack.strength:
+                                                outcome = True
+                                            else:
+                                                outcome = False
+                                                break
                             else:
                                 last_relevant_attack = retrieve_last_relevant_attack(relevant_attacking_commands)
                                 if last_relevant_attack == None:
@@ -48,11 +54,15 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                                 else:
                                     last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
                                     if last_relevant_attack_outcome == False:
-                                        if command.strength > last_relevant_attack.strength:
-                                            outcome = True
-                                        else:
+                                        if command.human == last_relevant_attack.human:
                                             outcome = False
                                             break
+                                        else:
+                                            if command.strength > last_relevant_attack.strength:
+                                                outcome = True
+                                            else:
+                                                outcome = False
+                                                break
                                     else:
                                         for other_command_id in commands:
                                             other_command = commands[other_command_id]
@@ -99,6 +109,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                         if outcome == False:
                             break  
             else:
+                #print(command_id, destination_command.unit.id)
                 if destination_command.location == command.destination and destination_command.destination == command.location:
                     if command.strength > destination_command.strength:
                         outcome = True
@@ -115,14 +126,19 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                         last_relevant_attack_outcome = get_attack_outcome (last_relevant_attack.unit.id, last_relevant_attack, commands)
                         # if last relevant outcome is false, attack only needs a strength of 2 to beat it (failed attack has strength 1)
                         if last_relevant_attack_outcome == False:
-                            if command.strength > 1:
-                                outcome = True
-                            else:
+                            if command.human == destination_command.human:
                                 outcome = False
+                            else:
+                                if command.strength > 1:
+                                    outcome = True
+                                else:
+                                    outcome = False
                         else:
                             outcome = True
+                                
         # check if another command attacks the same destination as the command in question
         else:
+            #print(command_id)
             for other_command_id in commands:
                 other_command = commands[other_command_id]
                 # another attack on destination => check other attacks
@@ -139,6 +155,7 @@ def check_other_attacks(command_id, command, commands, destination_command_id, c
                     if outcome == False:
                         break
                 else:
+                    #print("check", command_id)
                     """
                     Added this
                     this may either cause problems or prevent unnecesary runs through the function
