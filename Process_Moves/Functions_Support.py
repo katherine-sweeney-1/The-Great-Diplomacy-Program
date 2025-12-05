@@ -16,7 +16,6 @@ def get_valid_support(commands, command):
             if command.location != command.origin and command.origin != command.destination:
                 supported_command_id = command.origin.is_occupied.id
                 supported_command = commands[supported_command_id]
-                
                 # support is unsuccessful if supported attack ends up holding
                 if supported_command.location == supported_command.origin and supported_command.origin == supported_command.destination:
                     command_success = False
@@ -89,6 +88,7 @@ def get_valid_support(commands, command):
             if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                 # check if cut attempt has its own support
                 if commands[cut_attempt].location == commands[cut_attempt].origin and commands[cut_attempt].origin != commands[cut_attempt].destination and command.destination.is_occupied == True: 
+                    print("1", command_id)
                     destination_id = command.destination.is_occupied.id
                     destination_command = commands[destination_id]
                     if commands[cut_attempt].destination == destination_command.location:        
@@ -125,6 +125,7 @@ def check_cut_attempt_on_support(commands, command_id, cut_support_id):
                     command_success = True
         # if the cut attempt does not have support
         else:
+            print(2, command_id)
             # if support is for an attack on cut attempt
             command_success = is_support_for_attacking_cut(commands, command_id, cut_support_id)
             if command_success == False:
@@ -134,17 +135,21 @@ def check_cut_attempt_on_support(commands, command_id, cut_support_id):
     return command_success
 
 def is_support_for_attacking_cut(commands, command_id, other_id):
+    print(command_id, other_id)
     for supporting_attack in commands:
         if supporting_attack != command_id and supporting_attack != other_id:# and commands[supporting_attack].human == commands[command_id].human:
             # if the support is supporting an attack on the other_id's location
             if commands[supporting_attack].origin == commands[other_id].origin and commands[supporting_attack].destination == commands[supporting_attack].destination and commands[command_id].destination == commands[supporting_attack].location:
                 command_success = False
+                print("3b", command_id, "supporting attack", supporting_attack)
             if commands[supporting_attack].origin == commands[command_id].origin and commands[supporting_attack].destination == commands[command_id].destination and commands[supporting_attack].destination == commands[other_id].location:
                 command_success = True
+                print(3, command_id, "supporting attack", supporting_attack)
                 for supported_attack_on_support in commands:
                     if supported_attack_on_support != command_id and supported_attack_on_support != other_id and supported_attack_on_support != supporting_attack:
                         if commands[supported_attack_on_support].origin == commands[other_id].origin and commands[supported_attack_on_support].destination == commands[other_id].destination:
                             supported_attack_on_support_success = get_valid_support(commands, commands[supported_attack_on_support])
+                            print("supported_Attack_onsupport_success", supported_attack_on_support_success, supported_attack_on_support)
                             if supported_attack_on_support_success == True:
                                 command_success = False
                                 break
@@ -155,6 +160,7 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                 if command_success == True:
                     break
             else:
+                #print(4, command_id)
                 command_success = False
         else:
             command_success = False
