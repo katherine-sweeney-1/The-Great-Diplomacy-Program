@@ -155,11 +155,19 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                             need to check if support is supported by another unit
                             
                             """
-                            if supported_attack_on_support_success == True:
-                                command_success = False
-                                break
-                            else:
-                                command_success = True
+                            for supporting_support_id in commands:
+                                supporting_support = commands[supporting_support_id]
+                                if supporting_support.origin == supporting_support.destination and supporting_support.origin == commands[command_id].location:
+                                    command_success = True
+                                    break
+                                else:
+                                    command_success = False
+
+                                    if supported_attack_on_support_success == True:
+                                        command_success = False
+                                        break
+                                    else:
+                                        command_success = True
                         else:
                             command_success = True
                 if command_success == True:
