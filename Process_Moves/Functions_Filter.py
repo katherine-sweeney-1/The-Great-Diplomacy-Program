@@ -76,15 +76,12 @@ def filter_neighbors(command):
 def get_commands_for_coastals(command):
     # get occupying units
     if isinstance (command.location, Coastal_Node):
-        #print(command.unit.id, command.location.name)
         if isinstance (command.location.is_occupied, int):
             command_occupied_status = command.location.parent_status
         else:
             command_occupied_status = command.location.is_occupied
         command.location.is_occupied = command_occupied_status
-        #print(command.location.parent.name)
         command.location = command.location.parent
-        #print("check", command.location.name)
     if isinstance (command.origin, Coastal_Node):
         if isinstance (command.origin.is_occupied, int):
             command_occupied_status = command.origin.parent_status
@@ -106,9 +103,6 @@ def get_commands_for_coastals(command):
         command.origin.is_occupied = command.origin.parent_status
     if command.destination.parent_status != False:
         command.destination.is_occupied = command.destination.parent_status
-    #print(command.unit.id)
-    #print(command.location.name, command.origin.name, command.destination.name)
-    #print(" ")
     return command
 
 # filter by unit types
@@ -130,24 +124,31 @@ def filter_unit_type(command):
     return command
 
 def filter_support(command, commands):
+    #print(command.location.name, command.origin.name, command.destination.name)
     if command.location != command.origin and command.legal == 1:
         count = 0
         for supported_command_id in commands:
             supported_command = commands[supported_command_id]
-            #print(command.unit.id)
-            #if command.unit.id == "AU01":
-             #   print(supported_command.unit.id, supported_command.location.name, supported_command.origin.name, supported_command.destination.name)
             if command != supported_command:
-                """
-                if command.unit.id == "TU03":
-                    print(command.unit.id, supported_command.unit.id)
-                    print(command.location.name, command.origin.name, command.destination.name)
-                    print(supported_command.location.name, supported_command.origin.name, supported_command.destination.name)
-                    print(" ")
-                """
+                #if command.unit.id == "TU03":
+                 #   print(command.unit.id, command.location.name, command.origin.name, command.destination.name)
+                  #  print(supported_command_id, supported_command.location.name, supported_command.origin.name, supported_command.destination.name)
+                   # print(" ")
+                # support an attack
                 if command.origin == supported_command.origin and command.destination == supported_command.destination:
                     command.legal = command.legal
+                # support a hold
                 elif command.origin == command.destination and command.origin == supported_command.location:
+                    """
+                    if supported_command.location != supported_command.origin:
+                        command.legal = command.legal
+                    elif supported_command.location == supported_command.origin == supported_command.destination:
+                        command.legal = command.legal
+                    else:
+                        count += 1
+                    """
+                    command.legal = command.legal
+                elif command.origin != command.destination and command.origin == supported_command.location and supported_command.location != supported_command.origin:
                     command.legal = command.legal
                 else:
                     count += 1
@@ -158,30 +159,6 @@ def filter_support(command, commands):
         else:
             command.legal = command.legal
     return command
-
-"""
-# Filter commands for legal commands
-def filter_commands(commands, commanders):
-    valid_commands = {}
-    invalid_commands = {}
-    for command_id in commands:
-        command = commands[command_id]
-        command = filter_owner(command, commanders)
-        command = filter_neighbors(command)
-        command = get_commands_for_coastals(command)
-        command = filter_unit_type(command)
-    #for command_id in commands:
-        command = filter_support(command, commands)
-        #print(command_id, command.legal)
-        if command.legal != 1:
-            invalid_commands[command_id] =command
-            command.origin = command.location
-            command.destination = command.location
-            valid_commands[command_id] = command
-        else:
-            valid_commands[command_id] = command
-    return valid_commands, invalid_commands
-"""
 
 def filter_commands(commands, commanders):
     valid_commands = {}
@@ -197,7 +174,6 @@ def filter_commands(commands, commanders):
     for command_id in filtered_commands:
         command = filtered_commands[command_id]
         command = filter_support(command, filtered_commands)
-        print(command.legal)
         if command.legal != 1:
             invalid_commands[command_id] =command
             command.origin = command.location
@@ -205,5 +181,4 @@ def filter_commands(commands, commanders):
             valid_commands[command_id] = command
         else:
             valid_commands[command_id] = command
-    print(valid_commands)
     return valid_commands, invalid_commands

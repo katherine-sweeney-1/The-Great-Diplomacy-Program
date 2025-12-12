@@ -125,7 +125,7 @@ def check_cut_attempt_on_support(commands, command_id, cut_support_id):
                     command_success = True
         # if the cut attempt does not have support
         else:
-            print(2, command_id)
+            #print(2, command_id)
             # if support is for an attack on cut attempt
             command_success = is_support_for_attacking_cut(commands, command_id, cut_support_id)
             if command_success == False:
@@ -178,9 +178,9 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                                         attacking_support_success = get_valid_support(commands, attacking_support)
                                         if attacking_support_success == True:
                                             attacking_cut_strength += 1
-                            print(command_id, support_strength)
-                            print(other_id, attacking_cut_strength)
-                            print(" ")
+                            #print(command_id, support_strength)
+                            #print(other_id, attacking_cut_strength)
+                            #print(" ")
                             if support_strength >= attacking_cut_strength:
                                 command_success = True
                                 #print("yes", command_id)

@@ -119,7 +119,7 @@ cmdrs_2_1904 = {
                    "Dots Owned": ["Stp", "War", "Mos", "Rum"]
                    },
     "Michael" : {"Country": "TU", 
-                   "Unit Members": ["TU01", "TU02", "TU03", "TU04"],
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05"],
                    "Dots Owned": ["Smy", "Ank", "Con", "Bul", "Sev"]
                    }
 }
@@ -150,7 +150,7 @@ cmdrs_2_1904b = {
                    "Dots Owned": ["Stp", "War", "Mos", "Rum"]
                    },
     "Michael" : {"Country": "TU", 
-                   "Unit Members": ["TU01", "TU02", "TU03", "TU04"],
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05"],
                    "Dots Owned": ["Smy", "Ank", "Con", "Bul", "Sev"]
                    }
 }
