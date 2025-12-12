@@ -16,10 +16,10 @@ def run_processing(commands, commanders, nodes, units):
     valid_commands = get_success_supports(valid_commands)
     valid_commands = get_success_attacks(valid_commands)
     for command_id in commands:
-        if commands[command_id].succeed == commands[id].predet_outcome and commands[id].legal == 1:
-           print(id, "Correct outcome", commands[id].succeed)
+        if commands[command_id].succeed == commands[command_id].predet_outcome and commands[command_id].legal == 1:
+           print(command_id, "Correct outcome", commands[command_id].succeed)
         else:
-            print("uh oh", id, commands[id].strength, commands[id].legal, commands[id].succeed)
+            print("uh oh", command_id, commands[command_id].strength, commands[command_id].legal, commands[command_id].succeed)
         """
         if commands[id].check_other_attacks == True:
             if commands[id].succeed == commands[id].predet_outcome and commands[id].legal == 1:

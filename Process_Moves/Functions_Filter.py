@@ -159,6 +159,7 @@ def filter_support(command, commands):
             command.legal = command.legal
     return command
 
+"""
 # Filter commands for legal commands
 def filter_commands(commands, commanders):
     valid_commands = {}
@@ -170,7 +171,7 @@ def filter_commands(commands, commanders):
         command = get_commands_for_coastals(command)
         command = filter_unit_type(command)
     #for command_id in commands:
-        #command = filter_support(command, commands)
+        command = filter_support(command, commands)
         #print(command_id, command.legal)
         if command.legal != 1:
             invalid_commands[command_id] =command
@@ -179,9 +180,24 @@ def filter_commands(commands, commanders):
             valid_commands[command_id] = command
         else:
             valid_commands[command_id] = command
-    
+    return valid_commands, invalid_commands
+"""
+
+def filter_commands(commands, commanders):
+    valid_commands = {}
+    invalid_commands = {}
+    filtered_commands = {}
     for command_id in commands:
-        command = filter_support(command, commands)
+        command = commands[command_id]
+        command = filter_owner(command, commanders)
+        command = filter_neighbors(command)
+        command = get_commands_for_coastals(command)
+        command = filter_unit_type(command)
+        filtered_commands[command.unit.id] = command
+    for command_id in filtered_commands:
+        command = filtered_commands[command_id]
+        command = filter_support(command, filtered_commands)
+        print(command.legal)
         if command.legal != 1:
             invalid_commands[command_id] =command
             command.origin = command.location
@@ -189,6 +205,5 @@ def filter_commands(commands, commanders):
             valid_commands[command_id] = command
         else:
             valid_commands[command_id] = command
-    
-    #print(valid_commands)
+    print(valid_commands)
     return valid_commands, invalid_commands
