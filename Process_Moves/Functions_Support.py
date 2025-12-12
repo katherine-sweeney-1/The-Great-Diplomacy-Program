@@ -147,9 +147,9 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                 #print(3, command_id, "supporting attack", supporting_attack)
                 for supported_attack_on_support in commands:
                     if supported_attack_on_support != command_id and supported_attack_on_support != other_id and supported_attack_on_support != supporting_attack:
-                        #print("yes", command_id)
+                        #print("yes", command_id, "attackingid", other_id, "supporting attack", supported_attack_on_support)
                         if commands[supported_attack_on_support].origin == commands[other_id].origin and commands[supported_attack_on_support].destination == commands[other_id].destination:
-                            #print("yes 2", command_id)
+                            #print("yes 2", command_id, other_id, supported_attack_on_support)
                             #command_success = False
                             #break
                             #supported_attack_on_support_success = get_valid_support(commands, commands[supported_attack_on_support])
@@ -178,18 +178,23 @@ def is_support_for_attacking_cut(commands, command_id, other_id):
                                         attacking_support_success = get_valid_support(commands, attacking_support)
                                         if attacking_support_success == True:
                                             attacking_cut_strength += 1
-                            #print(command_id, support_strength)
-                            #print(other_id, attacking_cut_strength)
-                            #print(" ")
+                            print(command_id, support_strength)
+                            print(other_id, attacking_cut_strength)
+                            print(" ")
                             if support_strength >= attacking_cut_strength:
                                 command_success = True
                                 #print("yes", command_id)
                                 break
                             else:
-                                command_success = False     
+                                command_success = False
+                                break    
                         else:
+                            """
+                            need some sort of logic here
+                            
+                            """
                             #print("no", command_id)
-                            command_success = False
+                            command_success = True
                 #print("check", command_id, command_success)
                 if command_success == True:
                     break
