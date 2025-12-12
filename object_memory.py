@@ -1,43 +1,76 @@
 """
 Convoy affected outcomes
 
+    Game 1
 
-Game 1
+        1903 Spring: GE02
 
-    1903 Spring: GE02
+        1905 Fall: RU07
 
-    1905 Fall: RU07
+        1907 Spring: RU08
 
-    1907 Spring: RU08
+    Game 2
 
-Game 2
+        1902 Fall: RU04
 
-    1902 Fall: RU04
+        1903 Spring: GE02
 
-    1903 Spring: GE02
+    Game 3
 
+        1903 Fall: GE02
 
-Game 3
+        1908 Fall: RU04
 
-    1903 Fall: GE02
+    Game 4
 
-    1908 Fall: RU04
-
-
-
-Game 4
-
-    1901 Fall: RU04
-
-    1904 Fall: FR03 => ERROR I NEED TO DEBUG FOR INVALID ORDER
-
-Game 6
-
-    1903 Fall: GE05 => ERROR I NEED TO DEBUG FOR INVALID ORDER
+        1901 Fall: RU04
 
 
 
+Invalid Move Affected Outcomes
 
+    Game 2
 
+        1903 Fall: GE02
+
+        1905 Spring: IT04
+
+    Game 3
+
+        1902 Spring: IT04
+
+        1907 Fall: FR01
+
+        1907 Fall: IT04
+
+        1910 Fall: IT09
+
+        1910 Fall: IT10
+
+    Game 4
+
+        1903 Spring: GE01
+
+        1904 Fall: UK01
+
+        1904 Fall: FR03
+
+    Game 5
+
+        1901 Fall: AU01
+
+        1903 Spring: FR01
+
+        1904 Spring: RU03
+
+        1904 Fall: TU01
+
+    Game 6
+
+    1903 Fall: GE05 => ERROR ITS NOT SHOWING UP
+
+    1904 Fall: UK06 => actually a convoy
+    
+    1904 Fall: FR04
 
 """

@@ -16,13 +16,20 @@ def get_valid_support(commands, command):
             if command.location != command.origin and command.origin != command.destination:
                 supported_command_id = command.origin.is_occupied.id
                 supported_command = commands[supported_command_id]
+                #if command_id == "AU04":
+                    #print(command_id, supported_command_id)
                 # support is unsuccessful if supported attack ends up holding
+                
                 if supported_command.location == supported_command.origin and supported_command.origin == supported_command.destination:
+                    print("yes 1", command_id)
                     command_success = False
                     break
-                elif supported_command.location != supported_command.origin:
+                
+                if supported_command.location != supported_command.origin:
+                    print("yes 2", command_id)
                     command_success = False
                     break
+                
                 """
                 # support is unsuccessful if supported attack ends up supporting
                 elif supported_command.location != supported_command.origin:
@@ -88,7 +95,7 @@ def get_valid_support(commands, command):
             if command.location == commands[cut_attempt].destination and commands[cut_attempt].location == commands[cut_attempt].origin:
                 # check if cut attempt has its own support
                 if commands[cut_attempt].location == commands[cut_attempt].origin and commands[cut_attempt].origin != commands[cut_attempt].destination and command.destination.is_occupied == True: 
-                    print("1", command_id)
+                    #print("1", command_id)
                     destination_id = command.destination.is_occupied.id
                     destination_command = commands[destination_id]
                     if commands[cut_attempt].destination == destination_command.location:        
