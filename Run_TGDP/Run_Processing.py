@@ -15,8 +15,8 @@ def run_processing(commands, commanders, nodes, units):
     valid_commands, invalid_commands = filter_commands(commands, commanders)
     valid_commands = get_success_supports(valid_commands)
     valid_commands = get_success_attacks(valid_commands)
-    for id in commands:
-        if commands[id].succeed == commands[id].predet_outcome and commands[id].legal == 1:
+    for command_id in commands:
+        if commands[command_id].succeed == commands[id].predet_outcome and commands[id].legal == 1:
            print(id, "Correct outcome", commands[id].succeed)
         else:
             print("uh oh", id, commands[id].strength, commands[id].legal, commands[id].succeed)
