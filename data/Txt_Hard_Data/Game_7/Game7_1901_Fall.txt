@@ -1,0 +1,48 @@
+﻿AU
+Mercy
+F ADR - ION  FAILS
+A Ser - Gre  FAILS
+A Tyr - Pie  SUCCEEDS
+
+
+UK
+Kamran
+F NTH C Yor - Nwy  SUCCEEDS
+F NWG - BAR  SUCCEEDS
+A Yor - Nwy  SUCCEEDS
+
+
+FR
+Will
+F ENG - Lon  SUCCEEDS
+A Pic - Bel  SUCCEEDS
+A Spa - Por  SUCCEEDS
+
+
+GE
+Katherine
+F Hol S Pic - Bel  SUCCEEDS
+A Kie - Den  SUCCEEDS
+A Mun H  SUCCEEDS
+
+
+IT
+Adam
+A Apu - Gre  FAILS
+F ION C Apu - Gre  SUCCEEDS
+A Ven H  SUCCEEDS
+
+
+RU
+Elling
+F BOT - Swe  SUCCEEDS
+A Gal - Bud  SUCCEEDS
+F Sev S Ukr - Rum  SUCCEEDS
+A Ukr - Rum  SUCCEEDS
+
+
+TU
+Sunny
+F BLA H  SUCCEEDS
+A Bul H  SUCCEEDS
+A Smy H  SUCCEEDS

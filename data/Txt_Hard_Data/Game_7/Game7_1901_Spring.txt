@@ -1,0 +1,50 @@
+﻿AU
+Mercy
+A Bud - Ser  SUCCEEDS
+F Tri - ADR  SUCCEEDS
+A Vie - Tyr  SUCCEEDS
+
+
+
+
+UK
+Kamran
+F Edi - NWG  SUCCEEDS
+F Lon - NTH  SUCCEEDS
+A Lvp - Yor  SUCCEEDS
+
+
+FR
+Will
+F Bre - ENG  SUCCEEDS
+A Mar - Spa  SUCCEEDS
+A Par - Pic  SUCCEEDS
+
+
+GE
+Katherine
+A Ber - Kie  SUCCEEDS
+F Kie - Hol  SUCCEEDS
+A Mun S Vie - Tyr  SUCCEEDS
+
+
+IT
+Adam
+F Nap - ION  SUCCEEDS
+A Rom - Apu  SUCCEEDS
+A Ven H  SUCCEEDS
+
+
+RU
+Elling
+A Mos - Ukr  SUCCEEDS
+F Sev - Arm  FAILS
+F Stp/sc - BOT  SUCCEEDS
+A War - Gal  SUCCEEDS
+
+
+TU
+Sunny
+F Ank - BLA  SUCCEEDS
+A Con - Bul  SUCCEEDS
+A Smy - Arm  FAILS

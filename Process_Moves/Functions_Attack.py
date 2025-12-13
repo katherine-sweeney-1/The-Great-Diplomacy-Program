@@ -238,6 +238,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
             # if the unit on the destination is not attacking, check the strength to see if the unit is dislodged
             # ensure the commands have different commanders 
             else:
+
                 if command.strength > destination_command.strength:
                     outcome = check_commanders(command_id, command, commands, destination_command)
                 else:
@@ -245,7 +246,7 @@ def get_attack_outcome(command_id, command, commands, count = None):
         else:
             outcome = check_other_attacks(command_id, command, commands, False)
         command.success(outcome)
-        return command.succeed
+    return command.succeed
 
 def get_hold_outcome(command_id, command, commands):
     # check for other attacks that affect the hold
