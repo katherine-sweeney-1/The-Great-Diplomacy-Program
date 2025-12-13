@@ -32,11 +32,12 @@ def get_valid_support(commands, command):
                 first need to get filter correct for GE05 issue then check back and see if deleting this fixes AU04 error
 
                 """
+                """
                 if supported_command.location != supported_command.origin:
                     print("yes 2", command_id)
                     command_success = False
                     break
-                
+                """
                 """
                 # support is unsuccessful if supported attack ends up supporting
                 elif supported_command.location != supported_command.origin:

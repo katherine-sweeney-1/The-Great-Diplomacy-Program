@@ -54,6 +54,5 @@ run_main_unit_testing(input_data_6)
 
 need to debug game 3 AU04 move for spring 1902
 
-need to debug incalid order for game 6 1903 fall 
 
 """
