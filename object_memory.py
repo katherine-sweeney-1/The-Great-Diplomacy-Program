@@ -39,8 +39,6 @@ Invalid Move Affected Outcomes
 
         1902 Spring: IT04
 
-        1907 Fall: FR01
-
         1907 Fall: IT04
 
         1910 Fall: IT09
@@ -67,10 +65,10 @@ Invalid Move Affected Outcomes
 
     Game 6
 
-    1903 Fall: GE05 => ERROR ITS NOT SHOWING UP
-
-    1904 Fall: UK06 => actually a convoy
+    1903 Fall: GE05
     
     1904 Fall: FR04
 
+    1908 Fall: GE10
+    
 """

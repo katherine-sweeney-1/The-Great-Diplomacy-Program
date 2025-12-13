@@ -237,3 +237,99 @@ cmdrs_6_1906 = {
                    "Dots Owned": ["Smy", "Ank", "Con", "Rum", "War", "Sev", "Mos", "Stp", "Bul", "Gre"]
                    }
 }
+
+cmdrs_6_1907 = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05"],
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Rom"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01", "UK02", "UK03"],
+                   "Dots Owned": ["Edi", "Lon", "Lvp"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01", "FR02"],
+                    "Dots Owned": ["Bre", "Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08", "GE09", "GE10", "GE11"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Den", "Hol", "Mar", "Bel", "Swe", "Nwy", "Spa", "Par"]
+                   },
+    "Kamran" : {"Country": "IT", 
+                   "Unit Members": ["IT01"],
+                   "Dots Owned": ["Tun"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09", "TU10", "TU11", "TU12"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "War", "Sev", "Mos", "Stp", "Bul", "Gre", "Ser", "Nap"]
+                   }
+}
+
+cmdrs_6_1907b = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05"],
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Rom"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01", "UK02"],
+                   "Dots Owned": ["Edi", "Lon", "Lvp"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01", "FR02"],
+                    "Dots Owned": ["Bre", "Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08", "GE09", "GE10", "GE11"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Den", "Hol", "Mar", "Bel", "Swe", "Nwy", "Spa", "Par"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09", "TU10", "TU11", "TU12"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "War", "Sev", "Mos", "Stp", "Bul", "Gre", "Ser", "Nap"]
+                   }
+}
+
+cmdrs_6_1908 = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05"],
+                   "Dots Owned": ["Bud", "Vie", "Tri", "Ven", "Rom"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01", "UK02"],
+                   "Dots Owned": ["Edi", "Lon", "Lvp"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01"],
+                    "Dots Owned": ["Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08", "GE09", "GE10", "GE11", "GE12", "GE13"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Den", "Hol", "Mar", "Par", "Bre", "Bel", "Swe", "Spa", "Par", "Stp"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09", "TU10", "TU11", "TU12", "TU13"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "Sev", "Mos", "Bul", "Gre", "Ser", "Nap", "Nwy", "Bud", "Tun"]
+                   }
+}
+
+cmdrs_6_1909 = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05"],
+                   "Dots Owned": ["Bud", "Vie", "Ven", "Rom", "War"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01"],
+                   "Dots Owned": ["Edi"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01"],
+                    "Dots Owned": ["Mar", "Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08", "GE09", "GE10", "GE11", "GE12", "GE13"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Hol", "Par", "Bre", "Bel", "Swe", "Spa", "Par", "Stp", "Lvp", "Lon"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09", "TU10", "TU11", "TU12", "TU13"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "Sev", "Mos", "Bul", "Gre", "Ser", "Nap", "Nwy", "Bud", "Tun"]
+                   }
+}
