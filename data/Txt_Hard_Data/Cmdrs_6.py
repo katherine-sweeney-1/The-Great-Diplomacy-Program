@@ -310,3 +310,26 @@ cmdrs_6_1908 = {
                    "Dots Owned": ["Smy", "Ank", "Con", "Rum", "Sev", "Mos", "Bul", "Gre", "Ser", "Nap", "Nwy", "Bud", "Tun"]
                    }
 }
+
+cmdrs_6_1909 = {
+    "Katherine" : {"Country": "AU", 
+                   "Unit Members": ["AU01", "AU02", "AU03", "AU04", "AU05"],
+                   "Dots Owned": ["Bud", "Vie", "Ven", "Rom", "War"]
+                   },
+    "Sunny" : {"Country": "UK", 
+                   "Unit Members": ["UK01"],
+                   "Dots Owned": ["Edi"]
+                   },
+    "Michael" : {"Country": "FR",
+                    "Unit Members": ["FR01"],
+                    "Dots Owned": ["Mar", "Por"]
+                    },
+    "Will" : {"Country": "GE", 
+                   "Unit Members": ["GE01", "GE02", "GE03", "GE04", "GE05", "GE06", "GE07", "GE08", "GE09", "GE10", "GE11", "GE12", "GE13"],
+                   "Dots Owned": ["Mun", "Kie", "Ber", "Hol", "Par", "Bre", "Bel", "Swe", "Spa", "Par", "Stp", "Lvp", "Lon"]
+                   },
+    "Mercy" : {"Country": "TU", 
+                   "Unit Members": ["TU01", "TU02", "TU03", "TU04", "TU05", "TU06", "TU07", "TU08", "TU09", "TU10", "TU11", "TU12", "TU13"],
+                   "Dots Owned": ["Smy", "Ank", "Con", "Rum", "Sev", "Mos", "Bul", "Gre", "Ser", "Nap", "Nwy", "Bud", "Tun"]
+                   }
+}
