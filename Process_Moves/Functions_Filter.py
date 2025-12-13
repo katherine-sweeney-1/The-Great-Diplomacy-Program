@@ -141,10 +141,12 @@ def filter_support(command, commands):
                     command.legal = command.legal
                     print(command.unit.id, 1)
                 # support a hold on a support for an attack
-                elif command.origin != command.destination and command.origin == supported_command.location and supported_command.location != supported_command.origin and supported_command.origin != supported_command.destination:
-                    print(command.unit.id, 2)
-                    command.legal = command.legal
-                
+                elif command.origin != command.destination and command.origin == supported_command.location and command.destination == supported_command.destination:
+                    if supported_command.location != supported_command.origin and supported_command.origin != supported_command.destination:
+                        print(command.unit.id, 2)
+                        command.legal = command.legal
+                    else:
+                        count += 1
                 else:
                     count += 1
             else:
